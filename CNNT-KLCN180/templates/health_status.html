@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Current Health Status</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>
+            {% if language == "vi" %}
+                Theo dõi thể trạng
+            {% else %}
+                Current Health Status
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if language == "vi" %}
+                Các chỉ số hiện tại được phân loại thành
+                ổn định và cần cân nhắc.
+            {% else %}
+                Current indicators are classified as
+                stable or needing attention.
+            {% endif %}
+        </p>
+
+    </header>
+
+
+    <div class="health-overview">
+
+        <div class="overview-box stable-overview">
+
+            <strong>
+                {{ result.health_status.stable_count }}
+            </strong>
+
+            <span>
+                {% if language == "vi" %}
+                    Chỉ số ổn định
+                {% else %}
+                    Stable Indicators
+                {% endif %}
+            </span>
+
+        </div>
+
+
+        <div class="overview-box warning-overview">
+
+            <strong>
+                {{ result.health_status.warning_count }}
+            </strong>
+
+            <span>
+                {% if language == "vi" %}
+                    Chỉ số cần cân nhắc
+                {% else %}
+                    Indicators Needing Attention
+                {% endif %}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Các chỉ số đang ổn định
+            {% else %}
+                Stable Indicators
+            {% endif %}
+        </h2>
+
+
+        <div class="health-detail-grid">
+
+            {% for item in
+                result.health_status.stable %}
+
+            <article class="health-detail-card status-stable">
+
+                <div class="health-status-badge stable-badge">
+
+                    {% if language == "vi" %}
+                        Ổn định
+                    {% else %}
+                        Stable
+                    {% endif %}
+
+                </div>
+
+
+                <h3>
+                    {{ translate(
+                        item.code,
+                        language
+                    ) }}
+                </h3>
+
+
+                <div class="health-value">
+                    {{ item.value }}
+                    {{ item.unit }}
+                </div>
+
+
+                <p>
+                    {% if language == "vi" %}
+                        {{ item.vi_message }}
+                    {% else %}
+                        {{ item.en_message }}
+                    {% endif %}
+                </p>
+
+            </article>
+
+            {% else %}
+
+            <p>
+                {% if language == "vi" %}
+                    Chưa có chỉ số nào được phân loại ổn định.
+                {% else %}
+                    No indicators are currently classified
+                    as stable.
+                {% endif %}
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Các chỉ số cần cân nhắc
+            {% else %}
+                Indicators Needing Attention
+            {% endif %}
+        </h2>
+
+
+        <div class="health-detail-grid">
+
+            {% for item in
+                result.health_status.warnings %}
+
+            <article class="health-detail-card status-warning">
+
+                <div class="health-status-badge warning-badge">
+
+                    {% if language == "vi" %}
+                        Cần cân nhắc
+                    {% else %}
+                        Needs Attention
+                    {% endif %}
+
+                </div>
+
+
+                <h3>
+                    {{ translate(
+                        item.code,
+                        language
+                    ) }}
+                </h3>
+
+
+                <div class="health-value">
+                    {{ item.value }}
+                    {{ item.unit }}
+                </div>
+
+
+                <p>
+                    {% if language == "vi" %}
+                        {{ item.vi_message }}
+                    {% else %}
+                        {{ item.en_message }}
+                    {% endif %}
+                </p>
+
+            </article>
+
+            {% else %}
+
+            <p>
+                {% if language == "vi" %}
+                    Không có chỉ số nào cần cảnh báo
+                    ở lần phân tích này.
+                {% else %}
+                    No indicators require attention
+                    in this analysis.
+                {% endif %}
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <div class="bottom-actions">
+
+        <a
+            href="{{ url_for('result') }}"
+            class="primary-link"
+        >
+            {% if language == "vi" %}
+                ← Quay lại kết quả
+            {% else %}
+                ← Back to Results
+            {% endif %}
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

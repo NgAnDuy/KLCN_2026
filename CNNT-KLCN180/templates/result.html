@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html lang="{{ language }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% if language == "vi" %}
+            Kết quả phân tích
+        {% else %}
+            Analysis Result
+        {% endif %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+        <h1>
+            {% if language == "vi" %}
+                Kết quả phân tích
+            {% else %}
+                Analysis Result
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if language == "vi" %}
+                Tổng quan kết quả từ MLP và hệ chuyên gia
+            {% else %}
+                Overview from MLP and the expert system
+            {% endif %}
+        </p>
+    </header>
+
+
+    <!-- =====================================================
+         RESULT SUMMARY
+         ===================================================== -->
+
+    <div class="result-grid">
+
+        <!-- SELECTED GOAL -->
+
+        <div class="card highlight">
+
+            <span class="small-title">
+                {% if language == "vi" %}
+                    MỤC TIÊU ĐÃ CHỌN
+                {% else %}
+                    SELECTED GOAL
+                {% endif %}
+            </span>
+
+            <h2>
+                {{ translate(
+                    result["selected_goal"],
+                    language
+                ) }}
+            </h2>
+
+        </div>
+
+
+        <!-- MLP PREDICTION -->
+
+        <div class="card highlight">
+
+            <span class="small-title">
+                {% if language == "vi" %}
+                    MLP NHẬN DIỆN
+                {% else %}
+                    MLP PREDICTION
+                {% endif %}
+            </span>
+
+            <h2>
+                {{ translate(
+                    result["predicted_goal"],
+                    language
+                ) }}
+            </h2>
+
+            <strong>
+                {{ "%.2f"|format(
+                    result["confidence"] * 100
+                ) }}%
+            </strong>
+
+        </div>
+
+
+        <!-- STABLE COUNT -->
+
+        <div class="card highlight">
+
+            <span class="small-title">
+                {% if language == "vi" %}
+                    ỔN ĐỊNH
+                {% else %}
+                    STABLE
+                {% endif %}
+            </span>
+
+            <h2>
+                {{
+                    result["health_status"]
+                    ["stable_count"]
+                }}
+            </h2>
+
+        </div>
+
+
+        <!-- WARNING COUNT -->
+
+        <div class="card highlight warning-top">
+
+            <span class="small-title">
+                {% if language == "vi" %}
+                    CẦN CÂN NHẮC
+                {% else %}
+                    NEEDS ATTENTION
+                {% endif %}
+            </span>
+
+            <h2>
+                {{
+                    result["health_status"]
+                    ["warning_count"]
+                }}
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CURRENT HEALTH STATUS
+         ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Tình trạng hiện tại
+            {% else %}
+                Current Health Status
+            {% endif %}
+        </h2>
+
+
+        {% if result["health_status"]["items"] %}
+
+        <div class="status-grid">
+
+            {% for item in
+                result["health_status"]["items"] %}
+
+            <div
+                class="
+                    status-summary-item
+
+                    {% if item['status'] == 'stable' %}
+                        status-stable
+                    {% else %}
+                        status-warning
+                    {% endif %}
+                "
+            >
+
+                <span>
+                    {{ translate(
+                        item["code"],
+                        language
+                    ) }}
+                </span>
+
+                <strong>
+                    {{ item["value"] }}
+
+                    {% if item["unit"] %}
+                        {{ item["unit"] }}
+                    {% endif %}
+                </strong>
+
+                <small>
+                    {{ translate(
+                        item["status"],
+                        language
+                    ) }}
+                </small>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+            {% if language == "vi" %}
+                Chưa có dữ liệu thể trạng.
+            {% else %}
+                No health status data available.
+            {% endif %}
+        </div>
+
+        {% endif %}
+
+
+        <a
+            class="primary-link"
+            href="{{ url_for('health_status') }}"
+        >
+            {% if language == "vi" %}
+                Xem chi tiết thể trạng →
+            {% else %}
+                View Detailed Health Status →
+            {% endif %}
+        </a>
+
+    </section>
+
+
+    <!-- =====================================================
+         MLP PROBABILITIES
+         ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Xác suất dự đoán MLP
+            {% else %}
+                MLP Prediction Probabilities
+            {% endif %}
+        </h2>
+
+
+        {% if result["probabilities"] %}
+
+            {% for goal, probability
+                in result["probabilities"] %}
+
+            <div class="probability">
+
+                <div class="probability-label">
+
+                    <span>
+                        {{ translate(
+                            goal,
+                            language
+                        ) }}
+                    </span>
+
+                    <strong>
+                        {{ "%.2f"|format(
+                            probability * 100
+                        ) }}%
+                    </strong>
+
+                </div>
+
+                <progress
+                    class="probability-progress"
+                    value="{{ probability * 100 }}"
+                    max="100"
+                ></progress>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+        <div class="empty-state">
+            {% if language == "vi" %}
+                Không có dữ liệu xác suất dự đoán.
+            {% else %}
+                No prediction probability data available.
+            {% endif %}
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERT ANALYSIS
+         ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Phân tích của hệ chuyên gia
+            {% else %}
+                Expert Analysis
+            {% endif %}
+        </h2>
+
+
+        <!-- OVERALL SUMMARY -->
+
+        <p class="expert-summary">
+            {{
+                result["detailed_analysis"]
+                ["summary"]
+            }}
+        </p>
+
+
+        <!-- STABLE INDICATORS -->
+
+        {% if
+            result["detailed_analysis"]["stable"]
+        %}
+
+        <div class="expert-stable">
+
+            <h3>
+                {% if language == "vi" %}
+                    Các chỉ số đang ổn định
+                {% else %}
+                    Stable Indicators
+                {% endif %}
+            </h3>
+
+
+            {% for item in
+                result["detailed_analysis"]["stable"]
+            %}
+
+            <div
+                class="
+                    analysis-message
+                    stable-message
+                "
+            >
+
+                <strong>
+                    {{ translate(
+                        item["code"],
+                        language
+                    ) }}
+                </strong>
+
+                {% if item["value"] != "" %}
+
+                <div class="nutrition">
+
+                    <span>
+                        {{ item["value"] }}
+
+                        {% if item["unit"] %}
+                            {{ item["unit"] }}
+                        {% endif %}
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+                <p>
+                    {{ item["message"] }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- WARNING INDICATORS -->
+
+        {% if
+            result["detailed_analysis"]["warnings"]
+        %}
+
+        <div class="expert-warning">
+
+            <h3>
+                {% if language == "vi" %}
+                    Những chỉ số cần cân nhắc
+                {% else %}
+                    Indicators Needing Attention
+                {% endif %}
+            </h3>
+
+
+            {% for item in
+                result["detailed_analysis"]["warnings"]
+            %}
+
+            <div
+                class="
+                    analysis-message
+                    warning-message
+                "
+            >
+
+                <strong>
+                    {{ translate(
+                        item["code"],
+                        language
+                    ) }}
+                </strong>
+
+                {% if item["value"] != "" %}
+
+                <div class="nutrition">
+
+                    <span>
+                        {{ item["value"] }}
+
+                        {% if item["unit"] %}
+                            {{ item["unit"] }}
+                        {% endif %}
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+                <p>
+                    {{ item["message"] }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOD RECOMMENDATIONS
+         ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Món ăn đề xuất
+            {% else %}
+                Recommended Foods
+            {% endif %}
+        </h2>
+
+
+        {% if result["recommendations"]["foods"] %}
+
+        <div class="recommendation-grid">
+
+            {% for food in
+                result["recommendations"]["foods"]
+            %}
+
+            <div class="recommendation-item">
+
+                <div class="rank">
+                    #{{ loop.index }}
+                </div>
+
+
+                <h3>
+                    {{ translate(
+                        food["food_name"],
+                        language
+                    ) }}
+                </h3>
+
+
+                <div class="nutrition">
+
+                    <span>
+                        {{ food["calories"] }} kcal
+                    </span>
+
+                    <span>
+                        {% if language == "vi" %}
+                            Protein
+                        {% else %}
+                            Protein
+                        {% endif %}
+
+                        {{ food["protein_g"] }}g
+                    </span>
+
+                    <span>
+                        {% if language == "vi" %}
+                            Tinh bột
+                        {% else %}
+                            Carbs
+                        {% endif %}
+
+                        {{ food["carbs_g"] }}g
+                    </span>
+
+                    <span>
+                        {% if language == "vi" %}
+                            Chất béo
+                        {% else %}
+                            Fat
+                        {% endif %}
+
+                        {{ food["fat_g"] }}g
+                    </span>
+
+                </div>
+
+
+                <p class="reason">
+                    {{ food["reason"] }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+            {% if language == "vi" %}
+                Chưa có món ăn phù hợp để đề xuất.
+            {% else %}
+                No suitable food recommendations available.
+            {% endif %}
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- =====================================================
+         EXERCISE RECOMMENDATIONS
+         ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+            {% if language == "vi" %}
+                Bài tập đề xuất
+            {% else %}
+                Recommended Exercises
+            {% endif %}
+        </h2>
+
+
+        {% if result["recommendations"]["exercises"] %}
+
+        <div class="recommendation-grid">
+
+            {% for exercise in
+                result["recommendations"]["exercises"]
+            %}
+
+            <div class="recommendation-item">
+
+                <div class="rank">
+                    #{{ loop.index }}
+                </div>
+
+
+                <h3>
+                    {{ translate(
+                        exercise["exercise_name"],
+                        language
+                    ) }}
+                </h3>
+
+
+                <div class="exercise-info">
+
+                    <span>
+                        {{ exercise["duration_min"] }}
+
+                        {% if language == "vi" %}
+                            phút
+                        {% else %}
+                            min
+                        {% endif %}
+                    </span>
+
+
+                    <span>
+                        {{ translate(
+                            exercise["intensity"],
+                            language
+                        ) }}
+                    </span>
+
+
+                    <span>
+                        {{ translate(
+                            exercise["difficulty"],
+                            language
+                        ) }}
+                    </span>
+
+                </div>
+
+
+                <p class="reason">
+                    {{ exercise["reason"] }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+            {% if language == "vi" %}
+                Chưa có bài tập phù hợp để đề xuất.
+            {% else %}
+                No suitable exercise recommendations available.
+            {% endif %}
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- =====================================================
+         ACTIONS
+         ===================================================== -->
+
+    <div class="bottom-actions">
+
+        <a
+            href="{{ url_for('new_analysis') }}"
+            class="primary-link"
+        >
+            {% if language == "vi" %}
+                Phân tích mới
+            {% else %}
+                New Analysis
+            {% endif %}
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Select Language | Health Recommendation System
+    </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="language-page">
+
+    <main class="language-container">
+
+        <section class="language-card">
+
+            <!-- LOGO -->
+
+            <div class="language-logo">
+                H
+            </div>
+
+
+            <!-- SYSTEM NAME -->
+
+            <h1>
+                Health Recommendation System
+            </h1>
+
+            <p class="language-subtitle">
+                Personalized Health & Fitness Recommendation
+            </p>
+
+
+            <div class="language-divider"></div>
+
+
+            <!-- LANGUAGE TITLE -->
+
+            <div class="language-heading">
+
+                <h2>
+                    Chọn ngôn ngữ
+                </h2>
+
+                <p>
+                    Select your preferred language
+                </p>
+
+            </div>
+
+
+            <!-- LANGUAGE OPTIONS -->
+
+            <div class="language-options">
+
+                <!-- VIETNAMESE -->
+
+                <a href="{{ url_for(
+        'select_language',
+        language_code='vi'
+    ) }}" class="language-option">
+                    <div class="language-flag">🇻🇳</div>
+
+                    <div class="language-info">
+                        <strong>Tiếng Việt</strong>
+                        <span>Vietnamese</span>
+                    </div>
+
+                    <div class="language-arrow">→</div>
+                </a>
+
+
+                <!-- ENGLISH -->
+
+                <a href="{{ url_for(
+        'select_language',
+        language_code='en'
+    ) }}" class="language-option">
+                    <div class="language-flag">🇬🇧</div>
+
+                    <div class="language-info">
+                        <strong>English</strong>
+                        <span>English</span>
+                    </div>
+
+                    <div class="language-arrow">→</div>
+                </a>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <p class="language-footer">
+                Health Goal & Personalized
+                Recommendation System
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
