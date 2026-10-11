@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Focus | Health Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'components/navbar.html' %}
+
+<main class="container">
+    <header>
+        <h1>💚 {{ 'Theo dõi thể trạng' if language == 'vi'
+                    else 'Current Health Status' }}</h1>
+        <p>
+            {{ 'Các chỉ số sức khỏe được phân loại thành ổn định và cần cân nhắc.'
+               if language == 'vi'
+               else 'Health indicators are classified as stable or needing attention.' }}
+        </p>
+    </header>
+
+    <div class="health-overview">
+        <div class="overview-box stable-overview">
+            <strong>{{ result.health_status.stable_count }}</strong>
+            <span>
+                {{ 'Chỉ số ổn định' if language == 'vi'
+                   else 'Stable Indicators' }}
+            </span>
+        </div>
+
+        <div class="overview-box warning-overview">
+            <strong>{{ result.health_status.warning_count }}</strong>
+            <span>
+                {{ 'Chỉ số cần cân nhắc' if language == 'vi'
+                   else 'Indicators Needing Attention' }}
+            </span>
+        </div>
+    </div>
+
+    <section class="card">
+        <h2>✓ {{ 'Các chỉ số đang ổn định' if language == 'vi'
+                   else 'Stable Indicators' }}</h2>
+
+        <div class="health-detail-grid">
+            {% for item in result.health_status.stable %}
+                <article class="health-detail-card status-stable">
+                    <span class="health-status-badge stable-badge">
+                        {{ 'Ổn định' if language == 'vi' else 'Stable' }}
+                    </span>
+
+                    <h3>{{ translate(item.code, language) }}</h3>
+
+                    <div class="health-value">
+                        {{ item.value }} {{ item.unit }}
+                    </div>
+
+                    <p>
+                        {{ item.vi_message if language == 'vi'
+                           else item.en_message }}
+                    </p>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có chỉ số nào được phân loại ổn định.'
+                       if language == 'vi'
+                       else 'No indicators are classified as stable.' }}
+                </p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>⚠ {{ 'Các chỉ số cần cân nhắc' if language == 'vi'
+                   else 'Indicators Needing Attention' }}</h2>
+
+        <div class="health-detail-grid">
+            {% for item in result.health_status.warnings %}
+                <article class="health-detail-card status-warning">
+                    <span class="health-status-badge warning-badge">
+                        {{ 'Cần cân nhắc' if language == 'vi'
+                           else 'Needs Attention' }}
+                    </span>
+
+                    <h3>{{ translate(item.code, language) }}</h3>
+
+                    <div class="health-value">
+                        {{ item.value }} {{ item.unit }}
+                    </div>
+
+                    <p>
+                        {{ item.vi_message if language == 'vi'
+                           else item.en_message }}
+                    </p>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Không có chỉ số nào cần cảnh báo.'
+                       if language == 'vi'
+                       else 'No indicators require attention.' }}
+                </p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="bottom-actions">
+        <a class="primary-link" href="{{ url_for('result') }}">
+            {{ '← Quay lại kết quả' if language == 'vi'
+               else '← Back to Results' }}
+        </a>
+
+        <a class="btn-outline" href="{{ url_for('history') }}">
+            {{ 'Lịch sử phân tích' if language == 'vi'
+               else 'Analysis History' }}
+        </a>
+    </div>
+</main>
+</body>
+</html>

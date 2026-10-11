@@ -1,0 +1,49 @@
+
+{% set lang = session.get('language', language|default('vi')) %}
+
+<nav class="health-navbar">
+    <div class="nav-inner">
+        <a class="health-brand" href="{{ url_for('language') }}">
+            <img
+                src="{{ url_for('static', filename='images/health_focus_icon.jpg') }}"
+                alt="Health Focus"
+            >
+            <span>HEALTH <em>FOCUS</em></span>
+        </a>
+
+        <div class="health-navbar-links">
+            <a class="language-switch"
+               href="{{ url_for('select_language', language_code='en' if lang == 'vi' else 'vi') }}">
+                🌐 {{ 'EN' if lang == 'vi' else 'VI' }}
+            </a>
+
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('health_form') }}">
+                    {{ 'Phân tích' if lang == 'vi' else 'Analysis' }}
+                </a>
+
+                <a href="{{ url_for('history') }}">
+                    {{ 'Lịch sử' if lang == 'vi' else 'History' }}
+                </a>
+
+                <span class="nav-user">
+                    👤 {{ current_user.username }}
+                </span>
+
+                <form method="POST" action="{{ url_for('auth.logout') }}">
+                    <button type="submit" class="nav-logout">
+                        {{ 'Đăng xuất' if lang == 'vi' else 'Logout' }}
+                    </button>
+                </form>
+            {% else %}
+                <a class="nav-login" href="{{ url_for('auth.login') }}">
+                    {{ 'Đăng nhập' if lang == 'vi' else 'Login' }}
+                </a>
+
+                <a class="nav-register" href="{{ url_for('auth.register') }}">
+                    {{ 'Đăng ký' if lang == 'vi' else 'Register' }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

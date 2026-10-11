@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Focus | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'components/navbar.html' %}
+
+<main class="auth-shell">
+    <div class="auth-illustration">
+        <img src="{{ url_for('static', filename='images/health_focus_icon.jpg') }}"
+             alt="Health Focus">
+        <h1>HEALTH FOCUS</h1>
+        <p>
+            {{ 'Chăm sóc sức khỏe thông minh, bắt đầu từ bạn.'
+               if language == 'vi'
+               else 'Smarter health care starts with you.' }}
+        </p>
+    </div>
+
+    <section class="auth-card">
+        <h2>{{ 'Chào mừng trở lại' if language == 'vi' else 'Welcome Back' }}</h2>
+        <p class="subtitle">
+            {{ 'Đăng nhập để tiếp tục phân tích sức khỏe.'
+               if language == 'vi'
+               else 'Sign in to continue your health analysis.' }}
+        </p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="{{ 'flash-error' if category == 'error' else 'flash-success' }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            <label for="username">
+                {{ 'Tên đăng nhập' if language == 'vi' else 'Username' }}
+            </label>
+            <input id="username" name="username" type="text"
+                   autocomplete="username" required>
+
+            <label for="password">
+                {{ 'Mật khẩu' if language == 'vi' else 'Password' }}
+            </label>
+            <input id="password" name="password" type="password"
+                   autocomplete="current-password" required>
+
+            <button type="submit">
+                {{ 'Đăng nhập →' if language == 'vi' else 'Sign In →' }}
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:20px;">
+            {{ 'Chưa có tài khoản?' if language == 'vi' else 'No account yet?' }}
+            <a href="{{ url_for('auth.register') }}">
+                {{ 'Đăng ký ngay' if language == 'vi' else 'Register now' }}
+            </a>
+        </p>
+    </section>
+</main>
+</body>
+</html>
