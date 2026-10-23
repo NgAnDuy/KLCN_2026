@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="{{ session.get('language', 'vi') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Focus | Smart Health Recommendation</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+{% include 'components/navbar.html' %}
+{% set lang = session.get('language', 'vi') %}
+
+<main class="landing-page">
+    <section class="hero">
+        <div class="hero-decoration hero-decoration-left"></div>
+
+        <div class="hero-image">
+            <img
+                src="{{ url_for('static', filename='images/health_focus_icon.jpg') }}"
+                alt="Health Focus Icon"
+            >
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                ✦ HEALTH & WELLNESS PLATFORM
+            </div>
+
+            <h1>HEALTH <span>FOCUS</span></h1>
+
+            <div class="hero-divider">
+                <span></span> 🌿 <span></span>
+            </div>
+
+            <h2>
+                {% if lang == 'vi' %}
+                    Phân tích sức khỏe thông minh
+                    vì một cuộc sống tốt hơn
+                {% else %}
+                    Smart health analysis
+                    for a better life
+                {% endif %}
+            </h2>
+
+            <p>
+                {% if lang == 'vi' %}
+                    Ứng dụng sử dụng trí tuệ nhân tạo (MLP)
+                    và hệ chuyên gia để phân tích thể trạng,
+                    đưa ra gợi ý dinh dưỡng và bài tập
+                    phù hợp với mục tiêu của bạn.
+                {% else %}
+                    Our platform combines an MLP model
+                    and expert rules to assess your health
+                    and recommend personalized nutrition
+                    and exercise plans.
+                {% endif %}
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn-primary"
+                   href="{{ url_for('health_form') if current_user.is_authenticated else url_for('auth.login') }}">
+                    ▥
+                    {{ 'Bắt đầu phân tích' if lang == 'vi' else 'Start Analysis' }}
+                    →
+                </a>
+
+                {% if current_user.is_authenticated %}
+                    <a class="btn-outline" href="{{ url_for('history') }}">
+                        ▤
+                        {{ 'Xem lịch sử' if lang == 'vi' else 'View History' }}
+                    </a>
+                {% else %}
+                    <a class="btn-outline" href="{{ url_for('auth.register') }}">
+                        ▤
+                        {{ 'Tạo tài khoản' if lang == 'vi' else 'Create Account' }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <div class="feature-card feature-blue">
+            <div class="feature-icon">🎯</div>
+            <h3>{{ 'Phân tích mục tiêu' if lang == 'vi' else 'Goal Analysis' }}</h3>
+            <p>
+                {{ 'Xác định mục tiêu phù hợp với thể trạng của bạn.'
+                   if lang == 'vi'
+                   else 'Identify goals suited to your health status.' }}
+            </p>
+        </div>
+
+        <div class="feature-card feature-green">
+            <div class="feature-icon">🧍</div>
+            <h3>{{ 'Đánh giá thể trạng' if lang == 'vi' else 'Health Assessment' }}</h3>
+            <p>
+                {{ 'Phân tích các chỉ số sức khỏe bằng AI và hệ chuyên gia.'
+                   if lang == 'vi'
+                   else 'Analyze health indicators using AI and expert rules.' }}
+            </p>
+        </div>
+
+        <div class="feature-card feature-orange">
+            <div class="feature-icon">🥗</div>
+            <h3>{{ 'Gợi ý dinh dưỡng' if lang == 'vi' else 'Nutrition Guidance' }}</h3>
+            <p>
+                {{ 'Đề xuất món ăn phù hợp với mục tiêu và thể trạng.'
+                   if lang == 'vi'
+                   else 'Food recommendations based on your health goals.' }}
+            </p>
+        </div>
+
+        <div class="feature-card feature-purple">
+            <div class="feature-icon">🏋️</div>
+            <h3>{{ 'Gợi ý bài tập' if lang == 'vi' else 'Exercise Suggestions' }}</h3>
+            <p>
+                {{ 'Đưa ra bài tập theo cường độ và khả năng của bạn.'
+                   if lang == 'vi'
+                   else 'Exercise suggestions matched to your abilities.' }}
+            </p>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-item">
+            <div class="stat-icon">👥</div>
+            <div>
+                <strong>5</strong>
+                <h4>{{ 'Mục tiêu sức khỏe' if lang == 'vi' else 'Health Goals' }}</h4>
+                <p>
+                    {{ 'Giảm cân, tăng cân, duy trì, thể chất, sống lành mạnh'
+                       if lang == 'vi'
+                       else 'Five supported health goals' }}
+                </p>
+            </div>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-icon">🛡️</div>
+            <div>
+                <strong>MLP</strong>
+                <h4>{{ 'Mô hình dự đoán' if lang == 'vi' else 'Prediction Model' }}</h4>
+                <p>
+                    {{ 'Kết hợp với hệ luật chuyên gia'
+                       if lang == 'vi'
+                       else 'Combined with expert rules' }}
+                </p>
+            </div>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-icon">🏅</div>
+            <div>
+                <strong>100%</strong>
+                <h4>{{ 'Cá nhân hóa' if lang == 'vi' else 'Personalized' }}</h4>
+                <p>
+                    {{ 'Khuyến nghị theo dữ liệu bạn cung cấp'
+                       if lang == 'vi'
+                       else 'Recommendations based on your data' }}
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    © Health Focus ·
+    {{ 'Chăm sóc sức khỏe hôm nay, cho một ngày mai tốt đẹp hơn.'
+       if lang == 'vi'
+       else 'Better health today, a brighter tomorrow.' }}
+</footer>
+</body>
+</html>

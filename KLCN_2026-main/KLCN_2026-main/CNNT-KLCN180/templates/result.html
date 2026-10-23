@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Focus | Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* CSS cho Lộ trình 7 ngày đồng bộ giao diện */
+        .weekly-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin: 16px 0 20px 0;
+            border-bottom: 1px solid #e2ece9;
+        }
+        .weekly-tab-btn {
+            padding: 10px 18px;
+            border: 1px solid #cde5dd;
+            border-radius: 10px;
+            background: #f4fbf8;
+            color: #0f5132;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .weekly-tab-btn:hover {
+            background: #e0f2eb;
+        }
+        .weekly-tab-btn.active {
+            background: #0f6848;
+            color: #ffffff;
+            border-color: #0f6848;
+            box-shadow: 0 4px 10px rgba(15, 104, 72, 0.2);
+        }
+        .weekly-day-panel {
+            display: none;
+        }
+        .weekly-day-panel.active {
+            display: block;
+        }
+        .weekly-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .weekly-box {
+            background: #ffffff;
+            border: 1px solid #e2ece9;
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .weekly-box h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: #0f5132;
+            font-size: 1.15rem;
+        }
+        .weekly-item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .weekly-item {
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #f8fcfb;
+            border: 1px solid #edf5f2;
+        }
+        .weekly-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .weekly-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            background: #e3f5ef;
+            color: #0f6848;
+        }
+    </style>
+</head>
+<body>
+{% include 'components/navbar.html' %}
+
+<main class="container">
+    <header>
+        <h1>📊 {{ 'Kết quả phân tích' if language == 'vi'
+                    else 'Analysis Results' }}</h1>
+        <p>
+            {{ 'Kết quả dự đoán MLP, đánh giá thể trạng và khuyến nghị từ hệ chuyên gia.'
+               if language == 'vi'
+               else 'MLP predictions, health assessment and expert recommendations.' }}
+        </p>
+    </header>
+
+    <div class="result-grid">
+        <article class="card highlight">
+            <span class="small-title">
+                {{ 'MỤC TIÊU ĐÃ CHỌN' if language == 'vi' else 'SELECTED GOAL' }}
+            </span>
+            <h2>{{ translate(result.selected_goal, language) }}</h2>
+        </article>
+
+        <article class="card highlight">
+            <span class="small-title">
+                {{ 'MLP DỰ ĐOÁN' if language == 'vi' else 'MLP PREDICTION' }}
+            </span>
+            <h2>{{ translate(result.predicted_goal, language) }}</h2>
+            <strong>{{ "%.2f"|format(result.confidence * 100) }}%</strong>
+        </article>
+
+        <article class="card highlight">
+            <span class="small-title">
+                {{ 'CHỈ SỐ ỔN ĐỊNH' if language == 'vi' else 'STABLE INDICATORS' }}
+            </span>
+            <h2>{{ result.health_status.stable_count }}</h2>
+        </article>
+
+        <article class="card highlight warning-top">
+            <span class="small-title">
+                {{ 'CẦN CÂN NHẮC' if language == 'vi' else 'NEEDS ATTENTION' }}
+            </span>
+            <h2>{{ result.health_status.warning_count }}</h2>
+        </article>
+    </div>
+
+    <section class="card">
+        <h2>💚 {{ 'Tình trạng hiện tại' if language == 'vi'
+                     else 'Current Health Status' }}</h2>
+
+        <div class="status-grid">
+            {% for item in result.health_status.get('items', []) %}
+                <article class="status-summary-item {{ 'status-stable' if item.status == 'stable' else 'status-warning' }}">
+                    <span>{{ translate(item.code, language) }}</span>
+                    <strong>{{ item.value }} {{ item.unit }}</strong>
+                    <small>
+                        {{ ('Ổn định' if language == 'vi' else 'Stable')
+                           if item.status == 'stable'
+                           else ('Cần cân nhắc' if language == 'vi' else 'Needs Attention') }}
+                    </small>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có dữ liệu chỉ số.' if language == 'vi'
+                       else 'No health indicators available.' }}
+                </p>
+            {% endfor %}
+        </div>
+
+        <div class="bottom-actions">
+            <a class="primary-link" href="{{ url_for('health_status') }}">
+                {{ 'Xem chi tiết thể trạng →' if language == 'vi'
+                   else 'View Health Details →' }}
+            </a>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>📈 {{ 'Xác suất dự đoán MLP' if language == 'vi'
+                     else 'MLP Prediction Probabilities' }}</h2>
+
+        {% for goal, probability in result.probabilities %}
+            <div class="probability">
+                <div class="probability-label">
+                    <span>{{ translate(goal, language) }}</span>
+                    <strong>{{ "%.2f"|format(probability * 100) }}%</strong>
+                </div>
+                <progress class="probability-progress"
+                          value="{{ probability * 100 }}" max="100">
+                </progress>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="card">
+        <h2>🧠 {{ 'Phân tích hệ chuyên gia' if language == 'vi'
+                     else 'Expert System Analysis' }}</h2>
+
+        {% if result.detailed_analysis %}
+            <p class="expert-summary">
+                {{ result.detailed_analysis.summary }}
+            </p>
+
+            {% if result.detailed_analysis.stable %}
+                <h3>
+                    {{ 'Các chỉ số ổn định' if language == 'vi'
+                       else 'Stable Indicators' }}
+                </h3>
+
+                {% for item in result.detailed_analysis.stable %}
+                    <div class="analysis-message stable-message">
+                        <strong>{{ translate(item.code, language) }}</strong>
+                        <div class="nutrition">
+                            <span>{{ item.value }} {{ item.unit }}</span>
+                        </div>
+                        <p>{{ item.message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if result.detailed_analysis.warnings %}
+                <h3>
+                    {{ 'Các chỉ số cần cân nhắc' if language == 'vi'
+                       else 'Indicators Needing Attention' }}
+                </h3>
+
+                {% for item in result.detailed_analysis.warnings %}
+                    <div class="analysis-message warning-message">
+                        <strong>{{ translate(item.code, language) }}</strong>
+                        <div class="nutrition">
+                            <span>{{ item.value }} {{ item.unit }}</span>
+                        </div>
+                        <p>{{ item.message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </section>
+
+    <section class="card">
+        <h2>🥗 {{ 'Món ăn đề xuất' if language == 'vi'
+                     else 'Recommended Foods' }}</h2>
+
+        <div class="recommendation-grid">
+            {% for food in result.recommendations.get('foods', []) %}
+                <article class="recommendation-item">
+                    <div class="rank">#{{ loop.index }}</div>
+                    <h3>{{ translate(food.food_name, language) }}</h3>
+
+                    <div class="nutrition">
+                        <span>{{ food.calories }} kcal</span>
+                        <span>Protein: {{ food.protein_g }}g</span>
+                        <span>
+                            {{ 'Tinh bột' if language == 'vi' else 'Carbs' }}:
+                            {{ food.carbs_g }}g
+                        </span>
+                        <span>
+                            {{ 'Chất béo' if language == 'vi' else 'Fat' }}:
+                            {{ food.fat_g }}g
+                        </span>
+                    </div>
+
+                    <p class="reason">{{ food.reason }}</p>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có món ăn được đề xuất.' if language == 'vi'
+                       else 'No food recommendations available.' }}
+                </p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>🏋️ {{ 'Bài tập đề xuất' if language == 'vi'
+                     else 'Recommended Exercises' }}</h2>
+
+        <div class="recommendation-grid">
+            {% for exercise in result.recommendations.get('exercises', []) %}
+                <article class="recommendation-item">
+                    <div class="rank">#{{ loop.index }}</div>
+                    <h3>{{ translate(exercise.exercise_name, language) }}</h3>
+
+                    <div class="exercise-info">
+                        <span>
+                            {{ exercise.duration_min }}
+                            {{ 'phút' if language == 'vi' else 'min' }}
+                        </span>
+                        <span>{{ translate(exercise.intensity, language) }}</span>
+                        <span>{{ translate(exercise.difficulty, language) }}</span>
+                    </div>
+
+                    <p class="reason">{{ exercise.reason }}</p>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có bài tập được đề xuất.' if language == 'vi'
+                       else 'No exercise recommendations available.' }}
+                </p>
+            {% endfor %}
+        </div>
+    </section>
+
+<!-- ======================================================== -->
+    <!-- LỘ TRÌNH ĂN UỐNG & TẬP LUYỆN 7 NGÀY (FIX CỨNG AN TOÀN) -->
+    <!-- ======================================================== -->
+    <section class="card">
+        <h2>📅 7-Day Meal & Workout Plan</h2>
+
+        <div class="weekly-tabs">
+            <button type="button" class="weekly-tab-btn active" onclick="switchWeeklyDay(event, 'w-day-1')">Day 1</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-2')">Day 2</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-3')">Day 3</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-4')">Day 4</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-5')">Day 5</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-6')">Day 6</button>
+            <button type="button" class="weekly-tab-btn" onclick="switchWeeklyDay(event, 'w-day-7')">Day 7</button>
+        </div>
+
+        <!-- DAY 1 -->
+        <div id="w-day-1" class="weekly-day-panel active">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">350 kcal</span></div><div>Yến mạch nấu sữa tươi không đường & chuối</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">550 kcal</span></div><div>Cơm gạo lứt, ức gà áp chảo, bông cải xanh luộc</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">350 kcal</span></div><div>Salad cá ngừ đại dương trộn dầu oliu</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Chạy bộ bền (Cardio)</strong><span class="weekly-badge">30 phút</span></div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Giãn cơ toàn thân</strong><span class="weekly-badge">10 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div id="w-day-2" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">400 kcal</span></div><div>Bánh mì nguyên cám kẹp trứng ốp la & bơ</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">600 kcal</span></div><div>Khoai lang luộc, thịt bò xào măng tây</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">450 kcal</span></div><div>Cá hồi nướng măng tây & súp bí đỏ</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tập tạ thân trên (Upper Body)</strong><span class="weekly-badge">40 phút</span></div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Plank & Gập bụng</strong><span class="weekly-badge">10 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div id="w-day-3" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">420 kcal</span></div><div>Phở gà (bỏ da, ít bánh phở, nhiều giá đỗ)</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">520 kcal</span></div><div>Bún gạo lứt trộn thịt heo nạc & rau củ</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">320 kcal</span></div><div>Đậu hũ non sốt nấm đông cô & cải thìa luộc</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Đạp xe hoặc Nhảy dây (HIIT)</strong><span class="weekly-badge">25 phút</span></div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Bài tập linh hoạt khớp</strong><span class="weekly-badge">15 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div id="w-day-4" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">330 kcal</span></div><div>Sữa chua Hy Lạp trộn hạt điều & táo</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">530 kcal</span></div><div>Cơm gạo lứt, tôm rim nhạt, canh bí đao</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">360 kcal</span></div><div>Ức gà xé phay trộn hành tây, rau răm</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tập thân dưới: Squat & Lunges</strong><span class="weekly-badge">40 phút</span></div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Đi bộ thả lỏng</strong><span class="weekly-badge">15 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div id="w-day-5" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">380 kcal</span></div><div>Khoai lang mật hấp & 2 quả trứng luộc</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">580 kcal</span></div><div>Mì Ý nguyên cám sốt bò bằm cà chua</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">400 kcal</span></div><div>Cá diêu hồng hấp cuốn bánh tráng rau sống</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Bài tập toàn thân (Full-body Circuit)</strong><span class="weekly-badge">35 phút</span></div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Giãn cơ lưng và vai</strong><span class="weekly-badge">10 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 6 -->
+        <div id="w-day-6" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">360 kcal</span></div><div>Sinh tố bơ chuối pha sữa hạt</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">560 kcal</span></div><div>Cơm gạo lứt, cá thu sốt cà, rau muống luộc</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">340 kcal</span></div><div>Súp ức gà nấm hương & ngô ngọt</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Bơi lội hoặc Thể thao ngoài trời</strong><span class="weekly-badge">45 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 7 -->
+        <div id="w-day-7" class="weekly-day-panel">
+            <div class="weekly-plan-grid">
+                <div class="weekly-box">
+                    <h3>🍽️ Daily Meals</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Sáng</strong><span class="weekly-badge">450 kcal</span></div><div>Bún bò Huế (thịt nạc, ít nước béo)</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Trưa</strong><span class="weekly-badge">540 kcal</span></div><div>Thịt thăn heo áp chảo, salad dầu giấm</div></li>
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Tối</strong><span class="weekly-badge">310 kcal</span></div><div>Canh rong biển thịt bằm & đậu phụ luộc</div></li>
+                    </ul>
+                </div>
+                <div class="weekly-box">
+                    <h3>💪 Daily Workouts</h3>
+                    <ul class="weekly-item-list">
+                        <li class="weekly-item"><div class="weekly-item-header"><strong>Yoga phục hồi (Active Recovery)</strong><span class="weekly-badge">30 phút</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-actions">
+        <a class="primary-link" href="{{ url_for('new_analysis') }}">
+            {{ 'Phân tích mới' if language == 'vi' else 'New Analysis' }}
+        </a>
+        <a class="btn-outline" href="{{ url_for('history') }}">
+            {{ 'Xem lịch sử' if language == 'vi' else 'View History' }}
+        </a>
+    </div>
+</main>
+
+<script>
+function switchWeeklyDay(evt, panelId) {
+    const panels = document.querySelectorAll('.weekly-day-panel');
+    panels.forEach(p => p.classList.remove('active'));
+
+    const buttons = document.querySelectorAll('.weekly-tab-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+
+    const target = document.getElementById(panelId);
+    if (target) {
+        target.classList.add('active');
+    }
+    evt.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>

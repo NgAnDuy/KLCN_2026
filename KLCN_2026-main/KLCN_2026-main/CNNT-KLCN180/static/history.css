@@ -1,0 +1,606 @@
+
+/* ==========================================================
+   HEALTH FOCUS - HISTORY PAGE
+   ========================================================== */
+
+.history-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #f4f8f7;
+    color: #173743;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 15px;
+}
+
+/* NAVBAR */
+
+.history-page .health-navbar {
+    width: 100%;
+    background: linear-gradient(
+        105deg,
+        #075463,
+        #167e88
+    );
+}
+
+.history-page .nav-inner {
+    width: 100%;
+    max-width: 1320px;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 10px 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.history-page .health-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.history-page .health-brand img {
+    display: block;
+    width: 52px;
+    height: 52px;
+    max-width: 52px;
+    max-height: 52px;
+    object-fit: cover;
+    flex-shrink: 0;
+
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 3px;
+}
+
+.history-page .health-brand em {
+    color: #b7e7c9;
+    font-style: normal;
+}
+
+.history-page .health-navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.history-page .health-navbar-links a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.history-page .health-navbar-links form {
+    margin: 0;
+}
+
+.history-page .nav-user {
+    color: #e5f6f2;
+    font-size: 14px;
+}
+
+.history-page .nav-logout {
+    background: #ffbe58;
+    color: #173743;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* CONTAINER */
+
+.history-container {
+    width: min(1100px, calc(100% - 48px));
+    margin: 38px auto 70px;
+}
+
+/* HEADER */
+
+.history-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    align-items: center;
+    gap: 35px;
+
+    padding: 36px 42px;
+    margin-bottom: 30px;
+
+    border-radius: 24px;
+    border: 1px solid #dcebe8;
+
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #e9f8f3
+    );
+
+    box-shadow: 0 12px 35px rgba(
+        12,
+        82,
+        96,
+        0.07
+    );
+}
+
+.history-eyebrow {
+    margin-bottom: 12px;
+
+    color: #208d90;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.history-header h1 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 3vw, 39px);
+    line-height: 1.2;
+    color: #075463;
+}
+
+.history-header p {
+    max-width: 620px;
+    margin: 0;
+
+    font-size: 15px;
+    line-height: 1.75;
+    color: #657f87;
+}
+
+.history-user {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 23px;
+    padding: 9px 15px;
+
+    background: #e5f5ef;
+    border: 1px solid #d3eae3;
+    border-radius: 30px;
+
+    color: #23636c;
+    font-size: 13px;
+}
+
+.history-user-icon {
+    font-size: 17px;
+}
+
+.history-header-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-visual-circle {
+    display: grid;
+    place-items: center;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+    background: #ffffff;
+
+    box-shadow: 0 12px 30px rgba(
+        13,
+        111,
+        117,
+        0.09
+    );
+}
+
+.history-visual-circle img {
+    display: block;
+    width: 170px;
+    height: 170px;
+    max-width: 170px;
+    max-height: 170px;
+
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* CONTENT */
+
+.history-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.history-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.history-section-heading h2 {
+    margin: 0 0 6px;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    color: #075463;
+}
+
+.history-section-heading p {
+    margin: 0;
+    color: #6c828c;
+    font-size: 14px;
+}
+
+.history-new-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 20px;
+
+    background: linear-gradient(
+        110deg,
+        #0e6976,
+        #239e9c
+    );
+
+    border-radius: 11px;
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 8px 18px rgba(
+        12,
+        110,
+        115,
+        0.15
+    );
+}
+
+.history-new-button:hover {
+    filter: brightness(1.08);
+}
+
+/* TABLE */
+
+.history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid #e0ece9;
+
+    box-shadow: 0 12px 32px rgba(
+        12,
+        82,
+        96,
+        0.07
+    );
+}
+
+.history-table {
+    width: 100%;
+    min-width: 790px;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.history-table thead {
+    background: linear-gradient(
+        105deg,
+        #126d7c,
+        #329fac
+    );
+}
+
+.history-table th {
+    padding: 17px 18px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.history-table td {
+    padding: 19px 18px;
+    border-bottom: 1px solid #e9f0ee;
+    font-size: 14px;
+    color: #31505a;
+    vertical-align: middle;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.history-table tbody tr:hover {
+    background: #f1faf7;
+}
+
+.history-record-id {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #eaf5f4;
+    color: #176d77;
+    font-weight: 800;
+}
+
+.history-date {
+    display: block;
+    color: #254b56;
+    font-weight: 700;
+}
+
+.history-time {
+    display: block;
+    margin-top: 4px;
+    color: #83969c;
+    font-size: 12px;
+}
+
+.history-goal,
+.history-prediction {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.history-goal {
+    background: #e6f5ef;
+    color: #258367;
+}
+
+.history-prediction {
+    background: #e4f3f7;
+    color: #197c92;
+}
+
+/* CONFIDENCE */
+
+.history-confidence {
+    min-width: 100px;
+}
+
+.history-confidence strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #167e88;
+    font-size: 14px;
+}
+
+.history-progress-native {
+    display: block;
+    width: 100%;
+    height: 8px;
+    margin-top: 7px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+
+    appearance: none;
+    -webkit-appearance: none;
+    background: #e2efed;
+}
+
+.history-progress-native::-webkit-progress-bar {
+    background: #e2efed;
+    border-radius: 10px;
+}
+
+.history-progress-native::-webkit-progress-value {
+    background: linear-gradient(
+        90deg,
+        #167e88,
+        #64cba7
+    );
+    border-radius: 10px;
+}
+
+.history-progress-native::-moz-progress-bar {
+    background: linear-gradient(
+        90deg,
+        #167e88,
+        #64cba7
+    );
+    border-radius: 10px;
+}
+
+/* VIEW BUTTON */
+
+.history-view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+    background: #ffbe58;
+
+    color: #24333a;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.history-view-button:hover {
+    background: #f4a936;
+}
+
+/* TABLE FOOTER */
+
+.history-table-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 16px;
+    padding: 0 6px;
+
+    color: #71858c;
+    font-size: 13px;
+}
+
+.history-table-footer strong {
+    color: #176d77;
+}
+
+/* EMPTY STATE */
+
+.history-empty {
+    padding: 65px 25px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid #e0ece9;
+    text-align: center;
+
+    box-shadow: 0 12px 30px rgba(
+        12,
+        82,
+        96,
+        0.07
+    );
+}
+
+.history-empty-icon {
+    margin-bottom: 15px;
+    font-size: 48px;
+}
+
+.history-empty h3 {
+    margin-bottom: 10px;
+    color: #075463;
+    font-size: 23px;
+}
+
+.history-empty p {
+    max-width: 430px;
+    margin: 0 auto 25px;
+    color: #6c828c;
+}
+
+/* FOOTER */
+
+.history-footer {
+    padding: 25px 20px;
+    background: #075463;
+    color: #d7efeb;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .history-header {
+        grid-template-columns: minmax(0, 1fr) 150px;
+        gap: 18px;
+        padding: 28px;
+    }
+
+    .history-visual-circle {
+        width: 145px;
+        height: 145px;
+    }
+
+    .history-visual-circle img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 700px) {
+    .history-page .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .history-page .health-navbar-links {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .history-container {
+        width: calc(100% - 30px);
+        margin: 22px auto 45px;
+    }
+
+    .history-header {
+        grid-template-columns: 1fr;
+        padding: 25px 22px;
+    }
+
+    .history-header-visual {
+        grid-row: 1;
+    }
+
+    .history-visual-circle {
+        width: 115px;
+        height: 115px;
+    }
+
+    .history-visual-circle img {
+        width: 105px;
+        height: 105px;
+    }
+
+    .history-section-heading {
+        align-items: flex-start;
+    }
+
+    .history-table {
+        min-width: 790px;
+    }
+}
+
+@media (max-width: 430px) {
+    .history-page .health-brand {
+        font-size: 19px;
+    }
+
+    .history-page .health-brand img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .history-header h1 {
+        font-size: 27px;
+    }
+
+    .history-section-heading h2 {
+        font-size: 22px;
+    }
+
+    .history-new-button {
+        width: 100%;
+    }
+}

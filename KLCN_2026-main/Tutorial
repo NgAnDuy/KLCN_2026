@@ -1,0 +1,95 @@
+HƯỚNG DẪN CHẠY PROJECT
+
+1.  YÊU CẦU
+
+-   Đã cài Python.
+-   Đã giải nén đầy đủ project.
+-   Project phải có requirements.txt, models/, data/, src/, templates/
+    và static/.
+
+2.  MỞ PROJECT
+
+Mở thư mục project bằng VS Code.
+
+Mở Terminal và chuyển đến thư mục project, ví dụ:
+
+cd /d D:-KLCN180
+
+3.  TẠO VIRTUAL ENVIRONMENT (.venv)
+
+Chỉ cần làm bước này lần đầu:
+
+python -m venv .venv
+
+Kích hoạt .venv:
+
+.venv
+
+Nếu thành công, Terminal sẽ hiện:
+
+(.venv) D:-KLCN180>
+
+4.  CÀI CÁC THƯ VIỆN CẦN THIẾT
+
+Sau khi đã kích hoạt .venv:
+
+python -m pip install –upgrade pip
+
+pip install -r requirements.txt
+
+Lưu ý: - Nên dùng requirements.txt được gửi kèm project. - Không tự nâng
+version TensorFlow hoặc scikit-learn vì có thể không tương thích với
+model đã lưu.
+
+5.  CHỌN PYTHON TRONG VS CODE
+
+Nhấn:
+
+Ctrl + Shift + P
+
+Chọn:
+
+Python: Select Interpreter
+
+Sau đó chọn:
+
+D:-KLCN180.venv.exe
+
+6.  CHẠY PROJECT
+
+Đảm bảo Terminal có (.venv), sau đó chạy:
+
+python app.py
+
+Khi thấy:
+
+Running on http://127.0.0.1:5000
+
+mở trình duyệt:
+
+http://127.0.0.1:5000
+
+7.  CÁC LẦN CHẠY SAU
+
+Không cần tạo .venv và cài thư viện lại.
+
+Chỉ cần:
+
+cd /d D:-KLCN180
+
+.venv
+
+python app.py
+
+Sau đó mở:
+
+http://127.0.0.1:5000
+
+TÓM TẮT LẦN ĐẦU
+
+cd /d D:-KLCN180 python -m venv .venv .venv python -m pip install
+–upgrade pip pip install -r requirements.txt python app.py
+
+Sau đó truy cập:
+
+http://127.0.0.1:5000
