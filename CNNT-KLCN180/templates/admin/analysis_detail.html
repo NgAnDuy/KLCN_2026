@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ 'Phân tích sức khỏe' if language == 'vi' else 'Health analysis' }} | Health Focus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'components/navbar.html' %}
+<main class="container">
+    <p><a href="{{ url_for('admin_user_detail', user_id=record.user_id) }}">← {{ 'Hồ sơ người dùng' if language == 'vi' else 'User profile' }}</a></p>
+    <h1>{{ 'Phân tích sức khỏe' if language == 'vi' else 'Health analysis' }} #{{ record.id }}</h1>
+    <p>{{ 'Đang xem dữ liệu của' if language == 'vi' else 'Viewing data for' }}: <strong>{{ record.user.username }}</strong> · {{ record.created_at }}</p>
+
+    <section class="card">
+        <h2>{{ 'Chỉ số đã nhập' if language == 'vi' else 'Submitted indicators' }}</h2>
+        <table><tbody>
+        {% for key, value in record.input_data.items() %}
+            <tr><th>{{ key.replace('_', ' ') }}</th><td>{{ value }}</td></tr>
+        {% endfor %}
+        </tbody></table>
+    </section>
+
+    <section class="card">
+        <h2>{{ 'Kết quả MLP và hệ chuyên gia' if language == 'vi' else 'MLP and expert results' }}</h2>
+        <p>{{ 'Mục tiêu đã chọn' if language == 'vi' else 'Selected goal' }}: {{ translate(record.selected_goal, language) }}</p>
+        <p>{{ 'Dự đoán' if language == 'vi' else 'Prediction' }}: {{ translate(record.predicted_goal, language) }} · {{ '%.2f'|format(record.confidence * 100) }}%</p>
+        <h3>{{ 'Đánh giá chỉ số' if language == 'vi' else 'Health indicators' }}</h3>
+        <table><tbody>
+        {% for item in record.result_data.get('health_status', {}).get('items', []) %}
+            <tr><th>{{ translate(item.code, language) }}</th><td>{{ item.value }} {{ item.unit }}</td><td>{{ item.status }}</td></tr>
+        {% endfor %}
+        </tbody></table>
+        <h3>{{ 'Phân tích chi tiết' if language == 'vi' else 'Detailed analysis' }}</h3>
+        <p>{{ record.result_data.get('detailed_analysis', {}).get('summary', '') }}</p>
+    </section>
+
+    {% set recommendations = record.result_data.get('recommendations') or {} %}
+    <section class="card">
+        <h2>{{ 'Gợi ý' if language == 'vi' else 'Recommendations' }}</h2>
+        {% for message in recommendations.get('summary', []) %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        <h3>{{ 'Món ăn đề xuất' if language == 'vi' else 'Recommended foods' }}</h3>
+        <div class="recommendation-grid">
+        {% for food in recommendations.get('foods', []) %}
+            <article class="recommendation-item">
+                <div class="rank">#{{ loop.index }}</div>
+                <h3>{{ translate(food.food_name, language) }}</h3>
+                <div class="nutrition">
+                    <span>{{ food.calories }} kcal</span>
+                    <span>Protein: {{ food.protein_g }}g</span>
+                    <span>{{ 'Tinh bột' if language == 'vi' else 'Carbs' }}: {{ food.carbs_g }}g</span>
+                    <span>{{ 'Chất béo' if language == 'vi' else 'Fat' }}: {{ food.fat_g }}g</span>
+                </div>
+                {% if food.reason %}<p class="reason">{{ food.reason }}</p>{% endif %}
+            </article>
+        {% else %}
+            <p class="empty-state">{{ 'Chưa có món ăn được đề xuất.' if language == 'vi' else 'No food recommendations available.' }}</p>
+        {% endfor %}
+        </div>
+
+        <h3>{{ 'Bài tập đề xuất' if language == 'vi' else 'Recommended exercises' }}</h3>
+        <div class="recommendation-grid">
+        {% for exercise in recommendations.get('exercises', []) %}
+            <article class="recommendation-item">
+                <div class="rank">#{{ loop.index }}</div>
+                <h3>{{ translate(exercise.exercise_name, language) }}</h3>
+                <div class="exercise-info">
+                    <span>{{ exercise.duration_min }} {{ 'phút' if language == 'vi' else 'min' }}</span>
+                    <span>{{ translate(exercise.intensity, language) }}</span>
+                    <span>{{ translate(exercise.difficulty, language) }}</span>
+                </div>
+                {% if exercise.reason %}<p class="reason">{{ exercise.reason }}</p>{% endif %}
+            </article>
+        {% else %}
+            <p class="empty-state">{{ 'Chưa có bài tập được đề xuất.' if language == 'vi' else 'No exercise recommendations available.' }}</p>
+        {% endfor %}
+        </div>
+    </section>
+</main>
+</body>
+</html>

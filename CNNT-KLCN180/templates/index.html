@@ -33,6 +33,7 @@
     {% endwith %}
 
     <form method="POST" action="{{ url_for('health_form') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
         <section class="card">
             <h2>🎯 {{ 'Mục tiêu của bạn' if language == 'vi' else 'Your Goal' }}</h2>
             <div class="field">
@@ -40,12 +41,12 @@
                     {{ 'Mục tiêu sức khỏe' if language == 'vi' else 'Health Goal' }}
                 </label>
                 <select name="goal" id="goal" required>
-                    <option value="" selected disabled>
+                    <option value="" {% if not profile_data.get('selected_goal') %}selected{% endif %} disabled>
                         {{ '-- Chọn mục tiêu --' if language == 'vi'
                            else '-- Select a goal --' }}
                     </option>
                     {% for goal in goals %}
-                        <option value="{{ goal }}">{{ translate(goal, language) }}</option>
+                        <option value="{{ goal }}" {% if profile_data.get('selected_goal') == goal %}selected{% endif %}>{{ translate(goal, language) }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -55,9 +56,14 @@
             <h2>👤 {{ 'Thông tin cơ thể' if language == 'vi' else 'Body Information' }}</h2>
             <div class="form-grid">
                 <div class="field">
+                    <label for="display_name">{{ 'Họ và tên' if language == 'vi' else 'Full name' }}</label>
+                    <input type="text" name="display_name" id="display_name" minlength="2" maxlength="80"
+                           autocomplete="name" value="{{ display_name }}" required>
+                </div>
+                <div class="field">
                     <label for="age">{{ 'Tuổi' if language == 'vi' else 'Age' }}</label>
                     <input type="number" name="age" id="age"
-                           min="18" max="100" required>
+                           min="18" max="100" value="{{ profile_data.get('age', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -65,13 +71,13 @@
                         {{ 'Giới tính' if language == 'vi' else 'Gender' }}
                     </label>
                     <select name="gender" id="gender" required>
-                        <option value="" selected disabled>
+                        <option value="" {% if not profile_data.get('gender') %}selected{% endif %} disabled>
                             {{ '-- Chọn --' if language == 'vi' else '-- Select --' }}
                         </option>
-                        <option value="Male">
+                        <option value="Male" {% if profile_data.get('gender') == 'Male' %}selected{% endif %}>
                             {{ 'Nam' if language == 'vi' else 'Male' }}
                         </option>
-                        <option value="Female">
+                        <option value="Female" {% if profile_data.get('gender') == 'Female' %}selected{% endif %}>
                             {{ 'Nữ' if language == 'vi' else 'Female' }}
                         </option>
                     </select>
@@ -82,7 +88,7 @@
                         {{ 'Chiều cao (cm)' if language == 'vi' else 'Height (cm)' }}
                     </label>
                     <input type="number" name="height_cm" id="height_cm"
-                           min="100" max="250" step="0.1" required>
+                           min="100" max="250" step="0.1" value="{{ profile_data.get('height_cm', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -90,7 +96,7 @@
                         {{ 'Cân nặng (kg)' if language == 'vi' else 'Weight (kg)' }}
                     </label>
                     <input type="number" name="weight_kg" id="weight_kg"
-                           min="25" max="300" step="0.1" required>
+                           min="25" max="300" step="0.1" value="{{ profile_data.get('weight_kg', '') }}" required>
                 </div>
             </div>
         </section>
@@ -106,11 +112,11 @@
                            else 'Activity Level' }}
                     </label>
                     <select name="activity_level" id="activity_level" required>
-                        <option value="" selected disabled>
+                        <option value="" {% if not profile_data.get('activity_level') %}selected{% endif %} disabled>
                             {{ '-- Chọn --' if language == 'vi' else '-- Select --' }}
                         </option>
                         {% for activity in activities %}
-                            <option value="{{ activity }}">
+                            <option value="{{ activity }}" {% if profile_data.get('activity_level') == activity %}selected{% endif %}>
                                 {% if language == 'vi' %}
                                     {% if activity == 'Sedentary' %}Ít vận động
                                     {% elif activity == 'Light' %}Hoạt động nhẹ
@@ -132,7 +138,7 @@
                            else 'Average Daily Steps' }}
                     </label>
                     <input type="number" name="avg_steps_7d" id="avg_steps_7d"
-                           min="0" step="1" required>
+                           min="0" step="1" value="{{ profile_data.get('avg_steps_7d', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -142,7 +148,7 @@
                     </label>
                     <input type="number" name="avg_exercise_minutes_7d"
                            id="avg_exercise_minutes_7d"
-                           min="0" step="0.1" required>
+                           min="0" step="0.1" value="{{ profile_data.get('avg_exercise_minutes_7d', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -152,7 +158,7 @@
                     </label>
                     <input type="number" name="exercise_sessions_7d"
                            id="exercise_sessions_7d"
-                           min="0" max="30" required>
+                           min="0" max="30" value="{{ profile_data.get('exercise_sessions_7d', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -162,7 +168,7 @@
                     </label>
                     <input type="number" name="avg_calories_burned_7d"
                            id="avg_calories_burned_7d"
-                           min="0" step="0.1" required>
+                           min="0" step="0.1" value="{{ profile_data.get('avg_calories_burned_7d', '') }}" required>
                 </div>
             </div>
         </section>
@@ -178,7 +184,7 @@
                            else 'Daily Calorie Intake (kcal)' }}
                     </label>
                     <input type="number" name="calories_consumed"
-                           id="calories_consumed" min="0" required>
+                           id="calories_consumed" min="0" value="{{ profile_data.get('calories_consumed', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -188,7 +194,7 @@
                     </label>
                     <input type="number" name="avg_sleep_hours_7d"
                            id="avg_sleep_hours_7d"
-                           min="0" max="24" step="0.1" required>
+                           min="0" max="24" step="0.1" value="{{ profile_data.get('avg_sleep_hours_7d', '') }}" required>
                 </div>
 
                 <div class="field">
@@ -198,7 +204,7 @@
                     </label>
                     <input type="number" name="water_intake_l"
                            id="water_intake_l"
-                           min="0" step="0.1" required>
+                           min="0" step="0.1" value="{{ profile_data.get('water_intake_l', '') }}" required>
                 </div>
             </div>
         </section>

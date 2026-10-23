@@ -1,0 +1,1340 @@
+﻿user_id,age,gender,height_cm,weight_kg,bmi,bmr,tdee,activity_level,water_intake_l,calories_consumed,avg_steps_7d,avg_active_minutes_7d,avg_calories_burned_7d,avg_exercise_minutes_7d,exercise_sessions_7d,avg_sleep_hours_7d,goal,exercise_label,nutrition_label
+U002,50,Male,176,82.5,26.63,1680.0,3192.0,Very Active,3.4,3510,15420,186,812,186,6,7.8,weight_gain,High,Calorie Surplus
+U003,39,Female,165,68.4,25.12,1359.0,2106.0,Moderate,2.3,2394,8420,93,392,93,3,7.4,weight_gain,Moderate,Calorie Surplus
+U004,52,Female,160,79.1,30.9,1370.0,2363.0,Active,2.7,2008,11380,142,561,142,4,6.8,weight_loss,High,Calorie Deficit
+U006,31,Male,178,88.6,27.96,1848.0,2864.0,Moderate,2.8,2579,9260,117,446,117,4,7.0,weight_loss,High,Calorie Deficit
+U007,44,Female,168,72.8,25.79,1397.0,1676.0,Sedentary,1.8,1784,3640,31,147,31,1,6.4,weight_loss,Low,Calorie Deficit
+U008,27,Male,185,69.7,20.37,1723.0,2671.0,Moderate,2.6,2748,10320,108,478,108,3,7.6,weight_gain,High,Calorie Surplus
+U010,48,Male,171,94.3,32.25,1777.0,3065.0,Active,3.1,2639,12850,168,684,168,5,7.1,weight_loss,High,Calorie Deficit
+U012,55,Male,180,91.7,28.3,1772.0,2126.0,Sedentary,1.7,1936,3120,28,132,28,1,6.7,weight_loss,Low,Balanced
+U013,29,Female,172,64.1,21.67,1410.0,2186.0,Moderate,2.5,2160,8900,101,405,101,4,8.0,fitness_improvement,High,Balanced
+U014,42,Male,175,79.8,26.06,1687.0,2910.0,Active,3.0,3154,11940,154,617,154,5,7.3,fitness_improvement,High,Calorie Surplus
+U015,34,Female,167,74.5,26.71,1458.0,1750.0,Sedentary,1.6,1642,2890,24,121,24,1,6.1,weight_loss,Low,Calorie Deficit
+U016,26,Male,181,84.2,25.7,1848.0,2864.0,Moderate,2.9,2425,9760,126,512,126,4,7.7,fitness_improvement,High,Calorie Deficit
+U017,47,Female,162,69.6,26.52,1312.0,2034.0,Moderate,2.4,2368,8140,89,371,89,3,7.0,weight_loss,Moderate,Balanced
+U018,38,Male,188,97.5,27.59,1965.0,3734.0,Very Active,3.7,3685,16180,207,923,207,6,8.2,fitness_improvement,High,Calorie Surplus
+U020,53,Male,169,73.4,25.7,1530.0,1836.0,Sedentary,1.8,2024,4170,34,154,34,1,6.9,maintenance,Low,Calorie Surplus
+U021,30,Female,174,82.1,27.12,1598.0,2477.0,Moderate,2.7,2161,9420,112,438,112,4,7.6,weight_loss,High,Calorie Deficit
+U022,45,Male,183,86.9,25.95,1793.0,3093.0,Active,3.2,3281,13620,175,731,175,5,7.8,fitness_improvement,High,Balanced
+U024,37,Male,177,102.3,32.65,1949.0,2339.0,Sedentary,1.9,1845,3380,29,140,29,1,6.3,weight_loss,Low,Calorie Deficit
+U025,41,Female,169,66.7,23.35,1357.0,2103.0,Moderate,2.6,2090,8790,98,384,98,3,7.2,healthy_lifestyle,Moderate,Balanced
+U027,49,Female,157,83.2,33.75,1407.0,2181.0,Moderate,2.3,1812,7590,74,321,74,2,6.6,weight_loss,Moderate,Calorie Deficit
+U028,33,Male,186,78.5,22.69,1788.0,3084.0,Active,3.3,3238,12480,164,678,164,5,7.5,fitness_improvement,High,Balanced
+U030,56,Male,172,89.4,30.22,1694.0,2033.0,Sedentary,1.6,1503,2710,21,116,21,1,6.5,weight_loss,Low,Calorie Deficit
+U031,35,Female,171,70.3,24.04,1436.0,2226.0,Moderate,2.8,2290,9680,109,419,109,4,7.8,fitness_improvement,High,Calorie Surplus
+U032,40,Male,179,81.7,25.5,1741.0,3003.0,Active,3.1,2790,11570,149,602,149,5,7.0,weight_loss,High,Calorie Deficit
+U034,46,Male,184,92.8,27.41,1853.0,2872.0,Moderate,2.9,2697,10040,123,501,123,4,7.4,weight_loss,High,Calorie Deficit
+U035,32,Female,164,76.9,28.59,1473.0,2541.0,Active,3.0,2779,12150,157,639,157,5,7.7,fitness_improvement,High,Calorie Surplus
+U036,25,Male,170,63.5,21.97,1578.0,1894.0,Sedentary,2.0,1968,3860,37,166,37,1,7.1,maintenance,Low,Balanced
+U037,43,Female,173,85.7,28.63,1562.0,2421.0,Moderate,2.5,1934,8010,82,359,82,3,6.8,weight_loss,Moderate,Calorie Deficit
+U038,29,Male,182,91.2,27.53,1910.0,3629.0,Very Active,3.8,3830,17420,219,965,219,7,8.1,fitness_improvement,High,Calorie Surplus
+U039,51,Female,161,62.4,24.07,1214.0,1457.0,Sedentary,1.8,1842,4290,36,159,36,1,7.0,healthy_lifestyle,Low,Calorie Surplus
+U041,39,Female,168,59.8,21.19,1292.0,2003.0,Moderate,2.7,2211,9140,106,407,106,4,8.2,fitness_improvement,High,Calorie Surplus
+U042,47,Male,181,98.6,30.1,1887.0,3255.0,Active,3.4,2812,13090,181,742,181,6,7.3,weight_loss,High,Calorie Deficit
+U043,23,Female,162,67.2,25.61,1408.0,1690.0,Sedentary,1.9,1721,3510,27,128,27,1,6.7,weight_loss,Low,Calorie Deficit
+U044,36,Male,178,83.9,26.48,1776.0,2753.0,Moderate,2.8,2960,8750,114,459,114,4,7.9,fitness_improvement,High,Calorie Surplus
+U046,54,Male,173,77.6,25.93,1592.0,2746.0,Active,3.0,2634,11080,143,581,143,5,7.2,fitness_improvement,High,Calorie Deficit
+U047,34,Female,170,81.5,28.2,1546.0,2396.0,Moderate,2.6,2520,9850,120,447,120,4,8.0,fitness_improvement,High,Calorie Surplus
+U048,19,Male,168,58.9,20.87,1549.0,2943.0,Very Active,3.5,3175,14860,192,841,192,6,8.5,weight_gain,High,Calorie Surplus
+U049,44,Female,175,78.3,25.57,1496.0,2581.0,Active,3.2,2350,11820,151,596,151,5,7.6,weight_loss,High,Calorie Deficit
+U050,28,Male,180,86.1,26.57,1851.0,2869.0,Moderate,2.7,2768,10430,128,489,128,4,7.8,maintenance,High,Balanced
+U051,22,Male,175,68.5,22.37,1674.0,2595.0,Moderate,2.6,2740,10120,112,456,112,4,7.8,weight_gain,High,Calorie Surplus
+U052,45,Female,163,76.8,28.91,1401.0,2172.0,Moderate,2.4,1850,7820,87,348,87,3,7.1,weight_loss,Moderate,Calorie Deficit
+U053,30,Male,183,80.4,24.01,1803.0,3110.0,Active,3.1,2860,12350,151,625,151,5,7.6,fitness_improvement,High,Balanced
+U054,57,Female,158,70.5,28.24,1246.0,1495.0,Sedentary,1.7,1470,2980,25,118,25,1,6.5,weight_loss,Low,Calorie Deficit
+U055,26,Female,169,59.3,20.76,1358.0,2105.0,Moderate,2.5,2180,8640,98,376,98,3,8.0,healthy_lifestyle,Moderate,Balanced
+U056,41,Male,177,90.6,28.92,1812.0,2809.0,Moderate,2.8,2440,9180,106,438,106,4,7.2,weight_loss,High,Calorie Deficit
+U057,34,Female,172,71.8,24.27,1462.0,2266.0,Moderate,2.7,2310,9340,103,401,103,4,7.7,fitness_improvement,High,Balanced
+U058,20,Male,180,66.2,20.43,1692.0,2623.0,Moderate,2.5,2780,10960,124,487,124,4,8.3,weight_gain,High,Calorie Surplus
+U059,50,Female,165,81.3,29.86,1433.0,1720.0,Sedentary,1.9,1590,3850,33,145,33,1,6.7,weight_loss,Low,Calorie Deficit
+U060,37,Male,171,74.6,25.51,1635.0,2534.0,Moderate,2.6,2610,9820,115,461,115,4,7.5,maintenance,High,Balanced
+U061,29,Female,160,55.9,21.84,1253.0,1942.0,Moderate,2.3,2170,8170,94,365,94,3,8.1,healthy_lifestyle,Moderate,Balanced
+U062,48,Male,185,101.2,29.57,1933.0,3334.0,Active,3.2,2580,13140,168,690,168,5,7.0,weight_loss,High,Calorie Deficit
+U063,24,Female,168,63.2,22.39,1401.0,2172.0,Moderate,2.4,2380,9050,109,416,109,4,7.9,weight_gain,High,Calorie Surplus
+U064,39,Male,179,87.5,27.31,1804.0,2796.0,Moderate,2.9,2500,10060,121,486,121,4,7.3,weight_loss,High,Calorie Deficit
+U065,52,Female,167,73.1,26.21,1354.0,1625.0,Sedentary,1.8,1710,3210,29,132,29,1,6.4,weight_loss,Low,Balanced
+U066,31,Male,188,85.7,24.25,1882.0,3576.0,Very Active,3.6,3310,15780,195,847,195,6,8.0,fitness_improvement,High,Balanced
+U068,27,Male,173,69.8,23.32,1649.0,2556.0,Moderate,2.7,2570,10580,118,472,118,4,7.8,fitness_improvement,High,Balanced
+U069,35,Female,175,64.7,21.13,1405.0,2424.0,Active,3.0,2640,11920,151,601,151,5,8.2,healthy_lifestyle,High,Balanced
+U070,46,Male,169,83.8,29.34,1669.0,2879.0,Active,3.1,2490,12760,159,657,159,5,7.4,weight_loss,High,Calorie Deficit
+U071,19,Female,157,51.8,21.02,1243.0,1927.0,Moderate,2.0,2120,7910,88,337,88,3,8.4,weight_gain,Moderate,Calorie Surplus
+U072,58,Male,181,86.5,26.4,1711.0,2053.0,Sedentary,1.9,1950,3520,30,139,30,1,6.2,healthy_lifestyle,Low,Balanced
+U073,33,Female,166,69.7,25.29,1408.0,2182.0,Moderate,2.5,2250,8790,102,394,102,4,7.6,fitness_improvement,High,Balanced
+U074,28,Male,182,77.3,23.34,1776.0,2753.0,Moderate,2.8,2960,11240,131,528,131,4,7.9,weight_gain,High,Calorie Surplus
+U075,40,Female,159,78.4,31.01,1417.0,2196.0,Moderate,2.6,1820,7480,79,329,79,3,6.9,weight_loss,Moderate,Calorie Deficit
+U076,23,Male,174,64.8,21.4,1626.0,2520.0,Moderate,2.4,2470,10180,107,425,107,3,8.0,healthy_lifestyle,Moderate,Balanced
+U078,36,Male,176,92.1,29.73,1846.0,2861.0,Moderate,2.9,2320,8960,108,443,108,4,7.1,weight_loss,High,Calorie Deficit
+U079,25,Female,164,57.1,21.23,1310.0,2260.0,Active,2.9,2290,11620,143,574,143,5,8.1,fitness_improvement,High,Balanced
+U080,42,Male,187,89.3,25.54,1857.0,2878.0,Moderate,3.0,2910,10780,127,513,127,4,7.5,maintenance,High,Balanced
+U081,32,Female,170,67.5,23.36,1416.0,2195.0,Moderate,2.6,2420,9230,111,431,111,4,7.8,healthy_lifestyle,High,Balanced
+U082,55,Male,174,95.8,31.64,1776.0,2753.0,Moderate,2.7,2180,7680,89,356,89,3,6.6,weight_loss,Moderate,Calorie Deficit
+U084,38,Male,180,79.1,24.41,1731.0,2986.0,Active,3.2,3070,13840,172,701,172,5,7.7,fitness_improvement,High,Balanced
+U088,27,Male,185,94.8,27.7,1974.0,3405.0,Active,3.4,2770,13240,165,689,165,5,7.8,weight_loss,High,Calorie Deficit
+U089,53,Female,170,69.3,23.98,1330.0,2062.0,Moderate,2.5,2080,8320,91,367,91,3,7.6,maintenance,Moderate,Balanced
+U090,24,Male,178,73.5,23.2,1732.0,2685.0,Moderate,2.8,2890,10890,129,514,129,4,8.2,weight_gain,High,Calorie Surplus
+U091,34,Female,155,62.8,26.14,1266.0,1962.0,Moderate,2.4,2140,8450,96,382,96,3,7.9,fitness_improvement,High,Balanced
+U092,41,Male,182,88.4,26.69,1822.0,3143.0,Active,3.3,2980,14120,174,721,174,5,7.3,fitness_improvement,High,Balanced
+U093,18,Female,165,49.7,18.26,1277.0,1979.0,Moderate,2.2,2030,8060,91,349,91,3,8.6,weight_gain,Moderate,Calorie Surplus
+U094,56,Male,170,84.6,29.27,1634.0,1961.0,Sedentary,1.8,1680,2890,24,112,24,1,6.3,weight_loss,Low,Calorie Deficit
+U095,39,Female,176,72.5,23.41,1469.0,2277.0,Moderate,2.7,2260,9630,107,418,107,4,7.8,healthy_lifestyle,High,Balanced
+U096,26,Male,168,70.2,24.87,1627.0,2522.0,Moderate,2.5,2590,9840,116,451,116,4,8.0,fitness_improvement,High,Balanced
+U097,45,Female,164,84.1,31.27,1480.0,2553.0,Active,3.0,2180,12880,159,654,159,5,7.1,weight_loss,High,Calorie Deficit
+U098,31,Male,181,78.6,23.99,1767.0,3357.0,Very Active,3.5,3260,15360,189,814,189,6,8.3,fitness_improvement,High,Balanced
+U099,50,Female,173,74.8,24.99,1418.0,2198.0,Moderate,2.4,2140,8120,94,371,94,3,7.5,maintenance,Moderate,Balanced
+U100,22,Male,176,62.7,20.24,1622.0,2798.0,Active,3.0,2950,12560,152,613,152,5,8.1,weight_gain,High,Calorie Surplus
+U101,24,Male,177,67.4,21.51,1665.0,2581.0,Moderate,2.7,2710,10480,116,468,116,4,8.0,weight_gain,High,Calorie Surplus
+U102,46,Female,162,78.6,29.95,1408.0,2182.0,Moderate,2.5,1840,7540,81,335,81,3,7.0,weight_loss,Moderate,Calorie Deficit
+U103,33,Male,184,81.2,23.98,1802.0,3108.0,Active,3.1,2990,12960,158,645,158,5,7.7,fitness_improvement,High,Balanced
+U104,58,Female,159,73.8,29.19,1281.0,1537.0,Sedentary,1.8,1510,3150,27,124,27,1,6.4,weight_loss,Low,Calorie Deficit
+U105,28,Female,171,62.1,21.24,1389.0,2153.0,Moderate,2.6,2160,8860,101,389,101,4,8.2,healthy_lifestyle,Moderate,Balanced
+U106,40,Male,179,85.3,26.62,1777.0,2754.0,Moderate,2.8,2510,9430,109,451,109,4,7.4,weight_loss,High,Calorie Deficit
+U107,36,Female,166,68.2,24.75,1378.0,2136.0,Moderate,2.7,2310,9670,112,427,112,4,7.8,fitness_improvement,High,Balanced
+U108,21,Male,181,64.9,19.81,1680.0,2604.0,Moderate,2.5,2770,10890,123,492,123,4,8.4,weight_gain,High,Calorie Surplus
+U109,51,Female,164,80.2,29.82,1411.0,1693.0,Sedentary,1.9,1570,3670,31,139,31,1,6.6,weight_loss,Low,Calorie Deficit
+U110,38,Male,173,76.8,25.66,1664.0,2579.0,Moderate,2.7,2660,9940,117,475,117,4,7.5,maintenance,High,Balanced
+U111,30,Female,161,57.4,22.14,1269.0,1967.0,Moderate,2.4,2190,8340,96,371,96,3,8.1,healthy_lifestyle,Moderate,Balanced
+U112,49,Male,186,103.1,29.8,1954.0,3371.0,Active,3.3,2610,13420,171,704,171,5,7.1,weight_loss,High,Calorie Deficit
+U113,25,Female,169,61.5,21.53,1385.0,2147.0,Moderate,2.5,2350,9120,106,409,106,4,8.0,weight_gain,High,Calorie Surplus
+U114,42,Male,178,89.7,28.31,1804.0,2796.0,Moderate,2.9,2480,10240,124,498,124,4,7.2,weight_loss,High,Calorie Deficit
+U115,54,Female,168,71.4,25.3,1333.0,1600.0,Sedentary,1.8,1690,3420,30,137,30,1,6.5,maintenance,Low,Balanced
+U116,32,Male,190,87.2,24.16,1904.0,3618.0,Very Active,3.7,3350,16240,202,871,202,6,8.1,fitness_improvement,High,Balanced
+U118,29,Male,175,72.6,23.71,1680.0,2604.0,Moderate,2.8,2600,10740,121,484,121,4,7.9,fitness_improvement,High,Balanced
+U119,37,Female,174,63.8,21.07,1380.0,2380.0,Active,3.0,2530,11760,149,583,149,5,8.2,healthy_lifestyle,High,Balanced
+U120,47,Male,171,85.9,29.38,1698.0,2929.0,Active,3.2,2540,12580,164,669,164,5,7.3,weight_loss,High,Calorie Deficit
+U121,20,Female,156,50.9,20.92,1223.0,1896.0,Moderate,2.1,2070,7890,90,341,90,3,8.5,weight_gain,Moderate,Calorie Surplus
+U122,59,Male,180,88.1,27.19,1716.0,2059.0,Sedentary,1.9,1950,3340,28,131,28,1,6.3,healthy_lifestyle,Low,Balanced
+U123,35,Female,167,70.9,25.42,1417.0,2196.0,Moderate,2.6,2240,8910,105,402,105,4,7.7,fitness_improvement,High,Balanced
+U124,27,Male,184,79.8,23.57,1818.0,2818.0,Moderate,2.9,2920,11380,134,539,134,4,8.0,weight_gain,High,Calorie Surplus
+U125,41,Female,160,80.7,31.52,1441.0,2234.0,Moderate,2.5,1800,7310,78,317,78,3,6.9,weight_loss,Moderate,Calorie Deficit
+U126,23,Male,172,65.7,22.21,1622.0,2514.0,Moderate,2.6,2470,10270,112,447,112,4,8.2,healthy_lifestyle,High,Balanced
+U128,39,Male,181,93.4,28.51,1875.0,2906.0,Moderate,3.0,2390,9270,113,463,113,4,7.1,weight_loss,High,Calorie Deficit
+U129,26,Female,165,56.8,20.86,1308.0,2256.0,Active,2.9,2260,11580,142,561,142,5,8.0,fitness_improvement,High,Balanced
+U130,43,Male,188,91.6,25.92,1881.0,2916.0,Moderate,3.1,2890,10960,128,522,128,4,7.6,maintenance,High,Balanced
+U131,31,Female,173,68.4,22.85,1449.0,2246.0,Moderate,2.7,2390,9460,114,442,114,4,7.9,healthy_lifestyle,High,Balanced
+U132,56,Male,176,97.1,31.35,1796.0,2784.0,Moderate,2.7,2180,7910,91,371,91,3,6.7,weight_loss,Moderate,Calorie Deficit
+U134,34,Male,182,80.6,24.33,1778.0,3067.0,Active,3.3,3100,13720,169,687,169,5,7.8,fitness_improvement,High,Balanced
+U138,28,Male,187,96.2,27.51,1996.0,3443.0,Active,3.5,2810,13580,169,701,169,5,7.9,weight_loss,High,Calorie Deficit
+U139,40,Female,169,70.8,24.79,1403.0,2175.0,Moderate,2.6,2100,8210,96,382,96,3,7.7,maintenance,Moderate,Balanced
+U140,25,Male,179,74.2,23.16,1741.0,2699.0,Moderate,2.9,2880,11020,132,527,132,4,8.3,weight_gain,High,Calorie Surplus
+U141,33,Female,157,60.6,24.59,1261.0,1955.0,Moderate,2.5,2180,8620,101,394,101,4,7.8,fitness_improvement,High,Balanced
+U142,46,Male,183,87.8,26.22,1797.0,3100.0,Active,3.3,2940,14380,176,728,176,5,7.4,fitness_improvement,High,Balanced
+U143,19,Female,168,51.6,18.28,1310.0,2030.0,Moderate,2.3,2070,8240,94,362,94,3,8.7,weight_gain,Moderate,Calorie Surplus
+U144,57,Male,169,82.8,28.99,1604.0,1925.0,Sedentary,1.8,1640,3010,26,119,26,1,6.4,weight_loss,Low,Calorie Deficit
+U145,38,Female,177,73.2,23.36,1487.0,2305.0,Moderate,2.8,2380,9860,118,455,118,4,8.0,healthy_lifestyle,High,Balanced
+U146,27,Male,166,69.5,25.22,1602.0,2483.0,Moderate,2.7,2560,10190,120,468,120,4,7.8,fitness_improvement,High,Balanced
+U147,50,Female,174,86.3,28.5,1540.0,2656.0,Active,3.1,2220,12690,157,641,157,5,7.0,weight_loss,High,Calorie Deficit
+U148,32,Male,180,76.4,23.58,1734.0,3295.0,Very Active,3.6,3190,15620,193,827,193,6,8.2,fitness_improvement,High,Balanced
+U149,43,Female,163,69.1,26.01,1334.0,2068.0,Moderate,2.4,1980,8030,92,358,92,3,7.6,maintenance,Moderate,Balanced
+U150,21,Male,174,61.8,20.41,1606.0,2770.0,Active,3.0,2940,12740,154,622,154,5,8.4,weight_gain,High,Calorie Surplus
+U151,26,Male,181,70.8,21.61,1714.0,2657.0,Moderate,2.8,2820,10640,119,481,119,4,8.1,weight_gain,High,Calorie Surplus
+U152,47,Female,165,79.4,29.16,1429.0,1715.0,Sedentary,1.9,1510,3290,28,126,28,1,6.5,weight_loss,Low,Calorie Deficit
+U153,35,Male,178,82.6,26.07,1768.0,3050.0,Active,3.1,2870,12890,157,643,157,5,7.7,fitness_improvement,High,Balanced
+U154,23,Female,162,56.2,21.41,1298.0,2012.0,Moderate,2.5,2110,8470,97,374,97,3,8.3,healthy_lifestyle,Moderate,Balanced
+U155,52,Male,174,91.5,30.22,1748.0,2098.0,Sedentary,1.8,1780,3460,31,143,31,1,6.4,weight_loss,Low,Calorie Deficit
+U156,31,Female,169,65.7,23.0,1397.0,2165.0,Moderate,2.7,2260,9310,108,418,108,4,7.9,fitness_improvement,High,Balanced
+U157,28,Male,185,68.9,20.13,1710.0,2650.0,Moderate,2.6,2790,10380,117,469,117,4,8.4,weight_gain,High,Calorie Surplus
+U158,43,Female,158,74.6,29.88,1358.0,2105.0,Moderate,2.4,1810,7210,77,318,77,3,7.0,weight_loss,Moderate,Calorie Deficit
+U159,39,Male,182,85.1,25.69,1798.0,3102.0,Active,3.2,3020,13540,165,682,165,5,7.6,fitness_improvement,High,Balanced
+U161,55,Male,177,87.3,27.87,1709.0,2051.0,Sedentary,1.7,1840,3180,27,124,27,1,6.2,weight_loss,Low,Calorie Deficit
+U162,34,Female,171,72.4,24.76,1462.0,2266.0,Moderate,2.8,2260,9560,112,429,112,4,7.8,healthy_lifestyle,High,Balanced
+U163,29,Male,176,78.2,25.25,1742.0,3005.0,Active,3.0,2880,11980,146,591,146,5,7.9,fitness_improvement,High,Balanced
+U164,48,Female,160,82.5,32.23,1424.0,1709.0,Sedentary,1.8,1530,2970,25,115,25,1,6.6,weight_loss,Low,Calorie Deficit
+U165,25,Male,183,73.1,21.83,1755.0,2720.0,Moderate,2.7,2860,11120,127,511,127,4,8.2,weight_gain,High,Calorie Surplus
+U166,41,Female,167,68.9,24.71,1367.0,2119.0,Moderate,2.5,2160,8640,101,389,101,4,7.6,maintenance,Moderate,Balanced
+U167,37,Male,180,95.4,29.44,1899.0,3276.0,Active,3.3,2490,12670,161,661,161,5,7.3,weight_loss,High,Calorie Deficit
+U169,46,Male,172,79.5,26.87,1645.0,2838.0,Active,3.0,2800,12140,151,613,151,5,7.5,fitness_improvement,High,Balanced
+U170,32,Female,174,63.6,21.01,1402.0,2173.0,Moderate,2.6,2180,9030,105,404,105,4,8.0,healthy_lifestyle,High,Balanced
+U171,50,Male,179,92.8,28.96,1802.0,2162.0,Sedentary,1.9,1790,3710,32,147,32,1,6.7,weight_loss,Low,Calorie Deficit
+U172,27,Female,166,60.4,21.92,1346.0,2086.0,Moderate,2.7,2290,9270,109,416,109,4,8.1,fitness_improvement,High,Balanced
+U173,36,Male,188,84.7,23.96,1847.0,3509.0,Very Active,3.6,3270,15820,198,846,198,6,8.3,fitness_improvement,High,Balanced
+U174,44,Female,163,77.3,29.09,1411.0,2187.0,Moderate,2.4,1870,7520,84,346,84,3,7.0,weight_loss,Moderate,Calorie Deficit
+U175,19,Male,170,59.8,20.69,1570.0,2983.0,Very Active,3.5,3190,14960,187,805,187,6,8.6,weight_gain,High,Calorie Surplus
+U176,53,Female,169,71.6,25.07,1346.0,1615.0,Sedentary,1.8,1690,3540,30,137,30,1,6.5,maintenance,Low,Balanced
+U177,30,Male,175,76.9,25.11,1718.0,2964.0,Active,3.0,2840,11670,142,574,142,5,7.8,fitness_improvement,High,Balanced
+U179,24,Male,182,71.5,21.59,1738.0,2694.0,Moderate,2.7,2780,10580,122,476,122,4,8.0,healthy_lifestyle,High,Balanced
+U180,45,Female,171,83.6,28.59,1519.0,2354.0,Moderate,2.6,1890,7860,82,341,82,3,6.9,weight_loss,Moderate,Calorie Deficit
+U181,33,Male,187,79.3,22.68,1802.0,3424.0,Very Active,3.4,3190,15120,190,808,190,6,8.2,fitness_improvement,High,Balanced
+U183,51,Male,173,83.1,27.77,1662.0,1994.0,Sedentary,1.9,1710,3360,29,133,29,1,6.3,weight_loss,Low,Calorie Deficit
+U184,38,Female,176,70.6,22.79,1455.0,2255.0,Moderate,2.8,2280,9720,113,437,113,4,7.9,maintenance,High,Balanced
+U185,28,Male,169,67.9,23.77,1600.0,2480.0,Moderate,2.7,2620,10240,118,459,118,4,8.1,healthy_lifestyle,High,Balanced
+U186,42,Female,164,75.8,28.18,1412.0,2189.0,Moderate,2.5,1840,7640,86,352,86,3,7.1,weight_loss,Moderate,Calorie Deficit
+U187,35,Male,181,89.6,27.35,1857.0,3203.0,Active,3.2,2990,13280,164,672,164,5,7.6,fitness_improvement,High,Balanced
+U188,26,Female,173,58.9,19.68,1379.0,2137.0,Moderate,2.5,2210,8910,104,396,104,4,8.3,weight_gain,High,Calorie Surplus
+U189,49,Male,180,86.8,26.79,1753.0,2104.0,Sedentary,1.8,1810,3590,31,141,31,1,6.8,maintenance,Low,Balanced
+U190,23,Female,161,60.7,23.42,1337.0,2072.0,Moderate,2.6,2140,8390,98,377,98,3,8.0,healthy_lifestyle,Moderate,Balanced
+U191,47,Male,175,90.2,29.45,1766.0,3046.0,Active,3.2,2500,12780,159,654,159,5,7.2,weight_loss,High,Calorie Deficit
+U192,31,Female,168,67.3,23.84,1407.0,2181.0,Moderate,2.7,2290,9170,109,415,109,4,7.8,fitness_improvement,High,Balanced
+U193,56,Male,182,94.7,28.59,1810.0,2172.0,Sedentary,1.9,1830,3210,28,128,28,1,6.4,weight_loss,Low,Calorie Deficit
+U194,29,Female,156,55.8,22.93,1227.0,1902.0,Moderate,2.4,2140,8020,93,361,93,3,8.2,healthy_lifestyle,Moderate,Balanced
+U195,40,Male,184,83.4,24.63,1789.0,3086.0,Active,3.1,3090,13610,167,681,167,5,7.9,fitness_improvement,High,Balanced
+U196,18,Female,163,48.9,18.4,1257.0,1948.0,Moderate,2.2,2070,8140,92,352,92,3,8.8,weight_gain,Moderate,Calorie Surplus
+U197,54,Male,171,81.6,27.91,1620.0,1944.0,Sedentary,1.8,1680,3440,30,136,30,1,6.6,weight_loss,Low,Calorie Deficit
+U198,34,Female,170,73.8,25.54,1470.0,2536.0,Active,2.9,2410,11420,139,552,139,5,8.0,fitness_improvement,High,Balanced
+U199,43,Male,177,77.2,24.64,1668.0,2585.0,Moderate,2.6,2560,9810,114,448,114,4,7.5,maintenance,High,Balanced
+U200,27,Female,165,57.2,21.01,1307.0,2026.0,Moderate,2.5,2220,8730,102,391,102,4,8.4,weight_gain,High,Calorie Surplus
+U201,29,Male,180,69.4,21.42,1679.0,2602.0,Moderate,2.8,2740,10620,118,476,118,4,8.1,weight_gain,High,Calorie Surplus
+U202,44,Female,162,77.9,29.68,1410.0,2186.0,Moderate,2.5,1810,7680,83,341,83,3,7.0,weight_loss,Moderate,Calorie Deficit
+U203,37,Male,183,84.6,25.26,1810.0,3122.0,Active,3.2,3000,13480,165,674,165,5,7.8,fitness_improvement,High,Balanced
+U204,22,Female,167,57.6,20.65,1349.0,2091.0,Moderate,2.4,2110,8260,94,365,94,3,8.4,healthy_lifestyle,Moderate,Balanced
+U205,53,Male,176,93.7,30.25,1777.0,2132.0,Sedentary,1.8,1770,3290,28,127,28,1,6.4,weight_loss,Low,Calorie Deficit
+U206,31,Female,170,66.4,22.98,1410.0,2186.0,Moderate,2.7,2270,9480,110,425,110,4,7.9,fitness_improvement,High,Balanced
+U207,24,Male,185,71.2,20.8,1753.0,2717.0,Moderate,2.7,2790,10780,121,489,121,4,8.2,weight_gain,High,Calorie Surplus
+U208,48,Female,159,80.6,31.88,1399.0,1679.0,Sedentary,1.9,1500,3140,27,123,27,1,6.6,weight_loss,Low,Calorie Deficit
+U209,40,Male,178,79.3,25.03,1710.0,2950.0,Active,3.1,2940,12680,153,628,153,5,7.6,fitness_improvement,High,Balanced
+U210,35,Female,173,64.8,21.65,1393.0,2159.0,Moderate,2.6,2180,8940,104,402,104,4,8.0,healthy_lifestyle,High,Balanced
+U211,19,Male,172,60.5,20.45,1590.0,3021.0,Very Active,3.5,3180,15020,188,808,188,6,8.5,weight_gain,High,Calorie Surplus
+U212,56,Female,164,84.3,31.34,1427.0,1712.0,Sedentary,1.8,1530,3020,26,118,26,1,6.3,weight_loss,Low,Calorie Deficit
+U213,33,Male,181,77.6,23.69,1747.0,3014.0,Active,3.2,2990,13220,161,651,161,5,7.8,fitness_improvement,High,Balanced
+U214,27,Female,160,59.1,23.09,1295.0,2007.0,Moderate,2.5,2190,8610,99,382,99,4,8.1,healthy_lifestyle,Moderate,Balanced
+U215,45,Male,174,86.5,28.57,1732.0,2078.0,Sedentary,1.9,1760,3540,31,142,31,1,6.7,weight_loss,Low,Calorie Deficit
+U216,38,Female,168,69.5,24.62,1394.0,2161.0,Moderate,2.8,2300,9750,114,438,114,4,7.7,fitness_improvement,High,Balanced
+U217,25,Male,182,67.8,20.47,1696.0,2629.0,Moderate,2.6,2740,10390,116,465,116,4,8.3,weight_gain,High,Calorie Surplus
+U218,51,Female,166,78.7,28.56,1408.0,1690.0,Sedentary,1.8,1510,3410,29,132,29,1,6.5,weight_loss,Low,Calorie Deficit
+U219,42,Male,187,90.4,25.85,1868.0,3222.0,Active,3.3,2920,13060,158,649,158,5,7.4,fitness_improvement,High,Balanced
+U220,30,Female,171,62.7,21.44,1385.0,2147.0,Moderate,2.6,2160,9040,106,407,106,4,8.0,healthy_lifestyle,High,Balanced
+U221,23,Male,176,63.4,20.47,1624.0,2517.0,Moderate,2.5,2700,10180,113,446,113,4,8.4,weight_gain,High,Calorie Surplus
+U222,49,Female,161,82.1,31.67,1421.0,1705.0,Sedentary,1.7,1490,2870,24,111,24,1,6.2,weight_loss,Low,Calorie Deficit
+U223,36,Male,179,81.9,25.56,1763.0,3041.0,Active,3.1,2970,12870,155,637,155,5,7.8,fitness_improvement,High,Balanced
+U224,28,Female,165,61.8,22.7,1348.0,2089.0,Moderate,2.5,2190,8460,97,374,97,3,8.2,healthy_lifestyle,Moderate,Balanced
+U225,54,Male,181,89.7,27.38,1763.0,2116.0,Sedentary,1.9,1800,3370,29,135,29,1,6.5,weight_loss,Low,Calorie Deficit
+U226,34,Female,174,67.9,22.43,1436.0,2226.0,Moderate,2.7,2310,9320,109,418,109,4,7.9,fitness_improvement,High,Balanced
+U227,20,Male,168,57.4,20.34,1529.0,2905.0,Very Active,3.4,3140,14680,184,782,184,6,8.6,weight_gain,High,Calorie Surplus
+U228,46,Female,170,75.6,26.16,1428.0,2213.0,Moderate,2.4,1850,7410,79,326,79,3,7.0,weight_loss,Moderate,Calorie Deficit
+U229,39,Male,175,83.8,27.36,1742.0,2700.0,Moderate,2.9,2800,10970,127,512,127,4,7.5,fitness_improvement,High,Balanced
+U230,32,Female,163,58.4,21.98,1282.0,1987.0,Moderate,2.6,2110,8720,102,389,102,4,8.1,healthy_lifestyle,High,Balanced
+U231,26,Male,184,74.9,22.12,1774.0,2750.0,Moderate,2.8,2860,10960,123,491,123,4,8.0,weight_gain,High,Calorie Surplus
+U232,57,Female,157,76.3,30.95,1298.0,1558.0,Sedentary,1.7,1450,2980,25,115,25,1,6.3,weight_loss,Low,Calorie Deficit
+U233,43,Male,180,88.9,27.44,1804.0,3112.0,Active,3.2,3010,13620,168,691,168,5,7.6,fitness_improvement,High,Balanced
+U234,29,Female,169,64.2,22.48,1392.0,2158.0,Moderate,2.6,2170,9180,107,409,107,4,8.2,healthy_lifestyle,High,Balanced
+U235,50,Male,173,91.3,30.51,1749.0,2099.0,Sedentary,1.8,1710,3220,27,126,27,1,6.4,weight_loss,Low,Calorie Deficit
+U236,41,Female,176,72.1,23.28,1455.0,2510.0,Active,3.0,2420,11680,141,565,141,5,7.9,fitness_improvement,High,Balanced
+U237,22,Male,178,66.8,21.08,1676.0,2598.0,Moderate,2.7,2760,10430,119,474,119,4,8.5,weight_gain,High,Calorie Surplus
+U238,47,Female,160,73.9,28.87,1343.0,2082.0,Moderate,2.3,1770,7190,76,309,76,3,6.9,weight_loss,Moderate,Calorie Deficit
+U239,35,Male,186,86.2,24.92,1854.0,3523.0,Very Active,3.5,3160,15180,187,802,187,6,8.0,fitness_improvement,High,Balanced
+U240,27,Female,172,60.9,20.59,1388.0,2151.0,Moderate,2.6,2130,8850,102,394,102,4,8.3,healthy_lifestyle,Moderate,Balanced
+U241,52,Male,177,88.6,28.28,1737.0,2084.0,Sedentary,1.9,1780,3480,30,139,30,1,6.5,weight_loss,Low,Calorie Deficit
+U242,33,Female,167,70.2,25.17,1420.0,2201.0,Moderate,2.7,2300,9610,113,431,113,4,7.8,fitness_improvement,High,Balanced
+U243,24,Male,180,69.7,21.51,1707.0,2646.0,Moderate,2.7,2790,10740,121,481,121,4,8.4,weight_gain,High,Calorie Surplus
+U244,45,Female,164,79.8,29.67,1437.0,1724.0,Sedentary,1.8,1500,3110,26,121,26,1,6.6,weight_loss,Low,Calorie Deficit
+U245,38,Male,182,92.3,27.86,1876.0,3236.0,Active,3.3,3020,13940,170,704,170,5,7.5,fitness_improvement,High,Balanced
+U246,30,Female,158,57.9,23.19,1256.0,1947.0,Moderate,2.5,2150,8310,95,366,95,3,8.0,healthy_lifestyle,Moderate,Balanced
+U247,19,Male,171,58.6,20.04,1565.0,2974.0,Very Active,3.4,3120,14820,185,795,185,6,8.7,weight_gain,High,Calorie Surplus
+U248,55,Female,170,81.6,28.24,1442.0,1730.0,Sedentary,1.9,1510,3260,28,129,28,1,6.4,weight_loss,Low,Calorie Deficit
+U249,40,Male,176,80.7,26.05,1712.0,2953.0,Active,3.1,2930,12540,151,618,151,5,7.7,fitness_improvement,High,Balanced
+U250,31,Female,165,63.9,23.47,1354.0,2099.0,Moderate,2.6,2090,9040,104,397,104,4,8.1,maintenance,High,Balanced
+U251,28,Male,179,70.6,22.03,1690.0,2620.0,Moderate,2.8,2780,10580,119,478,119,4,8.1,weight_gain,High,Calorie Surplus
+U252,46,Female,164,78.9,29.34,1423.0,1708.0,Sedentary,1.8,1510,3180,27,124,27,1,6.5,weight_loss,Low,Calorie Deficit
+U253,34,Male,183,82.7,24.69,1806.0,3115.0,Active,3.2,3010,13240,162,658,162,5,7.8,fitness_improvement,High,Balanced
+U254,21,Female,168,55.7,19.73,1341.0,2079.0,Moderate,2.4,2110,8340,96,368,96,3,8.4,healthy_lifestyle,Moderate,Balanced
+U255,53,Male,175,94.2,30.76,1776.0,2131.0,Sedentary,1.9,1760,3410,29,131,29,1,6.3,weight_loss,Low,Calorie Deficit
+U256,32,Female,171,67.8,23.19,1426.0,2210.0,Moderate,2.7,2280,9510,111,428,111,4,7.9,fitness_improvement,High,Balanced
+U257,25,Male,186,72.5,20.96,1768.0,2740.0,Moderate,2.8,2830,10920,124,497,124,4,8.2,weight_gain,High,Calorie Surplus
+U258,49,Female,157,81.4,33.02,1389.0,1667.0,Sedentary,1.8,1490,3020,25,116,25,1,6.4,weight_loss,Low,Calorie Deficit
+U259,39,Male,181,84.3,25.73,1784.0,3077.0,Active,3.2,3010,13680,167,683,167,5,7.7,fitness_improvement,High,Balanced
+U260,36,Female,174,65.4,21.6,1400.0,2170.0,Moderate,2.6,2200,8970,104,403,104,4,8.0,healthy_lifestyle,High,Balanced
+U261,20,Male,170,59.6,20.62,1564.0,2972.0,Very Active,3.5,3160,14840,185,793,185,6,8.6,weight_gain,High,Calorie Surplus
+U262,55,Female,163,85.2,32.07,1435.0,1722.0,Sedentary,1.8,1530,3290,28,128,28,1,6.2,weight_loss,Low,Calorie Deficit
+U263,31,Male,177,78.9,25.18,1745.0,3010.0,Active,3.1,2910,12780,155,628,155,5,7.8,fitness_improvement,High,Balanced
+U264,29,Female,160,60.8,23.75,1302.0,2018.0,Moderate,2.5,2170,8620,101,387,101,4,8.1,healthy_lifestyle,Moderate,Balanced
+U265,43,Male,182,88.6,26.75,1814.0,2177.0,Sedentary,2.0,1810,3540,31,142,31,1,6.6,weight_loss,Low,Calorie Deficit
+U266,37,Female,169,70.5,24.68,1415.0,2193.0,Moderate,2.8,2350,9840,116,445,116,4,7.8,fitness_improvement,High,Balanced
+U267,23,Male,174,64.2,21.2,1620.0,2511.0,Moderate,2.6,2700,10270,117,461,117,4,8.3,weight_gain,High,Calorie Surplus
+U268,50,Female,166,80.7,29.29,1434.0,1721.0,Sedentary,1.9,1510,3120,27,125,27,1,6.4,weight_loss,Low,Calorie Deficit
+U269,41,Male,188,92.1,26.06,1896.0,3271.0,Active,3.4,3170,14020,173,711,173,5,7.6,fitness_improvement,High,Balanced
+U270,27,Female,173,61.7,20.62,1402.0,2173.0,Moderate,2.6,2140,9140,106,409,106,4,8.2,healthy_lifestyle,High,Balanced
+U271,18,Male,176,56.8,18.34,1583.0,3008.0,Very Active,3.4,3190,15120,190,812,190,6,8.7,weight_gain,High,Calorie Surplus
+U272,58,Female,161,79.5,30.67,1350.0,1620.0,Sedentary,1.7,1460,2870,24,109,24,1,6.1,weight_loss,Low,Calorie Deficit
+U273,35,Male,180,81.6,25.19,1771.0,3055.0,Active,3.1,3000,12980,159,641,159,5,7.9,fitness_improvement,High,Balanced
+U274,24,Female,165,58.6,21.52,1336.0,2071.0,Moderate,2.5,2120,8470,98,375,98,3,8.3,healthy_lifestyle,Moderate,Balanced
+U275,48,Male,173,87.4,29.2,1720.0,2064.0,Sedentary,1.9,1740,3350,29,134,29,1,6.5,weight_loss,Low,Calorie Deficit
+U276,33,Female,178,72.6,22.91,1512.0,2608.0,Active,3.0,2440,11520,138,552,138,5,8.0,fitness_improvement,High,Balanced
+U277,26,Male,181,68.2,20.82,1688.0,2616.0,Moderate,2.7,2760,10490,120,477,120,4,8.2,weight_gain,High,Calorie Surplus
+U278,45,Female,159,76.9,30.42,1377.0,2134.0,Moderate,2.4,1800,7460,82,333,82,3,6.9,weight_loss,Moderate,Calorie Deficit
+U279,40,Male,184,86.9,25.67,1824.0,3146.0,Active,3.3,3090,13870,169,697,169,5,7.7,fitness_improvement,High,Balanced
+U280,30,Female,167,63.5,22.77,1368.0,2120.0,Moderate,2.6,2120,8910,103,391,103,4,8.1,healthy_lifestyle,High,Balanced
+U281,22,Male,178,62.9,19.85,1636.0,2536.0,Moderate,2.6,2680,10160,115,452,115,4,8.5,weight_gain,High,Calorie Surplus
+U282,52,Female,170,83.8,29.0,1480.0,1776.0,Sedentary,1.8,1510,3060,26,119,26,1,6.3,weight_loss,Low,Calorie Deficit
+U283,38,Male,176,80.3,25.92,1718.0,2964.0,Active,3.2,2960,12640,154,624,154,5,7.8,fitness_improvement,High,Balanced
+U284,28,Female,162,59.8,22.79,1310.0,2030.0,Moderate,2.5,2140,8560,99,381,99,4,8.0,healthy_lifestyle,Moderate,Balanced
+U285,47,Male,180,90.8,28.02,1803.0,2164.0,Sedentary,1.9,1790,3480,30,137,30,1,6.4,weight_loss,Low,Calorie Deficit
+U286,35,Female,170,69.7,24.12,1424.0,2456.0,Active,3.0,2370,11320,136,543,136,5,7.9,fitness_improvement,High,Balanced
+U287,19,Male,173,57.2,19.11,1563.0,2970.0,Very Active,3.4,3160,14790,183,786,183,6,8.8,weight_gain,High,Calorie Surplus
+U288,42,Female,164,74.3,27.62,1397.0,2165.0,Moderate,2.4,1780,7310,78,319,78,3,7.0,weight_loss,Moderate,Calorie Deficit
+U289,31,Male,185,83.5,24.4,1841.0,3176.0,Active,3.3,3120,13490,165,672,165,5,7.6,fitness_improvement,High,Balanced
+U290,39,Female,171,66.8,22.84,1381.0,2141.0,Moderate,2.7,2210,9180,107,411,107,4,8.2,healthy_lifestyle,High,Balanced
+U291,54,Male,169,80.9,28.33,1600.0,1920.0,Sedentary,1.8,1660,3210,27,124,27,1,6.3,weight_loss,Low,Calorie Deficit
+U292,25,Female,175,60.3,19.69,1411.0,2434.0,Active,2.9,2290,11260,135,521,135,5,8.1,fitness_improvement,High,Balanced
+U293,32,Male,182,75.8,22.88,1740.0,2697.0,Moderate,2.8,2860,10730,122,482,122,4,8.3,weight_gain,High,Calorie Surplus
+U294,49,Female,158,72.4,29.0,1306.0,2024.0,Moderate,2.3,1750,7080,74,301,74,3,6.8,weight_loss,Moderate,Calorie Deficit
+U295,44,Male,187,89.8,25.68,1852.0,3519.0,Very Active,3.5,3180,15160,188,801,188,6,7.9,fitness_improvement,High,Balanced
+U296,27,Female,169,62.4,21.85,1384.0,2145.0,Moderate,2.6,2140,8840,102,392,102,4,8.4,healthy_lifestyle,Moderate,Balanced
+U297,56,Male,175,92.6,30.24,1745.0,2094.0,Sedentary,1.9,1770,3310,28,129,28,1,6.4,weight_loss,Low,Calorie Deficit
+U298,36,Female,172,71.5,24.17,1449.0,2500.0,Active,3.0,2410,11740,142,567,142,5,7.8,fitness_improvement,High,Balanced
+U299,23,Male,180,65.3,20.15,1668.0,2877.0,Active,3.0,2860,12460,151,609,151,5,8.5,weight_gain,High,Calorie Surplus
+U300,41,Female,163,68.7,25.86,1340.0,2077.0,Moderate,2.5,1990,8170,94,358,94,3,7.7,maintenance,Moderate,Balanced
+U301,27,Male,180,68.7,21.2,1682.0,2607.0,Moderate,2.7,2750,10480,117,471,117,4,8.2,weight_gain,High,Calorie Surplus
+U302,45,Female,162,79.8,30.41,1424.0,1709.0,Sedentary,1.8,1500,3180,27,122,27,1,6.4,weight_loss,Low,Calorie Deficit
+U303,34,Male,184,81.5,24.07,1800.0,3105.0,Active,3.2,3000,13260,163,667,163,5,7.8,fitness_improvement,High,Balanced
+U304,23,Female,168,56.9,20.16,1343.0,2082.0,Moderate,2.5,2150,8510,98,375,98,4,8.4,healthy_lifestyle,Moderate,Balanced
+U305,52,Male,176,94.6,30.54,1791.0,2149.0,Sedentary,1.9,1780,3370,29,132,29,1,6.3,weight_loss,Low,Calorie Deficit
+U306,31,Female,171,66.1,22.61,1414.0,2192.0,Moderate,2.7,2280,9420,110,426,110,4,7.9,fitness_improvement,High,Balanced
+U307,25,Male,186,71.8,20.75,1760.0,2728.0,Moderate,2.8,2810,10840,123,495,123,4,8.3,weight_gain,High,Calorie Surplus
+U308,48,Female,158,82.4,33.01,1410.0,1692.0,Sedentary,1.8,1480,3010,25,115,25,1,6.4,weight_loss,Low,Calorie Deficit
+U309,40,Male,181,85.7,26.16,1793.0,3093.0,Active,3.2,3040,13620,166,682,166,5,7.7,fitness_improvement,High,Balanced
+U310,36,Female,174,65.1,21.5,1398.0,2167.0,Moderate,2.6,2200,8960,105,401,105,4,8.1,healthy_lifestyle,High,Balanced
+U311,20,Male,171,59.2,20.25,1566.0,2975.0,Very Active,3.5,3180,14920,187,802,187,6,8.6,weight_gain,High,Calorie Surplus
+U312,56,Female,163,85.7,32.26,1435.0,1722.0,Sedentary,1.8,1510,3250,27,124,27,1,6.2,weight_loss,Low,Calorie Deficit
+U313,32,Male,178,77.8,24.55,1736.0,2995.0,Active,3.1,2930,12840,156,634,156,5,7.8,fitness_improvement,High,Balanced
+U314,29,Female,160,61.2,23.91,1306.0,2024.0,Moderate,2.5,2170,8670,101,388,101,4,8.0,healthy_lifestyle,Moderate,Balanced
+U315,43,Male,182,89.1,26.9,1818.0,2182.0,Sedentary,2.0,1800,3510,30,141,30,1,6.6,weight_loss,Low,Calorie Deficit
+U316,37,Female,169,70.8,24.79,1418.0,2198.0,Moderate,2.8,2360,9810,115,439,115,4,7.8,fitness_improvement,High,Balanced
+U317,24,Male,174,64.8,21.4,1620.0,2511.0,Moderate,2.6,2710,10290,118,462,118,4,8.4,weight_gain,High,Calorie Surplus
+U318,50,Female,166,81.2,29.47,1438.0,1726.0,Sedentary,1.8,1500,3090,26,120,26,1,6.3,weight_loss,Low,Calorie Deficit
+U319,41,Male,188,92.8,26.26,1903.0,3283.0,Active,3.4,3190,14180,174,715,174,5,7.6,fitness_improvement,High,Balanced
+U320,27,Female,173,62.1,20.75,1406.0,2179.0,Moderate,2.6,2160,9050,106,405,106,4,8.2,healthy_lifestyle,High,Balanced
+U321,19,Male,176,57.3,18.5,1583.0,3008.0,Very Active,3.5,3210,15180,191,815,191,6,8.7,weight_gain,High,Calorie Surplus
+U322,58,Female,161,80.3,30.98,1358.0,1630.0,Sedentary,1.7,1460,2940,24,111,24,1,6.1,weight_loss,Low,Calorie Deficit
+U323,35,Male,180,82.4,25.43,1779.0,3069.0,Active,3.2,3010,13020,160,646,160,5,7.9,fitness_improvement,High,Balanced
+U324,24,Female,165,59.3,21.78,1343.0,2082.0,Moderate,2.5,2140,8560,99,378,99,4,8.3,healthy_lifestyle,Moderate,Balanced
+U325,49,Male,173,88.1,29.44,1722.0,2066.0,Sedentary,1.9,1750,3440,29,137,29,1,6.4,weight_loss,Low,Calorie Deficit
+U326,33,Female,178,73.4,23.17,1520.0,2622.0,Active,3.0,2460,11640,140,557,140,5,8.0,fitness_improvement,High,Balanced
+U327,26,Male,181,69.1,21.09,1697.0,2630.0,Moderate,2.7,2780,10570,120,482,120,4,8.2,weight_gain,High,Calorie Surplus
+U328,46,Female,159,77.1,30.5,1374.0,2130.0,Moderate,2.4,1790,7420,81,328,81,3,6.9,weight_loss,Moderate,Calorie Deficit
+U329,39,Male,184,87.2,25.76,1832.0,3160.0,Active,3.3,3110,13940,170,693,170,5,7.7,fitness_improvement,High,Balanced
+U330,30,Female,167,64.1,22.98,1374.0,2130.0,Moderate,2.6,2120,8840,102,392,102,4,8.1,healthy_lifestyle,High,Balanced
+U331,22,Male,178,63.7,20.1,1644.0,2548.0,Moderate,2.7,2690,10320,116,457,116,4,8.5,weight_gain,High,Calorie Surplus
+U332,53,Female,170,84.5,29.24,1482.0,1778.0,Sedentary,1.8,1500,3170,27,126,27,1,6.3,weight_loss,Low,Calorie Deficit
+U333,38,Male,176,81.4,26.28,1729.0,2983.0,Active,3.1,2960,12760,154,624,154,5,7.8,fitness_improvement,High,Balanced
+U334,28,Female,162,60.2,22.94,1314.0,2037.0,Moderate,2.5,2140,8620,100,379,100,4,8.0,healthy_lifestyle,Moderate,Balanced
+U335,47,Male,180,91.6,28.27,1811.0,2173.0,Sedentary,1.9,1790,3350,29,135,29,1,6.5,weight_loss,Low,Calorie Deficit
+U336,35,Female,170,68.4,23.67,1410.0,2186.0,Moderate,2.8,2330,9720,114,436,114,4,7.9,fitness_improvement,High,Balanced
+U337,21,Male,173,60.9,20.35,1590.0,3021.0,Very Active,3.5,3220,15340,193,825,193,6,8.6,weight_gain,High,Calorie Surplus
+U338,42,Female,164,75.6,28.11,1410.0,2186.0,Moderate,2.4,1790,7310,80,326,80,3,7.0,weight_loss,Moderate,Calorie Deficit
+U339,31,Male,185,84.8,24.78,1854.0,3198.0,Active,3.3,3140,13780,168,684,168,5,7.7,fitness_improvement,High,Balanced
+U340,39,Female,171,67.2,22.98,1385.0,2147.0,Moderate,2.7,2220,9210,108,413,108,4,8.2,healthy_lifestyle,High,Balanced
+U341,24,Male,180,66.1,20.4,1671.0,2590.0,Moderate,2.7,2760,10620,119,471,119,4,8.4,weight_gain,High,Calorie Surplus
+U342,55,Female,157,78.4,31.81,1329.0,1595.0,Sedentary,1.7,1450,2880,24,110,24,1,6.2,weight_loss,Low,Calorie Deficit
+U343,36,Male,182,80.6,24.33,1768.0,3050.0,Active,3.1,3000,12940,158,642,158,5,7.8,fitness_improvement,High,Balanced
+U344,27,Female,169,63.7,22.3,1397.0,2165.0,Moderate,2.6,2140,8770,103,391,103,4,8.1,healthy_lifestyle,Moderate,Balanced
+U345,51,Male,174,89.5,29.56,1732.0,2078.0,Sedentary,1.9,1760,3460,30,140,30,1,6.4,weight_loss,Low,Calorie Deficit
+U346,32,Female,176,70.1,22.63,1480.0,2553.0,Active,3.0,2420,11490,139,550,139,5,8.0,fitness_improvement,High,Balanced
+U347,20,Male,168,58.4,20.69,1539.0,2924.0,Very Active,3.4,3160,14680,184,787,184,6,8.8,weight_gain,High,Calorie Surplus
+U348,44,Female,160,76.8,30.0,1387.0,2150.0,Moderate,2.4,1780,7190,78,317,78,3,6.9,weight_loss,Moderate,Calorie Deficit
+U349,40,Male,187,90.7,25.94,1881.0,3245.0,Active,3.4,3190,14220,175,718,175,5,7.6,fitness_improvement,High,Balanced
+U350,29,Female,172,62.9,21.26,1398.0,2167.0,Moderate,2.6,2210,9040,105,404,105,4,8.3,healthy_lifestyle,High,Balanced
+U351,23,Male,175,65.2,21.29,1636.0,2536.0,Moderate,2.7,2690,10280,116,456,116,4,8.5,weight_gain,High,Calorie Surplus
+U352,48,Female,163,80.9,30.45,1427.0,1712.0,Sedentary,1.8,1500,3130,26,122,26,1,6.3,weight_loss,Low,Calorie Deficit
+U353,37,Male,179,83.6,26.09,1775.0,3062.0,Active,3.2,3000,13180,161,651,161,5,7.8,fitness_improvement,High,Balanced
+U354,26,Female,166,57.8,20.98,1324.0,2052.0,Moderate,2.5,2140,8430,97,371,97,4,8.2,healthy_lifestyle,Moderate,Balanced
+U355,57,Male,171,84.9,29.03,1638.0,1966.0,Sedentary,1.8,1690,3250,28,130,28,1,6.2,weight_loss,Low,Calorie Deficit
+U356,34,Female,174,69.2,22.86,1448.0,2498.0,Active,3.0,2410,11380,137,541,137,5,7.9,fitness_improvement,High,Balanced
+U357,22,Male,183,67.5,20.16,1714.0,2657.0,Moderate,2.7,2760,10460,119,471,119,4,8.4,weight_gain,High,Calorie Surplus
+U358,43,Female,161,73.8,28.47,1368.0,2120.0,Moderate,2.4,1750,7050,75,304,75,3,7.0,weight_loss,Moderate,Calorie Deficit
+U359,30,Male,181,79.6,24.3,1782.0,3386.0,Very Active,3.4,3130,15120,187,796,187,6,8.0,fitness_improvement,High,Balanced
+U360,41,Female,169,66.5,23.28,1355.0,2100.0,Moderate,2.6,2150,8910,103,397,103,4,8.1,healthy_lifestyle,High,Balanced
+U361,25,Male,177,64.8,20.68,1634.0,2533.0,Moderate,2.7,2700,10190,114,449,114,4,8.6,weight_gain,High,Calorie Surplus
+U362,54,Female,168,82.6,29.27,1445.0,1734.0,Sedentary,1.8,1490,3050,26,120,26,1,6.3,weight_loss,Low,Calorie Deficit
+U363,39,Male,185,86.4,25.24,1830.0,3157.0,Active,3.3,3150,13860,169,696,169,5,7.7,fitness_improvement,High,Balanced
+U364,28,Female,159,58.7,23.22,1280.0,1984.0,Moderate,2.5,2110,8290,95,364,95,4,8.2,healthy_lifestyle,Moderate,Balanced
+U365,46,Male,178,88.3,27.87,1770.0,2124.0,Sedentary,1.9,1750,3480,30,139,30,1,6.5,weight_loss,Low,Calorie Deficit
+U366,33,Female,171,71.3,24.38,1456.0,2512.0,Active,3.0,2420,11570,140,558,140,5,7.9,fitness_improvement,High,Balanced
+U367,19,Male,170,56.7,19.62,1540.0,2926.0,Very Active,3.4,3180,14980,188,805,188,6,8.8,weight_gain,High,Calorie Surplus
+U368,50,Female,164,78.2,29.07,1396.0,2164.0,Moderate,2.4,1800,7380,80,326,80,3,6.8,weight_loss,Moderate,Calorie Deficit
+U369,42,Male,182,91.2,27.53,1844.0,3181.0,Active,3.3,3150,14080,171,705,171,5,7.6,fitness_improvement,High,Balanced
+U370,35,Female,173,65.9,22.02,1404.0,2176.0,Moderate,2.7,2210,9160,106,408,106,4,8.1,healthy_lifestyle,High,Balanced
+U371,21,Male,176,61.7,19.92,1617.0,2506.0,Moderate,2.6,2680,10080,113,447,113,4,8.5,weight_gain,High,Calorie Surplus
+U372,53,Female,160,81.7,31.91,1391.0,1669.0,Sedentary,1.8,1490,3160,27,126,27,1,6.2,weight_loss,Low,Calorie Deficit
+U373,37,Male,180,82.1,25.34,1766.0,3046.0,Active,3.2,3000,13080,160,644,160,5,7.8,fitness_improvement,High,Balanced
+U374,24,Female,167,60.6,21.73,1369.0,2122.0,Moderate,2.5,2150,8650,99,380,99,4,8.3,healthy_lifestyle,Moderate,Balanced
+U375,49,Male,174,90.3,29.83,1750.0,2100.0,Sedentary,1.9,1770,3380,29,136,29,1,6.4,weight_loss,Low,Calorie Deficit
+U376,31,Female,178,74.8,23.61,1544.0,2663.0,Active,3.1,2450,11760,142,565,142,5,8.0,fitness_improvement,High,Balanced
+U377,27,Male,181,70.4,21.49,1705.0,2643.0,Moderate,2.8,2790,10710,120,480,120,4,8.4,weight_gain,High,Calorie Surplus
+U378,45,Female,162,75.9,28.92,1386.0,2148.0,Moderate,2.4,1780,7140,77,316,77,3,6.9,weight_loss,Moderate,Calorie Deficit
+U379,38,Male,186,88.2,25.49,1860.0,3208.0,Active,3.4,3180,14360,176,720,176,5,7.7,fitness_improvement,High,Balanced
+U380,30,Female,170,63.2,21.87,1384.0,2145.0,Moderate,2.6,2200,9020,104,397,104,4,8.2,healthy_lifestyle,High,Balanced
+U381,23,Male,179,66.7,20.82,1676.0,2598.0,Moderate,2.7,2730,10340,117,462,117,4,8.6,weight_gain,High,Calorie Surplus
+U382,51,Female,165,84.1,30.89,1456.0,1747.0,Sedentary,1.8,1490,3090,26,122,26,1,6.3,weight_loss,Low,Calorie Deficit
+U383,36,Male,183,80.9,24.16,1778.0,3067.0,Active,3.1,3000,12890,158,639,158,5,7.8,fitness_improvement,High,Balanced
+U384,29,Female,157,56.8,23.04,1243.0,1927.0,Moderate,2.4,2100,8370,96,365,96,4,8.1,healthy_lifestyle,Moderate,Balanced
+U385,44,Male,177,87.6,27.96,1767.0,2120.0,Sedentary,1.9,1750,3460,29,136,29,1,6.5,weight_loss,Low,Calorie Deficit
+U386,32,Female,172,69.6,23.53,1450.0,2501.0,Active,3.0,2410,11420,138,546,138,5,7.9,fitness_improvement,High,Balanced
+U387,20,Male,175,58.9,19.23,1588.0,3017.0,Very Active,3.5,3200,15090,190,812,190,6,8.7,weight_gain,High,Calorie Surplus
+U388,47,Female,163,76.4,28.76,1387.0,2150.0,Moderate,2.4,1770,7260,79,319,79,3,6.8,weight_loss,Moderate,Calorie Deficit
+U389,40,Male,180,85.8,26.48,1788.0,3084.0,Active,3.3,3100,13740,168,682,168,5,7.6,fitness_improvement,High,Balanced
+U390,34,Female,168,64.7,22.92,1366.0,2117.0,Moderate,2.7,2220,9250,107,411,107,4,8.2,healthy_lifestyle,High,Balanced
+U391,26,Male,182,69.3,20.92,1706.0,2644.0,Moderate,2.8,2760,10590,120,477,120,4,8.5,weight_gain,High,Calorie Surplus
+U392,55,Female,159,80.4,31.8,1362.0,1634.0,Sedentary,1.7,1460,2920,24,112,24,1,6.1,weight_loss,Low,Calorie Deficit
+U393,43,Male,184,93.5,27.62,1875.0,3234.0,Active,3.4,3200,14420,177,728,177,5,7.5,fitness_improvement,High,Balanced
+U394,27,Female,171,61.5,21.03,1388.0,2151.0,Moderate,2.6,2180,8790,102,389,102,4,8.3,healthy_lifestyle,Moderate,Balanced
+U395,49,Male,172,86.9,29.37,1704.0,2045.0,Sedentary,1.9,1740,3330,28,133,28,1,6.4,weight_loss,Low,Calorie Deficit
+U396,35,Female,175,70.7,23.09,1465.0,2527.0,Active,3.0,2440,11680,141,559,141,5,7.9,fitness_improvement,High,Balanced
+U397,22,Male,177,64.1,20.46,1642.0,2545.0,Moderate,2.7,2700,10140,115,453,115,4,8.6,weight_gain,High,Calorie Surplus
+U398,52,Female,166,83.1,30.16,1448.0,1738.0,Sedentary,1.8,1490,3040,26,121,26,1,6.2,weight_loss,Low,Calorie Deficit
+U399,39,Male,181,82.8,25.27,1769.0,3052.0,Active,3.2,3020,13190,161,652,161,5,7.7,fitness_improvement,High,Balanced
+U400,30,Female,169,62.8,21.99,1373.0,2128.0,Moderate,2.6,2200,8970,104,398,104,4,8.2,maintenance,High,Balanced
+U401,28,Male,181,71.3,21.76,1709.0,2649.0,Moderate,2.8,2800,10720,121,485,121,4,8.2,weight_gain,High,Calorie Surplus
+U402,47,Female,163,80.6,30.34,1429.0,1715.0,Sedentary,1.8,1490,3190,27,124,27,1,6.4,weight_loss,Low,Calorie Deficit
+U403,35,Male,185,83.2,24.31,1818.0,3136.0,Active,3.2,3050,13580,166,678,166,5,7.8,fitness_improvement,High,Balanced
+U404,22,Female,169,57.1,19.99,1356.0,2102.0,Moderate,2.5,2140,8620,98,377,98,4,8.4,healthy_lifestyle,Moderate,Balanced
+U405,54,Male,177,95.1,30.36,1792.0,2150.0,Sedentary,1.9,1770,3420,29,132,29,1,6.3,weight_loss,Low,Calorie Deficit
+U406,31,Female,172,66.8,22.58,1427.0,2212.0,Moderate,2.7,2290,9540,112,431,112,4,7.9,fitness_improvement,High,Balanced
+U407,24,Male,187,72.4,20.7,1778.0,2756.0,Moderate,2.8,2850,10980,124,501,124,4,8.3,weight_gain,High,Calorie Surplus
+U408,49,Female,159,82.1,32.47,1409.0,1691.0,Sedentary,1.8,1480,3060,25,117,25,1,6.4,weight_loss,Low,Calorie Deficit
+U409,40,Male,182,86.1,25.99,1804.0,3112.0,Active,3.3,3070,13820,168,689,168,5,7.7,fitness_improvement,High,Balanced
+U410,36,Female,175,65.8,21.49,1411.0,2187.0,Moderate,2.7,2220,9080,106,407,106,4,8.1,healthy_lifestyle,High,Balanced
+U411,20,Male,172,59.8,20.21,1578.0,2998.0,Very Active,3.5,3210,15060,189,813,189,6,8.6,weight_gain,High,Calorie Surplus
+U412,57,Female,164,86.3,32.09,1442.0,1730.0,Sedentary,1.8,1510,3290,27,126,27,1,6.2,weight_loss,Low,Calorie Deficit
+U413,33,Male,179,78.4,24.47,1743.0,3007.0,Active,3.1,2960,12980,158,645,158,5,7.8,fitness_improvement,High,Balanced
+U414,29,Female,161,61.7,23.8,1317.0,2041.0,Moderate,2.5,2180,8730,101,391,101,4,8.0,healthy_lifestyle,Moderate,Balanced
+U415,44,Male,183,90.2,26.93,1831.0,2197.0,Sedentary,2.0,1800,3550,30,143,30,1,6.5,weight_loss,Low,Calorie Deficit
+U416,38,Female,170,71.4,24.71,1426.0,2210.0,Moderate,2.8,2390,9910,116,446,116,4,7.8,fitness_improvement,High,Balanced
+U417,25,Male,176,65.9,21.27,1639.0,2540.0,Moderate,2.7,2730,10380,118,466,118,4,8.4,weight_gain,High,Calorie Surplus
+U418,51,Female,167,81.6,29.26,1444.0,1733.0,Sedentary,1.8,1500,3140,26,122,26,1,6.3,weight_loss,Low,Calorie Deficit
+U419,42,Male,189,93.4,26.15,1910.0,3295.0,Active,3.4,3210,14380,176,722,176,5,7.6,fitness_improvement,High,Balanced
+U420,27,Female,174,63.4,20.94,1426.0,2210.0,Moderate,2.6,2230,9170,107,409,107,4,8.2,healthy_lifestyle,High,Balanced
+U421,19,Male,175,58.7,19.17,1591.0,3023.0,Very Active,3.5,3190,15240,191,820,191,6,8.7,weight_gain,High,Calorie Surplus
+U422,58,Female,162,81.4,31.02,1376.0,1651.0,Sedentary,1.7,1450,2950,24,113,24,1,6.1,weight_loss,Low,Calorie Deficit
+U423,36,Male,181,83.5,25.49,1791.0,3089.0,Active,3.2,3020,13140,160,654,160,5,7.9,fitness_improvement,High,Balanced
+U424,24,Female,166,59.8,21.7,1354.0,2099.0,Moderate,2.5,2160,8580,99,382,99,4,8.3,healthy_lifestyle,Moderate,Balanced
+U425,50,Male,174,89.7,29.63,1740.0,2088.0,Sedentary,1.9,1760,3490,29,139,29,1,6.4,weight_loss,Low,Calorie Deficit
+U426,34,Female,177,73.8,23.56,1513.0,2610.0,Active,3.0,2440,11720,141,562,141,5,8.0,fitness_improvement,High,Balanced
+U427,26,Male,182,69.8,21.07,1710.0,2650.0,Moderate,2.8,2780,10640,121,482,121,4,8.2,weight_gain,High,Calorie Surplus
+U428,46,Female,160,77.6,30.31,1385.0,2147.0,Moderate,2.4,1790,7510,82,331,82,3,6.9,weight_loss,Moderate,Calorie Deficit
+U429,39,Male,186,89.1,25.75,1864.0,3215.0,Active,3.3,3190,14160,173,711,173,5,7.7,fitness_improvement,High,Balanced
+U430,30,Female,168,64.5,22.85,1384.0,2145.0,Moderate,2.6,2190,9020,104,398,104,4,8.1,healthy_lifestyle,High,Balanced
+U431,23,Male,179,64.7,20.19,1656.0,2567.0,Moderate,2.7,2700,10410,117,463,117,4,8.5,weight_gain,High,Calorie Surplus
+U432,53,Female,165,84.9,31.18,1454.0,1745.0,Sedentary,1.8,1490,3220,27,126,27,1,6.2,weight_loss,Low,Calorie Deficit
+U433,37,Male,183,81.7,24.4,1781.0,3072.0,Active,3.2,3030,13280,162,661,162,5,7.8,fitness_improvement,High,Balanced
+U434,28,Female,170,62.3,21.56,1384.0,2145.0,Moderate,2.6,2170,8790,102,392,102,4,8.2,healthy_lifestyle,Moderate,Balanced
+U435,48,Male,176,88.8,28.67,1753.0,2104.0,Sedentary,1.9,1750,3380,29,137,29,1,6.4,weight_loss,Low,Calorie Deficit
+U436,32,Female,173,70.4,23.52,1464.0,2525.0,Active,3.0,2410,11480,138,549,138,5,7.9,fitness_improvement,High,Balanced
+U437,21,Male,169,57.9,20.27,1535.0,2916.0,Very Active,3.4,3150,14760,184,793,184,6,8.8,weight_gain,High,Calorie Surplus
+U438,43,Female,161,74.8,28.86,1378.0,2136.0,Moderate,2.4,1760,7230,78,321,78,3,6.9,weight_loss,Moderate,Calorie Deficit
+U439,41,Male,180,87.5,27.01,1800.0,3105.0,Active,3.3,3070,13980,171,701,171,5,7.6,fitness_improvement,High,Balanced
+U440,35,Female,169,66.2,23.18,1382.0,2142.0,Moderate,2.7,2190,9340,108,414,108,4,8.2,healthy_lifestyle,High,Balanced
+U441,22,Male,177,63.8,20.36,1639.0,2540.0,Moderate,2.6,2700,10260,116,458,116,4,8.5,weight_gain,High,Calorie Surplus
+U442,55,Female,158,79.7,31.93,1348.0,1618.0,Sedentary,1.7,1450,3010,25,115,25,1,6.2,weight_loss,Low,Calorie Deficit
+U443,38,Male,184,84.9,25.08,1814.0,3129.0,Active,3.3,3110,13690,167,682,167,5,7.8,fitness_improvement,High,Balanced
+U444,26,Female,167,58.9,21.12,1342.0,2080.0,Moderate,2.5,2170,8440,98,376,98,4,8.3,healthy_lifestyle,Moderate,Balanced
+U445,49,Male,172,87.2,29.48,1707.0,2048.0,Sedentary,1.9,1740,3320,28,132,28,1,6.4,weight_loss,Low,Calorie Deficit
+U446,33,Female,176,72.8,23.5,1502.0,2591.0,Active,3.0,2440,11620,140,558,140,5,7.9,fitness_improvement,High,Balanced
+U447,20,Male,173,60.1,20.08,1587.0,3015.0,Very Active,3.5,3200,15080,189,807,189,6,8.7,weight_gain,High,Calorie Surplus
+U448,45,Female,164,76.2,28.33,1401.0,2172.0,Moderate,2.4,1780,7350,79,324,79,3,6.8,weight_loss,Moderate,Calorie Deficit
+U449,40,Male,187,91.5,26.17,1889.0,3259.0,Active,3.4,3190,14410,176,718,176,5,7.6,fitness_improvement,High,Balanced
+U450,29,Female,171,63.8,21.82,1401.0,2172.0,Moderate,2.7,2220,9180,106,407,106,4,8.1,healthy_lifestyle,High,Balanced
+U451,24,Male,180,67.1,20.71,1681.0,2606.0,Moderate,2.7,2740,10520,119,471,119,4,8.4,weight_gain,High,Calorie Surplus
+U452,52,Female,166,82.8,30.05,1444.0,1733.0,Sedentary,1.8,1490,3120,26,120,26,1,6.3,weight_loss,Low,Calorie Deficit
+U453,36,Male,182,82.9,25.03,1792.0,3091.0,Active,3.2,3020,13090,159,648,159,5,7.8,fitness_improvement,High,Balanced
+U454,27,Female,159,57.4,22.7,1272.0,1972.0,Moderate,2.5,2100,8310,96,368,96,4,8.2,healthy_lifestyle,Moderate,Balanced
+U455,47,Male,175,90.4,29.52,1768.0,2122.0,Sedentary,1.9,1770,3430,29,137,29,1,6.4,weight_loss,Low,Calorie Deficit
+U456,34,Female,172,68.7,23.22,1431.0,2468.0,Active,3.0,2370,11380,137,544,137,5,7.9,fitness_improvement,High,Balanced
+U457,19,Male,178,58.2,18.37,1604.0,3048.0,Very Active,3.5,3210,15320,192,819,192,6,8.8,weight_gain,High,Calorie Surplus
+U458,42,Female,163,75.1,28.27,1399.0,2168.0,Moderate,2.4,1770,7140,77,318,77,3,6.9,weight_loss,Moderate,Calorie Deficit
+U459,39,Male,185,86.7,25.33,1833.0,3162.0,Active,3.3,3160,14060,172,705,172,5,7.7,fitness_improvement,High,Balanced
+U460,31,Female,169,65.3,22.86,1393.0,2159.0,Moderate,2.6,2190,8920,104,396,104,4,8.1,healthy_lifestyle,High,Balanced
+U461,25,Male,176,66.4,21.44,1644.0,2548.0,Moderate,2.7,2720,10370,117,461,117,4,8.5,weight_gain,High,Calorie Surplus
+U462,56,Female,160,83.5,32.62,1394.0,1673.0,Sedentary,1.8,1480,2990,25,116,25,1,6.2,weight_loss,Low,Calorie Deficit
+U463,43,Male,181,89.3,27.26,1814.0,3129.0,Active,3.4,3140,14280,175,714,175,5,7.6,fitness_improvement,High,Balanced
+U464,29,Female,174,62.7,20.71,1408.0,2182.0,Moderate,2.6,2180,8760,101,389,101,4,8.3,healthy_lifestyle,Moderate,Balanced
+U465,51,Male,173,91.7,30.64,1748.0,2098.0,Sedentary,1.9,1750,3360,29,136,29,1,6.3,weight_loss,Low,Calorie Deficit
+U466,37,Female,178,74.2,23.42,1508.0,2601.0,Active,3.1,2430,11740,142,564,142,5,7.9,fitness_improvement,High,Balanced
+U467,23,Male,171,61.2,20.93,1571.0,2985.0,Very Active,3.5,3230,14980,188,804,188,6,8.7,weight_gain,High,Calorie Surplus
+U468,48,Female,165,77.3,28.39,1403.0,2175.0,Moderate,2.4,1800,7410,80,327,80,3,6.8,weight_loss,Moderate,Calorie Deficit
+U469,40,Male,183,88.4,26.4,1833.0,3162.0,Active,3.3,3130,13920,170,691,170,5,7.7,fitness_improvement,High,Balanced
+U470,33,Female,167,63.1,22.63,1349.0,2091.0,Moderate,2.6,2170,9070,105,401,105,4,8.2,healthy_lifestyle,High,Balanced
+U471,21,Male,179,62.6,19.54,1645.0,2550.0,Moderate,2.7,2690,10190,115,453,115,4,8.6,weight_gain,High,Calorie Surplus
+U472,54,Female,162,85.6,32.62,1438.0,1726.0,Sedentary,1.8,1490,3080,26,123,26,1,6.2,weight_loss,Low,Calorie Deficit
+U473,35,Male,180,80.8,24.94,1763.0,3041.0,Active,3.2,3000,12980,158,639,158,5,7.9,fitness_improvement,High,Balanced
+U474,28,Female,170,61.8,21.38,1380.0,2139.0,Moderate,2.5,2150,8490,98,378,98,4,8.3,healthy_lifestyle,Moderate,Balanced
+U475,46,Male,177,86.5,27.61,1746.0,2095.0,Sedentary,1.9,1740,3410,29,135,29,1,6.4,weight_loss,Low,Calorie Deficit
+U476,32,Female,173,70.8,23.66,1468.0,2532.0,Active,3.0,2410,11590,139,552,139,5,7.9,fitness_improvement,High,Balanced
+U477,18,Male,174,55.9,18.46,1562.0,2968.0,Very Active,3.4,3150,14720,183,783,183,6,8.8,weight_gain,High,Calorie Surplus
+U478,44,Female,160,73.5,28.71,1354.0,2099.0,Moderate,2.4,1760,7040,76,309,76,3,6.9,weight_loss,Moderate,Calorie Deficit
+U479,41,Male,186,92.6,26.77,1888.0,3257.0,Active,3.4,3220,14580,178,729,178,5,7.6,fitness_improvement,High,Balanced
+U480,30,Female,168,65.7,23.28,1396.0,2164.0,Moderate,2.7,2200,9230,106,407,106,4,8.2,healthy_lifestyle,High,Balanced
+U481,26,Male,181,68.5,20.91,1691.0,2621.0,Moderate,2.8,2770,10680,120,477,120,4,8.5,weight_gain,High,Calorie Surplus
+U482,50,Female,164,81.8,30.41,1432.0,1718.0,Sedentary,1.8,1490,3100,26,122,26,1,6.2,weight_loss,Low,Calorie Deficit
+U483,38,Male,184,85.2,25.17,1817.0,3134.0,Active,3.3,3110,13760,168,687,168,5,7.7,fitness_improvement,High,Balanced
+U484,23,Female,166,58.3,21.16,1344.0,2083.0,Moderate,2.5,2130,8380,97,373,97,4,8.4,healthy_lifestyle,Moderate,Balanced
+U485,53,Male,172,83.8,28.33,1653.0,1984.0,Sedentary,1.8,1680,3270,28,131,28,1,6.3,weight_loss,Low,Calorie Deficit
+U486,36,Female,175,71.9,23.48,1472.0,2539.0,Active,3.0,2430,11690,141,560,141,5,7.8,fitness_improvement,High,Balanced
+U487,20,Male,177,60.8,19.41,1619.0,3076.0,Very Active,3.5,3180,15140,190,808,190,6,8.7,weight_gain,High,Calorie Surplus
+U488,47,Female,159,78.6,31.09,1384.0,2145.0,Moderate,2.4,1780,7280,79,322,79,3,6.8,weight_loss,Moderate,Calorie Deficit
+U489,42,Male,182,90.1,27.2,1834.0,3164.0,Active,3.4,3160,14130,172,703,172,5,7.6,fitness_improvement,High,Balanced
+U490,34,Female,171,64.9,22.19,1387.0,2150.0,Moderate,2.6,2200,9140,104,398,104,4,8.2,healthy_lifestyle,High,Balanced
+U491,24,Male,180,67.8,20.93,1688.0,2616.0,Moderate,2.7,2740,10490,118,467,118,4,8.5,weight_gain,High,Calorie Surplus
+U492,55,Female,163,82.7,31.13,1410.0,1692.0,Sedentary,1.8,1490,3030,25,119,25,1,6.2,weight_loss,Low,Calorie Deficit
+U493,39,Male,185,87.9,25.68,1845.0,3183.0,Active,3.3,3180,14310,175,712,175,5,7.7,fitness_improvement,High,Balanced
+U494,27,Female,169,62.1,21.74,1381.0,2141.0,Moderate,2.6,2190,8810,102,390,102,4,8.3,healthy_lifestyle,Moderate,Balanced
+U495,49,Male,174,92.4,30.52,1772.0,2126.0,Sedentary,1.9,1750,3340,28,134,28,1,6.4,weight_loss,Low,Calorie Deficit
+U496,33,Female,176,69.8,22.53,1472.0,2539.0,Active,3.0,2410,11520,139,548,139,5,7.9,fitness_improvement,High,Balanced
+U497,22,Male,173,63.5,21.22,1611.0,2497.0,Moderate,2.7,2700,10270,116,458,116,4,8.6,weight_gain,High,Calorie Surplus
+U498,52,Female,167,84.7,30.37,1470.0,1764.0,Sedentary,1.8,1490,3150,27,127,27,1,6.3,weight_loss,Low,Calorie Deficit
+U499,40,Male,181,84.6,25.82,1782.0,3074.0,Active,3.2,3070,13460,164,671,164,5,7.7,fitness_improvement,High,Balanced
+U500,31,Female,170,63.6,22.01,1382.0,2142.0,Moderate,2.6,2210,8990,104,401,104,4,8.2,maintenance,High,Balanced
+U501,49,Male,184,82.7,24.43,1737.0,2692.0,Moderate,3.1,2721,7530,89,410,89,2,6.7,fitness_improvement,Moderate,Balanced
+U502,34,Female,167,67.2,24.1,1385.0,2147.0,Moderate,2.8,1832,8820,118,501,118,4,7.1,weight_loss,High,Calorie Deficit
+U503,25,Female,167,63.9,22.91,1397.0,2165.0,Moderate,2.7,1804,8911,116,544,116,3,7.7,weight_loss,Moderate,Calorie Deficit
+U504,31,Male,181,74.3,22.68,1724.0,2672.0,Moderate,3.1,2887,10690,135,612,135,2,7.2,weight_gain,Moderate,Calorie Surplus
+U505,50,Female,163,63.1,23.75,1239.0,1920.0,Moderate,2.8,1950,10609,140,521,140,2,7.3,healthy_lifestyle,Moderate,Balanced
+U506,41,Female,163,64.4,24.24,1297.0,2010.0,Moderate,2.6,1734,8133,96,429,96,3,7.3,weight_loss,Moderate,Calorie Deficit
+U507,45,Male,182,79.8,24.09,1716.0,2660.0,Moderate,3.0,2643,7313,85,380,85,4,7.4,fitness_improvement,High,Balanced
+U508,56,Male,177,78.7,25.12,1618.0,2508.0,Moderate,2.8,2565,7472,88,391,88,2,7.3,weight_gain,Moderate,Calorie Surplus
+U509,28,Male,182,59.9,18.08,1602.0,3044.0,Very Active,3.3,2962,15377,172,765,172,7,7.9,fitness_improvement,High,Balanced
+U510,36,Female,166,61.2,22.21,1308.0,2256.0,Active,2.7,2331,11546,146,696,146,5,7.7,healthy_lifestyle,High,Balanced
+U511,23,Female,161,68.9,26.58,1419.0,1703.0,Sedentary,2.6,1706,2736,31,122,31,1,6.3,healthy_lifestyle,Low,Balanced
+U512,21,Male,180,62.5,19.29,1650.0,2558.0,Moderate,3.0,2787,9767,118,502,118,3,7.1,weight_gain,Moderate,Calorie Surplus
+U513,40,Female,162,64.9,24.73,1300.0,2015.0,Moderate,2.8,1684,12021,140,556,140,2,7.5,weight_loss,Moderate,Calorie Deficit
+U514,33,Female,160,49.7,19.41,1171.0,2020.0,Active,2.7,1926,13731,176,729,176,4,8.0,fitness_improvement,High,Balanced
+U515,24,Male,177,63.1,20.14,1622.0,2798.0,Active,3.1,2849,11369,146,705,146,5,7.8,fitness_improvement,High,Balanced
+U518,23,Female,162,72.4,27.59,1460.0,1752.0,Sedentary,2.7,1811,3158,38,160,38,1,6.5,fitness_improvement,Low,Balanced
+U519,43,Male,179,91.8,28.65,1827.0,2192.0,Sedentary,2.8,1973,3447,42,185,42,1,7.4,weight_loss,Low,Calorie Deficit
+U520,52,Male,177,71.3,22.76,1564.0,2698.0,Active,3.1,2283,13443,153,770,153,4,7.3,weight_loss,High,Calorie Deficit
+U521,52,Male,176,96.6,31.19,1811.0,2173.0,Sedentary,2.8,1838,4173,54,225,54,1,6.7,weight_loss,Low,Calorie Deficit
+U522,36,Female,166,79.5,28.85,1492.0,1790.0,Sedentary,2.6,1491,3208,40,172,40,1,6.4,weight_loss,Low,Calorie Deficit
+U524,52,Female,162,58.1,22.14,1172.0,2022.0,Active,2.7,2013,12051,152,731,152,5,7.8,fitness_improvement,High,Balanced
+U526,56,Female,172,71.8,24.27,1352.0,2332.0,Active,3.0,2471,12037,151,613,151,4,7.9,weight_gain,High,Calorie Surplus
+U527,42,Female,172,66.1,22.34,1365.0,2355.0,Active,2.8,2230,10377,121,499,121,5,8.0,weight_loss,High,Calorie Deficit
+U528,50,Male,178,71.4,22.54,1582.0,2729.0,Active,3.3,2801,12204,132,581,132,5,7.3,fitness_improvement,High,Balanced
+U529,39,Female,169,73.8,25.84,1438.0,2229.0,Moderate,2.9,2280,11213,147,686,147,3,6.9,fitness_improvement,Moderate,Balanced
+U530,49,Female,164,65.6,24.39,1275.0,1976.0,Moderate,2.6,2231,8984,122,493,122,4,7.4,weight_gain,High,Calorie Surplus
+U531,43,Female,170,65.8,22.77,1344.0,2083.0,Moderate,2.8,2211,7494,103,427,103,3,7.8,fitness_improvement,Moderate,Balanced
+U532,36,Male,168,61.3,21.72,1488.0,2567.0,Active,3.1,2356,10264,111,479,111,5,7.4,weight_loss,High,Calorie Deficit
+U533,19,Male,179,57.6,17.98,1605.0,3050.0,Very Active,3.3,3084,14157,179,820,179,5,8.4,healthy_lifestyle,High,Balanced
+U534,44,Male,183,96.9,28.93,1898.0,2278.0,Sedentary,2.6,1946,2791,36,151,36,1,6.0,weight_loss,Low,Calorie Deficit
+U535,46,Female,160,52.3,20.43,1132.0,1953.0,Active,2.6,1781,12885,152,635,152,4,8.2,weight_loss,High,Calorie Deficit
+U536,48,Female,168,76.8,27.21,1417.0,1700.0,Sedentary,2.5,1788,2993,35,143,35,1,6.6,healthy_lifestyle,Low,Balanced
+U537,28,Female,173,59.9,20.01,1379.0,2137.0,Moderate,2.8,1929,12161,156,664,156,3,7.4,weight_loss,Moderate,Calorie Deficit
+U538,37,Female,166,71.7,26.02,1408.0,1690.0,Sedentary,2.5,1255,3358,40,150,40,1,6.9,weight_loss,Low,Calorie Deficit
+U539,30,Female,177,78.1,24.93,1576.0,1891.0,Sedentary,2.6,2078,3736,47,212,47,1,6.9,weight_gain,Low,Calorie Surplus
+U540,40,Male,194,90.0,23.91,1918.0,2973.0,Moderate,3.3,2953,9670,120,484,120,2,7.6,healthy_lifestyle,Moderate,Balanced
+U541,33,Male,185,91.1,26.62,1907.0,2288.0,Sedentary,2.9,1867,3202,36,151,36,1,6.7,weight_loss,Low,Calorie Deficit
+U542,46,Male,174,65.9,21.77,1522.0,2359.0,Moderate,3.1,1924,11200,135,602,135,4,6.9,weight_loss,High,Calorie Deficit
+U543,33,Female,170,64.0,22.15,1376.0,2133.0,Moderate,2.9,1807,12438,146,583,146,4,7.6,weight_loss,High,Calorie Deficit
+U544,38,Female,166,65.7,23.84,1344.0,2083.0,Moderate,2.6,1836,11970,154,579,154,3,7.6,weight_loss,Moderate,Calorie Deficit
+U545,38,Male,173,70.4,23.52,1600.0,2480.0,Moderate,3.0,2744,10620,131,572,131,4,6.8,weight_gain,High,Calorie Surplus
+U546,54,Male,180,66.0,20.37,1520.0,2622.0,Active,3.0,2799,13371,155,619,155,4,8.4,weight_gain,High,Calorie Surplus
+U547,55,Female,170,68.2,23.6,1308.0,2027.0,Moderate,2.8,1654,8552,98,419,98,3,7.8,weight_loss,Moderate,Calorie Deficit
+U548,39,Male,185,64.4,18.82,1610.0,3059.0,Very Active,3.1,3069,16649,195,886,195,6,8.1,healthy_lifestyle,High,Calorie Surplus
+U549,36,Female,175,72.8,23.77,1481.0,2296.0,Moderate,2.8,2420,7033,86,354,86,4,7.0,healthy_lifestyle,High,Balanced
+U550,31,Female,173,64.5,21.55,1410.0,2186.0,Moderate,2.9,2143,7010,79,354,79,4,7.2,fitness_improvement,High,Balanced
+U551,45,Female,160,65.5,25.59,1269.0,1967.0,Moderate,2.6,1948,10344,126,543,126,4,7.0,fitness_improvement,High,Balanced
+U552,39,Female,173,63.3,21.15,1358.0,2105.0,Moderate,3.1,2171,8503,94,394,94,2,7.1,fitness_improvement,Moderate,Balanced
+U554,48,Female,176,79.7,25.73,1496.0,2319.0,Moderate,2.9,2385,6900,82,358,82,3,7.4,fitness_improvement,Moderate,Calorie Surplus
+U555,35,Male,173,53.6,17.91,1447.0,2749.0,Very Active,2.9,2694,17145,208,711,208,5,8.1,fitness_improvement,High,Balanced
+U557,51,Male,175,70.6,23.05,1550.0,2674.0,Active,3.0,2605,11953,147,680,147,5,8.0,fitness_improvement,High,Balanced
+U559,30,Female,165,53.2,19.54,1252.0,1941.0,Moderate,2.6,2068,9590,109,494,109,3,7.8,weight_gain,Moderate,Calorie Surplus
+U560,39,Female,156,61.4,25.23,1233.0,1911.0,Moderate,2.7,1647,7076,83,370,83,2,7.1,weight_loss,Moderate,Calorie Deficit
+U561,19,Female,166,71.4,25.91,1496.0,1795.0,Sedentary,2.3,1607,3086,41,162,41,1,6.8,fitness_improvement,Low,Calorie Deficit
+U562,18,Male,181,59.0,18.01,1636.0,2822.0,Active,3.2,2799,11708,164,806,164,4,7.6,healthy_lifestyle,High,Balanced
+U563,24,Male,185,65.8,19.23,1699.0,2931.0,Active,3.3,2926,11255,141,579,141,4,7.9,healthy_lifestyle,High,Balanced
+U564,47,Female,167,56.5,20.26,1213.0,2092.0,Active,2.6,1810,10526,132,508,132,4,8.2,weight_loss,High,Calorie Deficit
+U565,40,Male,179,72.3,22.56,1647.0,2553.0,Moderate,3.0,2252,7087,82,367,82,4,7.5,weight_loss,High,Calorie Deficit
+U566,52,Female,171,84.7,28.97,1495.0,1794.0,Sedentary,2.5,1862,3333,43,204,43,1,6.9,healthy_lifestyle,Low,Balanced
+U567,49,Male,179,60.6,18.91,1485.0,2822.0,Very Active,3.2,3059,13966,178,741,178,5,8.1,weight_gain,High,Calorie Surplus
+U568,32,Female,158,67.2,26.92,1338.0,1606.0,Sedentary,2.5,1359,3527,47,159,47,1,6.0,weight_loss,Low,Calorie Deficit
+U569,56,Female,160,78.6,30.7,1345.0,1614.0,Sedentary,2.7,1824,2737,38,164,38,1,6.3,fitness_improvement,Low,Calorie Surplus
+U570,56,Female,184,77.6,22.92,1485.0,2302.0,Moderate,2.9,2088,9465,125,539,125,4,7.8,weight_loss,High,Calorie Deficit
+U571,23,Female,153,57.7,24.65,1257.0,1508.0,Sedentary,2.4,1417,4109,49,225,49,1,6.8,healthy_lifestyle,Low,Balanced
+U572,39,Male,180,79.1,24.41,1726.0,2675.0,Moderate,2.9,2394,7430,93,393,93,2,7.1,weight_loss,Moderate,Calorie Deficit
+U573,49,Female,158,51.3,20.55,1094.0,2079.0,Very Active,2.7,2105,13978,157,630,157,7,7.9,fitness_improvement,High,Balanced
+U575,34,Male,178,64.8,20.45,1596.0,2753.0,Active,3.2,2613,10830,143,672,143,4,7.3,weight_loss,High,Calorie Deficit
+U577,32,Male,188,63.5,17.97,1655.0,3144.0,Very Active,3.3,3334,13717,180,787,180,5,8.3,weight_gain,High,Calorie Surplus
+U578,42,Female,163,51.3,19.31,1161.0,1800.0,Moderate,2.2,1962,9471,122,545,122,4,7.6,weight_gain,High,Calorie Surplus
+U579,56,Male,178,76.5,24.14,1602.0,2763.0,Active,3.1,2786,12483,156,598,156,4,7.8,healthy_lifestyle,High,Balanced
+U580,20,Female,163,55.1,20.74,1309.0,2029.0,Moderate,2.6,1813,10939,146,607,146,3,7.5,weight_loss,Moderate,Calorie Deficit
+U581,43,Female,169,67.0,23.46,1350.0,2092.0,Moderate,2.8,1719,11072,143,600,143,4,7.6,weight_loss,High,Calorie Deficit
+U582,30,Male,186,62.2,17.98,1640.0,3116.0,Very Active,3.4,3333,17137,225,963,225,6,8.2,weight_gain,High,Calorie Surplus
+U583,37,Male,182,96.1,29.01,1918.0,2302.0,Sedentary,2.8,1956,3016,37,138,37,1,6.5,weight_loss,Low,Calorie Deficit
+U584,55,Male,176,92.5,29.86,1755.0,2106.0,Sedentary,2.8,1665,3567,39,163,39,1,6.8,weight_loss,Low,Calorie Deficit
+U585,48,Female,172,67.8,22.92,1352.0,2096.0,Moderate,2.7,2373,11788,156,641,156,2,7.6,weight_gain,Moderate,Calorie Surplus
+U586,53,Female,169,66.7,23.35,1297.0,2010.0,Moderate,2.6,1957,12066,142,632,142,2,7.5,maintenance,Moderate,Balanced
+U587,27,Female,174,64.7,21.37,1438.0,2229.0,Moderate,2.9,2513,9136,124,514,124,4,7.6,weight_gain,High,Calorie Surplus
+U588,24,Female,168,70.3,24.91,1472.0,1766.0,Sedentary,2.4,1974,3324,38,151,38,1,7.0,weight_gain,Low,Calorie Surplus
+U589,35,Male,187,75.4,21.56,1753.0,2717.0,Moderate,3.1,2810,11843,144,550,144,4,7.6,fitness_improvement,High,Balanced
+U590,24,Female,170,57.2,19.79,1354.0,2099.0,Moderate,2.9,2205,10948,145,685,145,3,7.6,maintenance,Moderate,Balanced
+U591,35,Male,171,75.0,25.65,1649.0,1979.0,Sedentary,2.8,1912,3214,44,185,44,1,6.8,healthy_lifestyle,Low,Balanced
+U592,54,Male,185,104.5,30.53,1936.0,2323.0,Sedentary,2.9,2281,2700,32,135,32,1,6.5,fitness_improvement,Low,Balanced
+U593,44,Male,177,69.8,22.28,1589.0,2741.0,Active,3.1,2444,10189,126,598,126,5,7.0,weight_loss,High,Calorie Deficit
+U594,26,Male,164,55.3,20.56,1453.0,2506.0,Active,3.1,2779,10161,124,577,124,5,7.0,weight_gain,High,Calorie Surplus
+U595,34,Male,175,54.9,17.93,1478.0,2808.0,Very Active,3.3,2503,17004,194,755,194,6,8.4,weight_loss,High,Calorie Deficit
+U596,28,Female,180,60.7,18.73,1431.0,2218.0,Moderate,2.7,2184,9571,119,471,119,4,8.2,maintenance,High,Balanced
+U597,51,Male,180,71.8,22.16,1593.0,2469.0,Moderate,2.9,2739,7176,90,344,90,3,7.7,weight_gain,Moderate,Calorie Surplus
+U598,49,Female,171,67.3,23.02,1336.0,2305.0,Active,3.1,2520,10621,125,601,125,4,7.6,weight_gain,High,Calorie Surplus
+U599,26,Male,177,66.1,21.1,1642.0,2545.0,Moderate,2.9,2218,8837,112,516,112,3,7.2,weight_loss,Moderate,Calorie Deficit
+U600,19,Male,167,72.8,26.1,1682.0,2018.0,Sedentary,2.7,1721,4011,51,233,51,1,6.0,weight_loss,Low,Calorie Deficit
+U601,26,Female,168,56.1,19.88,1320.0,2046.0,Moderate,2.6,2049,9613,104,450,104,3,7.7,fitness_improvement,Moderate,Balanced
+U602,41,Female,169,81.0,28.36,1500.0,1800.0,Sedentary,2.7,1933,3353,45,195,45,1,7.1,weight_gain,Low,Calorie Surplus
+U603,56,Female,171,64.3,21.99,1271.0,1970.0,Moderate,2.6,2146,8628,113,484,113,3,8.1,weight_gain,Moderate,Calorie Surplus
+U604,38,Male,175,68.8,22.47,1597.0,2475.0,Moderate,3.0,2273,10205,132,637,132,4,7.5,weight_loss,High,Calorie Deficit
+U605,34,Female,165,61.3,22.52,1313.0,2265.0,Active,2.8,2277,12922,140,505,140,4,7.5,maintenance,High,Balanced
+U606,41,Male,190,79.7,22.08,1784.0,2765.0,Moderate,3.1,2636,9630,122,560,122,4,7.8,fitness_improvement,High,Calorie Deficit
+U608,23,Male,180,66.0,20.37,1675.0,2889.0,Active,3.3,2856,11747,157,634,157,4,7.9,fitness_improvement,High,Balanced
+U609,33,Male,184,66.8,19.73,1658.0,2570.0,Moderate,3.1,2315,8761,102,469,102,2,7.6,weight_loss,Moderate,Calorie Deficit
+U610,35,Male,194,101.6,27.0,2058.0,2470.0,Sedentary,3.0,2543,3555,42,214,42,1,6.5,healthy_lifestyle,Low,Balanced
+U611,26,Female,163,50.7,19.08,1235.0,1914.0,Moderate,2.9,1919,7687,94,388,94,4,7.7,fitness_improvement,High,Balanced
+U612,34,Female,155,49.2,20.48,1130.0,1752.0,Moderate,2.4,1548,7337,99,458,99,3,7.8,weight_loss,Moderate,Calorie Deficit
+U613,43,Female,167,51.2,18.36,1180.0,2242.0,Very Active,3.0,1964,16348,169,708,169,7,8.4,weight_loss,High,Calorie Deficit
+U614,32,Male,171,59.9,20.48,1513.0,2345.0,Moderate,3.0,2085,7000,90,329,90,2,7.6,weight_loss,Moderate,Calorie Deficit
+U615,33,Female,172,59.5,20.11,1344.0,2318.0,Active,2.8,2316,12187,155,701,155,5,7.6,fitness_improvement,High,Balanced
+U616,26,Female,156,47.0,19.31,1154.0,1991.0,Active,2.9,1970,11638,154,664,154,4,8.1,healthy_lifestyle,High,Balanced
+U617,35,Female,160,56.5,22.07,1229.0,1905.0,Moderate,2.7,1857,12139,143,572,143,2,7.8,healthy_lifestyle,Moderate,Balanced
+U618,39,Female,150,56.7,25.2,1148.0,1779.0,Moderate,2.6,2120,10179,138,587,138,3,7.0,weight_gain,Moderate,Calorie Surplus
+U619,18,Male,176,55.8,18.01,1573.0,2713.0,Active,3.3,3017,12479,178,771,178,4,7.9,weight_gain,High,Calorie Surplus
+U620,45,Male,173,71.3,23.82,1574.0,2440.0,Moderate,2.8,2552,9420,108,399,108,3,7.7,fitness_improvement,Moderate,Calorie Surplus
+U621,33,Male,177,56.4,18.0,1510.0,2605.0,Active,3.2,2630,11023,142,616,142,5,8.4,fitness_improvement,High,Balanced
+U622,47,Male,170,83.5,28.89,1668.0,2002.0,Sedentary,2.7,2098,3580,42,175,42,1,6.7,weight_gain,Low,Calorie Surplus
+U623,50,Male,171,64.0,21.89,1464.0,2525.0,Active,3.1,2771,11763,151,540,151,5,7.5,fitness_improvement,High,Calorie Surplus
+U624,25,Female,170,76.2,26.37,1538.0,1846.0,Sedentary,2.5,1968,3496,43,156,43,1,6.0,weight_gain,Low,Calorie Surplus
+U625,37,Male,175,63.8,20.83,1552.0,2677.0,Active,2.9,2772,11876,153,674,153,5,8.1,fitness_improvement,High,Balanced
+U626,52,Female,169,86.3,30.22,1498.0,1798.0,Sedentary,2.6,1686,3202,41,175,41,1,6.1,weight_loss,Low,Calorie Deficit
+U627,56,Female,168,63.6,22.53,1245.0,1930.0,Moderate,2.6,1941,9096,104,425,104,4,7.7,maintenance,High,Balanced
+U629,28,Female,165,52.9,19.43,1259.0,2172.0,Active,2.9,2235,13975,178,838,178,5,7.2,fitness_improvement,High,Balanced
+U630,49,Female,151,49.3,21.62,1031.0,1598.0,Moderate,2.3,1632,11712,145,587,145,2,7.9,fitness_improvement,Moderate,Balanced
+U631,34,Male,187,81.2,23.22,1816.0,2815.0,Moderate,3.4,2919,7943,97,462,97,2,7.1,fitness_improvement,Moderate,Balanced
+U632,26,Male,176,60.1,19.4,1576.0,2719.0,Active,3.2,2346,10743,120,529,120,5,7.7,weight_loss,High,Calorie Deficit
+U633,24,Male,185,74.7,21.83,1788.0,2771.0,Moderate,3.2,2673,7088,94,365,94,2,7.6,fitness_improvement,Moderate,Balanced
+U634,42,Female,154,48.0,20.24,1072.0,1849.0,Active,2.5,1746,13246,142,642,142,4,8.0,fitness_improvement,High,Balanced
+U635,38,Male,177,71.0,22.66,1631.0,2528.0,Moderate,3.1,2516,10664,131,493,131,3,7.2,healthy_lifestyle,Moderate,Balanced
+U636,18,Female,158,50.9,20.39,1246.0,2149.0,Active,2.8,2168,11531,144,633,144,5,7.7,fitness_improvement,High,Balanced
+U637,33,Female,168,50.6,17.93,1230.0,2337.0,Very Active,3.0,2356,16835,207,783,207,7,8.1,fitness_improvement,High,Balanced
+U638,42,Female,162,73.5,28.01,1376.0,1651.0,Sedentary,2.5,1842,3899,48,184,48,1,6.7,weight_gain,Low,Calorie Surplus
+U639,30,Male,192,87.5,23.74,1930.0,2992.0,Moderate,3.2,3098,10422,112,491,112,2,6.8,fitness_improvement,Moderate,Calorie Surplus
+U640,36,Male,177,63.8,20.36,1569.0,2432.0,Moderate,3.0,2234,12342,155,635,155,4,7.3,weight_loss,High,Calorie Deficit
+U641,29,Male,174,80.3,26.52,1750.0,2100.0,Sedentary,2.7,1818,3628,46,198,46,1,7.2,weight_loss,Low,Calorie Deficit
+U642,30,Male,175,58.0,18.94,1529.0,2370.0,Moderate,2.8,2419,8286,101,486,101,3,7.9,healthy_lifestyle,Moderate,Balanced
+U643,31,Female,162,54.1,20.61,1238.0,1919.0,Moderate,2.6,2017,11985,144,591,144,2,7.6,fitness_improvement,Moderate,Balanced
+U644,29,Male,178,69.5,21.94,1668.0,2585.0,Moderate,2.9,2637,9346,116,450,116,3,7.0,healthy_lifestyle,Moderate,Balanced
+U645,36,Male,176,64.8,20.92,1573.0,2713.0,Active,3.3,2275,12402,158,606,158,5,7.5,weight_loss,High,Calorie Deficit
+U646,58,Female,150,72.3,32.13,1210.0,1452.0,Sedentary,2.5,1380,3420,44,205,44,1,6.3,maintenance,Low,Calorie Deficit
+U647,42,Female,154,54.3,22.9,1134.0,1758.0,Moderate,2.5,1748,7753,97,432,97,2,7.4,fitness_improvement,Moderate,Balanced
+U648,34,Male,181,66.0,20.15,1626.0,2805.0,Active,3.0,2540,10740,136,584,136,5,7.7,weight_loss,High,Calorie Deficit
+U649,48,Male,176,67.9,21.92,1544.0,2934.0,Very Active,3.4,3095,16848,219,1007,219,7,7.6,maintenance,High,Balanced
+U650,58,Male,178,78.1,24.65,1608.0,2774.0,Active,3.2,2784,12474,154,741,154,5,7.3,fitness_improvement,High,Balanced
+U652,20,Female,164,68.2,25.36,1446.0,1735.0,Sedentary,2.6,1734,3408,46,214,46,1,6.9,healthy_lifestyle,Low,Balanced
+U653,18,Male,176,81.4,26.28,1829.0,2195.0,Sedentary,2.7,2246,3659,43,158,43,1,6.7,fitness_improvement,Low,Balanced
+U654,37,Female,169,58.1,20.34,1291.0,2001.0,Moderate,2.5,1771,10470,123,537,123,3,8.1,weight_loss,Moderate,Calorie Deficit
+U655,19,Female,152,45.9,19.87,1153.0,1787.0,Moderate,2.6,1826,7807,91,374,91,2,7.4,healthy_lifestyle,Moderate,Balanced
+U656,56,Female,158,75.6,30.28,1302.0,1562.0,Sedentary,2.5,1336,4253,55,247,55,1,6.6,fitness_improvement,Low,Calorie Deficit
+U657,43,Male,184,73.9,21.83,1679.0,2602.0,Moderate,3.1,2706,11639,155,664,155,3,7.4,weight_gain,Moderate,Calorie Surplus
+U658,23,Male,168,56.7,20.09,1507.0,2336.0,Moderate,2.8,2059,11699,146,569,146,4,7.3,weight_loss,High,Calorie Deficit
+U659,43,Female,158,56.9,22.79,1180.0,2036.0,Active,2.6,1700,11226,133,663,133,5,6.9,weight_loss,High,Calorie Deficit
+U660,38,Female,159,46.4,18.35,1107.0,1910.0,Active,2.6,1873,13517,162,682,162,4,8.0,maintenance,High,Balanced
+U661,46,Male,177,95.0,30.32,1831.0,2197.0,Sedentary,2.8,1974,2751,38,146,38,1,6.5,weight_loss,Low,Calorie Deficit
+U662,22,Female,168,71.3,25.26,1492.0,1790.0,Sedentary,2.5,1451,3649,45,197,45,1,6.7,weight_loss,Low,Calorie Deficit
+U663,35,Female,168,80.7,28.59,1521.0,1825.0,Sedentary,2.6,2027,3960,49,202,49,1,6.7,fitness_improvement,Low,Calorie Surplus
+U664,19,Female,167,63.7,22.84,1425.0,2209.0,Moderate,2.7,2230,11603,150,580,150,2,6.9,maintenance,Moderate,Balanced
+U665,18,Female,166,68.5,24.86,1472.0,1766.0,Sedentary,2.6,1800,3503,42,182,42,1,6.6,fitness_improvement,Low,Balanced
+U666,47,Male,162,60.1,22.9,1384.0,2145.0,Moderate,2.8,1984,8517,104,451,104,4,7.6,weight_loss,High,Calorie Deficit
+U668,35,Male,185,87.7,25.62,1863.0,2236.0,Sedentary,2.8,2359,3670,44,173,44,1,7.5,weight_gain,Low,Balanced
+U669,38,Male,176,90.6,29.25,1821.0,2185.0,Sedentary,2.9,2055,3123,38,145,38,1,6.5,maintenance,Low,Calorie Deficit
+U670,31,Male,170,79.0,27.34,1702.0,2042.0,Sedentary,2.6,1690,2843,36,141,36,1,6.6,weight_loss,Low,Calorie Deficit
+U671,42,Male,175,68.2,22.27,1571.0,2710.0,Active,3.2,2759,13561,178,771,178,5,7.5,maintenance,High,Balanced
+U672,30,Female,174,54.7,18.07,1324.0,2284.0,Active,2.9,1909,13034,158,756,158,5,7.8,weight_loss,High,Calorie Deficit
+U673,48,Female,170,69.7,24.12,1358.0,2105.0,Moderate,2.8,1863,8340,106,484,106,2,7.6,weight_loss,Moderate,Calorie Deficit
+U674,38,Female,165,67.0,24.61,1350.0,2092.0,Moderate,2.8,1815,11496,145,740,145,2,7.6,weight_loss,Moderate,Calorie Deficit
+U675,41,Female,170,85.2,29.48,1548.0,1858.0,Sedentary,2.6,1803,2884,37,150,37,1,6.7,maintenance,Low,Balanced
+U676,31,Female,166,56.7,20.58,1288.0,2222.0,Active,2.7,1837,13557,176,777,176,5,7.7,weight_loss,High,Calorie Deficit
+U677,47,Male,172,67.7,22.88,1522.0,2359.0,Moderate,3.1,2043,7449,84,340,84,3,8.0,weight_loss,Moderate,Calorie Deficit
+U678,45,Male,180,77.0,23.77,1675.0,2596.0,Moderate,3.1,2194,10526,148,648,148,3,7.5,weight_loss,Moderate,Calorie Deficit
+U679,56,Female,164,68.6,25.51,1270.0,2191.0,Active,2.9,2089,10054,118,509,118,5,7.5,fitness_improvement,High,Calorie Deficit
+U680,46,Male,173,71.4,23.86,1570.0,2434.0,Moderate,3.0,2670,12307,151,626,151,2,7.3,weight_gain,Moderate,Calorie Surplus
+U681,20,Male,184,70.4,20.79,1759.0,2726.0,Moderate,3.1,2714,11083,138,563,138,4,8.0,healthy_lifestyle,High,Balanced
+U682,55,Female,158,56.6,22.67,1118.0,1929.0,Active,2.9,1871,12523,161,633,161,5,7.8,fitness_improvement,High,Balanced
+U684,20,Male,185,91.0,26.59,1971.0,2365.0,Sedentary,2.7,2137,3397,39,172,39,1,6.3,weight_loss,Low,Calorie Deficit
+U685,30,Female,160,49.6,19.37,1185.0,2044.0,Active,2.8,2049,10533,130,476,130,5,7.7,fitness_improvement,High,Balanced
+U686,19,Female,170,64.6,22.35,1452.0,1742.0,Sedentary,2.7,1902,3617,40,189,40,1,6.6,weight_gain,Low,Calorie Surplus
+U687,51,Male,180,102.1,31.51,1896.0,2275.0,Sedentary,2.7,2491,2972,40,189,40,1,6.8,weight_gain,Low,Calorie Surplus
+U688,47,Male,173,87.7,29.3,1728.0,2074.0,Sedentary,2.6,2039,3075,37,164,37,1,6.4,fitness_improvement,Low,Balanced
+U689,38,Female,167,60.6,21.73,1299.0,2013.0,Moderate,2.7,2263,10591,135,567,135,4,7.8,fitness_improvement,High,Calorie Surplus
+U690,32,Male,185,65.3,19.08,1654.0,2564.0,Moderate,2.8,2726,10232,129,599,129,3,7.5,weight_gain,Moderate,Calorie Surplus
+U691,27,Male,175,90.8,29.65,1872.0,2246.0,Sedentary,3.0,1840,2814,38,161,38,1,6.6,weight_loss,Low,Calorie Deficit
+U692,18,Female,164,60.4,22.46,1378.0,2136.0,Moderate,2.9,2013,11315,141,616,141,3,7.2,fitness_improvement,Moderate,Calorie Deficit
+U693,39,Female,174,60.0,19.82,1332.0,2065.0,Moderate,2.8,2226,9576,130,609,130,3,8.1,weight_gain,Moderate,Calorie Surplus
+U694,20,Male,177,63.3,20.2,1644.0,2836.0,Active,2.9,2510,10088,121,522,121,4,7.7,weight_loss,High,Calorie Deficit
+U695,54,Female,169,66.6,23.32,1291.0,2001.0,Moderate,2.8,2113,11109,123,559,123,4,7.3,weight_gain,High,Balanced
+U696,40,Female,162,58.5,22.29,1236.0,1916.0,Moderate,2.6,1968,10905,139,564,139,4,7.4,maintenance,High,Balanced
+U697,19,Female,163,71.1,26.76,1474.0,1769.0,Sedentary,2.7,1565,3054,35,164,35,1,6.0,weight_loss,Low,Calorie Deficit
+U698,57,Female,151,60.5,26.53,1103.0,1710.0,Moderate,2.5,1923,7615,102,513,102,3,6.8,weight_gain,Moderate,Calorie Surplus
+U700,57,Male,172,68.3,23.09,1478.0,2550.0,Active,3.1,2644,12668,166,761,166,5,8.0,maintenance,High,Balanced
+U701,20,Female,163,47.6,17.92,1234.0,2345.0,Very Active,2.7,2234,13977,162,623,162,6,8.2,fitness_improvement,High,Balanced
+U703,43,Female,163,53.5,20.14,1178.0,1826.0,Moderate,2.6,1950,6870,85,369,85,2,8.2,healthy_lifestyle,Moderate,Calorie Surplus
+U704,52,Male,183,86.2,25.74,1751.0,2714.0,Moderate,3.2,2833,9645,120,425,120,2,7.2,weight_gain,Moderate,Calorie Surplus
+U705,46,Female,171,87.4,29.89,1552.0,1862.0,Sedentary,2.8,1569,3526,46,193,46,1,6.7,weight_loss,Low,Calorie Deficit
+U706,22,Female,166,58.3,21.16,1350.0,2092.0,Moderate,2.8,2212,10333,127,624,127,4,7.3,fitness_improvement,High,Balanced
+U707,33,Male,182,65.2,19.68,1630.0,2812.0,Active,3.2,2605,11694,151,662,151,4,7.7,weight_loss,High,Calorie Deficit
+U708,44,Female,160,78.5,30.66,1404.0,1685.0,Sedentary,2.6,1421,3357,41,187,41,1,6.1,weight_loss,Low,Calorie Deficit
+U709,19,Male,168,65.8,23.31,1618.0,1942.0,Sedentary,2.6,1839,3488,45,188,45,1,6.7,healthy_lifestyle,Low,Balanced
+U710,26,Male,180,66.8,20.62,1668.0,2877.0,Active,3.4,3034,12199,154,685,154,4,7.7,fitness_improvement,High,Balanced
+U711,45,Male,179,94.0,29.34,1839.0,2207.0,Sedentary,2.7,2439,3034,41,162,41,1,6.6,weight_gain,Low,Calorie Surplus
+U712,51,Male,184,86.2,25.46,1762.0,2731.0,Moderate,3.2,2825,11624,164,732,164,4,7.5,fitness_improvement,High,Balanced
+U713,48,Male,180,87.0,26.85,1760.0,2728.0,Moderate,3.3,2638,9060,115,541,115,2,6.7,fitness_improvement,Moderate,Balanced
+U714,34,Male,168,73.8,26.15,1623.0,1948.0,Sedentary,2.5,1876,3631,45,208,45,1,6.8,maintenance,Low,Balanced
+U715,46,Female,174,68.5,22.63,1382.0,2142.0,Moderate,2.9,2164,8161,97,416,97,4,7.6,fitness_improvement,High,Balanced
+U716,56,Male,185,78.3,22.88,1664.0,2579.0,Moderate,3.1,2510,10725,139,593,139,4,8.0,fitness_improvement,High,Balanced
+U717,18,Female,162,53.9,20.54,1300.0,2242.0,Active,2.6,1868,13414,159,683,159,4,7.8,weight_loss,High,Calorie Deficit
+U718,18,Male,181,66.7,20.36,1713.0,2655.0,Moderate,2.9,2623,11272,142,591,142,3,7.1,maintenance,Moderate,Balanced
+U719,47,Female,162,59.8,22.79,1214.0,1882.0,Moderate,2.8,2185,10079,113,504,113,2,7.7,weight_gain,Moderate,Calorie Surplus
+U720,49,Male,169,62.0,21.71,1436.0,2226.0,Moderate,3.0,2208,10926,126,497,126,3,7.6,fitness_improvement,Moderate,Balanced
+U721,55,Female,166,63.6,23.08,1238.0,1919.0,Moderate,2.6,1969,7212,97,424,97,4,7.7,healthy_lifestyle,High,Balanced
+U722,52,Male,177,64.5,20.59,1496.0,2842.0,Very Active,3.1,2645,16129,202,877,202,6,8.2,weight_loss,High,Calorie Deficit
+U723,50,Male,168,64.8,22.96,1453.0,2252.0,Moderate,2.7,2349,8996,125,483,125,2,7.6,weight_gain,Moderate,Calorie Surplus
+U724,58,Male,178,70.7,22.31,1534.0,2646.0,Active,3.3,2517,11868,141,638,141,5,7.6,maintenance,High,Calorie Deficit
+U725,44,Male,175,68.5,22.37,1564.0,2698.0,Active,3.1,2343,12146,153,715,153,4,7.6,weight_loss,High,Calorie Deficit
+U726,55,Male,183,78.9,23.56,1663.0,2578.0,Moderate,3.1,2632,8053,96,353,96,2,7.2,healthy_lifestyle,Moderate,Balanced
+U727,40,Male,177,64.0,20.43,1551.0,2675.0,Active,3.2,2931,13105,168,664,168,4,7.6,healthy_lifestyle,High,Calorie Surplus
+U728,26,Female,167,58.6,21.01,1339.0,2075.0,Moderate,2.7,1754,11445,156,665,156,2,7.5,weight_loss,Moderate,Calorie Deficit
+U729,57,Female,168,67.4,23.88,1278.0,2205.0,Active,2.8,2320,10320,136,539,136,4,7.6,weight_gain,High,Calorie Surplus
+U730,19,Male,180,67.9,20.96,1714.0,2657.0,Moderate,3.0,2889,9815,123,506,123,2,6.9,weight_gain,Moderate,Calorie Surplus
+U731,30,Male,180,63.4,19.57,1614.0,2502.0,Moderate,3.0,2421,12393,173,645,173,2,7.8,weight_loss,Moderate,Balanced
+U732,21,Female,159,45.5,18.0,1183.0,2248.0,Very Active,2.9,2039,17488,220,933,220,5,8.3,weight_loss,High,Calorie Deficit
+U733,34,Female,162,61.5,23.43,1296.0,2009.0,Moderate,2.7,2026,8191,111,487,111,4,7.3,healthy_lifestyle,High,Balanced
+U734,58,Female,163,78.4,29.51,1352.0,1622.0,Sedentary,2.4,1403,3284,38,147,38,1,6.3,weight_loss,Low,Calorie Deficit
+U735,41,Female,154,48.4,20.41,1080.0,1863.0,Active,2.6,1848,13943,160,658,160,5,7.5,healthy_lifestyle,High,Balanced
+U736,48,Male,185,82.0,23.96,1741.0,2699.0,Moderate,3.1,2779,12006,147,591,147,3,7.5,fitness_improvement,Moderate,Balanced
+U738,28,Female,172,58.8,19.88,1362.0,2111.0,Moderate,2.7,1881,10881,136,480,136,3,7.5,weight_loss,Moderate,Calorie Deficit
+U739,22,Female,159,47.3,18.71,1196.0,1854.0,Moderate,2.5,1603,11307,136,627,136,4,7.9,weight_loss,High,Calorie Deficit
+U740,20,Female,170,58.4,20.21,1386.0,2148.0,Moderate,2.5,1776,11050,150,624,150,3,8.0,weight_loss,Moderate,Calorie Deficit
+U741,22,Female,163,70.4,26.5,1452.0,1742.0,Sedentary,2.6,1879,3834,51,199,51,1,6.6,fitness_improvement,Low,Balanced
+U742,27,Male,165,62.4,22.92,1525.0,2364.0,Moderate,2.9,2333,11700,135,579,135,3,7.1,fitness_improvement,Moderate,Balanced
+U744,48,Male,177,69.9,22.31,1570.0,2983.0,Very Active,3.4,3281,16128,205,788,205,7,8.0,weight_gain,High,Calorie Surplus
+U746,36,Male,182,80.9,24.42,1772.0,2126.0,Sedentary,2.7,2194,3677,49,206,49,1,7.2,fitness_improvement,Low,Balanced
+U747,22,Male,179,60.1,18.76,1615.0,2503.0,Moderate,3.1,2521,12038,132,512,132,2,7.9,fitness_improvement,Moderate,Balanced
+U748,28,Male,175,57.8,18.87,1537.0,2382.0,Moderate,2.9,2088,10453,135,523,135,2,7.8,weight_loss,Moderate,Calorie Deficit
+U749,25,Male,177,62.3,19.89,1609.0,2776.0,Active,3.2,2610,10469,127,555,127,5,7.4,weight_loss,High,Calorie Deficit
+U750,55,Male,184,83.1,24.55,1711.0,2652.0,Moderate,3.0,2801,12180,148,612,148,2,7.1,weight_gain,Moderate,Calorie Surplus
+U751,19,Female,180,63.6,19.63,1505.0,2333.0,Moderate,2.9,2368,7786,109,437,109,2,7.6,fitness_improvement,Moderate,Balanced
+U752,19,Female,160,46.7,18.24,1211.0,1877.0,Moderate,2.7,1808,7860,92,403,92,4,7.5,fitness_improvement,High,Balanced
+U753,55,Female,160,64.7,25.27,1211.0,1877.0,Moderate,2.6,2045,7348,88,434,88,4,7.6,fitness_improvement,High,Calorie Surplus
+U754,45,Female,159,62.5,24.72,1233.0,1911.0,Moderate,2.7,1867,9691,127,552,127,4,7.3,fitness_improvement,High,Balanced
+U755,25,Female,175,79.6,25.99,1604.0,1925.0,Sedentary,2.6,1698,2742,33,128,33,1,6.8,weight_loss,Low,Calorie Deficit
+U756,33,Female,166,58.7,21.3,1298.0,2012.0,Moderate,2.6,1703,10501,137,558,137,2,7.7,weight_loss,Moderate,Calorie Deficit
+U757,26,Male,184,96.1,28.38,1986.0,2383.0,Sedentary,3.2,2603,2720,35,146,35,1,6.8,weight_gain,Low,Calorie Surplus
+U758,40,Male,179,63.0,19.66,1554.0,2681.0,Active,3.1,2722,11830,141,736,141,5,7.8,healthy_lifestyle,High,Balanced
+U759,22,Male,181,86.6,26.43,1892.0,2270.0,Sedentary,2.9,1868,3600,43,171,43,1,6.8,weight_loss,Low,Calorie Deficit
+U760,40,Female,165,54.3,19.94,1213.0,1880.0,Moderate,2.7,1879,9587,123,487,123,2,7.8,fitness_improvement,Moderate,Balanced
+U761,29,Male,172,80.3,27.14,1738.0,2086.0,Sedentary,2.6,1741,3002,38,148,38,1,6.4,weight_loss,Low,Calorie Deficit
+U762,56,Female,171,71.6,24.49,1344.0,2083.0,Moderate,2.7,2192,8645,111,464,111,4,7.3,healthy_lifestyle,High,Balanced
+U763,29,Male,178,88.1,27.81,1854.0,2225.0,Sedentary,2.9,2079,3264,38,179,38,1,6.6,weight_loss,Low,Calorie Deficit
+U764,37,Male,168,55.6,19.7,1426.0,2709.0,Very Active,3.0,2820,14598,189,718,189,5,7.6,fitness_improvement,High,Calorie Surplus
+U765,31,Male,181,64.1,19.57,1622.0,2798.0,Active,3.1,2893,10227,121,531,121,4,8.1,fitness_improvement,High,Balanced
+U766,35,Female,157,52.5,21.3,1170.0,1814.0,Moderate,2.6,1823,8071,107,446,107,4,7.8,fitness_improvement,High,Balanced
+U767,36,Male,179,76.0,23.72,1704.0,2641.0,Moderate,3.1,2693,7698,80,343,80,3,7.1,maintenance,Moderate,Balanced
+U768,50,Female,164,59.7,22.2,1211.0,1877.0,Moderate,2.7,1916,9624,115,479,115,4,7.3,fitness_improvement,High,Balanced
+U769,25,Male,184,80.0,23.63,1830.0,2836.0,Moderate,3.1,3052,10490,133,549,133,4,7.0,weight_gain,High,Calorie Surplus
+U770,19,Female,165,51.3,18.84,1288.0,2222.0,Active,3.1,2002,13807,183,981,183,4,7.5,weight_loss,High,Calorie Deficit
+U771,39,Female,162,56.8,21.64,1224.0,1897.0,Moderate,2.8,1962,12352,153,623,153,2,7.8,maintenance,Moderate,Balanced
+U772,21,Female,166,72.4,26.27,1496.0,1795.0,Sedentary,2.6,1836,4104,49,206,49,1,6.8,healthy_lifestyle,Low,Balanced
+U773,38,Female,165,76.4,28.06,1444.0,1733.0,Sedentary,2.4,1883,3692,45,205,45,1,6.5,healthy_lifestyle,Low,Calorie Surplus
+U774,53,Male,180,79.5,24.54,1660.0,2573.0,Moderate,3.0,2389,12068,158,636,158,2,7.6,healthy_lifestyle,Moderate,Calorie Deficit
+U775,36,Female,159,69.5,27.49,1348.0,1618.0,Sedentary,2.4,1535,3000,39,151,39,1,6.6,maintenance,Low,Balanced
+U776,24,Male,176,65.0,20.98,1635.0,2534.0,Moderate,3.0,2452,7000,91,383,91,3,6.9,fitness_improvement,Moderate,Balanced
+U777,54,Male,189,108.8,30.46,2004.0,2405.0,Sedentary,3.0,2362,3968,45,186,45,1,6.4,fitness_improvement,Low,Balanced
+U778,57,Female,169,65.5,22.93,1265.0,1961.0,Moderate,2.5,2220,11981,153,701,153,2,7.7,weight_gain,Moderate,Calorie Surplus
+U779,21,Male,188,70.1,19.83,1776.0,2753.0,Moderate,2.9,2666,7536,92,361,92,4,7.7,healthy_lifestyle,High,Balanced
+U780,34,Male,185,68.7,20.07,1678.0,2895.0,Active,3.2,3291,11885,152,674,152,4,7.7,weight_gain,High,Calorie Surplus
+U781,42,Male,176,55.7,17.98,1452.0,2759.0,Very Active,3.1,2967,16584,204,1012,204,7,8.2,fitness_improvement,High,Calorie Surplus
+U782,33,Female,172,64.1,21.67,1390.0,2154.0,Moderate,2.8,2444,6894,78,354,78,3,7.4,weight_gain,Moderate,Calorie Surplus
+U783,42,Female,159,61.0,24.13,1233.0,1911.0,Moderate,2.5,1803,8681,100,447,100,2,7.4,weight_loss,Moderate,Calorie Deficit
+U784,22,Male,184,67.0,19.79,1715.0,2958.0,Active,3.4,3129,11892,154,549,154,4,7.2,fitness_improvement,High,Calorie Surplus
+U785,42,Female,171,60.6,20.72,1304.0,2249.0,Active,3.0,1919,11088,139,586,139,5,8.2,weight_loss,High,Calorie Deficit
+U786,36,Female,174,70.5,23.29,1452.0,2251.0,Moderate,2.9,2411,11314,139,661,139,3,7.5,weight_gain,Moderate,Calorie Surplus
+U787,58,Female,168,65.0,23.03,1249.0,1936.0,Moderate,2.5,1949,7053,94,416,94,3,7.7,fitness_improvement,Moderate,Balanced
+U788,29,Female,169,78.6,27.52,1536.0,1843.0,Sedentary,2.4,1743,3018,41,182,41,1,6.4,maintenance,Low,Balanced
+U789,43,Female,164,54.5,20.26,1194.0,2060.0,Active,2.6,2120,12411,152,699,152,4,8.2,healthy_lifestyle,High,Balanced
+U790,31,Female,163,59.2,22.28,1295.0,2234.0,Active,2.8,2376,11545,138,537,138,5,7.5,healthy_lifestyle,High,Balanced
+U791,26,Male,177,60.6,19.34,1587.0,2738.0,Active,3.2,2780,12974,150,636,150,4,7.8,maintenance,High,Balanced
+U794,33,Female,163,49.3,18.56,1186.0,1838.0,Moderate,2.4,1423,7851,104,534,104,2,8.5,weight_loss,Moderate,Calorie Deficit
+U795,43,Female,155,53.6,22.31,1129.0,1750.0,Moderate,2.6,1481,8506,103,426,103,2,8.1,weight_loss,Moderate,Calorie Deficit
+U796,21,Male,174,59.6,19.69,1584.0,2455.0,Moderate,2.9,2619,10984,146,625,146,2,7.6,healthy_lifestyle,Moderate,Calorie Surplus
+U797,48,Female,169,63.8,22.34,1293.0,2230.0,Active,2.8,2239,11962,138,581,138,5,8.0,fitness_improvement,High,Balanced
+U799,50,Female,169,66.2,23.18,1307.0,2026.0,Moderate,2.7,1847,8225,103,457,103,3,7.6,weight_loss,Moderate,Calorie Deficit
+U800,48,Male,171,75.7,25.89,1591.0,2466.0,Moderate,3.0,2671,7740,86,330,86,3,6.8,fitness_improvement,Moderate,Calorie Surplus
+U801,28,Male,178,89.0,28.09,1868.0,2242.0,Sedentary,2.8,2304,4238,54,210,54,1,6.4,fitness_improvement,Low,Balanced
+U802,38,Male,177,73.0,23.3,1651.0,2559.0,Moderate,3.0,2345,8089,100,393,100,2,6.7,weight_loss,Moderate,Calorie Deficit
+U803,55,Female,168,69.4,24.59,1308.0,2027.0,Moderate,2.7,1761,10498,135,612,135,3,7.4,weight_loss,Moderate,Calorie Deficit
+U805,27,Male,179,73.2,22.85,1721.0,2668.0,Moderate,3.2,3132,10378,126,521,126,2,7.2,weight_gain,Moderate,Calorie Surplus
+U806,40,Male,173,76.1,25.43,1647.0,2553.0,Moderate,3.1,2882,9480,125,506,125,4,6.8,weight_gain,High,Calorie Surplus
+U807,49,Female,164,64.6,24.02,1265.0,1961.0,Moderate,2.7,1956,8146,99,452,99,4,7.3,healthy_lifestyle,High,Balanced
+U808,33,Female,171,65.1,22.26,1394.0,2161.0,Moderate,2.8,2162,9478,121,543,121,2,7.7,healthy_lifestyle,Moderate,Balanced
+U809,40,Male,167,56.2,20.15,1411.0,2187.0,Moderate,2.9,1866,7483,87,364,87,2,7.7,weight_loss,Moderate,Calorie Deficit
+U810,57,Male,187,110.0,31.46,1989.0,2387.0,Sedentary,2.9,2516,4279,50,229,50,1,6.5,weight_gain,Low,Calorie Surplus
+U811,23,Female,167,50.1,17.96,1269.0,1967.0,Moderate,2.7,1889,7560,97,426,97,4,7.9,maintenance,High,Balanced
+U812,27,Female,161,55.2,21.3,1262.0,1956.0,Moderate,2.7,2031,9504,128,548,128,3,7.5,healthy_lifestyle,Moderate,Balanced
+U813,30,Male,179,64.4,20.1,1618.0,2508.0,Moderate,3.2,2487,12060,144,690,144,2,7.6,maintenance,Moderate,Balanced
+U814,22,Female,157,46.9,19.03,1179.0,2034.0,Active,2.8,2147,11239,140,734,140,4,7.7,maintenance,High,Balanced
+U816,48,Female,158,77.0,30.84,1356.0,1627.0,Sedentary,2.5,1598,2907,34,140,34,1,6.7,healthy_lifestyle,Low,Balanced
+U817,31,Female,158,49.7,19.91,1168.0,1810.0,Moderate,2.5,1484,7922,101,477,101,2,7.6,weight_loss,Moderate,Calorie Deficit
+U818,23,Female,163,53.8,20.25,1281.0,1986.0,Moderate,2.4,2069,7209,94,353,94,2,7.2,healthy_lifestyle,Moderate,Calorie Surplus
+U819,54,Female,169,73.8,25.84,1363.0,2113.0,Moderate,3.0,1644,8736,102,402,102,4,6.9,weight_loss,High,Calorie Deficit
+U822,45,Female,165,59.6,21.89,1241.0,1924.0,Moderate,2.6,1777,8585,115,492,115,2,8.1,fitness_improvement,Moderate,Calorie Deficit
+U823,39,Female,179,89.1,27.81,1654.0,1985.0,Sedentary,2.5,1941,4219,56,229,56,1,6.6,fitness_improvement,Low,Balanced
+U824,44,Female,162,54.4,20.73,1176.0,2029.0,Active,2.6,1728,10478,123,463,123,5,7.6,weight_loss,High,Calorie Deficit
+U825,29,Female,167,57.7,20.69,1315.0,2038.0,Moderate,2.8,2023,6965,86,359,86,3,7.6,fitness_improvement,Moderate,Balanced
+U826,56,Female,172,76.9,25.99,1403.0,2175.0,Moderate,2.7,1932,10317,134,545,134,3,7.1,weight_loss,Moderate,Calorie Deficit
+U827,49,Female,167,59.2,21.23,1230.0,2122.0,Active,3.0,2024,13601,167,745,167,4,8.0,weight_loss,High,Calorie Deficit
+U828,30,Female,175,82.2,26.84,1605.0,1926.0,Sedentary,2.8,2039,3933,49,214,49,1,6.7,healthy_lifestyle,Low,Balanced
+U829,53,Female,159,60.1,23.77,1169.0,2017.0,Active,2.7,1781,13985,170,765,170,5,7.5,weight_loss,High,Calorie Deficit
+U830,50,Female,165,61.3,22.52,1233.0,2127.0,Active,2.8,2149,11912,136,540,136,4,7.5,healthy_lifestyle,High,Balanced
+U831,18,Female,170,75.7,26.19,1568.0,1882.0,Sedentary,2.7,2106,3365,44,200,44,1,6.6,weight_gain,Low,Calorie Surplus
+U832,20,Female,161,50.0,19.29,1245.0,2148.0,Active,2.7,1867,11464,142,502,142,4,7.5,weight_loss,High,Calorie Deficit
+U833,34,Female,158,49.8,19.95,1154.0,1789.0,Moderate,2.5,1944,9966,133,611,133,4,7.2,weight_gain,High,Calorie Surplus
+U834,25,Female,155,66.1,27.51,1344.0,1613.0,Sedentary,2.5,1608,2811,33,148,33,1,6.5,healthy_lifestyle,Low,Balanced
+U835,58,Female,164,60.6,22.53,1180.0,2036.0,Active,2.9,1822,10661,139,482,139,5,7.9,weight_loss,High,Calorie Deficit
+U836,48,Male,181,75.7,23.11,1653.0,2851.0,Active,3.1,2478,11687,155,629,155,4,7.5,weight_loss,High,Calorie Deficit
+U837,31,Male,182,61.1,18.45,1598.0,3036.0,Very Active,3.3,3074,17003,226,912,226,5,8.2,healthy_lifestyle,High,Balanced
+U838,28,Male,186,62.5,18.07,1652.0,3139.0,Very Active,3.4,2996,16985,210,924,210,6,8.3,weight_loss,High,Calorie Deficit
+U839,23,Female,164,59.8,22.23,1347.0,2088.0,Moderate,2.8,2204,8739,105,431,105,3,6.8,healthy_lifestyle,Moderate,Balanced
+U840,52,Male,170,90.6,31.35,1714.0,2057.0,Sedentary,2.7,1713,3153,37,146,37,1,6.2,weight_loss,Low,Calorie Deficit
+U841,35,Male,178,63.0,19.88,1572.0,2712.0,Active,3.2,2717,11499,126,508,126,5,7.4,fitness_improvement,High,Balanced
+U842,58,Female,167,67.2,24.1,1265.0,1961.0,Moderate,2.9,1575,10247,134,603,134,3,7.7,weight_loss,Moderate,Calorie Deficit
+U843,42,Female,155,56.4,23.48,1162.0,2004.0,Active,2.5,2175,12798,180,860,180,5,7.0,weight_gain,High,Calorie Surplus
+U844,34,Male,178,70.7,22.31,1654.0,2564.0,Moderate,3.0,2716,10332,139,621,139,3,7.6,fitness_improvement,Moderate,Calorie Surplus
+U845,34,Female,185,70.0,20.45,1525.0,2631.0,Active,3.1,2681,12914,155,715,155,5,7.3,maintenance,High,Balanced
+U846,31,Male,182,71.4,21.56,1702.0,2638.0,Moderate,3.1,2589,7526,89,351,89,2,7.6,fitness_improvement,Moderate,Balanced
+U847,49,Female,168,68.2,24.16,1326.0,2287.0,Active,2.8,2161,13548,151,608,151,5,7.5,maintenance,High,Calorie Deficit
+U849,38,Male,180,87.4,26.98,1814.0,2177.0,Sedentary,2.9,2277,3535,43,171,43,1,7.2,healthy_lifestyle,Low,Calorie Surplus
+U850,52,Male,176,61.1,19.72,1456.0,2512.0,Active,3.0,2295,11979,146,549,146,5,8.3,weight_loss,High,Calorie Deficit
+U851,36,Male,174,79.1,26.13,1704.0,2045.0,Sedentary,2.8,2047,3652,44,189,44,1,7.1,fitness_improvement,Low,Balanced
+U852,49,Female,151,53.3,23.38,1071.0,1660.0,Moderate,2.5,1335,6812,85,383,85,2,7.6,weight_loss,Moderate,Calorie Deficit
+U854,18,Male,181,63.2,19.29,1678.0,2895.0,Active,3.2,2588,13630,150,703,150,5,7.4,weight_loss,High,Calorie Deficit
+U855,38,Male,173,75.8,25.33,1654.0,2564.0,Moderate,3.0,2247,8705,109,414,109,2,6.6,weight_loss,Moderate,Calorie Deficit
+U856,47,Male,190,84.7,23.46,1804.0,2796.0,Moderate,3.1,2959,12453,165,735,165,3,7.6,weight_gain,Moderate,Calorie Surplus
+U857,44,Male,174,96.2,31.77,1834.0,2201.0,Sedentary,2.6,2350,3434,43,178,43,1,6.3,weight_gain,Low,Calorie Surplus
+U858,53,Male,174,69.6,22.99,1524.0,2362.0,Moderate,3.0,2281,12477,171,746,171,2,7.8,fitness_improvement,Moderate,Balanced
+U859,18,Male,178,57.3,18.08,1600.0,2760.0,Active,3.1,2708,11469,137,662,137,4,7.5,fitness_improvement,High,Balanced
+U860,31,Male,178,79.2,25.0,1754.0,2719.0,Moderate,3.2,2717,8501,105,420,105,4,6.8,maintenance,High,Balanced
+U861,57,Male,183,78.4,23.41,1648.0,2843.0,Active,3.2,2721,13036,149,631,149,5,7.2,healthy_lifestyle,High,Balanced
+U862,38,Female,167,76.4,27.39,1457.0,1748.0,Sedentary,2.6,1637,3489,41,181,41,1,7.2,healthy_lifestyle,Low,Balanced
+U863,28,Male,172,61.2,20.69,1552.0,2406.0,Moderate,3.0,2235,11052,136,522,136,3,7.7,weight_loss,Moderate,Calorie Deficit
+U865,24,Female,167,65.6,23.52,1419.0,2199.0,Moderate,2.8,2286,10664,135,557,135,4,7.2,fitness_improvement,High,Balanced
+U866,40,Female,166,60.7,22.03,1284.0,1990.0,Moderate,2.6,2009,7955,98,481,98,4,7.5,fitness_improvement,High,Balanced
+U867,25,Male,170,55.0,19.03,1492.0,2313.0,Moderate,2.8,2473,8634,115,443,115,4,7.3,weight_gain,High,Calorie Surplus
+U868,24,Male,172,59.0,19.94,1550.0,2402.0,Moderate,3.1,2478,9345,117,542,117,4,7.7,healthy_lifestyle,High,Balanced
+U869,44,Female,159,52.5,20.77,1138.0,1963.0,Active,2.8,1798,11169,138,602,138,5,7.8,weight_loss,High,Calorie Deficit
+U870,20,Male,169,74.9,26.22,1710.0,2052.0,Sedentary,2.7,1756,4291,56,261,56,1,6.6,weight_loss,Low,Calorie Deficit
+U871,52,Female,165,71.7,26.34,1327.0,2289.0,Active,2.8,2346,12212,146,593,146,4,6.8,fitness_improvement,High,Balanced
+U872,36,Male,181,84.0,25.64,1796.0,2155.0,Sedentary,2.7,2178,2755,34,152,34,1,6.8,maintenance,Low,Balanced
+U873,22,Male,181,91.2,27.84,1938.0,2326.0,Sedentary,2.9,1864,4070,52,208,52,1,6.6,weight_loss,Low,Calorie Deficit
+U874,47,Male,183,76.7,22.9,1681.0,2900.0,Active,3.3,3068,13905,189,702,189,5,7.8,weight_gain,High,Calorie Surplus
+U875,52,Male,176,93.1,30.06,1776.0,2131.0,Sedentary,2.8,2321,3010,42,191,42,1,6.8,weight_gain,Low,Calorie Surplus
+U876,32,Male,179,78.1,24.38,1745.0,2705.0,Moderate,3.0,2595,8277,116,482,116,2,7.1,maintenance,Moderate,Balanced
+U877,55,Male,172,65.3,22.07,1458.0,2260.0,Moderate,2.8,1887,10438,137,676,137,3,8.6,weight_loss,Moderate,Calorie Deficit
+U878,40,Female,154,68.1,28.71,1282.0,1538.0,Sedentary,2.4,1673,3282,33,130,33,1,6.1,weight_gain,Low,Calorie Surplus
+U879,37,Male,183,60.5,18.07,1569.0,2981.0,Very Active,3.3,2577,15309,193,814,193,6,8.2,weight_loss,High,Calorie Deficit
+U880,26,Female,166,55.5,20.14,1302.0,2018.0,Moderate,2.6,2006,9254,104,434,104,4,7.5,healthy_lifestyle,High,Balanced
+U881,44,Female,170,53.7,18.58,1218.0,2101.0,Active,2.7,2101,11862,150,659,150,5,8.3,healthy_lifestyle,High,Calorie Surplus
+U883,47,Female,167,67.3,24.13,1321.0,2048.0,Moderate,2.8,2096,6890,92,396,92,3,7.2,maintenance,Moderate,Balanced
+U884,40,Female,169,64.6,22.62,1341.0,2079.0,Moderate,2.7,1716,9159,117,481,117,2,7.7,weight_loss,Moderate,Calorie Deficit
+U885,19,Female,163,48.3,18.18,1246.0,2149.0,Active,2.6,2309,13491,165,724,165,5,7.8,weight_gain,High,Calorie Surplus
+U886,34,Male,176,67.7,21.86,1612.0,2499.0,Moderate,2.8,2396,11391,142,572,142,2,7.4,weight_loss,Moderate,Calorie Deficit
+U887,46,Female,164,77.8,28.93,1412.0,1694.0,Sedentary,2.6,1494,2884,34,126,34,1,6.6,weight_loss,Low,Calorie Deficit
+U888,55,Female,176,78.3,25.28,1447.0,2243.0,Moderate,2.8,2022,10678,135,713,135,3,7.3,weight_loss,Moderate,Calorie Deficit
+U889,42,Female,159,50.9,20.13,1132.0,1755.0,Moderate,2.6,1994,12498,173,724,173,3,7.9,weight_gain,Moderate,Calorie Surplus
+U890,45,Male,178,72.1,22.76,1614.0,2502.0,Moderate,2.9,2172,7825,98,369,98,4,7.5,weight_loss,High,Calorie Deficit
+U891,54,Male,168,91.0,32.24,1695.0,2034.0,Sedentary,2.8,2031,3218,41,188,41,1,6.0,healthy_lifestyle,Low,Balanced
+U892,34,Male,181,75.8,23.14,1724.0,2672.0,Moderate,3.0,2376,9564,115,472,115,3,7.5,weight_loss,Moderate,Calorie Deficit
+U894,39,Female,162,58.9,22.44,1246.0,2149.0,Active,2.6,2056,10799,126,507,126,5,7.6,healthy_lifestyle,High,Balanced
+U895,39,Male,180,69.2,21.36,1627.0,2522.0,Moderate,2.9,2517,6852,90,415,90,2,7.6,healthy_lifestyle,Moderate,Balanced
+U896,43,Female,164,50.5,18.78,1154.0,1789.0,Moderate,2.7,1371,7987,96,395,96,2,8.3,weight_loss,Moderate,Calorie Deficit
+U897,44,Female,160,70.6,27.58,1325.0,1590.0,Sedentary,2.7,1189,2711,31,135,31,1,6.6,weight_loss,Low,Calorie Deficit
+U899,49,Female,164,62.0,23.05,1239.0,1920.0,Moderate,2.5,1969,7922,94,401,94,4,8.0,healthy_lifestyle,High,Calorie Surplus
+U900,57,Male,178,73.4,23.17,1566.0,2701.0,Active,3.3,2833,11152,131,540,131,4,7.7,fitness_improvement,High,Balanced
+U901,52,Female,158,72.2,28.92,1288.0,1546.0,Sedentary,2.4,1537,3920,52,218,52,1,7.0,maintenance,Low,Balanced
+U903,20,Female,169,62.3,21.81,1418.0,2198.0,Moderate,2.8,2291,12054,149,738,149,3,7.1,healthy_lifestyle,Moderate,Calorie Surplus
+U904,29,Male,185,75.9,22.18,1775.0,2751.0,Moderate,3.2,2298,9581,120,428,120,4,7.2,weight_loss,High,Calorie Deficit
+U905,34,Female,162,60.0,22.86,1282.0,1987.0,Moderate,2.6,1578,8455,108,458,108,3,7.2,weight_loss,Moderate,Calorie Deficit
+U906,32,Male,174,54.7,18.07,1480.0,2812.0,Very Active,3.2,2781,14748,187,694,187,7,8.2,maintenance,High,Balanced
+U907,53,Female,162,56.8,21.64,1154.0,1789.0,Moderate,2.5,1755,7465,96,448,96,2,7.8,maintenance,Moderate,Balanced
+U908,20,Female,163,53.1,19.99,1289.0,1998.0,Moderate,2.7,2066,9305,105,467,105,3,7.4,healthy_lifestyle,Moderate,Balanced
+U910,31,Male,162,51.8,19.74,1380.0,2380.0,Active,2.8,2524,11790,155,733,155,4,7.7,fitness_improvement,High,Calorie Surplus
+U911,39,Male,168,67.4,23.88,1534.0,2378.0,Moderate,2.9,2131,10980,120,573,120,3,7.1,weight_loss,Moderate,Calorie Deficit
+U912,47,Female,168,69.0,24.45,1344.0,2083.0,Moderate,2.7,2071,9673,119,496,119,3,7.6,fitness_improvement,Moderate,Balanced
+U913,28,Male,177,85.6,27.32,1827.0,2192.0,Sedentary,2.8,2113,3790,51,211,51,1,6.5,fitness_improvement,Low,Balanced
+U914,22,Female,165,55.0,20.2,1310.0,2030.0,Moderate,2.7,2253,9417,113,490,113,4,7.7,weight_gain,High,Calorie Surplus
+U915,56,Male,174,101.2,33.43,1824.0,2189.0,Sedentary,2.9,1900,3417,43,192,43,1,6.2,weight_loss,Low,Calorie Deficit
+U916,23,Male,172,84.7,28.63,1812.0,2174.0,Sedentary,2.8,2186,2707,32,147,32,1,6.3,maintenance,Low,Balanced
+U917,55,Male,177,79.1,25.25,1627.0,2522.0,Moderate,3.1,2814,10019,124,503,124,2,7.5,weight_gain,Moderate,Calorie Surplus
+U918,58,Male,175,72.6,23.71,1535.0,2379.0,Moderate,3.0,2436,8271,98,422,98,3,8.1,maintenance,Moderate,Balanced
+U919,42,Female,167,61.1,21.91,1284.0,1990.0,Moderate,2.7,2222,8900,108,504,108,4,7.7,weight_gain,High,Calorie Surplus
+U920,23,Female,157,44.5,18.05,1150.0,2185.0,Very Active,2.9,2249,16406,194,791,194,6,8.7,fitness_improvement,High,Balanced
+U921,30,Male,169,51.5,18.03,1426.0,2709.0,Very Active,3.0,2913,15972,186,865,186,6,8.7,weight_gain,High,Calorie Surplus
+U922,56,Female,177,85.4,27.26,1519.0,2354.0,Moderate,2.8,2440,10937,131,560,131,4,7.4,fitness_improvement,High,Balanced
+U923,58,Male,179,77.8,24.28,1612.0,2499.0,Moderate,2.9,2340,9057,117,516,117,2,7.7,weight_loss,Moderate,Calorie Deficit
+U924,38,Male,174,69.9,23.09,1602.0,2483.0,Moderate,2.9,2364,9295,105,443,105,2,7.4,fitness_improvement,Moderate,Balanced
+U925,28,Male,180,83.1,25.65,1821.0,2185.0,Sedentary,2.9,2429,3243,39,184,39,1,6.8,weight_gain,Low,Calorie Surplus
+U926,30,Female,173,83.3,27.83,1603.0,1924.0,Sedentary,2.7,2022,3752,48,201,48,1,6.7,healthy_lifestyle,Low,Balanced
+U927,42,Female,161,57.8,22.3,1213.0,1880.0,Moderate,2.6,2154,11841,156,633,156,3,7.4,weight_gain,Moderate,Calorie Surplus
+U928,18,Female,164,67.1,24.95,1445.0,1734.0,Sedentary,2.5,1783,3854,53,255,53,1,6.9,fitness_improvement,Low,Balanced
+U929,51,Male,169,64.3,22.51,1449.0,2500.0,Active,3.1,2145,13706,161,686,161,5,7.8,weight_loss,High,Calorie Deficit
+U930,37,Male,183,68.6,20.48,1650.0,2558.0,Moderate,3.0,2927,7946,100,414,100,2,7.9,weight_gain,Moderate,Calorie Surplus
+U931,38,Female,170,81.8,28.3,1530.0,1836.0,Sedentary,2.5,1452,3863,53,237,53,1,6.7,weight_loss,Low,Calorie Deficit
+U932,36,Male,187,80.2,22.93,1796.0,2784.0,Moderate,3.2,3100,12218,145,673,145,2,7.2,weight_gain,Moderate,Calorie Surplus
+U933,32,Male,176,65.2,21.05,1597.0,2475.0,Moderate,2.9,2504,12180,151,648,151,3,8.0,healthy_lifestyle,Moderate,Balanced
+U934,18,Female,169,51.5,18.03,1320.0,2508.0,Very Active,3.0,2230,15840,222,892,222,7,7.7,weight_loss,High,Calorie Deficit
+U935,39,Female,167,77.6,27.82,1464.0,1757.0,Sedentary,2.6,1759,3883,49,230,49,1,7.1,healthy_lifestyle,Low,Balanced
+U936,23,Male,178,63.4,20.01,1636.0,2536.0,Moderate,3.1,2258,7531,91,401,91,3,7.2,weight_loss,Moderate,Calorie Deficit
+U937,21,Female,165,56.3,20.68,1328.0,2058.0,Moderate,2.7,2375,11051,135,594,135,2,7.3,weight_gain,Moderate,Calorie Surplus
+U938,31,Female,176,59.8,19.31,1382.0,2384.0,Active,2.9,2208,11928,157,674,157,4,8.0,weight_loss,High,Calorie Deficit
+U939,19,Female,172,60.0,20.28,1419.0,2199.0,Moderate,3.0,2165,7427,86,362,86,2,7.2,fitness_improvement,Moderate,Balanced
+U940,23,Male,168,62.0,21.97,1560.0,2418.0,Moderate,3.0,2734,7929,103,485,103,4,7.2,weight_gain,High,Calorie Surplus
+U941,51,Male,178,79.3,25.03,1656.0,2567.0,Moderate,3.0,2608,12282,158,722,158,3,7.6,fitness_improvement,Moderate,Calorie Surplus
+U942,40,Male,168,65.2,23.1,1507.0,2336.0,Moderate,2.8,2402,8796,102,432,102,2,7.7,fitness_improvement,Moderate,Balanced
+U943,40,Female,171,54.1,18.5,1249.0,1936.0,Moderate,2.6,1621,8208,97,395,97,2,8.4,weight_loss,Moderate,Calorie Deficit
+U944,54,Female,165,86.6,31.81,1466.0,1759.0,Sedentary,2.7,1581,3782,43,184,43,1,6.2,weight_loss,Low,Calorie Deficit
+U945,33,Female,176,68.5,22.11,1459.0,2261.0,Moderate,2.7,2303,10298,134,618,134,2,7.1,healthy_lifestyle,Moderate,Balanced
+U946,55,Female,168,71.1,25.19,1325.0,2054.0,Moderate,2.8,2058,11914,145,647,145,3,7.8,fitness_improvement,Moderate,Balanced
+U947,20,Male,182,60.2,18.17,1644.0,2548.0,Moderate,3.0,2916,10374,141,645,141,2,7.9,weight_gain,Moderate,Calorie Surplus
+U948,58,Female,163,72.9,27.44,1297.0,2010.0,Moderate,2.8,1770,11181,135,608,135,2,6.6,weight_loss,Moderate,Calorie Deficit
+U949,25,Female,158,54.8,21.95,1250.0,1938.0,Moderate,2.6,1625,10007,126,560,126,3,7.2,weight_loss,Moderate,Calorie Deficit
+U951,55,Female,157,55.0,22.31,1095.0,1889.0,Active,2.6,1624,10681,138,591,138,5,7.9,weight_loss,High,Calorie Deficit
+U952,46,Female,168,70.7,25.05,1366.0,2117.0,Moderate,2.8,2293,10094,126,614,126,4,7.0,fitness_improvement,High,Calorie Surplus
+U953,33,Female,169,80.6,28.22,1536.0,1843.0,Sedentary,2.6,1818,4127,52,232,52,1,6.6,healthy_lifestyle,Low,Balanced
+U954,53,Female,180,66.4,20.49,1363.0,2351.0,Active,2.9,2102,10208,118,502,118,5,7.9,weight_loss,High,Calorie Deficit
+U955,51,Female,172,66.9,22.61,1328.0,2291.0,Active,2.8,2107,10237,131,585,131,5,7.7,weight_loss,High,Calorie Deficit
+U956,22,Male,175,76.8,25.08,1757.0,2108.0,Sedentary,2.7,2121,3740,49,217,49,1,6.8,fitness_improvement,Low,Balanced
+U957,29,Male,180,70.1,21.64,1686.0,2908.0,Active,3.4,3019,13639,170,657,170,4,7.6,healthy_lifestyle,High,Balanced
+U958,30,Female,161,61.7,23.8,1312.0,2034.0,Moderate,2.7,1823,8979,112,483,112,4,7.2,weight_loss,High,Calorie Deficit
+U959,42,Male,168,85.2,30.19,1697.0,2036.0,Sedentary,2.3,2358,3361,47,170,47,1,6.5,weight_gain,Low,Calorie Surplus
+U960,48,Female,151,51.5,22.59,1058.0,1825.0,Active,2.7,1947,12105,134,608,134,4,7.9,fitness_improvement,High,Calorie Surplus
+U961,25,Female,155,46.9,19.52,1152.0,1987.0,Active,2.7,1499,13243,160,679,160,4,7.7,weight_loss,High,Calorie Deficit
+U962,49,Female,167,65.0,23.31,1288.0,1996.0,Moderate,2.8,2030,11133,142,602,142,3,7.6,maintenance,Moderate,Balanced
+U963,49,Female,163,77.3,29.09,1386.0,1663.0,Sedentary,2.5,1780,3970,52,214,52,1,6.5,fitness_improvement,Low,Calorie Surplus
+U964,30,Female,155,50.9,21.19,1167.0,1809.0,Moderate,2.5,1961,8214,101,425,101,3,8.1,fitness_improvement,Moderate,Calorie Surplus
+U965,30,Female,163,53.3,20.06,1241.0,1924.0,Moderate,2.8,1999,7931,99,392,99,3,7.3,healthy_lifestyle,Moderate,Balanced
+U966,24,Male,183,75.2,22.46,1781.0,3072.0,Active,3.3,3335,9899,124,513,124,4,6.6,fitness_improvement,High,Calorie Surplus
+U967,41,Female,165,52.9,19.43,1194.0,1851.0,Moderate,2.4,1851,10636,142,545,142,3,8.8,maintenance,Moderate,Balanced
+U968,26,Female,154,50.3,21.21,1174.0,1820.0,Moderate,2.7,1525,7805,104,468,104,2,7.7,weight_loss,Moderate,Calorie Deficit
+U969,27,Male,169,56.7,19.85,1493.0,2575.0,Active,3.1,2547,10156,136,544,136,4,7.4,fitness_improvement,High,Balanced
+U970,39,Female,179,62.8,19.6,1391.0,2399.0,Active,3.0,2209,10381,126,613,126,4,7.9,weight_loss,High,Calorie Deficit
+U971,44,Female,165,67.1,24.65,1321.0,2048.0,Moderate,2.7,1654,8305,112,459,112,4,7.9,weight_loss,High,Calorie Deficit
+U972,27,Female,176,60.3,19.47,1407.0,2181.0,Moderate,2.9,1955,11458,143,593,143,2,7.7,weight_loss,Moderate,Calorie Deficit
+U973,28,Female,164,53.9,20.04,1263.0,1958.0,Moderate,2.6,1659,11565,151,707,151,4,7.6,weight_loss,High,Calorie Deficit
+U975,40,Female,157,68.7,27.87,1307.0,1568.0,Sedentary,2.5,1508,3811,55,229,55,1,6.6,healthy_lifestyle,Low,Balanced
+U976,43,Male,173,57.5,19.21,1446.0,2494.0,Active,2.9,2741,12973,148,607,148,4,7.6,weight_gain,High,Calorie Surplus
+U977,23,Female,171,52.5,17.95,1318.0,2274.0,Active,3.0,2411,11829,154,585,154,5,8.2,weight_gain,High,Calorie Surplus
+U978,55,Male,185,83.2,24.31,1718.0,2663.0,Moderate,3.0,2811,7477,91,406,91,3,8.0,weight_gain,Moderate,Balanced
+U979,43,Male,190,85.7,23.74,1834.0,3164.0,Active,3.4,3145,10306,137,565,137,5,7.8,fitness_improvement,High,Balanced
+U980,48,Female,163,50.8,19.12,1126.0,2139.0,Very Active,3.0,2257,14191,198,913,198,5,8.2,fitness_improvement,High,Balanced
+U981,19,Male,185,87.2,25.48,1938.0,2326.0,Sedentary,3.1,2048,3381,43,186,43,1,6.6,weight_loss,Low,Calorie Deficit
+U982,51,Male,179,69.8,21.78,1567.0,2429.0,Moderate,2.9,2644,9906,134,651,134,4,8.2,weight_gain,High,Calorie Surplus
+U983,19,Male,180,83.5,25.77,1870.0,2244.0,Sedentary,2.8,2181,3342,46,241,46,1,6.6,maintenance,Low,Balanced
+U984,27,Female,170,60.0,20.76,1366.0,2117.0,Moderate,2.7,1774,9783,122,458,122,4,7.7,weight_loss,High,Calorie Deficit
+U985,20,Male,167,77.5,27.79,1724.0,2069.0,Sedentary,2.8,2006,3257,43,172,43,1,6.2,maintenance,Low,Balanced
+U986,20,Male,167,54.7,19.61,1496.0,2319.0,Moderate,2.8,2313,7927,90,425,90,3,7.7,fitness_improvement,Moderate,Balanced
+U987,57,Female,176,57.2,18.47,1226.0,2329.0,Very Active,2.9,2047,17312,222,968,222,6,8.6,weight_loss,High,Calorie Deficit
+U988,39,Male,175,82.4,26.91,1728.0,2074.0,Sedentary,2.9,1561,3091,38,173,38,1,6.4,weight_loss,Low,Calorie Deficit
+U989,22,Female,166,51.7,18.76,1284.0,1990.0,Moderate,2.7,2070,7844,92,349,92,2,7.3,healthy_lifestyle,Moderate,Balanced
+U990,21,Female,166,59.3,21.52,1364.0,2114.0,Moderate,2.5,2200,11386,134,511,134,4,7.5,healthy_lifestyle,High,Balanced
+U991,26,Male,178,66.5,20.99,1652.0,2561.0,Moderate,2.9,2199,10052,124,529,124,2,7.2,weight_loss,Moderate,Calorie Deficit
+U992,36,Female,157,53.6,21.75,1176.0,1823.0,Moderate,2.7,1852,12446,159,772,159,4,7.7,healthy_lifestyle,High,Balanced
+U993,18,Male,181,71.6,21.86,1762.0,2731.0,Moderate,3.2,2866,10350,119,543,119,2,7.2,fitness_improvement,Moderate,Balanced
+U994,25,Female,164,57.3,21.3,1312.0,2034.0,Moderate,2.9,1686,9683,126,519,126,4,7.2,weight_loss,High,Calorie Deficit
+U995,21,Female,166,75.2,27.29,1524.0,1829.0,Sedentary,2.7,1775,3812,44,175,44,1,6.7,fitness_improvement,Low,Balanced
+U996,55,Male,178,94.5,29.83,1788.0,2771.0,Moderate,3.3,2474,9272,110,390,110,2,6.5,weight_loss,Moderate,Calorie Deficit
+U997,27,Female,170,64.3,22.25,1410.0,2186.0,Moderate,2.8,1952,7810,96,396,96,2,7.8,weight_loss,Moderate,Calorie Deficit
+U998,28,Male,178,56.9,17.96,1546.0,2937.0,Very Active,3.4,3078,17159,217,914,217,7,8.1,healthy_lifestyle,High,Calorie Surplus
+U1000,20,Male,176,70.8,22.86,1713.0,2655.0,Moderate,3.2,2475,11187,139,606,139,2,6.9,weight_loss,Moderate,Calorie Deficit
+U1001,56,Male,179,102.8,32.08,1872.0,2246.0,Sedentary,3.4,2333,3638,35,153,35,0,7.4,maintenance,Low,Balanced
+U1003,38,Male,160,73.7,28.79,1552.0,2949.0,Very Active,2.9,2413,14904,198,1276,198,7,6.4,weight_loss,High,Calorie Deficit
+U1004,45,Female,165,54.3,19.94,1188.0,1426.0,Sedentary,1.8,1075,3899,32,203,32,1,6.1,weight_loss,Low,Calorie Deficit
+U1006,19,Male,179,70.8,22.1,1737.0,3300.0,Very Active,3.2,3861,16014,184,1023,184,6,6.5,weight_gain,High,Calorie Surplus
+U1008,53,Female,163,74.1,27.89,1334.0,1601.0,Sedentary,2.4,2113,3275,34,180,34,1,7.2,weight_gain,Low,Calorie Surplus
+U1009,35,Female,164,78.1,29.04,1470.0,2278.0,Moderate,2.5,2365,6379,104,539,104,3,6.5,maintenance,Moderate,Balanced
+U1011,50,Male,186,63.3,18.3,1550.0,1860.0,Sedentary,2.5,1800,4182,18,104,18,1,6.3,healthy_lifestyle,Low,Balanced
+U1012,40,Male,189,74.6,20.88,1732.0,2685.0,Moderate,3.4,2687,8773,86,506,86,3,6.4,maintenance,Moderate,Balanced
+U1013,31,Female,152,75.4,32.64,1388.0,1666.0,Sedentary,2.9,1706,2870,36,246,36,0,6.3,healthy_lifestyle,Low,Balanced
+U1014,30,Male,178,61.4,19.38,1582.0,2729.0,Active,3.1,2376,13191,103,469,103,5,7.8,weight_loss,Moderate,Calorie Deficit
+U1015,32,Female,160,53.1,20.74,1210.0,2299.0,Very Active,3.9,2269,13722,177,1150,177,6,6.9,maintenance,High,Balanced
+U1016,23,Male,187,96.2,27.51,2021.0,2425.0,Sedentary,2.0,1839,3981,20,144,20,1,8.7,weight_loss,Low,Calorie Deficit
+U1017,56,Male,189,65.0,18.2,1556.0,2412.0,Moderate,2.1,1991,8675,72,375,72,3,6.5,weight_loss,Moderate,Calorie Deficit
+U1018,44,Male,168,81.8,28.98,1653.0,1984.0,Sedentary,3.3,2054,2663,24,127,24,0,7.6,healthy_lifestyle,Low,Balanced
+U1019,58,Female,169,59.5,20.83,1200.0,2070.0,Active,3.9,2021,10291,138,945,138,5,6.4,maintenance,Moderate,Balanced
+U1020,34,Male,186,87.4,25.26,1872.0,2902.0,Moderate,2.8,2853,6854,96,732,96,4,6.7,maintenance,Moderate,Balanced
+U1021,19,Male,180,82.0,25.31,1855.0,2875.0,Moderate,4.0,2329,6835,114,624,114,3,6.7,weight_loss,Moderate,Calorie Deficit
+U1022,55,Male,183,81.2,24.25,1686.0,3203.0,Very Active,4.0,3740,12608,208,1410,208,6,8.6,weight_gain,High,Calorie Surplus
+U1023,53,Male,178,92.0,29.04,1772.0,3057.0,Active,3.5,3103,11911,106,822,106,5,7.2,healthy_lifestyle,Moderate,Balanced
+U1024,56,Female,167,78.5,28.15,1388.0,2637.0,Very Active,3.2,3085,17534,191,938,191,7,6.5,weight_gain,High,Calorie Surplus
+U1025,19,Female,150,48.7,21.64,1168.0,1402.0,Sedentary,3.8,1737,3183,36,192,36,0,7.0,weight_gain,Low,Calorie Surplus
+U1026,33,Male,162,98.5,37.53,1838.0,2849.0,Moderate,2.6,2907,9991,111,859,111,3,8.4,healthy_lifestyle,Moderate,Balanced
+U1027,57,Female,169,68.2,23.88,1292.0,1550.0,Sedentary,2.5,1948,4200,38,176,38,1,7.6,weight_gain,Low,Calorie Surplus
+U1029,25,Female,156,73.8,30.33,1427.0,2462.0,Active,2.3,2936,13555,158,1034,158,4,6.8,weight_gain,High,Calorie Surplus
+U1031,50,Female,154,54.2,22.85,1094.0,2079.0,Very Active,2.8,1979,16642,213,889,213,5,9.0,healthy_lifestyle,High,Balanced
+U1032,47,Female,163,81.6,30.71,1439.0,2230.0,Moderate,2.5,2760,7060,83,474,83,3,8.9,weight_gain,Moderate,Calorie Surplus
+U1033,52,Male,187,98.4,28.14,1898.0,3606.0,Very Active,2.3,3663,13184,216,1345,216,6,8.8,healthy_lifestyle,High,Balanced
+U1034,20,Male,167,63.2,22.66,1581.0,1897.0,Sedentary,2.1,1446,2154,19,100,19,1,8.5,weight_loss,Low,Calorie Deficit
+U1036,24,Male,184,88.3,26.08,1918.0,3309.0,Active,2.1,3215,13495,113,852,113,5,6.1,healthy_lifestyle,Moderate,Balanced
+U1037,51,Female,151,62.5,27.41,1153.0,2191.0,Very Active,3.2,2138,15736,207,1640,207,7,8.5,maintenance,High,Balanced
+U1038,39,Male,176,61.7,19.92,1527.0,1832.0,Sedentary,3.6,1785,4491,14,102,14,0,6.8,fitness_improvement,Low,Balanced
+U1039,22,Female,156,48.4,19.89,1188.0,1841.0,Moderate,1.7,1495,8914,114,787,114,4,8.9,weight_loss,Moderate,Calorie Deficit
+U1040,59,Female,168,76.8,27.21,1362.0,2349.0,Active,2.2,2740,10369,136,1067,136,5,8.5,weight_gain,Moderate,Calorie Surplus
+U1041,26,Female,161,61.4,23.69,1329.0,1595.0,Sedentary,2.0,1494,4849,39,267,39,1,8.0,maintenance,Low,Balanced
+U1042,18,Male,175,83.3,27.2,1842.0,3500.0,Very Active,3.2,3129,14294,216,1171,216,6,8.3,weight_loss,High,Calorie Deficit
+U1043,46,Female,163,48.7,18.33,1115.0,2118.0,Very Active,1.8,2109,17869,211,1244,211,5,6.3,fitness_improvement,High,Balanced
+U1045,48,Male,169,88.2,30.88,1703.0,3236.0,Very Active,2.8,3135,13015,218,1014,218,5,6.2,fitness_improvement,High,Balanced
+U1046,19,Male,176,99.0,31.96,2000.0,3800.0,Very Active,3.1,3783,13687,161,1013,161,6,6.4,maintenance,High,Balanced
+U1047,54,Female,161,60.4,23.3,1179.0,1415.0,Sedentary,3.9,1072,2284,22,96,22,1,6.1,weight_loss,Low,Calorie Deficit
+U1048,52,Female,172,47.8,16.16,1132.0,1755.0,Moderate,2.4,2143,9069,93,476,93,3,6.4,weight_gain,Moderate,Calorie Surplus
+U1050,35,Male,176,94.9,30.64,1879.0,2255.0,Sedentary,2.4,2343,2036,21,141,21,0,8.2,healthy_lifestyle,Low,Balanced
+U1051,52,Male,168,77.0,27.28,1565.0,2974.0,Very Active,2.9,3356,17999,162,712,162,7,6.2,weight_gain,High,Calorie Surplus
+U1052,58,Male,178,64.1,20.23,1468.0,2532.0,Active,2.4,2559,13946,157,680,157,4,6.3,fitness_improvement,High,Balanced
+U1053,29,Male,184,84.9,25.08,1859.0,2881.0,Moderate,2.1,2833,9222,75,334,75,3,8.8,fitness_improvement,Moderate,Balanced
+U1055,55,Male,166,79.2,28.74,1560.0,2418.0,Moderate,2.1,2452,8993,86,394,86,4,7.5,healthy_lifestyle,Moderate,Balanced
+U1056,55,Female,168,68.3,24.2,1297.0,2237.0,Active,3.7,2222,9499,116,885,116,4,7.8,fitness_improvement,Moderate,Balanced
+U1057,53,Female,155,73.3,30.51,1276.0,1531.0,Sedentary,2.8,2011,4214,36,274,36,1,6.3,weight_gain,Low,Calorie Surplus
+U1058,20,Male,172,60.5,20.45,1585.0,1902.0,Sedentary,2.7,1859,3683,37,165,37,1,7.9,maintenance,Low,Balanced
+U1059,18,Male,162,86.3,32.88,1790.0,3401.0,Very Active,3.9,3491,13531,174,851,174,5,8.9,fitness_improvement,High,Balanced
+U1060,49,Male,172,61.9,20.92,1454.0,2763.0,Very Active,3.7,3274,16298,185,1254,185,7,6.2,weight_gain,High,Calorie Surplus
+U1061,58,Male,176,91.3,29.47,1728.0,2074.0,Sedentary,2.7,1720,4703,32,245,32,0,8.9,weight_loss,Low,Calorie Deficit
+U1062,33,Male,167,77.8,27.9,1662.0,1994.0,Sedentary,1.9,1686,3145,37,216,37,1,7.1,weight_loss,Low,Calorie Deficit
+U1063,45,Female,154,84.0,35.42,1416.0,1699.0,Sedentary,4.0,1789,3224,10,72,10,0,8.1,fitness_improvement,Low,Balanced
+U1064,46,Male,172,101.0,34.14,1860.0,2883.0,Moderate,3.6,2864,8930,64,491,64,3,6.2,healthy_lifestyle,Moderate,Balanced
+U1065,47,Male,177,84.8,27.07,1724.0,3276.0,Very Active,2.0,3863,16469,214,1701,214,6,6.5,weight_gain,High,Calorie Surplus
+U1068,36,Male,176,70.8,22.86,1633.0,2817.0,Active,2.1,2716,13146,144,695,144,4,8.6,maintenance,Moderate,Balanced
+U1069,57,Female,151,59.3,26.01,1091.0,1882.0,Active,1.9,1933,9249,133,942,133,5,7.6,healthy_lifestyle,Moderate,Balanced
+U1070,29,Male,160,84.8,33.12,1708.0,2050.0,Sedentary,2.9,1528,2762,34,154,34,0,6.1,weight_loss,Low,Calorie Deficit
+U1071,32,Female,154,69.8,29.43,1340.0,2077.0,Moderate,3.3,1673,9493,119,642,119,4,7.8,weight_loss,Moderate,Calorie Deficit
+U1074,30,Male,189,88.5,24.78,1921.0,2978.0,Moderate,2.2,2991,8158,116,523,116,3,6.5,healthy_lifestyle,Moderate,Balanced
+U1075,33,Male,167,68.1,24.42,1565.0,1878.0,Sedentary,3.3,1800,3887,12,80,12,0,6.5,healthy_lifestyle,Low,Balanced
+U1076,36,Male,180,67.6,20.86,1626.0,1951.0,Sedentary,2.3,1911,4581,30,134,30,1,7.4,fitness_improvement,Low,Balanced
+U1077,43,Male,173,76.4,25.53,1635.0,1962.0,Sedentary,2.8,2334,4841,34,221,34,0,6.2,weight_gain,Low,Calorie Surplus
+U1078,47,Male,170,101.4,35.09,1846.0,3184.0,Active,1.7,3109,11055,148,701,148,4,6.6,healthy_lifestyle,Moderate,Balanced
+U1081,54,Male,187,60.9,17.42,1513.0,2610.0,Active,2.4,2593,9125,143,1081,143,4,7.8,maintenance,Moderate,Balanced
+U1082,21,Female,159,76.6,30.3,1494.0,2316.0,Moderate,2.8,2324,8275,106,672,106,4,8.2,healthy_lifestyle,Moderate,Balanced
+U1085,20,Male,178,60.8,19.19,1626.0,2520.0,Moderate,3.3,1996,6005,61,480,61,4,8.6,weight_loss,Moderate,Calorie Deficit
+U1086,23,Male,181,71.6,21.86,1737.0,3300.0,Very Active,2.0,3378,17560,215,1320,215,7,7.4,healthy_lifestyle,High,Balanced
+U1087,22,Male,165,103.6,38.05,1962.0,2354.0,Sedentary,3.3,2273,2112,21,143,21,0,8.3,fitness_improvement,Low,Balanced
+U1090,55,Male,182,95.7,28.89,1824.0,3466.0,Very Active,1.9,3833,16027,199,1538,199,6,9.0,weight_gain,High,Calorie Surplus
+U1091,51,Male,171,77.1,26.37,1590.0,3021.0,Very Active,3.8,2660,17951,160,1120,160,5,8.4,weight_loss,High,Calorie Deficit
+U1092,52,Female,170,52.5,18.17,1166.0,2215.0,Very Active,2.2,2192,14621,153,1148,153,5,7.2,fitness_improvement,High,Balanced
+U1093,57,Female,157,62.6,25.4,1161.0,1800.0,Moderate,2.5,2277,9708,97,678,97,3,7.5,weight_gain,Moderate,Calorie Surplus
+U1096,50,Female,154,76.1,32.09,1312.0,2034.0,Moderate,1.9,1538,8645,61,364,61,4,8.3,weight_loss,Moderate,Calorie Deficit
+U1097,55,Male,172,65.0,21.97,1455.0,2510.0,Active,3.6,2588,12228,107,636,107,4,7.2,fitness_improvement,Moderate,Balanced
+U1098,19,Male,186,88.9,25.7,1962.0,2354.0,Sedentary,3.3,2288,2793,20,107,20,0,6.5,fitness_improvement,Low,Balanced
+U1099,27,Male,167,86.3,30.94,1777.0,3376.0,Very Active,2.6,3320,12345,195,899,195,7,7.8,maintenance,High,Balanced
+U1100,35,Male,184,71.5,21.12,1695.0,2627.0,Moderate,3.3,2157,9531,103,790,103,4,8.4,weight_loss,Moderate,Calorie Deficit
+U1101,54,Male,167,89.3,32.02,1672.0,2592.0,Moderate,3.5,2520,9449,68,293,68,4,6.3,maintenance,Moderate,Balanced
+U1102,58,Male,181,101.0,30.83,1856.0,3202.0,Active,1.9,3201,12476,125,593,125,5,8.5,fitness_improvement,Moderate,Balanced
+U1103,18,Female,171,65.8,22.5,1476.0,2804.0,Very Active,3.0,2850,15502,202,974,202,5,8.4,fitness_improvement,High,Balanced
+U1104,43,Male,168,65.1,23.07,1491.0,2833.0,Very Active,2.6,2821,14122,187,1096,187,6,7.4,maintenance,High,Balanced
+U1106,41,Male,160,76.3,29.8,1563.0,1876.0,Sedentary,3.0,1924,4713,37,246,37,1,6.5,fitness_improvement,Low,Balanced
+U1107,37,Male,168,66.7,23.63,1537.0,2382.0,Moderate,2.6,2344,7724,99,514,99,3,6.9,maintenance,Moderate,Balanced
+U1108,47,Male,182,79.2,23.91,1700.0,2635.0,Moderate,3.5,2964,8717,88,364,88,3,7.4,weight_gain,Moderate,Calorie Surplus
+U1109,57,Female,168,47.6,16.87,1080.0,2052.0,Very Active,3.5,2126,15057,215,1239,215,6,7.2,healthy_lifestyle,High,Balanced
+U1111,50,Female,172,84.2,28.46,1506.0,2334.0,Moderate,3.6,2027,6832,116,581,116,3,6.6,weight_loss,Moderate,Calorie Deficit
+U1112,25,Male,181,75.3,22.98,1764.0,2734.0,Moderate,3.0,3084,9680,87,598,87,3,8.4,weight_gain,Moderate,Calorie Surplus
+U1114,35,Female,156,70.3,28.89,1342.0,2550.0,Very Active,3.4,2165,16242,168,955,168,5,8.7,weight_loss,High,Calorie Deficit
+U1115,22,Male,179,75.1,23.44,1765.0,2118.0,Sedentary,3.6,2610,2470,32,234,32,1,7.0,weight_gain,Low,Calorie Surplus
+U1116,47,Male,168,79.6,28.2,1616.0,2505.0,Moderate,2.3,2489,7387,83,620,83,3,7.5,fitness_improvement,Moderate,Balanced
+U1117,40,Male,176,81.8,26.41,1723.0,2972.0,Active,2.8,3280,11599,101,566,101,4,6.7,weight_gain,Moderate,Calorie Surplus
+U1118,39,Male,170,79.0,27.34,1662.0,2576.0,Moderate,1.9,2504,9180,93,626,93,3,8.5,maintenance,Moderate,Balanced
+U1119,38,Male,169,85.9,30.08,1730.0,2682.0,Moderate,2.3,2997,7700,84,614,84,4,6.6,weight_gain,Moderate,Calorie Surplus
+U1120,59,Male,181,66.2,20.21,1503.0,1804.0,Sedentary,3.8,1836,2730,17,108,17,1,8.0,maintenance,Low,Balanced
+U1121,24,Female,159,81.6,32.28,1529.0,2905.0,Very Active,2.6,3392,14681,195,909,195,6,8.2,weight_gain,High,Calorie Surplus
+U1123,51,Female,172,71.5,24.17,1374.0,1649.0,Sedentary,3.8,2016,3312,35,215,35,1,6.5,weight_gain,Low,Calorie Surplus
+U1124,34,Female,162,51.2,19.51,1194.0,2060.0,Active,3.1,2429,11343,116,693,116,4,8.1,weight_gain,Moderate,Calorie Surplus
+U1126,36,Female,154,48.7,20.53,1108.0,1330.0,Sedentary,3.8,1417,3040,19,109,19,0,6.6,healthy_lifestyle,Low,Balanced
+U1128,35,Female,174,70.9,23.42,1460.0,2263.0,Moderate,3.3,2588,6046,91,578,91,4,9.0,weight_gain,Moderate,Calorie Surplus
+U1129,43,Male,180,81.3,25.09,1728.0,2074.0,Sedentary,2.4,2489,2136,28,124,28,1,7.3,weight_gain,Low,Calorie Surplus
+U1130,46,Female,167,74.8,26.82,1401.0,2172.0,Moderate,1.7,2215,7466,101,418,101,3,7.8,maintenance,Moderate,Balanced
+U1131,52,Male,171,65.4,22.37,1468.0,2275.0,Moderate,1.8,2209,7194,99,683,99,4,6.2,maintenance,Moderate,Balanced
+U1132,32,Female,173,66.6,22.25,1426.0,2709.0,Very Active,3.5,2761,14769,182,1176,182,5,6.7,maintenance,High,Balanced
+U1133,52,Male,169,104.6,36.62,1847.0,2216.0,Sedentary,1.6,2128,3297,12,95,12,0,7.1,maintenance,Low,Balanced
+U1134,46,Male,189,81.6,22.84,1772.0,3367.0,Very Active,3.1,3449,13771,159,901,159,6,7.3,maintenance,High,Balanced
+U1135,22,Male,160,70.7,27.62,1602.0,1922.0,Sedentary,1.9,1963,2375,39,202,39,1,6.7,fitness_improvement,Low,Balanced
+U1136,42,Female,165,45.7,16.79,1117.0,1731.0,Moderate,4.0,1703,6398,108,725,108,3,6.7,maintenance,Moderate,Balanced
+U1137,54,Female,154,48.6,20.49,1018.0,1934.0,Very Active,2.6,2015,17421,160,1032,160,6,6.5,fitness_improvement,High,Balanced
+U1138,21,Male,186,78.1,22.57,1844.0,3181.0,Active,3.6,3132,9884,150,672,150,4,6.1,fitness_improvement,High,Balanced
+U1139,43,Male,168,68.4,24.23,1524.0,2362.0,Moderate,3.5,1801,9588,64,504,64,4,8.7,weight_loss,Moderate,Calorie Deficit
+U1140,52,Female,169,84.8,29.69,1483.0,1780.0,Sedentary,2.0,1841,4737,27,215,27,1,8.7,fitness_improvement,Low,Balanced
+U1141,52,Male,165,88.0,32.32,1656.0,2567.0,Moderate,3.4,2554,8376,63,468,63,4,7.4,healthy_lifestyle,Moderate,Balanced
+U1142,20,Male,186,65.8,19.02,1726.0,2675.0,Moderate,3.7,2725,8785,71,513,71,4,8.0,fitness_improvement,Moderate,Balanced
+U1143,22,Female,160,48.5,18.95,1214.0,1457.0,Sedentary,2.6,1393,4375,36,151,36,0,7.6,maintenance,Low,Balanced
+U1144,54,Female,165,72.3,26.56,1323.0,2282.0,Active,1.8,2262,12111,144,873,144,5,8.7,maintenance,Moderate,Balanced
+U1145,20,Female,173,71.5,23.89,1535.0,2379.0,Moderate,2.9,2311,7285,83,620,83,3,6.7,fitness_improvement,Moderate,Balanced
+U1148,46,Female,161,45.3,17.48,1068.0,1842.0,Active,2.3,1787,10690,148,966,148,4,6.8,fitness_improvement,Moderate,Balanced
+U1149,41,Male,172,95.1,32.15,1826.0,2830.0,Moderate,1.9,2887,9526,69,541,69,3,7.0,maintenance,Moderate,Balanced
+U1150,32,Male,189,93.9,26.29,1965.0,3390.0,Active,3.5,3436,10887,135,1051,135,5,6.5,fitness_improvement,Moderate,Balanced
+U1151,29,Female,171,73.3,25.07,1496.0,2581.0,Active,2.7,2499,13569,155,1148,155,4,9.0,healthy_lifestyle,High,Balanced
+U1154,46,Female,160,53.8,21.02,1147.0,2179.0,Very Active,1.8,2162,15093,176,1373,176,7,6.5,fitness_improvement,High,Balanced
+U1155,45,Female,170,81.4,28.17,1490.0,1788.0,Sedentary,3.7,2171,3682,34,269,34,0,7.2,weight_gain,Low,Calorie Surplus
+U1157,25,Male,187,68.3,19.53,1732.0,2078.0,Sedentary,3.7,1770,2590,36,220,36,1,6.1,weight_loss,Low,Calorie Deficit
+U1158,46,Male,171,61.5,21.03,1459.0,2517.0,Active,3.8,2545,9526,124,554,124,5,6.4,fitness_improvement,Moderate,Balanced
+U1159,37,Male,163,85.1,32.03,1690.0,2915.0,Active,2.1,3000,9116,101,579,101,5,9.0,healthy_lifestyle,Moderate,Balanced
+U1160,34,Male,167,80.9,29.01,1688.0,2912.0,Active,3.2,2891,10389,146,1005,146,4,8.0,healthy_lifestyle,Moderate,Balanced
+U1162,49,Male,174,82.4,27.22,1672.0,2006.0,Sedentary,3.1,2052,4720,19,76,19,1,7.0,healthy_lifestyle,Low,Balanced
+U1164,43,Female,163,72.7,27.36,1370.0,1644.0,Sedentary,3.6,1647,2886,21,163,21,0,6.4,fitness_improvement,Low,Balanced
+U1165,23,Male,168,102.1,36.17,1961.0,2353.0,Sedentary,1.7,2412,2552,27,202,27,1,8.1,healthy_lifestyle,Low,Balanced
+U1166,37,Male,189,87.6,24.52,1877.0,3238.0,Active,2.8,3220,9207,103,748,103,5,7.4,fitness_improvement,Moderate,Balanced
+U1167,20,Female,158,51.6,20.67,1242.0,2142.0,Active,2.7,2053,11134,111,656,111,4,7.8,fitness_improvement,Moderate,Balanced
+U1168,36,Female,172,63.8,21.57,1372.0,2607.0,Very Active,3.4,2624,14356,204,947,204,7,6.1,healthy_lifestyle,High,Balanced
+U1169,36,Male,181,75.0,22.89,1706.0,2943.0,Active,2.9,2900,11971,109,732,109,4,6.2,healthy_lifestyle,Moderate,Balanced
+U1172,56,Female,159,84.7,33.5,1400.0,1680.0,Sedentary,2.3,1702,3291,12,70,12,0,8.5,maintenance,Low,Balanced
+U1173,50,Male,162,94.9,36.16,1716.0,2660.0,Moderate,2.6,2645,9369,103,812,103,4,6.5,maintenance,Moderate,Balanced
+U1174,22,Female,155,64.7,26.93,1345.0,2556.0,Very Active,2.2,2143,12013,151,702,151,7,7.2,weight_loss,High,Calorie Deficit
+U1177,37,Male,187,61.7,17.64,1606.0,2770.0,Active,3.4,2832,11352,148,1068,148,5,7.8,healthy_lifestyle,Moderate,Balanced
+U1178,32,Female,155,53.2,22.14,1180.0,2242.0,Very Active,1.9,2253,14381,151,924,151,5,8.8,healthy_lifestyle,High,Balanced
+U1179,46,Female,150,49.9,22.18,1046.0,1255.0,Sedentary,2.7,1798,3082,14,84,14,0,6.1,weight_gain,Low,Calorie Surplus
+U1180,59,Female,169,84.5,29.59,1445.0,2493.0,Active,3.9,2434,9125,133,872,133,4,8.6,fitness_improvement,Moderate,Balanced
+U1181,48,Male,183,83.2,24.84,1741.0,3308.0,Very Active,2.8,3377,17413,172,899,172,6,8.1,healthy_lifestyle,High,Balanced
+U1182,59,Female,172,51.5,17.41,1134.0,1361.0,Sedentary,2.1,1267,4716,15,117,15,0,6.8,maintenance,Low,Balanced
+U1183,18,Female,172,84.1,28.43,1665.0,2872.0,Active,2.5,2929,13049,116,867,116,5,7.7,healthy_lifestyle,Moderate,Balanced
+U1184,29,Male,186,101.9,29.45,2042.0,3522.0,Active,3.3,4108,12072,118,782,118,4,7.2,weight_gain,Moderate,Calorie Surplus
+U1185,22,Female,158,49.3,19.75,1210.0,2087.0,Active,3.2,2176,9574,108,607,108,4,8.6,healthy_lifestyle,Moderate,Balanced
+U1186,26,Male,180,85.5,26.39,1855.0,3200.0,Active,3.4,3166,12681,137,1055,137,5,7.3,maintenance,Moderate,Balanced
+U1188,32,Male,160,76.5,29.88,1610.0,3059.0,Very Active,2.6,3107,15986,209,1211,209,5,6.7,fitness_improvement,High,Balanced
+U1189,52,Male,171,60.7,20.76,1421.0,2451.0,Active,3.0,2548,11889,101,606,101,5,7.6,fitness_improvement,Moderate,Balanced
+U1190,25,Male,175,98.1,32.03,1955.0,2346.0,Sedentary,3.8,2397,2664,21,117,21,0,7.7,healthy_lifestyle,Low,Balanced
+U1191,53,Male,174,77.7,25.66,1604.0,2767.0,Active,2.9,3086,9406,142,1077,142,4,6.2,weight_gain,Moderate,Calorie Surplus
+U1192,32,Male,184,89.5,26.44,1890.0,2930.0,Moderate,2.5,2896,6788,72,344,72,4,6.5,healthy_lifestyle,Moderate,Balanced
+U1194,47,Female,167,61.0,21.87,1258.0,1950.0,Moderate,3.9,1937,9416,89,399,89,3,8.6,healthy_lifestyle,Moderate,Balanced
+U1195,56,Female,162,52.4,19.97,1096.0,1891.0,Active,2.3,1957,9444,141,1107,141,5,7.5,maintenance,Moderate,Balanced
+U1196,24,Male,181,84.8,25.88,1864.0,3215.0,Active,1.7,2869,11938,112,733,112,4,7.5,weight_loss,Moderate,Calorie Deficit
+U1197,45,Male,168,95.7,33.91,1787.0,2770.0,Moderate,3.2,3189,7660,101,715,101,4,7.7,weight_gain,Moderate,Calorie Surplus
+U1198,44,Male,164,73.6,27.36,1546.0,1855.0,Sedentary,3.4,1456,4904,27,175,27,0,7.4,weight_loss,Low,Calorie Deficit
+U1201,35,Female,152,62.7,27.14,1241.0,1489.0,Sedentary,2.7,1557,4506,16,72,16,1,6.3,fitness_improvement,Low,Balanced
+U1202,43,Male,165,86.0,31.59,1681.0,2900.0,Active,2.3,2834,13839,136,868,136,4,7.2,maintenance,Moderate,Balanced
+U1205,19,Male,165,85.1,31.26,1792.0,3405.0,Very Active,3.4,2819,16211,157,981,157,6,8.9,weight_loss,High,Calorie Deficit
+U1206,30,Female,164,53.0,19.71,1244.0,2364.0,Very Active,2.9,2452,12632,204,1061,204,5,8.9,healthy_lifestyle,High,Balanced
+U1208,23,Male,181,64.0,19.54,1661.0,1993.0,Sedentary,3.4,2053,3012,25,178,25,1,8.1,maintenance,Low,Balanced
+U1209,31,Male,163,73.6,27.7,1605.0,3050.0,Very Active,2.2,2682,14408,151,748,151,7,7.5,weight_loss,High,Calorie Deficit
+U1210,20,Female,169,56.2,19.68,1357.0,2578.0,Very Active,3.9,2532,12261,184,1101,184,6,9.0,healthy_lifestyle,High,Balanced
+U1211,54,Female,169,53.3,18.66,1158.0,1390.0,Sedentary,3.8,1330,4725,27,149,27,0,8.6,fitness_improvement,Low,Balanced
+U1212,47,Female,163,77.2,29.06,1395.0,1674.0,Sedentary,3.5,1751,2072,24,98,24,0,6.5,healthy_lifestyle,Low,Balanced
+U1213,52,Female,167,83.3,29.87,1456.0,1747.0,Sedentary,3.0,1655,3560,11,65,11,0,6.9,healthy_lifestyle,Low,Balanced
+U1214,48,Female,163,50.6,19.04,1124.0,1939.0,Active,3.8,2474,11946,134,978,134,4,8.0,weight_gain,Moderate,Calorie Surplus
+U1216,46,Female,155,45.0,18.73,1028.0,1953.0,Very Active,1.6,1980,17179,172,953,172,7,7.7,fitness_improvement,High,Balanced
+U1217,51,Female,159,53.5,21.16,1113.0,1920.0,Active,2.8,1995,10950,155,1229,155,4,6.7,healthy_lifestyle,High,Balanced
+U1218,52,Female,170,49.9,17.27,1140.0,1767.0,Moderate,2.3,2329,9151,75,485,75,4,7.9,weight_gain,Moderate,Calorie Surplus
+U1219,57,Male,176,70.5,22.76,1525.0,2364.0,Moderate,2.1,2314,6419,119,678,119,4,6.4,healthy_lifestyle,Moderate,Balanced
+U1220,52,Male,166,83.6,30.34,1618.0,2791.0,Active,2.8,2889,10764,121,489,121,4,7.2,fitness_improvement,Moderate,Balanced
+U1221,44,Female,170,45.8,15.85,1140.0,1767.0,Moderate,2.2,1328,9542,117,718,117,4,6.6,weight_loss,Moderate,Calorie Deficit
+U1222,38,Female,167,70.2,25.17,1395.0,2162.0,Moderate,2.1,2632,6671,95,421,95,3,7.6,weight_gain,Moderate,Calorie Surplus
+U1224,46,Female,155,60.7,25.27,1185.0,1837.0,Moderate,3.9,1847,6104,76,399,76,4,8.1,maintenance,Moderate,Balanced
+U1225,46,Female,150,78.6,34.93,1332.0,2531.0,Very Active,1.7,1999,12788,177,1058,177,7,7.2,weight_loss,High,Calorie Deficit
+U1226,39,Male,167,70.2,25.17,1556.0,1867.0,Sedentary,3.7,2338,4514,14,111,14,1,7.3,weight_gain,Low,Calorie Surplus
+U1227,25,Female,162,46.5,17.72,1192.0,2056.0,Active,3.4,2082,12506,123,497,123,4,8.9,fitness_improvement,Moderate,Balanced
+U1228,38,Male,167,75.9,27.22,1618.0,2791.0,Active,2.3,2827,13531,114,757,114,4,6.6,healthy_lifestyle,Moderate,Balanced
+U1229,22,Female,154,71.4,30.11,1406.0,1687.0,Sedentary,3.4,1249,3573,24,145,24,1,8.7,weight_loss,Low,Calorie Deficit
+U1231,42,Male,185,81.5,23.81,1766.0,2737.0,Moderate,3.7,2646,8196,95,560,95,4,6.3,fitness_improvement,Moderate,Balanced
+U1232,30,Female,170,81.8,28.3,1570.0,2708.0,Active,2.8,2637,9522,109,484,109,4,7.8,fitness_improvement,Moderate,Balanced
+U1233,26,Female,174,60.0,19.82,1396.0,2408.0,Active,2.9,2421,11837,151,1164,151,5,8.0,fitness_improvement,High,Balanced
+U1234,38,Female,152,71.9,31.12,1318.0,2043.0,Moderate,2.4,1980,8544,71,438,71,3,7.9,healthy_lifestyle,Moderate,Balanced
+U1235,38,Female,157,74.9,30.39,1379.0,2137.0,Moderate,2.9,2187,8283,91,480,91,3,8.3,maintenance,Moderate,Balanced
+U1236,42,Male,181,84.3,25.73,1769.0,2123.0,Sedentary,3.3,2679,4588,30,131,30,0,8.9,weight_gain,Low,Calorie Surplus
+U1237,32,Female,168,51.0,18.07,1239.0,1487.0,Sedentary,2.4,1407,4468,38,229,38,0,6.9,fitness_improvement,Low,Balanced
+U1239,22,Female,152,84.7,36.66,1526.0,2365.0,Moderate,1.8,2328,6873,93,487,93,3,8.2,fitness_improvement,Moderate,Balanced
+U1240,56,Female,151,59.2,25.96,1095.0,1314.0,Sedentary,3.5,1697,4281,35,144,35,1,8.2,weight_gain,Low,Calorie Surplus
+U1242,21,Male,174,80.2,26.49,1790.0,2774.0,Moderate,3.3,2449,7013,94,523,94,4,7.2,weight_loss,Moderate,Calorie Deficit
+U1243,57,Male,166,60.1,21.81,1358.0,2105.0,Moderate,3.1,1545,6187,116,507,116,3,7.8,weight_loss,Moderate,Calorie Deficit
+U1244,21,Male,188,88.9,25.15,1964.0,3732.0,Very Active,1.8,3710,17174,153,909,153,6,7.8,maintenance,High,Balanced
+U1245,36,Male,190,61.0,16.9,1622.0,2798.0,Active,2.4,2287,13501,123,858,123,4,8.9,weight_loss,Moderate,Calorie Deficit
+U1246,48,Male,163,83.3,31.35,1617.0,3072.0,Very Active,2.7,3063,16278,204,888,204,5,6.7,maintenance,High,Balanced
+U1247,45,Female,164,84.9,31.57,1488.0,2567.0,Active,3.8,2510,13256,116,759,116,5,8.4,healthy_lifestyle,Moderate,Balanced
+U1249,20,Female,162,73.0,27.82,1482.0,2556.0,Active,3.0,2137,11757,116,602,116,4,8.8,weight_loss,Moderate,Calorie Deficit
+U1250,59,Male,162,79.3,30.22,1516.0,2615.0,Active,3.7,2605,11003,148,863,148,4,7.4,healthy_lifestyle,Moderate,Balanced
+U1251,23,Male,185,63.6,18.58,1682.0,3196.0,Very Active,3.3,2767,14839,206,871,206,6,6.7,weight_loss,High,Calorie Deficit
+U1253,52,Female,172,81.3,27.48,1467.0,1760.0,Sedentary,2.2,2241,4014,19,135,19,0,6.2,weight_gain,Low,Calorie Surplus
+U1254,53,Male,183,62.1,18.54,1505.0,2860.0,Very Active,3.1,2863,17560,170,959,170,6,7.0,healthy_lifestyle,High,Balanced
+U1255,32,Male,177,93.0,29.68,1881.0,3574.0,Very Active,2.9,3615,12943,170,1242,170,6,8.4,healthy_lifestyle,High,Balanced
+U1256,31,Female,174,64.8,21.4,1420.0,2450.0,Active,4.0,2415,12670,125,782,125,4,7.4,maintenance,Moderate,Balanced
+U1257,42,Female,170,69.3,23.98,1384.0,2145.0,Moderate,2.4,2213,8208,109,534,109,3,6.8,fitness_improvement,Moderate,Balanced
+U1258,24,Male,181,85.3,26.04,1869.0,3551.0,Very Active,2.9,3191,12572,177,1092,177,6,8.4,weight_loss,High,Calorie Deficit
+U1261,27,Male,162,62.3,23.74,1506.0,2861.0,Very Active,3.5,2528,14324,169,899,169,6,8.3,weight_loss,High,Calorie Deficit
+U1262,39,Male,174,69.2,22.86,1590.0,1908.0,Sedentary,3.7,1921,4651,23,179,23,0,7.7,healthy_lifestyle,Low,Balanced
+U1263,45,Female,166,46.1,16.73,1112.0,2113.0,Very Active,1.8,2142,13991,193,1073,193,5,8.4,healthy_lifestyle,High,Balanced
+U1264,56,Female,169,63.1,22.09,1246.0,1495.0,Sedentary,2.6,1991,2306,20,94,20,1,6.3,weight_gain,Low,Calorie Surplus
+U1265,45,Female,158,68.1,27.28,1282.0,1987.0,Moderate,3.1,1941,6904,106,811,106,3,7.6,healthy_lifestyle,Moderate,Balanced
+U1267,57,Male,165,66.3,24.35,1414.0,2439.0,Active,2.1,2132,9612,131,953,131,5,6.9,weight_loss,Moderate,Calorie Deficit
+U1269,38,Male,189,88.6,24.8,1882.0,2258.0,Sedentary,2.0,1857,3529,36,162,36,0,8.1,weight_loss,Low,Calorie Deficit
+U1270,20,Male,160,61.3,23.95,1518.0,2353.0,Moderate,3.6,2405,9453,64,303,64,3,8.6,fitness_improvement,Moderate,Balanced
+U1271,55,Female,167,49.4,17.71,1102.0,1901.0,Active,3.4,1387,10154,111,677,111,5,6.7,weight_loss,Moderate,Calorie Deficit
+U1272,45,Female,173,48.5,16.21,1180.0,1829.0,Moderate,3.3,1891,7715,93,647,93,3,6.6,healthy_lifestyle,Moderate,Balanced
+U1273,28,Female,174,62.4,20.61,1410.0,2679.0,Very Active,3.0,2595,13674,164,1071,164,7,6.4,fitness_improvement,High,Balanced
+U1274,33,Female,151,58.0,25.44,1198.0,2067.0,Active,3.2,1609,10070,138,1024,138,5,6.7,weight_loss,Moderate,Calorie Deficit
+U1275,25,Male,182,72.6,21.92,1744.0,3008.0,Active,3.1,2909,9441,124,647,124,4,6.6,maintenance,Moderate,Balanced
+U1276,52,Female,174,57.2,18.89,1238.0,1486.0,Sedentary,3.2,1044,4019,21,148,21,0,8.4,weight_loss,Low,Calorie Deficit
+U1277,30,Male,174,71.7,23.68,1660.0,3154.0,Very Active,3.8,3202,13466,195,956,195,6,7.1,fitness_improvement,High,Balanced
+U1278,52,Male,178,104.0,32.82,1898.0,2942.0,Moderate,1.9,2923,7904,84,584,84,4,8.8,fitness_improvement,Moderate,Balanced
+U1280,24,Female,163,74.1,27.89,1479.0,2292.0,Moderate,2.3,2710,7531,78,452,78,3,6.7,weight_gain,Moderate,Calorie Surplus
+U1281,53,Female,157,55.5,22.52,1110.0,1915.0,Active,1.7,1454,12447,151,1102,151,4,6.2,weight_loss,High,Calorie Deficit
+U1282,58,Female,163,74.7,28.12,1315.0,2038.0,Moderate,1.7,2003,6987,67,446,67,4,7.8,healthy_lifestyle,Moderate,Balanced
+U1283,58,Female,173,52.4,17.51,1154.0,1789.0,Moderate,1.8,1427,8928,107,611,107,4,6.8,weight_loss,Moderate,Calorie Deficit
+U1284,38,Male,190,89.6,24.82,1898.0,2942.0,Moderate,2.2,2941,7986,103,715,103,3,7.6,healthy_lifestyle,Moderate,Balanced
+U1285,26,Female,153,79.7,34.05,1462.0,2266.0,Moderate,1.8,2230,7031,104,595,104,3,7.0,healthy_lifestyle,Moderate,Balanced
+U1286,29,Male,173,94.8,31.67,1889.0,3259.0,Active,3.0,2933,13915,128,822,128,5,7.9,weight_loss,Moderate,Calorie Deficit
+U1287,37,Female,174,73.1,24.14,1472.0,2282.0,Moderate,2.2,2379,8395,87,481,87,4,7.5,maintenance,Moderate,Balanced
+U1288,39,Male,171,102.8,35.16,1907.0,3290.0,Active,3.0,3369,10792,107,602,107,4,8.7,fitness_improvement,Moderate,Balanced
+U1289,35,Male,176,61.8,19.95,1548.0,2941.0,Very Active,3.0,2867,17586,214,1139,214,5,7.4,healthy_lifestyle,High,Balanced
+U1290,57,Female,163,69.4,26.12,1267.0,1520.0,Sedentary,2.3,1995,4700,38,281,38,1,6.1,weight_gain,Low,Calorie Surplus
+U1291,25,Female,160,78.8,30.78,1502.0,2854.0,Very Active,2.3,2791,12340,198,1106,198,6,6.1,healthy_lifestyle,High,Balanced
+U1292,58,Female,158,77.7,31.12,1314.0,1577.0,Sedentary,2.3,1891,2855,30,225,30,0,7.7,weight_gain,Low,Calorie Surplus
+U1293,56,Female,162,72.0,27.43,1292.0,2455.0,Very Active,1.7,2878,15629,194,1078,194,5,8.2,weight_gain,High,Calorie Surplus
+U1294,25,Female,157,71.8,29.13,1413.0,2437.0,Active,2.2,2525,12311,132,907,132,4,8.9,healthy_lifestyle,Moderate,Balanced
+U1295,22,Male,167,98.8,35.43,1927.0,2312.0,Sedentary,1.6,2368,4478,32,205,32,0,8.1,fitness_improvement,Low,Balanced
+U1297,50,Male,171,63.6,21.75,1460.0,2774.0,Very Active,2.5,2838,17889,212,1423,212,5,7.1,healthy_lifestyle,High,Balanced
+U1299,19,Female,155,78.2,32.55,1495.0,1794.0,Sedentary,4.0,2349,3104,18,110,18,1,7.3,weight_gain,Low,Calorie Surplus
+U1300,32,Female,154,49.9,21.04,1140.0,1767.0,Moderate,2.9,1819,9350,83,354,83,3,7.2,fitness_improvement,Moderate,Balanced
+U1301,35,Female,153,71.9,30.71,1339.0,2310.0,Active,2.3,2389,11021,157,908,157,5,8.4,healthy_lifestyle,High,Balanced
+U1303,53,Male,187,91.0,26.02,1819.0,3138.0,Active,2.5,3591,11980,106,442,106,5,8.3,weight_gain,Moderate,Calorie Surplus
+U1304,37,Male,178,61.1,19.28,1544.0,1853.0,Sedentary,3.1,1913,3450,24,172,24,0,7.8,maintenance,Low,Balanced
+U1305,55,Female,154,66.2,27.91,1188.0,1841.0,Moderate,3.6,1924,9275,97,428,97,3,6.5,fitness_improvement,Moderate,Balanced
+U1306,22,Female,173,84.1,28.1,1651.0,1981.0,Sedentary,2.9,1925,3178,23,177,23,1,7.2,maintenance,Low,Balanced
+U1307,23,Female,164,64.5,23.98,1394.0,2649.0,Very Active,1.9,2669,14172,186,1022,186,6,7.4,fitness_improvement,High,Balanced
+U1309,39,Female,153,84.2,35.97,1442.0,2235.0,Moderate,2.7,2275,8721,104,518,104,4,8.5,maintenance,Moderate,Balanced
+U1310,20,Female,159,78.1,30.89,1514.0,2612.0,Active,3.3,2593,11989,143,1124,143,4,7.7,maintenance,Moderate,Balanced
+U1313,54,Male,163,100.8,37.94,1762.0,2731.0,Moderate,1.9,2719,7140,93,503,93,3,7.4,healthy_lifestyle,Moderate,Balanced
+U1314,38,Female,171,76.6,26.2,1484.0,2560.0,Active,1.9,3041,10960,145,1127,145,5,6.4,weight_gain,Moderate,Calorie Surplus
+U1315,36,Female,165,48.7,17.89,1177.0,1412.0,Sedentary,3.4,1781,2694,35,180,35,1,6.6,weight_gain,Low,Calorie Surplus
+U1316,41,Female,172,60.5,20.45,1314.0,1577.0,Sedentary,2.8,1654,3972,23,129,23,0,8.5,healthy_lifestyle,Low,Balanced
+U1317,21,Male,166,103.0,37.38,1968.0,3739.0,Very Active,2.1,3709,13863,194,1272,194,5,6.9,healthy_lifestyle,High,Balanced
+U1319,49,Male,181,90.9,27.75,1800.0,2160.0,Sedentary,3.3,2113,4953,19,98,19,1,7.1,healthy_lifestyle,Low,Balanced
+U1320,19,Female,158,56.2,22.51,1294.0,2006.0,Moderate,2.1,1960,9805,106,847,106,3,8.0,fitness_improvement,Moderate,Balanced
+U1322,25,Female,154,77.9,32.85,1456.0,2257.0,Moderate,3.5,2155,9747,94,415,94,4,7.2,healthy_lifestyle,Moderate,Balanced
+U1323,51,Male,173,72.6,24.26,1557.0,2958.0,Very Active,3.2,2584,15426,152,1099,152,6,8.8,weight_loss,High,Calorie Deficit
+U1324,51,Male,172,103.0,34.82,1855.0,2875.0,Moderate,2.9,3190,7089,99,594,99,3,8.4,weight_gain,Moderate,Calorie Surplus
+U1325,33,Male,165,62.3,22.88,1494.0,2577.0,Active,1.8,2265,11158,130,968,130,5,7.2,weight_loss,Moderate,Calorie Deficit
+U1326,40,Male,173,66.9,22.35,1555.0,2682.0,Active,2.2,3099,11780,138,1016,138,4,7.6,weight_gain,Moderate,Calorie Surplus
+U1328,27,Female,159,77.9,30.81,1477.0,1772.0,Sedentary,2.9,1818,2159,27,158,27,1,6.7,maintenance,Low,Balanced
+U1329,41,Female,164,67.1,24.95,1330.0,2062.0,Moderate,2.8,2019,7494,67,375,67,4,6.5,healthy_lifestyle,Moderate,Balanced
+U1331,46,Female,167,56.0,20.08,1213.0,2305.0,Very Active,3.3,2689,12817,157,841,157,5,8.8,weight_gain,High,Calorie Surplus
+U1333,32,Female,168,62.4,22.11,1353.0,2571.0,Very Active,3.8,2981,15492,166,692,166,6,7.7,weight_gain,High,Calorie Surplus
+U1334,44,Female,174,73.2,24.18,1438.0,2732.0,Very Active,1.6,3054,15796,170,1133,170,7,8.9,weight_gain,High,Calorie Surplus
+U1335,28,Male,176,90.4,29.18,1869.0,3224.0,Active,3.9,3144,10316,141,767,141,4,8.9,maintenance,Moderate,Balanced
+U1336,45,Female,158,64.0,25.64,1242.0,1925.0,Moderate,1.9,1368,7997,94,377,94,4,8.6,weight_loss,Moderate,Calorie Deficit
+U1337,30,Female,167,67.1,24.06,1404.0,2176.0,Moderate,2.6,2203,9599,68,508,68,3,8.2,fitness_improvement,Moderate,Balanced
+U1338,39,Male,160,95.8,37.42,1768.0,2122.0,Sedentary,3.4,2182,3751,17,76,17,0,8.2,healthy_lifestyle,Low,Balanced
+U1339,23,Female,161,47.1,18.17,1201.0,2282.0,Very Active,3.2,2234,13461,214,1102,214,5,7.1,maintenance,High,Balanced
+U1340,27,Female,170,55.7,19.27,1324.0,2052.0,Moderate,3.6,1995,9596,96,513,96,4,6.1,healthy_lifestyle,Moderate,Balanced
+U1342,42,Female,153,46.7,19.95,1052.0,1262.0,Sedentary,2.6,1680,4831,24,146,24,0,8.9,weight_gain,Low,Calorie Surplus
+U1343,44,Female,171,45.7,15.63,1145.0,2176.0,Very Active,3.4,2234,17540,155,630,155,7,6.9,maintenance,High,Balanced
+U1344,50,Female,172,65.7,22.21,1321.0,2048.0,Moderate,2.4,1622,8059,75,389,75,4,7.9,weight_loss,Moderate,Calorie Deficit
+U1345,24,Female,153,78.9,33.7,1464.0,2269.0,Moderate,1.7,1706,6224,82,423,82,3,6.6,weight_loss,Moderate,Calorie Deficit
+U1346,21,Male,167,63.0,22.59,1574.0,2991.0,Very Active,2.1,2985,17345,177,1237,177,5,7.4,healthy_lifestyle,High,Balanced
+U1350,58,Male,173,62.8,20.98,1424.0,2207.0,Moderate,2.0,2111,9667,111,642,111,3,6.4,healthy_lifestyle,Moderate,Balanced
+U1351,55,Male,186,94.2,27.23,1834.0,3485.0,Very Active,2.5,3505,17677,218,1111,218,6,8.4,maintenance,High,Balanced
+U1352,35,Male,173,84.6,28.27,1757.0,2108.0,Sedentary,2.6,2010,2989,15,88,15,0,8.7,maintenance,Low,Balanced
+U1353,50,Female,166,84.2,30.56,1468.0,2532.0,Active,3.5,2842,13958,127,995,127,5,6.6,weight_gain,Moderate,Calorie Surplus
+U1355,40,Female,172,53.6,18.12,1250.0,2375.0,Very Active,1.6,2408,13283,178,964,178,7,8.1,fitness_improvement,High,Balanced
+U1357,34,Female,169,67.6,23.67,1401.0,2172.0,Moderate,3.5,2156,9115,68,274,68,3,7.1,maintenance,Moderate,Balanced
+U1358,45,Male,169,96.2,33.68,1798.0,3102.0,Active,1.7,2632,13967,101,698,101,4,6.3,weight_loss,Moderate,Calorie Deficit
+U1360,51,Female,168,64.8,22.96,1282.0,1538.0,Sedentary,2.8,1508,2979,29,119,29,0,6.2,healthy_lifestyle,Low,Balanced
+U1361,56,Male,186,72.4,20.93,1612.0,2499.0,Moderate,3.1,2569,6115,88,553,88,4,7.2,fitness_improvement,Moderate,Balanced
+U1362,18,Male,177,100.6,32.11,2027.0,3497.0,Active,3.7,3543,12699,122,897,122,5,8.3,maintenance,Moderate,Balanced
+U1363,22,Female,150,52.0,23.11,1186.0,2253.0,Very Active,3.7,2321,14780,217,1492,217,5,7.7,healthy_lifestyle,High,Balanced
+U1364,38,Female,152,58.1,25.15,1180.0,1416.0,Sedentary,3.6,1824,2699,16,121,16,0,8.5,weight_gain,Low,Calorie Surplus
+U1365,22,Female,170,75.5,26.12,1546.0,1855.0,Sedentary,3.6,1838,3422,27,130,27,1,6.8,fitness_improvement,Low,Balanced
+U1366,36,Female,165,79.2,29.09,1482.0,2816.0,Very Active,2.1,3385,16066,186,1048,186,5,8.4,weight_gain,High,Calorie Surplus
+U1367,57,Male,190,74.9,20.75,1656.0,2857.0,Active,3.3,2779,11583,141,649,141,5,8.6,maintenance,Moderate,Balanced
+U1368,40,Female,170,56.3,19.48,1264.0,1517.0,Sedentary,2.6,1884,2862,39,275,39,0,6.0,weight_gain,Low,Calorie Surplus
+U1369,23,Male,164,92.5,34.39,1840.0,2208.0,Sedentary,2.1,2210,3957,30,172,30,0,8.6,maintenance,Low,Balanced
+U1371,54,Male,184,71.4,21.09,1599.0,3038.0,Very Active,2.3,3522,16591,196,1102,196,6,6.7,weight_gain,High,Calorie Surplus
+U1372,39,Female,170,66.7,23.08,1374.0,2370.0,Active,2.0,2283,12642,154,1080,154,4,6.1,maintenance,High,Balanced
+U1373,51,Female,158,55.8,22.35,1130.0,2147.0,Very Active,3.1,2658,14552,166,1138,166,7,8.3,weight_gain,High,Calorie Surplus
+U1374,55,Female,166,65.6,23.81,1258.0,1510.0,Sedentary,2.8,1443,3104,18,131,18,0,8.1,healthy_lifestyle,Low,Balanced
+U1375,49,Female,156,63.5,26.09,1204.0,1866.0,Moderate,3.8,1400,6508,116,478,116,3,6.2,weight_loss,Moderate,Calorie Deficit
+U1378,52,Male,167,95.9,34.39,1748.0,2709.0,Moderate,3.1,2768,6700,114,710,114,4,7.5,fitness_improvement,Moderate,Balanced
+U1379,23,Female,174,66.4,21.93,1476.0,1771.0,Sedentary,2.9,1862,3476,36,268,36,1,6.5,healthy_lifestyle,Low,Balanced
+U1381,54,Female,157,55.0,22.31,1100.0,1320.0,Sedentary,3.1,1733,2594,28,139,28,1,6.5,weight_gain,Low,Calorie Surplus
+U1382,50,Male,176,60.9,19.66,1464.0,1757.0,Sedentary,2.5,1788,2139,26,138,26,1,8.2,maintenance,Low,Balanced
+U1384,19,Male,189,76.8,21.5,1859.0,2231.0,Sedentary,3.9,2270,3107,31,202,31,0,6.6,fitness_improvement,Low,Balanced
+U1385,36,Male,181,87.0,26.56,1826.0,3469.0,Very Active,4.0,4048,14761,206,1194,206,6,8.9,weight_gain,High,Calorie Surplus
+U1386,19,Male,165,84.7,31.11,1788.0,2771.0,Moderate,3.9,3239,7988,77,487,77,4,6.6,weight_gain,Moderate,Calorie Surplus
+U1387,29,Male,166,71.9,26.09,1616.0,2505.0,Moderate,2.1,3094,6207,61,378,61,4,8.1,weight_gain,Moderate,Calorie Surplus
+U1388,43,Male,170,86.8,30.03,1720.0,3268.0,Very Active,2.0,3187,14600,203,1318,203,7,7.9,maintenance,High,Balanced
+U1389,47,Male,180,60.7,18.73,1502.0,1802.0,Sedentary,3.9,1296,3306,19,129,19,0,7.8,weight_loss,Low,Calorie Deficit
+U1390,58,Male,186,72.2,20.87,1600.0,1920.0,Sedentary,3.0,1974,3088,28,162,28,1,7.8,maintenance,Low,Balanced
+U1391,39,Male,178,99.7,31.47,1920.0,3648.0,Very Active,2.1,3567,14915,179,752,179,5,7.9,maintenance,High,Balanced
+U1394,26,Male,186,60.4,17.46,1642.0,1970.0,Sedentary,3.0,1885,2042,34,168,34,0,8.1,healthy_lifestyle,Low,Balanced
+U1395,57,Female,156,53.0,21.78,1059.0,1641.0,Moderate,3.7,1720,7070,92,373,92,3,6.2,fitness_improvement,Moderate,Balanced
+U1396,51,Male,167,76.0,27.25,1554.0,2681.0,Active,2.6,2639,10337,132,842,132,4,7.1,fitness_improvement,Moderate,Balanced
+U1397,27,Male,177,96.2,30.71,1938.0,3682.0,Very Active,3.6,3306,15757,152,920,152,6,6.8,weight_loss,High,Calorie Deficit
+U1398,44,Female,163,56.7,21.34,1205.0,2079.0,Active,3.4,1568,11556,105,646,105,4,6.8,weight_loss,Moderate,Calorie Deficit
+U1399,45,Male,160,100.3,39.18,1783.0,3076.0,Active,3.2,3030,12258,120,782,120,5,6.7,healthy_lifestyle,Moderate,Balanced
+U1400,55,Female,157,62.7,25.44,1172.0,1406.0,Sedentary,3.2,1342,3358,37,270,37,1,6.9,healthy_lifestyle,Low,Balanced
+U1401,28,Female,174,53.0,17.51,1316.0,1579.0,Sedentary,3.0,1145,2874,31,238,31,1,6.3,weight_loss,Low,Calorie Deficit
+U1402,20,Female,163,45.5,17.13,1213.0,2305.0,Very Active,2.6,2703,17460,178,1272,178,5,8.8,weight_gain,High,Calorie Surplus
+U1404,59,Female,172,55.2,18.66,1171.0,2020.0,Active,3.4,2040,12927,124,648,124,4,8.7,fitness_improvement,Moderate,Balanced
+U1405,49,Female,154,58.1,24.5,1138.0,1963.0,Active,2.5,1966,13409,138,1035,138,5,6.3,fitness_improvement,Moderate,Balanced
+U1406,26,Female,155,67.1,27.93,1349.0,1619.0,Sedentary,2.8,1168,4472,31,207,31,0,8.5,weight_loss,Low,Calorie Deficit
+U1407,40,Male,175,93.7,30.6,1836.0,3167.0,Active,2.7,3093,12310,136,641,136,4,8.1,healthy_lifestyle,Moderate,Balanced
+U1408,40,Male,172,67.4,22.78,1554.0,2681.0,Active,1.6,2773,9484,105,636,105,5,6.5,maintenance,Moderate,Balanced
+U1409,50,Female,166,61.6,22.35,1242.0,2142.0,Active,3.4,2163,10673,146,923,146,5,6.4,healthy_lifestyle,Moderate,Balanced
+U1410,59,Male,187,74.0,21.16,1619.0,2509.0,Moderate,2.0,2453,8805,78,380,78,4,8.9,healthy_lifestyle,Moderate,Balanced
+U1411,25,Female,160,67.3,26.29,1387.0,2150.0,Moderate,2.6,2238,9552,78,529,78,3,8.1,maintenance,Moderate,Balanced
+U1412,18,Male,188,82.5,23.34,1915.0,3303.0,Active,2.6,2758,10920,133,815,133,4,6.3,weight_loss,Moderate,Calorie Deficit
+U1413,46,Male,166,66.4,24.1,1476.0,1771.0,Sedentary,3.3,1401,3292,14,106,14,1,6.6,weight_loss,Low,Calorie Deficit
+U1414,56,Female,170,76.1,26.33,1382.0,1658.0,Sedentary,3.1,1728,2250,38,237,38,0,7.9,maintenance,Low,Balanced
+U1415,49,Male,185,71.4,20.86,1630.0,3097.0,Very Active,1.6,2642,13096,205,1201,205,5,8.6,weight_loss,High,Calorie Deficit
+U1416,58,Female,168,50.1,17.75,1100.0,1320.0,Sedentary,2.3,1418,2717,38,276,38,0,7.2,healthy_lifestyle,Low,Balanced
+U1417,32,Female,152,45.5,19.69,1084.0,1870.0,Active,2.6,1513,10255,117,599,117,4,6.6,weight_loss,Moderate,Calorie Deficit
+U1418,25,Female,171,64.2,21.96,1425.0,2708.0,Very Active,2.0,2708,14339,206,885,206,5,7.1,maintenance,High,Balanced
+U1419,32,Female,169,84.9,29.73,1584.0,1901.0,Sedentary,2.9,1866,3874,12,83,12,1,7.8,fitness_improvement,Low,Balanced
+U1421,26,Male,187,88.4,25.28,1928.0,2314.0,Sedentary,1.8,2259,3955,17,107,17,0,8.3,maintenance,Low,Balanced
+U1422,56,Female,169,50.6,17.72,1121.0,1345.0,Sedentary,3.2,1436,2043,38,177,38,0,6.6,maintenance,Low,Balanced
+U1423,45,Male,165,93.7,34.42,1748.0,3015.0,Active,3.8,3045,10812,125,926,125,5,7.6,fitness_improvement,Moderate,Balanced
+U1424,59,Male,171,81.3,27.8,1592.0,3025.0,Very Active,3.3,2975,14575,157,744,157,7,7.8,maintenance,High,Balanced
+U1426,43,Female,172,71.4,24.13,1413.0,2190.0,Moderate,3.5,2217,8109,97,490,97,3,8.8,maintenance,Moderate,Balanced
+U1428,32,Female,164,76.1,28.29,1465.0,1758.0,Sedentary,3.4,2261,2160,37,152,37,1,6.8,weight_gain,Low,Calorie Surplus
+U1429,23,Male,188,99.6,28.18,2061.0,2473.0,Sedentary,2.2,2377,4875,33,220,33,1,7.0,fitness_improvement,Low,Balanced
+U1430,57,Male,190,100.5,27.84,1912.0,3298.0,Active,4.0,3343,11378,132,901,132,5,8.9,healthy_lifestyle,Moderate,Balanced
+U1431,44,Female,169,81.1,28.4,1486.0,2303.0,Moderate,3.8,2693,8527,69,551,69,3,6.7,weight_gain,Moderate,Calorie Surplus
+U1432,32,Female,165,61.4,22.55,1324.0,2052.0,Moderate,1.9,2138,8964,110,689,110,4,6.9,maintenance,Moderate,Balanced
+U1433,52,Male,181,60.6,18.5,1482.0,1778.0,Sedentary,3.4,2191,2991,13,58,13,1,7.5,weight_gain,Low,Calorie Surplus
+U1434,52,Male,162,88.1,33.57,1638.0,3112.0,Very Active,3.7,2675,16434,174,1140,174,5,8.2,weight_loss,High,Calorie Deficit
+U1435,19,Male,169,66.2,23.18,1628.0,2523.0,Moderate,3.0,2470,8258,82,452,82,4,7.1,healthy_lifestyle,Moderate,Balanced
+U1436,45,Female,154,70.3,29.64,1280.0,2208.0,Active,2.7,2254,11827,149,1109,149,5,7.4,fitness_improvement,Moderate,Balanced
+U1437,55,Female,174,65.2,21.54,1304.0,2249.0,Active,3.9,2335,11961,126,939,126,4,6.3,maintenance,Moderate,Balanced
+U1438,28,Male,180,88.4,27.28,1874.0,3561.0,Very Active,1.7,3202,14904,203,1262,203,6,8.2,weight_loss,High,Calorie Deficit
+U1439,24,Female,153,61.6,26.31,1291.0,2227.0,Active,2.1,1713,12825,146,1073,146,4,6.5,weight_loss,Moderate,Calorie Deficit
+U1440,37,Female,167,76.2,27.32,1460.0,2774.0,Very Active,3.1,2714,12206,161,1085,161,6,8.7,healthy_lifestyle,High,Balanced
+U1441,45,Female,173,83.1,27.77,1526.0,1831.0,Sedentary,3.7,2423,2944,15,115,15,1,7.7,weight_gain,Low,Calorie Surplus
+U1442,25,Female,161,59.2,22.84,1312.0,2493.0,Very Active,1.7,2185,17148,189,819,189,6,7.8,weight_loss,High,Calorie Deficit
+U1445,37,Female,156,62.4,25.64,1253.0,1942.0,Moderate,2.6,1370,9135,101,527,101,4,7.7,weight_loss,Moderate,Calorie Deficit
+U1446,51,Male,177,78.7,25.12,1643.0,2834.0,Active,2.0,2753,13145,137,603,137,5,6.5,healthy_lifestyle,Moderate,Balanced
+U1448,25,Male,188,70.5,19.95,1760.0,3344.0,Very Active,1.9,3282,15611,198,1031,198,5,8.9,fitness_improvement,High,Balanced
+U1449,43,Female,171,80.9,27.67,1502.0,1802.0,Sedentary,3.5,1866,4430,33,167,33,0,6.3,healthy_lifestyle,Low,Balanced
+U1450,48,Male,182,91.8,27.71,1820.0,3140.0,Active,3.1,2650,11500,137,825,137,5,6.4,weight_loss,Moderate,Calorie Deficit
+U1451,52,Female,161,55.9,21.57,1144.0,1373.0,Sedentary,2.8,1416,4782,19,130,19,0,6.8,maintenance,Low,Balanced
+U1452,51,Female,158,52.6,21.07,1098.0,2086.0,Very Active,2.4,2001,15442,189,1407,189,5,6.9,healthy_lifestyle,High,Balanced
+U1453,56,Female,162,84.6,32.24,1418.0,2198.0,Moderate,3.7,1749,9289,86,512,86,3,8.2,weight_loss,Moderate,Calorie Deficit
+U1454,29,Female,161,72.5,27.97,1425.0,1710.0,Sedentary,3.2,1657,4959,32,186,32,0,8.3,maintenance,Low,Balanced
+U1455,57,Male,172,100.0,33.8,1795.0,3410.0,Very Active,3.6,3443,17074,209,1562,209,6,7.2,healthy_lifestyle,High,Balanced
+U1456,56,Female,157,59.9,24.3,1139.0,1367.0,Sedentary,3.2,1456,3445,33,153,33,1,8.6,healthy_lifestyle,Low,Balanced
+U1458,31,Female,152,82.6,35.75,1460.0,2774.0,Very Active,3.7,2399,17296,208,1308,208,7,7.0,weight_loss,High,Calorie Deficit
+U1459,42,Female,158,55.1,22.07,1168.0,1810.0,Moderate,2.8,1791,9558,81,324,81,4,8.6,maintenance,Moderate,Balanced
+U1460,37,Male,179,93.8,29.27,1877.0,2909.0,Moderate,2.0,3479,9991,117,898,117,4,6.1,weight_gain,Moderate,Calorie Surplus
+U1461,25,Male,167,101.6,36.43,1940.0,3686.0,Very Active,3.5,3116,13520,177,1205,177,5,7.8,weight_loss,High,Calorie Deficit
+U1462,35,Male,190,86.9,24.07,1886.0,2923.0,Moderate,4.0,2918,6497,88,643,88,4,6.5,maintenance,Moderate,Balanced
+U1464,47,Male,160,98.4,38.44,1754.0,2719.0,Moderate,3.8,3018,7067,94,544,94,3,6.7,weight_gain,Moderate,Calorie Surplus
+U1465,32,Male,171,92.6,31.67,1840.0,3496.0,Very Active,1.9,3865,13690,211,1359,211,5,6.6,weight_gain,High,Calorie Surplus
+U1467,23,Female,171,47.6,16.28,1269.0,2411.0,Very Active,1.6,2500,12498,203,1041,203,5,7.3,fitness_improvement,High,Balanced
+U1468,41,Female,166,58.3,21.16,1254.0,2383.0,Very Active,2.3,2385,13874,177,1140,177,7,8.0,fitness_improvement,High,Balanced
+U1469,55,Female,151,69.8,30.61,1206.0,1869.0,Moderate,3.0,2410,9651,81,619,81,4,7.0,weight_gain,Moderate,Calorie Surplus
+U1470,30,Female,169,72.1,25.24,1466.0,1759.0,Sedentary,2.9,1846,3517,28,143,28,1,6.4,healthy_lifestyle,Low,Balanced
+U1471,45,Female,150,48.6,21.6,1038.0,1609.0,Moderate,4.0,1603,8494,71,550,71,4,7.4,maintenance,Moderate,Balanced
+U1472,55,Male,171,67.4,23.05,1473.0,2283.0,Moderate,2.2,2364,9659,90,482,90,4,7.3,fitness_improvement,Moderate,Balanced
+U1473,51,Male,162,71.1,27.09,1474.0,2285.0,Moderate,2.7,2255,7305,79,402,79,4,6.5,healthy_lifestyle,Moderate,Balanced
+U1475,51,Female,172,80.4,27.18,1463.0,2268.0,Moderate,3.7,1836,6086,107,473,107,3,7.3,weight_loss,Moderate,Calorie Deficit
+U1476,19,Male,189,102.3,28.64,2114.0,4017.0,Very Active,3.0,3999,17552,211,1292,211,5,6.9,fitness_improvement,High,Balanced
+U1477,32,Female,163,68.8,25.89,1386.0,2391.0,Active,2.6,2309,9983,156,965,156,5,8.7,fitness_improvement,High,Balanced
+U1478,40,Male,163,86.2,32.44,1686.0,2908.0,Active,1.9,2909,10686,102,571,102,5,7.0,fitness_improvement,Moderate,Balanced
+U1479,25,Male,182,71.4,21.56,1732.0,2685.0,Moderate,3.5,2704,9308,112,609,112,3,6.3,fitness_improvement,Moderate,Balanced
+U1480,55,Female,154,47.7,20.11,1004.0,1908.0,Very Active,3.0,2392,14866,179,1097,179,7,6.3,weight_gain,High,Calorie Surplus
+U1481,43,Male,172,85.6,28.93,1721.0,2969.0,Active,2.3,2449,12961,129,532,129,4,8.3,weight_loss,Moderate,Calorie Deficit
+U1482,51,Female,172,49.6,16.77,1155.0,1386.0,Sedentary,1.7,1414,3462,31,246,31,1,7.7,fitness_improvement,Low,Balanced
+U1483,59,Male,181,100.4,30.65,1845.0,2214.0,Sedentary,3.4,2535,2677,12,86,12,0,6.5,weight_gain,Low,Calorie Surplus
+U1484,34,Female,166,67.3,24.42,1380.0,2380.0,Active,2.0,2443,13944,147,1124,147,5,7.7,fitness_improvement,Moderate,Balanced
+U1485,31,Male,174,66.3,21.9,1600.0,2480.0,Moderate,3.0,2406,6268,108,563,108,3,8.8,maintenance,Moderate,Balanced
+U1486,23,Female,154,82.3,34.7,1510.0,2605.0,Active,3.2,2664,12076,125,624,125,5,8.0,healthy_lifestyle,Moderate,Balanced
+U1487,35,Female,153,67.5,28.84,1295.0,2460.0,Very Active,3.3,2148,14950,193,1167,193,7,8.3,weight_loss,High,Calorie Deficit
+U1488,52,Female,166,70.9,25.73,1326.0,1591.0,Sedentary,2.2,1652,4169,25,181,25,1,7.8,maintenance,Low,Balanced
+U1489,34,Male,166,71.5,25.95,1588.0,3017.0,Very Active,1.9,2946,15212,219,1347,219,6,6.8,healthy_lifestyle,High,Balanced
+U1490,32,Female,164,56.5,21.01,1269.0,1967.0,Moderate,2.9,2009,7213,63,307,63,3,7.6,fitness_improvement,Moderate,Balanced
+U1491,19,Male,190,64.3,17.81,1740.0,2697.0,Moderate,2.4,2127,6170,90,472,90,3,8.5,weight_loss,Moderate,Calorie Deficit
+U1492,24,Male,183,80.9,24.16,1838.0,2849.0,Moderate,2.5,2871,9384,75,327,75,3,6.9,maintenance,Moderate,Balanced
+U1494,21,Male,188,101.2,28.63,2087.0,3235.0,Moderate,2.2,3279,9854,99,599,99,4,6.9,fitness_improvement,Moderate,Balanced
+U1495,37,Female,155,58.0,24.14,1203.0,1865.0,Moderate,1.7,2268,9722,102,692,102,3,7.0,weight_gain,Moderate,Calorie Surplus
+U1496,34,Male,168,69.5,24.62,1580.0,2726.0,Active,3.7,2822,12362,121,677,121,4,8.3,fitness_improvement,Moderate,Balanced
+U1497,28,Female,162,84.6,32.24,1558.0,1870.0,Sedentary,1.7,1827,4123,32,216,32,1,6.4,maintenance,Low,Balanced
+U1499,42,Female,159,80.9,32.0,1432.0,2470.0,Active,1.8,2861,13470,140,930,140,4,7.8,weight_gain,Moderate,Calorie Surplus

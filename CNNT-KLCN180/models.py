@@ -42,6 +42,13 @@ class User(UserMixin, db.Model):
         db.String(255),
         nullable=False,
     )
+    display_name = db.Column(db.String(80), nullable=True)
+    role = db.Column(db.String(10), nullable=False, default="user")
+    is_active_account = db.Column(db.Boolean, nullable=False, default=True)
+    session_version = db.Column(db.Integer, nullable=False, default=0)
+    last_login_at = db.Column(db.DateTime, nullable=True)
+    failed_login_count = db.Column(db.Integer, nullable=False, default=0)
+    login_blocked_until = db.Column(db.DateTime, nullable=True)
 
     created_at = db.Column(
         db.DateTime,
@@ -52,6 +59,10 @@ class User(UserMixin, db.Model):
     analyses = db.relationship(
         "HealthAnalysis",
         back_populates="user",
+        cascade="all, delete-orphan",
+    )
+    health_profile = db.relationship(
+        "HealthProfile", back_populates="user", uselist=False,
         cascade="all, delete-orphan",
     )
 
@@ -74,6 +85,10 @@ class User(UserMixin, db.Model):
             password,
         )
 
+    @property
+    def is_admin(self):
+        return self.role == "admin"
+
     def __repr__(self):
         return f"<User id={self.id} username={self.username}>"
 
@@ -81,6 +96,18 @@ class User(UserMixin, db.Model):
 # ============================================================
 # HEALTH ANALYSIS MODEL
 # ============================================================
+
+class HealthProfile(db.Model):
+    """Most recently confirmed health and lifestyle inputs."""
+
+    __tablename__ = "health_profiles"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), unique=True, nullable=False)
+    data = db.Column(db.JSON, nullable=False)
+    updated_at = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc),
+                           onupdate=lambda: datetime.now(timezone.utc))
+    user = db.relationship("User", back_populates="health_profile")
+
 
 class HealthAnalysis(db.Model):
     """Store health inputs and analysis results per user."""
@@ -124,6 +151,7 @@ class HealthAnalysis(db.Model):
         db.JSON,
         nullable=False,
     )
+    weekly_plan = db.Column(db.JSON, nullable=True)
 
     created_at = db.Column(
         db.DateTime,
@@ -142,3 +170,15 @@ class HealthAnalysis(db.Model):
             f"user_id={self.user_id} "
             f"goal={self.predicted_goal}>"
         )
+
+
+class AuditLog(db.Model):
+    """Record access to another user's health data and account actions."""
+
+    __tablename__ = "audit_logs"
+    id = db.Column(db.Integer, primary_key=True)
+    actor_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    target_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    action = db.Column(db.String(40), nullable=False)
+    analysis_id = db.Column(db.Integer, nullable=True)
+    created_at = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))

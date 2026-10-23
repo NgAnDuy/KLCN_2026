@@ -5,6 +5,8 @@ import os
 import threading
 import time
 import uuid
+import secrets
+from functools import wraps
 
 from pathlib import Path
 
@@ -24,9 +26,11 @@ from flask_login import (
     login_required,
     logout_user,
 )
+import click
 
 from auth import AUTH_MESSAGES, auth_blueprint
-from models import HealthAnalysis, User, db
+from models import AuditLog, HealthAnalysis, HealthProfile, User, db
+from schema_upgrade import upgrade_existing_database
 
 from src.expert_recommendation import (
     analyze_goal_conflict,
@@ -37,6 +41,7 @@ from src.health_status import analyze_health_status
 from src.predictor import HealthGoalPredictor
 from src.recommendation import generate_recommendations
 from src.translator import translate
+from src.weekly_planner import generate_weekly_plan
 
 
 # ============================================================
@@ -50,15 +55,15 @@ app.config["SECRET_KEY"] = os.environ.get(
     "health-recommendation-development-only",
 )
 
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "sqlite:///health.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "HEALTH_DATABASE_URI", "sqlite:///health.db"
 )
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-app.config["SESSION_COOKIE_SECURE"] = False
+app.config["SESSION_COOKIE_SECURE"] = os.environ.get("FLASK_HTTPS") == "1"
 
 # Do not create persistent remember-me cookies.
 app.config["REMEMBER_COOKIE_DURATION"] = 0
@@ -71,6 +76,7 @@ app.config["REMEMBER_COOKIE_DURATION"] = 0
 db.init_app(app)
 
 with app.app_context():
+    upgrade_existing_database(db)
     db.create_all()
 
 
@@ -92,7 +98,8 @@ def load_user(user_id):
     """Load the currently authenticated user."""
 
     try:
-        return db.session.get(User, int(user_id))
+        user = db.session.get(User, int(user_id))
+        return user if user and user.is_active_account else None
     except (TypeError, ValueError):
         return None
 
@@ -111,9 +118,10 @@ INSTANCE_DIRECTORY.mkdir(
     exist_ok=True,
 )
 
-SERVER_STATE_FILE = (
-    INSTANCE_DIRECTORY / "server_session_state.json"
-)
+SERVER_STATE_FILE = Path(os.environ.get(
+    "HEALTH_SERVER_STATE_FILE",
+    str(INSTANCE_DIRECTORY / "server_session_state.json"),
+))
 
 SERVER_STATE_LOCK = threading.Lock()
 
@@ -225,7 +233,8 @@ heartbeat_thread = threading.Thread(
     name="health-server-heartbeat",
 )
 
-heartbeat_thread.start()
+if os.environ.get("HEALTH_DISABLE_HEARTBEAT") != "1":
+    heartbeat_thread.start()
 
 
 # ============================================================
@@ -233,6 +242,7 @@ heartbeat_thread.start()
 # ============================================================
 
 PUBLIC_ENDPOINTS = {
+    "home",
     "language",
     "select_language",
     "auth.login",
@@ -250,13 +260,21 @@ def protect_private_routes():
     if endpoint is None:
         return None
 
+    if request.method in {"POST", "PUT", "PATCH", "DELETE"}:
+        expected = session.get("csrf_token")
+        submitted = request.form.get("csrf_token") or request.headers.get("X-CSRF-Token")
+        if not expected or not submitted or not secrets.compare_digest(expected, submitted):
+            abort(400)
+
     # Validate an existing authenticated session first.
     if current_user.is_authenticated:
         stored_session_id = session.get(
             "server_session_id"
         )
 
-        if stored_session_id != SERVER_SESSION_ID:
+        if (stored_session_id != SERVER_SESSION_ID or
+                session.get("user_session_version") != current_user.session_version or
+                not current_user.is_active_account):
             language_code = session.get(
                 "language",
                 "vi",
@@ -303,6 +321,13 @@ def protect_private_routes():
         return redirect(url_for("auth.login"))
 
     return None
+
+
+@app.context_processor
+def inject_csrf_token():
+    if "csrf_token" not in session:
+        session["csrf_token"] = secrets.token_urlsafe(32)
+    return {"csrf_token": session["csrf_token"]}
 
 
 # ============================================================
@@ -416,6 +441,13 @@ def make_json_safe(value):
 # ============================================================
 
 @app.route("/")
+def home():
+    if not current_user.is_authenticated:
+        return redirect(url_for("auth.login"))
+    return redirect(url_for("admin_dashboard" if current_user.is_admin else "health_form"))
+
+
+@app.route("/language")
 def language():
     """Display the language selection page."""
 
@@ -435,7 +467,7 @@ def select_language(language_code):
 
     if current_user.is_authenticated:
         return redirect(
-            url_for("health_form")
+            url_for("admin_dashboard" if current_user.is_admin else "health_form")
         )
 
     return redirect(
@@ -456,9 +488,22 @@ def health_form():
     """Display and process the health input form."""
 
     language_code = get_language()
+    profile = current_user.health_profile
+    if profile:
+        profile_data = profile.data
+    else:
+        previous = (HealthAnalysis.query.filter_by(user_id=current_user.id)
+                    .order_by(HealthAnalysis.created_at.desc()).first())
+        profile_data = previous.input_data if previous else {}
 
     if request.method == "POST":
         try:
+            display_name = request.form.get("display_name", "").strip()
+            if not display_name:
+                display_name = current_user.display_name or current_user.username
+            if not 2 <= len(display_name) <= 80:
+                raise ValueError("Name must contain 2 to 80 characters.")
+
             selected_goal = request.form["goal"]
 
             if selected_goal not in GOALS:
@@ -574,6 +619,14 @@ def health_form():
                         f"{field_name} must be finite."
                     )
 
+            current_user.display_name = display_name
+            if profile is None:
+                profile = HealthProfile(user_id=current_user.id, data=health_input)
+                db.session.add(profile)
+            else:
+                profile.data = health_input
+            db.session.commit()
+
             session["health_input"] = health_input
             session.pop("analysis_result", None)
             session.pop("analysis_id", None)
@@ -590,6 +643,8 @@ def health_form():
                 language=language_code,
                 translate=translate,
                 error=str(error),
+                profile_data=health_input if 'health_input' in locals() else profile_data,
+                display_name=request.form.get("display_name", current_user.display_name or current_user.username),
             )
 
     return render_template(
@@ -597,6 +652,8 @@ def health_form():
         goals=GOALS,
         activities=ACTIVITY_LEVELS,
         language=language_code,
+        profile_data=profile_data,
+        display_name=current_user.display_name or current_user.username,
         translate=translate,
         error=None,
     )
@@ -626,7 +683,7 @@ def analyzing():
 # PROCESS ANALYSIS
 # ============================================================
 
-@app.route("/process-analysis")
+@app.route("/process-analysis", methods=["POST"])
 @login_required
 def process_analysis():
     """Run feature engineering, MLP and expert analysis."""
@@ -791,6 +848,13 @@ def process_analysis():
     db.session.add(
         analysis_record
     )
+
+    profile = HealthProfile.query.filter_by(user_id=current_user.id).first()
+    if profile is None:
+        profile = HealthProfile(user_id=current_user.id, data=make_json_safe(user_input))
+        db.session.add(profile)
+    else:
+        profile.data = make_json_safe(user_input)
 
     db.session.commit()
 
@@ -959,13 +1023,180 @@ def history_detail(analysis_id):
     )
 
 
+@app.route("/weekly-plan")
+@login_required
+def weekly_plan():
+    analysis_id = session.get("analysis_id")
+    record = db.session.get(HealthAnalysis, analysis_id) if analysis_id else None
+    if record is None:
+        return redirect(url_for("history"))
+    if record.user_id != current_user.id:
+        abort(404)
+    result = record.result_data
+    if record.weekly_plan is None:
+        calculated = result["calculated"]
+        record.weekly_plan = make_json_safe(generate_weekly_plan(
+            selected_goal=result["selected_goal"],
+            expert_result=result["expert"],
+            calculated=calculated,
+            weight_kg=float(calculated.get("weight_kg", record.input_data["weight_kg"])),
+        ))
+        db.session.commit()
+    return render_template("weekly_plan.html", plan=record.weekly_plan,
+                           result=result, language=get_language(), translate=translate)
+
+
+@app.route("/regenerate-weekly-plan", methods=["POST"])
+@login_required
+def regenerate_weekly_plan():
+    analysis_id = session.get("analysis_id")
+    record = db.session.get(HealthAnalysis, analysis_id) if analysis_id else None
+    if record is None or record.user_id != current_user.id:
+        abort(404)
+    record.weekly_plan = None
+    db.session.commit()
+    return redirect(url_for("weekly_plan"))
+
+
+def admin_required(view):
+    @wraps(view)
+    @login_required
+    def wrapped(*args, **kwargs):
+        if not current_user.is_admin:
+            abort(403)
+        return view(*args, **kwargs)
+    return wrapped
+
+
+def audit_access(action, target_user_id, analysis_id=None):
+    db.session.add(AuditLog(
+        actor_user_id=current_user.id,
+        target_user_id=target_user_id,
+        action=action,
+        analysis_id=analysis_id,
+    ))
+    db.session.commit()
+
+
+@app.route("/account", methods=["GET", "POST"])
+@login_required
+def account():
+    if request.method == "POST":
+        old_password = request.form.get("old_password", "")
+        new_password = request.form.get("new_password", "")
+        if not current_user.check_password(old_password):
+            flash("Mật khẩu hiện tại không đúng / Current password is incorrect.", "error")
+        elif len(new_password) < 8:
+            flash("Mật khẩu mới cần ít nhất 8 ký tự / Use at least 8 characters.", "error")
+        elif new_password != request.form.get("confirm_password", ""):
+            flash("Mật khẩu xác nhận không khớp / Passwords do not match.", "error")
+        else:
+            current_user.set_password(new_password)
+            current_user.session_version += 1
+            db.session.commit()
+            logout_user()
+            session.clear()
+            flash("Đã đổi mật khẩu. Hãy đăng nhập lại / Password changed. Sign in again.", "success")
+            return redirect(url_for("auth.login"))
+    return render_template("account.html", language=get_language())
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    return render_template("profile.html", language=get_language(),
+                           profile=current_user.health_profile)
+
+
+@app.route("/admin")
+@admin_required
+def admin_dashboard():
+    total_users = User.query.count()
+    total_analyses = HealthAnalysis.query.count()
+    active_users = User.query.filter_by(is_active_account=True).count()
+    return render_template("admin/dashboard.html", language=get_language(),
+                           total_users=total_users, total_analyses=total_analyses,
+                           active_users=active_users)
+
+
+@app.route("/admin/users")
+@admin_required
+def admin_users():
+    search = request.args.get("q", "").strip()[:80]
+    page = request.args.get("page", 1, type=int)
+    query = User.query
+    if search:
+        query = query.filter(User.username.ilike(f"%{search}%"))
+    users = query.order_by(User.created_at.desc()).paginate(page=max(page, 1), per_page=20, error_out=False)
+    return render_template("admin/users.html", language=get_language(), users=users, search=search)
+
+
+@app.route("/admin/users/<int:user_id>")
+@admin_required
+def admin_user_detail(user_id):
+    user = db.get_or_404(User, user_id)
+    records = (HealthAnalysis.query.filter_by(user_id=user_id)
+               .order_by(HealthAnalysis.created_at.desc()).limit(50).all())
+    audit_access("view_user_health", user_id)
+    return render_template("admin/user_detail.html", language=get_language(),
+                           user=user, records=records, translate=translate)
+
+
+@app.route("/admin/analyses/<int:analysis_id>")
+@admin_required
+def admin_analysis_detail(analysis_id):
+    record = db.get_or_404(HealthAnalysis, analysis_id)
+    audit_access("view_analysis", record.user_id, analysis_id)
+    return render_template("admin/analysis_detail.html", language=get_language(),
+                           record=record, translate=translate)
+
+
+@app.route("/admin/users/<int:user_id>/status", methods=["POST"])
+@admin_required
+def admin_user_status(user_id):
+    user = db.get_or_404(User, user_id)
+    if user.is_admin or user.id == current_user.id:
+        abort(403)
+    user.is_active_account = not user.is_active_account
+    user.session_version += 1
+    db.session.add(AuditLog(actor_user_id=current_user.id,
+                            target_user_id=user.id,
+                            action="unlock_user" if user.is_active_account else "lock_user"))
+    db.session.commit()
+    return redirect(url_for("admin_user_detail", user_id=user.id))
+
+
+@app.route("/admin/audit-logs")
+@admin_required
+def admin_audit_logs():
+    logs = AuditLog.query.order_by(AuditLog.created_at.desc()).limit(100).all()
+    return render_template("admin/audit_logs.html", language=get_language(), logs=logs)
+
+
+@app.cli.command("create-admin")
+@click.argument("username")
+@click.password_option()
+def create_admin(username, password):
+    """Create an administrator from a trusted local terminal."""
+    username = username.strip()
+    if not 3 <= len(username) <= 80 or len(password) < 8:
+        raise click.ClickException("Username must be 3–80 characters; password at least 8.")
+    if User.query.filter_by(username=username).first():
+        raise click.ClickException("Username already exists.")
+    user = User(username=username, role="admin")
+    user.set_password(password)
+    db.session.add(user)
+    db.session.commit()
+    click.echo("Administrator created.")
+
+
 # ============================================================
 # RUN APPLICATION
 # ============================================================
 
 if __name__ == "__main__":
     app.run(
-        debug=True,
+        debug=os.environ.get("FLASK_DEBUG") == "1",
         use_reloader=False,
         host="127.0.0.1",
         port=5000,

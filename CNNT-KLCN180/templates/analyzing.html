@@ -77,6 +77,10 @@
                else 'Processing your data using MLP and expert rules.' }}
         </p>
 
+        <form id="analysis-form" method="post" action="{{ url_for('process_analysis') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button type="submit">{{ 'Tiếp tục phân tích' if language == 'vi' else 'Continue analysis' }}</button>
+        </form>
         <div class="loading-track">
             <div class="loading-bar"></div>
         </div>
@@ -85,7 +89,7 @@
 
 <script>
     window.addEventListener("load", function () {
-        window.location.replace("{{ url_for('process_analysis') }}");
+        document.getElementById("analysis-form").requestSubmit();
     });
 </script>
 </body>

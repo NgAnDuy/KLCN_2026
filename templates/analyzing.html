@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analyzing</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <meta
+        http-equiv="refresh"
+        content="1;url={{ url_for('process_analysis') }}"
+    >
+</head>
+
+<body class="analysis-page">
+
+<main class="analysis-container">
+
+    <section class="analysis-card">
+
+        <div class="analysis-spinner"></div>
+
+        <h1>
+            {% if language == "vi" %}
+                Đang phân tích...
+            {% else %}
+                Analyzing...
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if language == "vi" %}
+                Hệ thống đang phân tích thông tin của bạn.
+            {% else %}
+                The system is analyzing your information.
+            {% endif %}
+        </p>
+
+
+        <div class="analysis-steps">
+
+            <div>
+                <span>✓</span>
+
+                {% if language == "vi" %}
+                    Đã nhận thông tin người dùng
+                {% else %}
+                    User information received
+                {% endif %}
+            </div>
+
+            <div>
+                <span>●</span>
+
+                {% if language == "vi" %}
+                    Đang tính toán các chỉ số sức khỏe
+                {% else %}
+                    Calculating health indicators
+                {% endif %}
+            </div>
+
+            <div>
+                <span>●</span>
+
+                {% if language == "vi" %}
+                    Đang thực hiện dự đoán MLP
+                {% else %}
+                    Running MLP prediction
+                {% endif %}
+            </div>
+
+            <div>
+                <span>●</span>
+
+                {% if language == "vi" %}
+                    Đang phân tích bằng hệ chuyên gia
+                {% else %}
+                    Running expert analysis
+                {% endif %}
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

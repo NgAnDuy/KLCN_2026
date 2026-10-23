@@ -83,6 +83,10 @@
     text-decoration: none;
 }
 
+.history-page .account-dropdown a {
+    color: #173743;
+}
+
 .history-page .health-navbar-links form {
     margin: 0;
 }

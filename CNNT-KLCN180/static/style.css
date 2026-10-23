@@ -52,8 +52,9 @@ h1, h2 {
 .health-navbar {
     background: linear-gradient(105deg, #064b59, #197e87 72%, #28999e);
     box-shadow: 0 5px 20px rgba(0, 60, 75, .14);
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-inner {
@@ -137,6 +138,100 @@ h1, h2 {
     color: #e5f8f5;
     font-size: 14px;
 }
+
+.account-menu {
+    position: relative;
+    color: #fff;
+}
+
+.account-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    max-width: 240px;
+    padding: 5px 10px 5px 5px;
+    border: 1px solid rgba(255, 255, 255, .36);
+    border-radius: 999px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.account-menu-trigger:focus-visible,
+.account-dropdown a:focus-visible,
+.account-logout:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.account-avatar {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex: none;
+    border-radius: 50%;
+    background: #d4f2e7;
+    color: var(--deep);
+}
+
+.account-menu-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.account-chevron { font-size: 20px; line-height: 1; }
+.account-menu:hover .account-dropdown,
+.account-menu:focus-within .account-dropdown,
+.account-menu.is-open .account-dropdown {
+    display: block;
+}
+
+.account-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% - 1px);
+    right: 0;
+    min-width: 210px;
+    padding: 8px;
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(8, 63, 73, .2);
+}
+
+.account-dropdown-heading {
+    padding: 8px 11px;
+    color: var(--muted);
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 5px;
+}
+
+.health-navbar-links .account-dropdown a,
+.account-logout {
+    display: block;
+    width: 100%;
+    padding: 10px 11px;
+    color: var(--ink);
+    text-align: left;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    font: 600 14px 'DM Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.health-navbar-links .account-dropdown a:hover,
+.account-logout:hover { background: #eaf7f2; opacity: 1; }
+
+.account-logout { color: #a24637; }
 
 /* LANDING PAGE */
 

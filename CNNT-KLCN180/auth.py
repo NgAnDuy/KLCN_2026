@@ -14,6 +14,8 @@ from flask_login import (
     login_user,
     logout_user,
 )
+from datetime import datetime, timezone
+from datetime import timedelta
 
 from models import User, db
 
@@ -80,7 +82,7 @@ def register():
     """Create a new user account."""
 
     if current_user.is_authenticated:
-        return redirect(url_for("health_form"))
+        return redirect(url_for("admin_dashboard" if current_user.is_admin else "health_form"))
 
     language = get_auth_language()
 
@@ -104,7 +106,7 @@ def register():
             flash(auth_message("username_exists"), "error")
 
         else:
-            new_user = User(username=username)
+            new_user = User(username=username, role="user")
             new_user.set_password(password)
 
             db.session.add(new_user)
@@ -128,7 +130,7 @@ def login():
     """Authenticate a user and create a valid server session."""
 
     if current_user.is_authenticated:
-        return redirect(url_for("health_form"))
+        return redirect(url_for("admin_dashboard" if current_user.is_admin else "health_form"))
 
     language = get_auth_language()
 
@@ -140,7 +142,16 @@ def login():
             username=username
         ).first()
 
-        if user is None or not user.check_password(password):
+        now = datetime.now(timezone.utc).replace(tzinfo=None)
+        blocked = bool(user and user.login_blocked_until and user.login_blocked_until > now)
+
+        if blocked or user is None or not user.is_active_account or not user.check_password(password):
+            if user and user.is_active_account and not blocked:
+                user.failed_login_count += 1
+                if user.failed_login_count >= 5:
+                    user.login_blocked_until = now + timedelta(minutes=15)
+                    user.failed_login_count = 0
+                db.session.commit()
             flash(auth_message("login_failed"), "error")
 
         else:
@@ -149,6 +160,11 @@ def login():
             session["language"] = language
 
             login_user(user, remember=False)
+            session["user_session_version"] = user.session_version
+            user.last_login_at = datetime.now(timezone.utc)
+            user.failed_login_count = 0
+            user.login_blocked_until = None
+            db.session.commit()
 
             # This value is configured in app.py at startup.
             session["server_session_id"] = (
@@ -160,7 +176,7 @@ def login():
                 "success",
             )
 
-            return redirect(url_for("health_form"))
+            return redirect(url_for("admin_dashboard" if user.is_admin else "health_form"))
 
     return render_template(
         "login.html",

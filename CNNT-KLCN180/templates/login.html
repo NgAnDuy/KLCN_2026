@@ -39,6 +39,7 @@
         {% endwith %}
 
         <form method="POST" action="{{ url_for('auth.login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <label for="username">
                 {{ 'Tên đăng nhập' if language == 'vi' else 'Username' }}
             </label>

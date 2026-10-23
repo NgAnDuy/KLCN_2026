@@ -18,6 +18,9 @@
             </a>
 
             {% if current_user.is_authenticated %}
+                {% if current_user.is_admin %}
+                    <a href="{{ url_for('admin_dashboard') }}">{{ 'Quản trị' if lang == 'vi' else 'Admin' }}</a>
+                {% endif %}
                 <a href="{{ url_for('health_form') }}">
                     {{ 'Phân tích' if lang == 'vi' else 'Analysis' }}
                 </a>
@@ -26,15 +29,22 @@
                     {{ 'Lịch sử' if lang == 'vi' else 'History' }}
                 </a>
 
-                <span class="nav-user">
-                    👤 {{ current_user.username }}
-                </span>
-
-                <form method="POST" action="{{ url_for('auth.logout') }}">
-                    <button type="submit" class="nav-logout">
-                        {{ 'Đăng xuất' if lang == 'vi' else 'Logout' }}
+                <div class="account-menu">
+                    <button type="button" class="account-menu-trigger" aria-haspopup="true" aria-expanded="false" aria-label="{{ 'Mở menu tài khoản' if lang == 'vi' else 'Open account menu' }}">
+                        <span class="account-avatar" aria-hidden="true">{{ (current_user.display_name or current_user.username)[0]|upper }}</span>
+                        <span class="account-menu-name">{{ current_user.display_name or current_user.username }}</span>
+                        <span class="account-chevron" aria-hidden="true">⌄</span>
                     </button>
-                </form>
+                    <div class="account-dropdown">
+                        <div class="account-dropdown-heading">{{ current_user.username }}</div>
+                        <a href="{{ url_for('account') }}">{{ 'Tài khoản' if lang == 'vi' else 'Account' }}</a>
+                        <a href="{{ url_for('profile') }}">{{ 'Hồ sơ sức khỏe' if lang == 'vi' else 'Health profile' }}</a>
+                        <form method="POST" action="{{ url_for('auth.logout') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <button type="submit" class="account-logout">{{ 'Đăng xuất' if lang == 'vi' else 'Logout' }}</button>
+                        </form>
+                    </div>
+                </div>
             {% else %}
                 <a class="nav-login" href="{{ url_for('auth.login') }}">
                     {{ 'Đăng nhập' if lang == 'vi' else 'Login' }}
@@ -47,3 +57,32 @@
         </div>
     </div>
 </nav>
+<script>
+document.querySelectorAll('.account-menu').forEach(function (menu) {
+    const trigger = menu.querySelector('.account-menu-trigger');
+    trigger.addEventListener('click', function () {
+        const open = menu.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(open));
+    });
+    menu.addEventListener('mouseenter', function () {
+        trigger.setAttribute('aria-expanded', 'true');
+    });
+    menu.addEventListener('mouseleave', function () {
+        menu.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+    });
+    menu.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            menu.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+        }
+    });
+    document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+</script>

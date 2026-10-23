@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="{{ language }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% if language == "vi" %}
+            Phân tích sức khỏe
+        {% else %}
+            Health Analysis
+        {% endif %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+
+        <h1>
+            {% if language == "vi" %}
+                Phân tích sức khỏe
+            {% else %}
+                Health Analysis
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if language == "vi" %}
+                Chọn mục tiêu và nhập thông tin hiện tại
+                để hệ thống phân tích tình trạng của bạn.
+            {% else %}
+                Select your goal and enter your current
+                information for health analysis.
+            {% endif %}
+        </p>
+
+        <a
+            href="{{ url_for('language') }}"
+            class="change-language"
+        >
+            {% if language == "vi" %}
+                Đổi ngôn ngữ
+            {% else %}
+                Change Language
+            {% endif %}
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         ERROR
+         ===================================================== -->
+
+    {% if error %}
+
+    <div class="error">
+        {{ error }}
+    </div>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         FORM
+         ===================================================== -->
+
+    <section class="card">
+
+        <form
+            method="POST"
+            action="{{ url_for('health_form') }}"
+        >
+
+            <!-- =============================================
+                 GOAL
+                 ============================================= -->
+
+            <h2>
+                {% if language == "vi" %}
+                    Mục tiêu của bạn
+                {% else %}
+                    Your Goal
+                {% endif %}
+            </h2>
+
+
+            <div class="field">
+
+                <label for="goal">
+                    {% if language == "vi" %}
+                        Chọn mục tiêu
+                    {% else %}
+                        Select Goal
+                    {% endif %}
+                </label>
+
+
+                <select
+                    id="goal"
+                    name="goal"
+                    required
+                >
+
+                    <option
+                        value=""
+                        selected
+                        disabled
+                    >
+                        {% if language == "vi" %}
+                            -- Chọn mục tiêu --
+                        {% else %}
+                            -- Select goal --
+                        {% endif %}
+                    </option>
+
+
+                    {% for goal in goals %}
+
+                    <option value="{{ goal }}">
+                        {{ translate(
+                            goal,
+                            language
+                        ) }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <!-- =============================================
+                 BODY INFORMATION
+                 ============================================= -->
+
+            <h2 class="form-section-title">
+                {% if language == "vi" %}
+                    Thông tin cơ thể
+                {% else %}
+                    Body Information
+                {% endif %}
+            </h2>
+
+
+            <div class="form-grid">
+
+                <!-- AGE -->
+
+                <div class="field">
+
+                    <label for="age">
+                        {% if language == "vi" %}
+                            Tuổi
+                        {% else %}
+                            Age
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="age"
+                        type="number"
+                        name="age"
+                        min="18"
+                        max="100"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- GENDER -->
+
+                <div class="field">
+
+                    <label for="gender">
+                        {% if language == "vi" %}
+                            Giới tính
+                        {% else %}
+                            Gender
+                        {% endif %}
+                    </label>
+
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
+                            {% if language == "vi" %}
+                                -- Chọn giới tính --
+                            {% else %}
+                                -- Select gender --
+                            {% endif %}
+                        </option>
+
+
+                        <option value="Male">
+                            {% if language == "vi" %}
+                                Nam
+                            {% else %}
+                                Male
+                            {% endif %}
+                        </option>
+
+
+                        <option value="Female">
+                            {% if language == "vi" %}
+                                Nữ
+                            {% else %}
+                                Female
+                            {% endif %}
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- HEIGHT -->
+
+                <div class="field">
+
+                    <label for="height_cm">
+                        {% if language == "vi" %}
+                            Chiều cao (cm)
+                        {% else %}
+                            Height (cm)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="height_cm"
+                        type="number"
+                        name="height_cm"
+                        min="100"
+                        max="250"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- WEIGHT -->
+
+                <div class="field">
+
+                    <label for="weight_kg">
+                        {% if language == "vi" %}
+                            Cân nặng (kg)
+                        {% else %}
+                            Weight (kg)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="weight_kg"
+                        type="number"
+                        name="weight_kg"
+                        min="25"
+                        max="300"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 ACTIVITY INFORMATION
+                 ============================================= -->
+
+            <h2 class="form-section-title">
+                {% if language == "vi" %}
+                    Hoạt động thể chất
+                {% else %}
+                    Physical Activity
+                {% endif %}
+            </h2>
+
+
+            <div class="form-grid">
+
+                <!-- ACTIVITY LEVEL -->
+
+                <div class="field">
+
+                    <label for="activity_level">
+                        {% if language == "vi" %}
+                            Mức độ hoạt động
+                        {% else %}
+                            Activity Level
+                        {% endif %}
+                    </label>
+
+
+                    <select
+                        id="activity_level"
+                        name="activity_level"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
+                            {% if language == "vi" %}
+                                -- Chọn mức độ hoạt động --
+                            {% else %}
+                                -- Select activity level --
+                            {% endif %}
+                        </option>
+
+
+                        {% for activity in activities %}
+
+                        <option value="{{ activity }}">
+
+                            {% if language == "vi" %}
+
+                                {% if activity == "Sedentary" %}
+                                    Ít vận động
+
+                                {% elif activity == "Light" %}
+                                    Hoạt động nhẹ
+
+                                {% elif activity == "Moderate" %}
+                                    Hoạt động vừa
+
+                                {% elif activity == "Active" %}
+                                    Hoạt động nhiều
+
+                                {% elif activity == "Very Active" %}
+                                    Hoạt động rất nhiều
+
+                                {% else %}
+                                    {{ activity }}
+                                {% endif %}
+
+                            {% else %}
+
+                                {{ activity }}
+
+                            {% endif %}
+
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- STEPS -->
+
+                <div class="field">
+
+                    <label for="avg_steps_7d">
+                        {% if language == "vi" %}
+                            Số bước trung bình mỗi ngày
+                        {% else %}
+                            Average Daily Steps
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="avg_steps_7d"
+                        type="number"
+                        name="avg_steps_7d"
+                        min="0"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EXERCISE MINUTES -->
+
+                <div class="field">
+
+                    <label
+                        for="avg_exercise_minutes_7d"
+                    >
+                        {% if language == "vi" %}
+                            Thời gian tập trung bình
+                            mỗi buổi (phút)
+                        {% else %}
+                            Average Exercise Duration
+                            per Session (minutes)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="avg_exercise_minutes_7d"
+                        type="number"
+                        name="avg_exercise_minutes_7d"
+                        min="0"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EXERCISE SESSIONS -->
+
+                <div class="field">
+
+                    <label
+                        for="exercise_sessions_7d"
+                    >
+                        {% if language == "vi" %}
+                            Số buổi tập trong 7 ngày
+                        {% else %}
+                            Exercise Sessions
+                            in 7 Days
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="exercise_sessions_7d"
+                        type="number"
+                        name="exercise_sessions_7d"
+                        min="0"
+                        max="30"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EXERCISE CALORIES -->
+
+                <div class="field">
+
+                    <label
+                        for="avg_calories_burned_7d"
+                    >
+                        {% if language == "vi" %}
+                            Calories đốt cháy trung bình
+                            khi tập (kcal)
+                        {% else %}
+                            Average Exercise Calories
+                            Burned (kcal)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="avg_calories_burned_7d"
+                        type="number"
+                        name="avg_calories_burned_7d"
+                        min="0"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 NUTRITION AND LIFESTYLE
+                 ============================================= -->
+
+            <h2 class="form-section-title">
+                {% if language == "vi" %}
+                    Dinh dưỡng và sinh hoạt
+                {% else %}
+                    Nutrition & Lifestyle
+                {% endif %}
+            </h2>
+
+
+            <div class="form-grid">
+
+                <!-- CALORIES -->
+
+                <div class="field">
+
+                    <label for="calories_consumed">
+                        {% if language == "vi" %}
+                            Lượng calories nạp mỗi ngày
+                            (kcal)
+                        {% else %}
+                            Daily Calorie Intake
+                            (kcal)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="calories_consumed"
+                        type="number"
+                        name="calories_consumed"
+                        min="0"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SLEEP -->
+
+                <div class="field">
+
+                    <label for="avg_sleep_hours_7d">
+                        {% if language == "vi" %}
+                            Số giờ ngủ trung bình
+                            mỗi ngày
+                        {% else %}
+                            Average Daily Sleep Hours
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="avg_sleep_hours_7d"
+                        type="number"
+                        name="avg_sleep_hours_7d"
+                        min="0"
+                        max="24"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- WATER -->
+
+                <div class="field">
+
+                    <label for="water_intake_l">
+                        {% if language == "vi" %}
+                            Lượng nước uống mỗi ngày
+                            (L)
+                        {% else %}
+                            Daily Water Intake
+                            (L)
+                        {% endif %}
+                    </label>
+
+                    <input
+                        id="water_intake_l"
+                        type="number"
+                        name="water_intake_l"
+                        min="0"
+                        step="0.1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 SUBMIT
+                 ============================================= -->
+
+            <button type="submit">
+                {% if language == "vi" %}
+                    Phân tích
+                {% else %}
+                    Analyze
+                {% endif %}
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+</body>
+
+</html>

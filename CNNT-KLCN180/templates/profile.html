@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ 'Hồ sơ sức khỏe' if language == 'vi' else 'Health profile' }} | Health Focus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'components/navbar.html' %}
+<main class="container">
+    <header>
+        <h1>{{ 'Hồ sơ sức khỏe' if language == 'vi' else 'Health profile' }}</h1>
+        <p>{{ current_user.display_name or current_user.username }} · {{ current_user.username }}</p>
+    </header>
+
+    {% if profile %}
+    <div class="result-grid">
+        <article class="card">
+            <span class="small-title">{{ 'Tuổi' if language == 'vi' else 'Age' }}</span>
+            <h2>{{ profile.data.get('age', '—') }}</h2>
+        </article>
+        <article class="card">
+            <span class="small-title">{{ 'Giới tính' if language == 'vi' else 'Gender' }}</span>
+            <h2>{{ 'Nam' if profile.data.get('gender') == 'Male' and language == 'vi' else 'Nữ' if profile.data.get('gender') == 'Female' and language == 'vi' else profile.data.get('gender', '—') }}</h2>
+        </article>
+        <article class="card">
+            <span class="small-title">{{ 'Chiều cao' if language == 'vi' else 'Height' }}</span>
+            <h2>{{ profile.data.get('height_cm', '—') }} cm</h2>
+        </article>
+        <article class="card">
+            <span class="small-title">{{ 'Cân nặng' if language == 'vi' else 'Weight' }}</span>
+            <h2>{{ profile.data.get('weight_kg', '—') }} kg</h2>
+        </article>
+    </div>
+    <section class="card">
+        <h2>{{ 'Lối sống và mục tiêu gần nhất' if language == 'vi' else 'Latest lifestyle and goal' }}</h2>
+        <p>{{ 'Mục tiêu' if language == 'vi' else 'Goal' }}: {{ profile.data.get('selected_goal', '—') | replace('_', ' ') }}</p>
+        <p>{{ 'Mức vận động' if language == 'vi' else 'Activity level' }}: {{ profile.data.get('activity_level', '—') }}</p>
+        <p>{{ 'Số bước mỗi ngày' if language == 'vi' else 'Daily steps' }}: {{ profile.data.get('avg_steps_7d', '—') }}</p>
+        <p>{{ 'Giờ ngủ trung bình' if language == 'vi' else 'Average sleep' }}: {{ profile.data.get('avg_sleep_hours_7d', '—') }}</p>
+        <small>{{ 'Cập nhật lần cuối' if language == 'vi' else 'Last updated' }}: {{ profile.updated_at }}</small>
+    </section>
+    {% else %}
+    <section class="card">
+        <p>{{ 'Bạn chưa có hồ sơ. Hãy điền thông tin để bắt đầu.' if language == 'vi' else 'No profile yet. Enter your information to get started.' }}</p>
+    </section>
+    {% endif %}
+    <div class="bottom-actions">
+        <a class="primary-link" href="{{ url_for('health_form') }}">{{ 'Cập nhật thông tin' if language == 'vi' else 'Update information' }}</a>
+    </div>
+</main>
+</body>
+</html>

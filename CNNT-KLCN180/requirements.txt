@@ -3,3 +3,6 @@ scikit-learn
 pandas
 numpy
 joblib
+Flask
+Flask-Login
+Flask-SQLAlchemy

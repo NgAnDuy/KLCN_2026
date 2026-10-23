@@ -210,6 +210,9 @@
     </section>
 
     <div class="bottom-actions">
+        <a class="primary-link" href="{{ url_for('weekly_plan') }}">
+            {{ 'Kế hoạch 7 ngày' if language == 'vi' else '7-day plan' }}
+        </a>
         <a class="primary-link" href="{{ url_for('new_analysis') }}">
             {{ 'Phân tích mới' if language == 'vi' else 'New Analysis' }}
         </a>

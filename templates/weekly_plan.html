@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+<html lang="{{ language }}">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% if language == "vi" %}
+            Kế hoạch 7 ngày
+        {% else %}
+            7-Day Plan
+        {% endif %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+        <h1>
+            {% if language == "vi" %}
+                Kế hoạch Thực đơn & Luyện tập 7 Ngày
+            {% else %}
+                7-Day Meal & Workout Plan
+            {% endif %}
+        </h1>
+
+        <p>
+            {% if language == "vi" %}
+                Kế hoạch cá nhân hóa dựa trên kết quả phân
+                tích từ MLP và Hệ chuyên gia
+            {% else %}
+                Personalized plan based on MLP and Expert
+                System analysis results
+            {% endif %}
+        </p>
+    </header>
+
+
+    <!-- =====================================================
+         WEEKLY SUMMARY
+         ===================================================== -->
+
+    <div class="weekly-summary-grid">
+
+        <!-- Daily Calorie Target -->
+
+        <div class="summary-card">
+
+            <span class="summary-label">
+                {% if language == "vi" %}
+                    Mục tiêu Calo / Ngày
+                {% else %}
+                    Daily Calorie Target
+                {% endif %}
+            </span>
+
+            <strong class="summary-value">
+                {{ plan["summary"]["daily_calorie_target"] }}
+            </strong>
+
+            <span class="summary-unit">kcal</span>
+
+        </div>
+
+
+        <!-- Macro Split -->
+
+        <div class="summary-card">
+
+            <span class="summary-label">
+                {% if language == "vi" %}
+                    Tỷ lệ Dinh dưỡng
+                {% else %}
+                    Macro Split
+                {% endif %}
+            </span>
+
+            <strong class="summary-value macro-split">
+                P {{ plan["summary"]["macro_targets"]["protein_pct"] }}%
+                · C {{ plan["summary"]["macro_targets"]["carbs_pct"] }}%
+                · F {{ plan["summary"]["macro_targets"]["fat_pct"] }}%
+            </strong>
+
+            <span class="summary-unit">
+                {% if language == "vi" %}
+                    Đạm · Bột đường · Béo
+                {% else %}
+                    Protein · Carbs · Fat
+                {% endif %}
+            </span>
+
+        </div>
+
+
+        <!-- Training Schedule -->
+
+        <div class="summary-card">
+
+            <span class="summary-label">
+                {% if language == "vi" %}
+                    Lịch tập luyện
+                {% else %}
+                    Training Schedule
+                {% endif %}
+            </span>
+
+            <strong class="summary-value">
+                {{ translate(
+                    plan["summary"]["split_label"],
+                    language
+                ) }}
+            </strong>
+
+            <span class="summary-unit">
+                {% if language == "vi" %}
+                    {{ plan["summary"]["rest_days"] }}
+                    ngày nghỉ phục hồi
+                {% else %}
+                    {{ plan["summary"]["rest_days"] }}
+                    rest days
+                {% endif %}
+            </span>
+
+        </div>
+
+
+        <!-- Weekly Burn -->
+
+        <div class="summary-card">
+
+            <span class="summary-label">
+                {% if language == "vi" %}
+                    Calo đốt / Tuần
+                {% else %}
+                    Weekly Calories Burned
+                {% endif %}
+            </span>
+
+            <strong class="summary-value">
+                ~{{ plan["summary"]["total_weekly_burned"] }}
+            </strong>
+
+            <span class="summary-unit">kcal</span>
+
+        </div>
+
+
+        <!-- Hydration -->
+
+        <div class="summary-card">
+
+            <span class="summary-label">
+                {% if language == "vi" %}
+                    Nước uống / Ngày
+                {% else %}
+                    Daily Hydration
+                {% endif %}
+            </span>
+
+            <strong class="summary-value">
+                {{ plan["summary"]["hydration_liters"] }}
+            </strong>
+
+            <span class="summary-unit">
+                {% if language == "vi" %}
+                    lít / ngày
+                {% else %}
+                    liters / day
+                {% endif %}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DAY TABS
+         ===================================================== -->
+
+    <div class="day-tabs" id="day-tabs">
+
+        {% for day in plan["days"] %}
+
+        <button
+            class="day-tab {% if loop.first %}active{% endif %}"
+            onclick="showDay({{ loop.index0 }}, this)"
+        >
+
+            <span class="day-tab-name">
+                {{ translate(
+                    day["day"],
+                    language
+                ) }}
+            </span>
+
+            <span class="day-tab-badge">
+                {% if day["is_rest"] %}
+                    💤
+                {% else %}
+                    🏋️
+                {% endif %}
+            </span>
+
+        </button>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- =====================================================
+         DAY PANELS
+         ===================================================== -->
+
+    {% for day in plan["days"] %}
+
+    <div
+        class="day-panel {% if loop.first %}active{% endif %}"
+        id="day-{{ loop.index0 }}"
+    >
+
+        <!-- Day title -->
+
+        <div class="day-header">
+
+            <h2>
+                {{ translate(
+                    day["day"],
+                    language
+                ) }}
+            </h2>
+
+            <div class="day-header-badges">
+
+                {% if not day["is_rest"] %}
+                <span class="focus-badge">
+                    {{ translate(
+                        day["focus"],
+                        language
+                    ) }}
+                </span>
+                {% endif %}
+
+                <span class="calorie-badge">
+                    {{ day["meal_total_calories"] }} kcal
+                    {% if language == "vi" %}
+                        nạp vào
+                    {% else %}
+                        intake
+                    {% endif %}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="day-content">
+
+            <!-- =============================================
+                 MEALS COLUMN
+                 ============================================= -->
+
+            <div class="day-column meals-column">
+
+                <h3>
+                    {% if language == "vi" %}
+                        🍽️ Thực đơn dinh dưỡng
+                    {% else %}
+                        🍽️ Nutrition Plan
+                    {% endif %}
+                </h3>
+
+
+                {% for slot in ["breakfast", "lunch", "dinner", "snack"] %}
+
+                <div class="meal-card">
+
+                    <div class="meal-slot-label">
+                        {{ translate(
+                            slot,
+                            language
+                        ) }}
+                    </div>
+
+
+                    {% set meal = day["meals"][slot] %}
+
+                    {% if meal and meal["items"] %}
+
+                    <!-- Individual food items -->
+
+                    {% for item in meal["items"] %}
+
+                    <div class="meal-item">
+
+                        <div class="meal-item-header">
+
+                            <span class="meal-item-name">
+                                {{ item["food_name"] }}
+                            </span>
+
+                            <span class="meal-item-serving">
+                                {{ item["serving_g"] }}g
+                            </span>
+
+                        </div>
+
+                        <div class="meal-item-macros">
+
+                            <span>
+                                {{ item["calories"] }} kcal
+                            </span>
+
+                            <span>
+                                P {{ item["protein_g"]|round(0)|int }}g
+                            </span>
+
+                            <span>
+                                C {{ item["carbs_g"]|round(0)|int }}g
+                            </span>
+
+                            <span>
+                                F {{ item["fat_g"]|round(0)|int }}g
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                    <!-- Meal subtotal -->
+
+                    <div class="meal-subtotal">
+
+                        <div class="subtotal-left">
+                            {% if language == "vi" %}
+                                Tổng bữa: {{ meal["total_serving_g"] }}g
+                            {% else %}
+                                Meal total: {{ meal["total_serving_g"] }}g
+                            {% endif %}
+                        </div>
+
+                        <div class="subtotal-right">
+                            <span class="macro-tag cal">
+                                {{ meal["total_calories"] }} kcal
+                            </span>
+
+                            <span class="macro-tag protein">
+                                P {{ meal["total_protein"] }}g
+                            </span>
+
+                            <span class="macro-tag carbs">
+                                C {{ meal["total_carbs"] }}g
+                            </span>
+
+                            <span class="macro-tag fat">
+                                F {{ meal["total_fat"] }}g
+                            </span>
+                        </div>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="meal-empty">
+                        {% if language == "vi" %}
+                            Không có gợi ý
+                        {% else %}
+                            No suggestion
+                        {% endif %}
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                {% endfor %}
+
+
+                <!-- Day nutrition totals -->
+
+                <div class="day-totals">
+
+                    <div class="totals-row">
+                        <span>
+                            {% if language == "vi" %}
+                                Tổng calo
+                            {% else %}
+                                Total Calories
+                            {% endif %}
+                        </span>
+
+                        <strong>
+                            {{ day["meal_total_calories"] }} kcal
+                        </strong>
+                    </div>
+
+                    <div class="totals-row">
+                        <span>Protein</span>
+
+                        <strong>
+                            {{ day["meal_total_protein"] }}g
+                        </strong>
+                    </div>
+
+                    <div class="totals-row">
+                        <span>Carbs</span>
+
+                        <strong>
+                            {{ day["meal_total_carbs"] }}g
+                        </strong>
+                    </div>
+
+                    <div class="totals-row">
+                        <span>Fat</span>
+
+                        <strong>
+                            {{ day["meal_total_fat"] }}g
+                        </strong>
+                    </div>
+
+                    <div class="totals-row deviation
+                        {% if day['calorie_deviation']|abs <= 50 %}
+                            deviation-good
+                        {% elif day['calorie_deviation']|abs <= 100 %}
+                            deviation-ok
+                        {% else %}
+                            deviation-high
+                        {% endif %}
+                    ">
+                        <span>
+                            {% if language == "vi" %}
+                                Độ lệch calo
+                            {% else %}
+                                Calorie Deviation
+                            {% endif %}
+                        </span>
+
+                        <strong>
+                            {% if day["calorie_deviation"] >= 0 %}+{% endif %}{{ day["calorie_deviation"] }} kcal
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 EXERCISE COLUMN
+                 ============================================= -->
+
+            <div class="day-column exercise-column">
+
+                <h3>
+                    {% if language == "vi" %}
+                        🏋️ Kế hoạch vận động
+                    {% else %}
+                        🏋️ Workout Plan
+                    {% endif %}
+                </h3>
+
+
+                {% if day["is_rest"] %}
+
+                <!-- REST DAY -->
+
+                <div class="rest-day-card">
+
+                    <div class="rest-icon">💤</div>
+
+                    <h4>
+                        {% if language == "vi" %}
+                            Ngày nghỉ ngơi phục hồi
+                        {% else %}
+                            Rest & Recovery Day
+                        {% endif %}
+                    </h4>
+
+                    <p>
+                        {% if language == "vi" %}
+                            Cơ thể cần thời gian phục hồi để
+                            phát triển. Hãy nghỉ ngơi và chăm
+                            sóc bản thân.
+                        {% else %}
+                            Your body needs time to recover and
+                            grow. Take this day to rest and
+                            take care of yourself.
+                        {% endif %}
+                    </p>
+
+
+                    {% if day["recovery_tips"] %}
+
+                    <div class="recovery-tips">
+
+                        <span class="tips-label">
+                            {% if language == "vi" %}
+                                Lời khuyên hôm nay:
+                            {% else %}
+                                Today's tips:
+                            {% endif %}
+                        </span>
+
+                        {% for tip in day["recovery_tips"] %}
+                        <span class="recovery-tip-tag">
+                            {{ translate(
+                                tip,
+                                language
+                            ) }}
+                        </span>
+                        {% endfor %}
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                {% else %}
+
+                <!-- TRAINING DAY -->
+
+                {% if day["exercise"] %}
+
+                <div class="exercise-detail-card">
+
+                    <div class="exercise-header">
+
+                        <span class="exercise-focus-label">
+                            {{ translate(
+                                day["focus"],
+                                language
+                            ) }}
+                        </span>
+
+                    </div>
+
+                    <h4 class="exercise-title">
+                        {{ day["exercise"]["exercise_name"] }}
+                    </h4>
+
+                    <div class="exercise-tags">
+
+                        <span class="ex-tag duration">
+                            {{ day["exercise"]["duration_min"] }}
+                            {% if language == "vi" %}
+                                phút
+                            {% else %}
+                                min
+                            {% endif %}
+                        </span>
+
+                        <span class="ex-tag intensity">
+                            {{ translate(
+                                day["exercise"]["intensity"],
+                                language
+                            ) }}
+                        </span>
+
+                        <span class="ex-tag difficulty">
+                            {{ translate(
+                                day["exercise"]["difficulty"],
+                                language
+                            ) }}
+                        </span>
+
+                        <span class="ex-tag burn">
+                            🔥 {{ day["exercise_calories"] }} kcal
+                        </span>
+
+                    </div>
+
+
+                    <div class="exercise-meta">
+
+                        <div class="meta-row">
+                            <span>
+                                {% if language == "vi" %}
+                                    Loại bài tập
+                                {% else %}
+                                    Exercise Type
+                                {% endif %}
+                            </span>
+
+                            <strong>
+                                {{ translate(
+                                    day["exercise"]["exercise_type"],
+                                    language
+                                ) }}
+                            </strong>
+                        </div>
+
+                        <div class="meta-row">
+                            <span>
+                                {% if language == "vi" %}
+                                    Vùng tập trung
+                                {% else %}
+                                    Target Area
+                                {% endif %}
+                            </span>
+
+                            <strong>
+                                {{ translate(
+                                    day["exercise"]["target_area"],
+                                    language
+                                ) }}
+                            </strong>
+                        </div>
+
+                        <div class="meta-row">
+                            <span>
+                                {% if language == "vi" %}
+                                    Dụng cụ
+                                {% else %}
+                                    Equipment
+                                {% endif %}
+                            </span>
+
+                            <strong>
+                                {{ translate(
+                                    day["exercise"]["equipment"],
+                                    language
+                                ) }}
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+
+    <!-- =====================================================
+         ACTIONS
+         ===================================================== -->
+
+    <div class="bottom-actions weekly-actions">
+
+        <a
+            href="{{ url_for('regenerate_weekly_plan') }}"
+            class="primary-link regenerate-link"
+        >
+            {% if language == "vi" %}
+                🔄 Tạo lại kế hoạch khác
+            {% else %}
+                🔄 Generate New Plan
+            {% endif %}
+        </a>
+
+        <a
+            href="{{ url_for('result') }}"
+            class="primary-link back-link"
+        >
+            {% if language == "vi" %}
+                ← Quay lại kết quả phân tích
+            {% else %}
+                ← Back to Analysis Results
+            {% endif %}
+        </a>
+
+        <a
+            href="{{ url_for('new_analysis') }}"
+            class="primary-link"
+        >
+            {% if language == "vi" %}
+                Phân tích mới
+            {% else %}
+                New Analysis
+            {% endif %}
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT: DAY TAB SWITCHING
+     ========================================================= -->
+
+<script>
+function showDay(index, button) {
+    // Hide all panels
+    var panels = document.querySelectorAll(
+        '.day-panel'
+    );
+
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].classList.remove('active');
+    }
+
+    // Deactivate all tabs
+    var tabs = document.querySelectorAll(
+        '.day-tab'
+    );
+
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+    }
+
+    // Show selected panel
+    var panel = document.getElementById(
+        'day-' + index
+    );
+
+    if (panel) {
+        panel.classList.add('active');
+    }
+
+    // Activate selected tab
+    button.classList.add('active');
+}
+</script>
+
+</body>
+
+</html>
