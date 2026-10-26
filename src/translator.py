@@ -59,44 +59,6 @@ TRANSLATIONS = {
         "ADJUST_GOAL": "Nên điều chỉnh mục tiêu",
         "REVIEW_GOAL": "Nên xem xét lại mục tiêu",
         "MAINTAIN": "Nên duy trì",
-
-        # Day names
-        "monday": "Thứ Hai",
-        "tuesday": "Thứ Ba",
-        "wednesday": "Thứ Tư",
-        "thursday": "Thứ Năm",
-        "friday": "Thứ Sáu",
-        "saturday": "Thứ Bảy",
-        "sunday": "Chủ Nhật",
-
-        # Meal slots
-        "breakfast": "Bữa sáng",
-        "lunch": "Bữa trưa",
-        "dinner": "Bữa tối",
-        "snack": "Bữa phụ",
-
-        # Exercise focus
-        "cardio": "Cardio",
-        "strength_upper": "Kháng lực thân trên",
-        "strength_lower": "Kháng lực thân dưới",
-        "flexibility": "Linh hoạt & Giãn cơ",
-        "full_body": "Toàn thân",
-        "recovery": "Nghỉ ngơi phục hồi",
-
-        # Recovery tips
-        "PRIORITIZE_SLEEP": "Ưu tiên ngủ đủ 7-8 giờ",
-        "INCREASE_HYDRATION": "Tăng cường uống nước",
-        "LIGHT_STRETCHING": "Giãn cơ nhẹ nhàng",
-
-        # Split labels
-        "3_DAYS_PER_WEEK": "3 buổi tập / tuần",
-        "4_DAYS_PER_WEEK": "4 buổi tập / tuần",
-        "5_DAYS_PER_WEEK": "5 buổi tập / tuần",
-
-        # Difficulty
-        "beginner": "Người mới",
-        "intermediate": "Trung bình",
-        "advanced": "Nâng cao",
     },
 
     "en": {
@@ -156,44 +118,6 @@ TRANSLATIONS = {
         "ADJUST_GOAL": "Goal Should Be Adjusted",
         "REVIEW_GOAL": "Goal Should Be Reviewed",
         "MAINTAIN": "Maintain Current Direction",
-
-        # Day names
-        "monday": "Monday",
-        "tuesday": "Tuesday",
-        "wednesday": "Wednesday",
-        "thursday": "Thursday",
-        "friday": "Friday",
-        "saturday": "Saturday",
-        "sunday": "Sunday",
-
-        # Meal slots
-        "breakfast": "Breakfast",
-        "lunch": "Lunch",
-        "dinner": "Dinner",
-        "snack": "Snack",
-
-        # Exercise focus
-        "cardio": "Cardio",
-        "strength_upper": "Upper Body Strength",
-        "strength_lower": "Lower Body Strength",
-        "flexibility": "Flexibility & Stretching",
-        "full_body": "Full Body",
-        "recovery": "Rest & Recovery",
-
-        # Recovery tips
-        "PRIORITIZE_SLEEP": "Prioritize 7-8 hours of sleep",
-        "INCREASE_HYDRATION": "Increase water intake",
-        "LIGHT_STRETCHING": "Light stretching recommended",
-
-        # Split labels
-        "3_DAYS_PER_WEEK": "3 sessions / week",
-        "4_DAYS_PER_WEEK": "4 sessions / week",
-        "5_DAYS_PER_WEEK": "5 sessions / week",
-
-        # Difficulty
-        "beginner": "Beginner",
-        "intermediate": "Intermediate",
-        "advanced": "Advanced",
     }
 }
 

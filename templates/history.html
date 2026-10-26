@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Health Focus | History</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='history.css') }}"
+    >
+</head>
+
+<body class="history-page">
+
+    {% include 'components/navbar.html' %}
+
+    <main class="history-container">
+
+        <section class="history-header">
+
+            <div class="history-header-content">
+
+                <div class="history-eyebrow">
+                    HEALTH FOCUS / HISTORY
+                </div>
+
+                <h1>
+                    {% if language == 'vi' %}
+                        Lịch sử phân tích sức khỏe
+                    {% else %}
+                        Health Analysis History
+                    {% endif %}
+                </h1>
+
+                <p>
+                    {% if language == 'vi' %}
+                        Xem lại các kết quả phân tích,
+                        mục tiêu sức khỏe và dự đoán MLP
+                        đã được lưu trong tài khoản của bạn.
+                    {% else %}
+                        Review your saved health analyses,
+                        selected goals and MLP predictions.
+                    {% endif %}
+                </p>
+
+                <div class="history-user">
+
+                    <span class="history-user-icon">
+                        👤
+                    </span>
+
+                    <span>
+                        {% if language == 'vi' %}
+                            Tài khoản:
+                        {% else %}
+                            Account:
+                        {% endif %}
+
+                        <strong>
+                            {{ current_user.username }}
+                        </strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="history-header-visual">
+
+                <div class="history-visual-circle">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/health_focus_icon.jpg'
+                        ) }}"
+                        alt="Health Focus Icon"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="history-content">
+
+            <div class="history-section-heading">
+
+                <div>
+                    <h2>
+                        {% if language == 'vi' %}
+                            Danh sách phân tích
+                        {% else %}
+                            Analysis Records
+                        {% endif %}
+                    </h2>
+
+                    <p>
+                        {% if language == 'vi' %}
+                            Tất cả kết quả được lưu
+                            theo từng lần phân tích.
+                        {% else %}
+                            All saved results from
+                            your previous analyses.
+                        {% endif %}
+                    </p>
+                </div>
+
+                <a
+                    href="{{ url_for('new_analysis') }}"
+                    class="history-new-button"
+                >
+                    <span>＋</span>
+
+                    {% if language == 'vi' %}
+                        Phân tích mới
+                    {% else %}
+                        New Analysis
+                    {% endif %}
+                </a>
+
+            </div>
+
+            {% if records %}
+
+                <div class="history-table-wrapper">
+
+                    <table class="history-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+
+                                <th>
+                                    {% if language == 'vi' %}
+                                        Ngày phân tích
+                                    {% else %}
+                                        Analysis Date
+                                    {% endif %}
+                                </th>
+
+                                <th>
+                                    {% if language == 'vi' %}
+                                        Mục tiêu đã chọn
+                                    {% else %}
+                                        Selected Goal
+                                    {% endif %}
+                                </th>
+
+                                <th>
+                                    {% if language == 'vi' %}
+                                        Dự đoán MLP
+                                    {% else %}
+                                        MLP Prediction
+                                    {% endif %}
+                                </th>
+
+                                <th>
+                                    {% if language == 'vi' %}
+                                        Độ tin cậy
+                                    {% else %}
+                                        Confidence
+                                    {% endif %}
+                                </th>
+
+                                <th>
+                                    {% if language == 'vi' %}
+                                        Thao tác
+                                    {% else %}
+                                        Action
+                                    {% endif %}
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for record in records %}
+
+                                <tr>
+
+                                    <td>
+                                        <span class="history-record-id">
+                                            #{{ record.id }}
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="history-date">
+                                            {{ record.created_at.strftime(
+                                                '%d/%m/%Y'
+                                            ) }}
+                                        </span>
+
+                                        <small class="history-time">
+                                            {{ record.created_at.strftime(
+                                                '%H:%M'
+                                            ) }}
+                                        </small>
+                                    </td>
+
+                                    <td>
+                                        <span class="history-goal">
+                                            {{ translate(
+                                                record.selected_goal,
+                                                language
+                                            ) }}
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="history-prediction">
+                                            {{ translate(
+                                                record.predicted_goal,
+                                                language
+                                            ) }}
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="history-confidence">
+
+                                            <strong>
+                                                {{ "%.2f"|format(
+                                                    record.confidence * 100
+                                                ) }}%
+                                            </strong>
+
+                                            <progress
+                                                class="history-progress-native"
+                                                value="{{ record.confidence * 100 }}"
+                                                max="100"
+                                            >
+                                                {{ "%.2f"|format(
+                                                    record.confidence * 100
+                                                ) }}%
+                                            </progress>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <a
+                                            class="history-view-button"
+                                            href="{{ url_for(
+                                                'history_detail',
+                                                analysis_id=record.id
+                                            ) }}"
+                                        >
+                                            {% if language == 'vi' %}
+                                                Xem kết quả
+                                            {% else %}
+                                                View Result
+                                            {% endif %}
+
+                                            <span>→</span>
+                                        </a>
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="history-table-footer">
+
+                    <span>
+                        {% if language == 'vi' %}
+                            Tổng số lần phân tích:
+                        {% else %}
+                            Total analyses:
+                        {% endif %}
+
+                        <strong>{{ records|length }}</strong>
+                    </span>
+
+                    <span>
+                        HEALTH FOCUS
+                    </span>
+
+                </div>
+
+            {% else %}
+
+                <div class="history-empty">
+
+                    <div class="history-empty-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        {% if language == 'vi' %}
+                            Chưa có lịch sử phân tích
+                        {% else %}
+                            No Analysis History Yet
+                        {% endif %}
+                    </h3>
+
+                    <p>
+                        {% if language == 'vi' %}
+                            Hãy bắt đầu phân tích sức khỏe
+                            để lưu kết quả đầu tiên của bạn.
+                        {% else %}
+                            Start your first health analysis
+                            to save your results.
+                        {% endif %}
+                    </p>
+
+                    <a
+                        href="{{ url_for('health_form') }}"
+                        class="history-new-button"
+                    >
+                        {% if language == 'vi' %}
+                            Bắt đầu phân tích
+                        {% else %}
+                            Start Analysis
+                        {% endif %}
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+    <footer class="history-footer">
+        © Health Focus 2026
+    </footer>
+
+</body>
+</html>

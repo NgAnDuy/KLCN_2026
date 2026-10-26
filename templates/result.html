@@ -1,725 +1,225 @@
+
 <!DOCTYPE html>
-
 <html lang="{{ language }}">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        {% if language == "vi" %}
-            Kết quả phân tích
-        {% else %}
-            Analysis Result
-        {% endif %}
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Focus | Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+{% include 'components/navbar.html' %}
 
-<div class="container">
-
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
-
+<main class="container">
     <header>
-        <h1>
-            {% if language == "vi" %}
-                Kết quả phân tích
-            {% else %}
-                Analysis Result
-            {% endif %}
-        </h1>
-
+        <h1>📊 {{ 'Kết quả phân tích' if language == 'vi'
+                    else 'Analysis Results' }}</h1>
         <p>
-            {% if language == "vi" %}
-                Tổng quan kết quả từ MLP và hệ chuyên gia
-            {% else %}
-                Overview from MLP and the expert system
-            {% endif %}
+            {{ 'Kết quả dự đoán MLP, đánh giá thể trạng và khuyến nghị từ hệ chuyên gia.'
+               if language == 'vi'
+               else 'MLP predictions, health assessment and expert recommendations.' }}
         </p>
     </header>
 
-
-    <!-- =====================================================
-         RESULT SUMMARY
-         ===================================================== -->
-
     <div class="result-grid">
-
-        <!-- SELECTED GOAL -->
-
-        <div class="card highlight">
-
+        <article class="card highlight">
             <span class="small-title">
-                {% if language == "vi" %}
-                    MỤC TIÊU ĐÃ CHỌN
-                {% else %}
-                    SELECTED GOAL
-                {% endif %}
+                {{ 'MỤC TIÊU ĐÃ CHỌN' if language == 'vi' else 'SELECTED GOAL' }}
             </span>
+            <h2>{{ translate(result.selected_goal, language) }}</h2>
+        </article>
 
-            <h2>
-                {{ translate(
-                    result["selected_goal"],
-                    language
-                ) }}
-            </h2>
-
-        </div>
-
-
-        <!-- MLP PREDICTION -->
-
-        <div class="card highlight">
-
+        <article class="card highlight">
             <span class="small-title">
-                {% if language == "vi" %}
-                    MLP NHẬN DIỆN
-                {% else %}
-                    MLP PREDICTION
-                {% endif %}
+                {{ 'MLP DỰ ĐOÁN' if language == 'vi' else 'MLP PREDICTION' }}
             </span>
+            <h2>{{ translate(result.predicted_goal, language) }}</h2>
+            <strong>{{ "%.2f"|format(result.confidence * 100) }}%</strong>
+        </article>
 
-            <h2>
-                {{ translate(
-                    result["predicted_goal"],
-                    language
-                ) }}
-            </h2>
-
-            <strong>
-                {{ "%.2f"|format(
-                    result["confidence"] * 100
-                ) }}%
-            </strong>
-
-        </div>
-
-
-        <!-- STABLE COUNT -->
-
-        <div class="card highlight">
-
+        <article class="card highlight">
             <span class="small-title">
-                {% if language == "vi" %}
-                    ỔN ĐỊNH
-                {% else %}
-                    STABLE
-                {% endif %}
+                {{ 'CHỈ SỐ ỔN ĐỊNH' if language == 'vi' else 'STABLE INDICATORS' }}
             </span>
+            <h2>{{ result.health_status.stable_count }}</h2>
+        </article>
 
-            <h2>
-                {{
-                    result["health_status"]
-                    ["stable_count"]
-                }}
-            </h2>
-
-        </div>
-
-
-        <!-- WARNING COUNT -->
-
-        <div class="card highlight warning-top">
-
+        <article class="card highlight warning-top">
             <span class="small-title">
-                {% if language == "vi" %}
-                    CẦN CÂN NHẮC
-                {% else %}
-                    NEEDS ATTENTION
-                {% endif %}
+                {{ 'CẦN CÂN NHẮC' if language == 'vi' else 'NEEDS ATTENTION' }}
             </span>
-
-            <h2>
-                {{
-                    result["health_status"]
-                    ["warning_count"]
-                }}
-            </h2>
-
-        </div>
-
+            <h2>{{ result.health_status.warning_count }}</h2>
+        </article>
     </div>
 
-
-    <!-- =====================================================
-         CURRENT HEALTH STATUS
-         ===================================================== -->
-
     <section class="card">
-
-        <h2>
-            {% if language == "vi" %}
-                Tình trạng hiện tại
-            {% else %}
-                Current Health Status
-            {% endif %}
-        </h2>
-
-
-        {% if result["health_status"]["items"] %}
+        <h2>💚 {{ 'Tình trạng hiện tại' if language == 'vi'
+                     else 'Current Health Status' }}</h2>
 
         <div class="status-grid">
-
-            {% for item in
-                result["health_status"]["items"] %}
-
-            <div
-                class="
-                    status-summary-item
-
-                    {% if item['status'] == 'stable' %}
-                        status-stable
-                    {% else %}
-                        status-warning
-                    {% endif %}
-                "
-            >
-
-                <span>
-                    {{ translate(
-                        item["code"],
-                        language
-                    ) }}
-                </span>
-
-                <strong>
-                    {{ item["value"] }}
-
-                    {% if item["unit"] %}
-                        {{ item["unit"] }}
-                    {% endif %}
-                </strong>
-
-                <small>
-                    {{ translate(
-                        item["status"],
-                        language
-                    ) }}
-                </small>
-
-            </div>
-
+            {% for item in result.health_status.get('items', []) %}
+                <article class="status-summary-item {{ 'status-stable' if item.status == 'stable' else 'status-warning' }}">
+                    <span>{{ translate(item.code, language) }}</span>
+                    <strong>{{ item.value }} {{ item.unit }}</strong>
+                    <small>
+                        {{ ('Ổn định' if language == 'vi' else 'Stable')
+                           if item.status == 'stable'
+                           else ('Cần cân nhắc' if language == 'vi' else 'Needs Attention') }}
+                    </small>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có dữ liệu chỉ số.' if language == 'vi'
+                       else 'No health indicators available.' }}
+                </p>
             {% endfor %}
-
         </div>
 
-        {% else %}
-
-        <div class="empty-state">
-            {% if language == "vi" %}
-                Chưa có dữ liệu thể trạng.
-            {% else %}
-                No health status data available.
-            {% endif %}
+        <div class="bottom-actions">
+            <a class="primary-link" href="{{ url_for('health_status') }}">
+                {{ 'Xem chi tiết thể trạng →' if language == 'vi'
+                   else 'View Health Details →' }}
+            </a>
         </div>
-
-        {% endif %}
-
-
-        <a
-            class="primary-link"
-            href="{{ url_for('health_status') }}"
-        >
-            {% if language == "vi" %}
-                Xem chi tiết thể trạng →
-            {% else %}
-                View Detailed Health Status →
-            {% endif %}
-        </a>
-
     </section>
 
-
-    <!-- =====================================================
-         MLP PROBABILITIES
-         ===================================================== -->
-
     <section class="card">
+        <h2>📈 {{ 'Xác suất dự đoán MLP' if language == 'vi'
+                     else 'MLP Prediction Probabilities' }}</h2>
 
-        <h2>
-            {% if language == "vi" %}
-                Xác suất dự đoán MLP
-            {% else %}
-                MLP Prediction Probabilities
-            {% endif %}
-        </h2>
-
-
-        {% if result["probabilities"] %}
-
-            {% for goal, probability
-                in result["probabilities"] %}
-
+        {% for goal, probability in result.probabilities %}
             <div class="probability">
-
                 <div class="probability-label">
-
-                    <span>
-                        {{ translate(
-                            goal,
-                            language
-                        ) }}
-                    </span>
-
-                    <strong>
-                        {{ "%.2f"|format(
-                            probability * 100
-                        ) }}%
-                    </strong>
-
+                    <span>{{ translate(goal, language) }}</span>
+                    <strong>{{ "%.2f"|format(probability * 100) }}%</strong>
                 </div>
-
-                <progress
-                    class="probability-progress"
-                    value="{{ probability * 100 }}"
-                    max="100"
-                ></progress>
-
+                <progress class="probability-progress"
+                          value="{{ probability * 100 }}" max="100">
+                </progress>
             </div>
-
-            {% endfor %}
-
-        {% else %}
-
-        <div class="empty-state">
-            {% if language == "vi" %}
-                Không có dữ liệu xác suất dự đoán.
-            {% else %}
-                No prediction probability data available.
-            {% endif %}
-        </div>
-
-        {% endif %}
-
+        {% endfor %}
     </section>
 
-
-    <!-- =====================================================
-         EXPERT ANALYSIS
-         ===================================================== -->
-
     <section class="card">
+        <h2>🧠 {{ 'Phân tích hệ chuyên gia' if language == 'vi'
+                     else 'Expert System Analysis' }}</h2>
 
-        <h2>
-            {% if language == "vi" %}
-                Phân tích của hệ chuyên gia
-            {% else %}
-                Expert Analysis
-            {% endif %}
-        </h2>
+        {% if result.detailed_analysis %}
+            <p class="expert-summary">
+                {{ result.detailed_analysis.summary }}
+            </p>
 
-
-        <!-- OVERALL SUMMARY -->
-
-        <p class="expert-summary">
-            {{
-                result["detailed_analysis"]
-                ["summary"]
-            }}
-        </p>
-
-
-        <!-- STABLE INDICATORS -->
-
-        {% if
-            result["detailed_analysis"]["stable"]
-        %}
-
-        <div class="expert-stable">
-
-            <h3>
-                {% if language == "vi" %}
-                    Các chỉ số đang ổn định
-                {% else %}
-                    Stable Indicators
-                {% endif %}
-            </h3>
-
-
-            {% for item in
-                result["detailed_analysis"]["stable"]
-            %}
-
-            <div
-                class="
-                    analysis-message
-                    stable-message
-                "
-            >
-
-                <strong>
-                    {{ translate(
-                        item["code"],
-                        language
-                    ) }}
-                </strong>
-
-                {% if item["value"] != "" %}
-
-                <div class="nutrition">
-
-                    <span>
-                        {{ item["value"] }}
-
-                        {% if item["unit"] %}
-                            {{ item["unit"] }}
-                        {% endif %}
-                    </span>
-
-                </div>
-
-                {% endif %}
-
-                <p>
-                    {{ item["message"] }}
-                </p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        {% endif %}
-
-
-        <!-- WARNING INDICATORS -->
-
-        {% if
-            result["detailed_analysis"]["warnings"]
-        %}
-
-        <div class="expert-warning">
-
-            <h3>
-                {% if language == "vi" %}
-                    Những chỉ số cần cân nhắc
-                {% else %}
-                    Indicators Needing Attention
-                {% endif %}
-            </h3>
-
-
-            {% for item in
-                result["detailed_analysis"]["warnings"]
-            %}
-
-            <div
-                class="
-                    analysis-message
-                    warning-message
-                "
-            >
-
-                <strong>
-                    {{ translate(
-                        item["code"],
-                        language
-                    ) }}
-                </strong>
-
-                {% if item["value"] != "" %}
-
-                <div class="nutrition">
-
-                    <span>
-                        {{ item["value"] }}
-
-                        {% if item["unit"] %}
-                            {{ item["unit"] }}
-                        {% endif %}
-                    </span>
-
-                </div>
-
-                {% endif %}
-
-                <p>
-                    {{ item["message"] }}
-                </p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        {% endif %}
-
-    </section>
-
-
-    <!-- =====================================================
-         FOOD RECOMMENDATIONS
-         ===================================================== -->
-
-    <section class="card">
-
-        <h2>
-            {% if language == "vi" %}
-                Món ăn đề xuất
-            {% else %}
-                Recommended Foods
-            {% endif %}
-        </h2>
-
-
-        {% if result["recommendations"]["foods"] %}
-
-        <div class="recommendation-grid">
-
-            {% for food in
-                result["recommendations"]["foods"]
-            %}
-
-            <div class="recommendation-item">
-
-                <div class="rank">
-                    #{{ loop.index }}
-                </div>
-
-
+            {% if result.detailed_analysis.stable %}
                 <h3>
-                    {{ translate(
-                        food["food_name"],
-                        language
-                    ) }}
+                    {{ 'Các chỉ số ổn định' if language == 'vi'
+                       else 'Stable Indicators' }}
                 </h3>
 
-
-                <div class="nutrition">
-
-                    <span>
-                        {{ food["calories"] }} kcal
-                    </span>
-
-                    <span>
-                        {% if language == "vi" %}
-                            Protein
-                        {% else %}
-                            Protein
-                        {% endif %}
-
-                        {{ food["protein_g"] }}g
-                    </span>
-
-                    <span>
-                        {% if language == "vi" %}
-                            Tinh bột
-                        {% else %}
-                            Carbs
-                        {% endif %}
-
-                        {{ food["carbs_g"] }}g
-                    </span>
-
-                    <span>
-                        {% if language == "vi" %}
-                            Chất béo
-                        {% else %}
-                            Fat
-                        {% endif %}
-
-                        {{ food["fat_g"] }}g
-                    </span>
-
-                </div>
-
-
-                <p class="reason">
-                    {{ food["reason"] }}
-                </p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        {% else %}
-
-        <div class="empty-state">
-            {% if language == "vi" %}
-                Chưa có món ăn phù hợp để đề xuất.
-            {% else %}
-                No suitable food recommendations available.
+                {% for item in result.detailed_analysis.stable %}
+                    <div class="analysis-message stable-message">
+                        <strong>{{ translate(item.code, language) }}</strong>
+                        <div class="nutrition">
+                            <span>{{ item.value }} {{ item.unit }}</span>
+                        </div>
+                        <p>{{ item.message }}</p>
+                    </div>
+                {% endfor %}
             {% endif %}
-        </div>
 
-        {% endif %}
-
-    </section>
-
-
-    <!-- =====================================================
-         EXERCISE RECOMMENDATIONS
-         ===================================================== -->
-
-    <section class="card">
-
-        <h2>
-            {% if language == "vi" %}
-                Bài tập đề xuất
-            {% else %}
-                Recommended Exercises
-            {% endif %}
-        </h2>
-
-
-        {% if result["recommendations"]["exercises"] %}
-
-        <div class="recommendation-grid">
-
-            {% for exercise in
-                result["recommendations"]["exercises"]
-            %}
-
-            <div class="recommendation-item">
-
-                <div class="rank">
-                    #{{ loop.index }}
-                </div>
-
-
+            {% if result.detailed_analysis.warnings %}
                 <h3>
-                    {{ translate(
-                        exercise["exercise_name"],
-                        language
-                    ) }}
+                    {{ 'Các chỉ số cần cân nhắc' if language == 'vi'
+                       else 'Indicators Needing Attention' }}
                 </h3>
 
-
-                <div class="exercise-info">
-
-                    <span>
-                        {{ exercise["duration_min"] }}
-
-                        {% if language == "vi" %}
-                            phút
-                        {% else %}
-                            min
-                        {% endif %}
-                    </span>
-
-
-                    <span>
-                        {{ translate(
-                            exercise["intensity"],
-                            language
-                        ) }}
-                    </span>
-
-
-                    <span>
-                        {{ translate(
-                            exercise["difficulty"],
-                            language
-                        ) }}
-                    </span>
-
-                </div>
-
-
-                <p class="reason">
-                    {{ exercise["reason"] }}
-                </p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-        {% else %}
-
-        <div class="empty-state">
-            {% if language == "vi" %}
-                Chưa có bài tập phù hợp để đề xuất.
-            {% else %}
-                No suitable exercise recommendations available.
+                {% for item in result.detailed_analysis.warnings %}
+                    <div class="analysis-message warning-message">
+                        <strong>{{ translate(item.code, language) }}</strong>
+                        <div class="nutrition">
+                            <span>{{ item.value }} {{ item.unit }}</span>
+                        </div>
+                        <p>{{ item.message }}</p>
+                    </div>
+                {% endfor %}
             {% endif %}
-        </div>
-
         {% endif %}
-
     </section>
 
+    <section class="card">
+        <h2>🥗 {{ 'Món ăn đề xuất' if language == 'vi'
+                     else 'Recommended Foods' }}</h2>
 
-    <!-- =====================================================
-         WEEKLY PLAN CTA
-         ===================================================== -->
+        <div class="recommendation-grid">
+            {% for food in result.recommendations.get('foods', []) %}
+                <article class="recommendation-item">
+                    <div class="rank">#{{ loop.index }}</div>
+                    <h3>{{ translate(food.food_name, language) }}</h3>
 
-    <section class="weekly-plan-cta">
+                    <div class="nutrition">
+                        <span>{{ food.calories }} kcal</span>
+                        <span>Protein: {{ food.protein_g }}g</span>
+                        <span>
+                            {{ 'Tinh bột' if language == 'vi' else 'Carbs' }}:
+                            {{ food.carbs_g }}g
+                        </span>
+                        <span>
+                            {{ 'Chất béo' if language == 'vi' else 'Fat' }}:
+                            {{ food.fat_g }}g
+                        </span>
+                    </div>
 
-        <div class="cta-icon">📋</div>
-
-        <h2>
-            {% if language == "vi" %}
-                Kế hoạch 7 ngày dành riêng cho bạn
+                    <p class="reason">{{ food.reason }}</p>
+                </article>
             {% else %}
-                Your Personalized 7-Day Plan
-            {% endif %}
-        </h2>
-
-        <p>
-            {% if language == "vi" %}
-                Dựa trên kết quả phân tích ở trên, hệ thống
-                đã sẵn sàng tạo thực đơn dinh dưỡng và lịch
-                tập luyện chi tiết cho cả tuần.
-            {% else %}
-                Based on your analysis results above, the
-                system is ready to generate a detailed meal
-                plan and workout schedule for the entire week.
-            {% endif %}
-        </p>
-
-        <a
-            href="{{ url_for('weekly_plan') }}"
-            class="cta-button"
-        >
-            {% if language == "vi" %}
-                Xem Kế Hoạch 1 Tuần →
-            {% else %}
-                View Weekly Plan →
-            {% endif %}
-        </a>
-
+                <p class="empty-state">
+                    {{ 'Chưa có món ăn được đề xuất.' if language == 'vi'
+                       else 'No food recommendations available.' }}
+                </p>
+            {% endfor %}
+        </div>
     </section>
 
+    <section class="card">
+        <h2>🏋️ {{ 'Bài tập đề xuất' if language == 'vi'
+                     else 'Recommended Exercises' }}</h2>
 
-    <!-- =====================================================
-         ACTIONS
-         ===================================================== -->
+        <div class="recommendation-grid">
+            {% for exercise in result.recommendations.get('exercises', []) %}
+                <article class="recommendation-item">
+                    <div class="rank">#{{ loop.index }}</div>
+                    <h3>{{ translate(exercise.exercise_name, language) }}</h3>
+
+                    <div class="exercise-info">
+                        <span>
+                            {{ exercise.duration_min }}
+                            {{ 'phút' if language == 'vi' else 'min' }}
+                        </span>
+                        <span>{{ translate(exercise.intensity, language) }}</span>
+                        <span>{{ translate(exercise.difficulty, language) }}</span>
+                    </div>
+
+                    <p class="reason">{{ exercise.reason }}</p>
+                </article>
+            {% else %}
+                <p class="empty-state">
+                    {{ 'Chưa có bài tập được đề xuất.' if language == 'vi'
+                       else 'No exercise recommendations available.' }}
+                </p>
+            {% endfor %}
+        </div>
+    </section>
 
     <div class="bottom-actions">
-
-        <a
-            href="{{ url_for('new_analysis') }}"
-            class="primary-link"
-        >
-            {% if language == "vi" %}
-                Phân tích mới
-            {% else %}
-                New Analysis
-            {% endif %}
+        <a class="primary-link" href="{{ url_for('weekly_plan') }}">
+            {{ 'Kế hoạch 7 ngày' if language == 'vi' else '7-day plan' }}
         </a>
-
+        <a class="primary-link" href="{{ url_for('new_analysis') }}">
+            {{ 'Phân tích mới' if language == 'vi' else 'New Analysis' }}
+        </a>
+        <a class="btn-outline" href="{{ url_for('history') }}">
+            {{ 'Xem lịch sử' if language == 'vi' else 'View History' }}
+        </a>
     </div>
-
-</div>
-
+</main>
 </body>
-
 </html>

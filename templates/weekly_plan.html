@@ -22,17 +22,21 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='style.css') }}"
     >
+    <link rel="stylesheet" href="{{ url_for('static', filename='weekly_plan.css') }}">
 </head>
 
 <body>
 
-<div class="container">
+{% include 'components/navbar.html' %}
+
+<main class="container weekly-page">
 
     <!-- =====================================================
          HEADER
          ===================================================== -->
 
     <header>
+        <span class="weekly-eyebrow">HEALTH FOCUS / {{ 'LỘ TRÌNH CỦA BẠN' if language == 'vi' else 'YOUR PLAN' }}</span>
         <h1>
             {% if language == "vi" %}
                 Kế hoạch Thực đơn & Luyện tập 7 Ngày
@@ -195,13 +199,17 @@
          DAY TABS
          ===================================================== -->
 
-    <div class="day-tabs" id="day-tabs">
+    <div class="day-tabs" id="day-tabs" role="tablist" aria-label="{{ 'Chọn ngày' if language == 'vi' else 'Choose a day' }}">
 
         {% for day in plan["days"] %}
 
         <button
+            type="button"
             class="day-tab {% if loop.first %}active{% endif %}"
             onclick="showDay({{ loop.index0 }}, this)"
+            role="tab"
+            aria-controls="day-{{ loop.index0 }}"
+            aria-selected="{{ 'true' if loop.first else 'false' }}"
         >
 
             <span class="day-tab-name">
@@ -235,6 +243,7 @@
     <div
         class="day-panel {% if loop.first %}active{% endif %}"
         id="day-{{ loop.index0 }}"
+        role="tabpanel"
     >
 
         <!-- Day title -->
@@ -670,16 +679,16 @@
 
     <div class="bottom-actions weekly-actions">
 
-        <a
-            href="{{ url_for('regenerate_weekly_plan') }}"
-            class="primary-link regenerate-link"
-        >
+        <form method="post" action="{{ url_for('regenerate_weekly_plan') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button type="submit" class="primary-link regenerate-link">
             {% if language == "vi" %}
                 🔄 Tạo lại kế hoạch khác
             {% else %}
                 🔄 Generate New Plan
             {% endif %}
-        </a>
+            </button>
+        </form>
 
         <a
             href="{{ url_for('result') }}"
@@ -706,7 +715,7 @@
     </div>
 
 
-</div>
+</main>
 
 
 <!-- =========================================================
@@ -731,6 +740,7 @@ function showDay(index, button) {
 
     for (var i = 0; i < tabs.length; i++) {
         tabs[i].classList.remove('active');
+        tabs[i].setAttribute('aria-selected', 'false');
     }
 
     // Show selected panel
@@ -744,6 +754,7 @@ function showDay(index, button) {
 
     // Activate selected tab
     button.classList.add('active');
+    button.setAttribute('aria-selected', 'true');
 }
 </script>
 

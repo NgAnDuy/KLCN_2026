@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 FOOD_DATA_PATH = (
     BASE_DIR
     / "data"
-    / "food_dataset.csv"
+    / "weekly_food_dataset.csv"
 )
 
 # ============================================================

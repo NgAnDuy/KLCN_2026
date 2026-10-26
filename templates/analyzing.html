@@ -1,99 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="{{ language }}">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Focus | Analyzing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .analyzing-shell {
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 35px 20px;
+        }
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        .analyzing-card {
+            width: 100%;
+            max-width: 550px;
+            padding: 45px 35px;
+            border-radius: 25px;
+            background: white;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
 
-    <title>Analyzing</title>
+        .analyzing-card img {
+            width: 180px;
+            border-radius: 20px;
+        }
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+        .analyzing-card h1 {
+            font: 700 30px Georgia, serif;
+            color: var(--deep);
+        }
 
-    <meta
-        http-equiv="refresh"
-        content="1;url={{ url_for('process_analysis') }}"
-    >
+        .loading-track {
+            width: 100%;
+            height: 12px;
+            background: #e5f2ef;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 25px;
+        }
+
+        .loading-bar {
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(90deg, #167e88, #69d3ac);
+            border-radius: 20px;
+            animation: loading 1.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes loading {
+            from { transform: translateX(0); }
+            to { transform: translateX(190%); }
+        }
+    </style>
 </head>
+<body>
+{% include 'components/navbar.html' %}
 
-<body class="analysis-page">
-
-<main class="analysis-container">
-
-    <section class="analysis-card">
-
-        <div class="analysis-spinner"></div>
+<main class="analyzing-shell">
+    <section class="analyzing-card">
+        <img src="{{ url_for('static', filename='images/health_focus_icon.jpg') }}"
+             alt="Health Focus">
 
         <h1>
-            {% if language == "vi" %}
-                Đang phân tích...
-            {% else %}
-                Analyzing...
-            {% endif %}
+            {{ 'Đang phân tích sức khỏe...' if language == 'vi'
+               else 'Analyzing Your Health...' }}
         </h1>
 
-        <p>
-            {% if language == "vi" %}
-                Hệ thống đang phân tích thông tin của bạn.
-            {% else %}
-                The system is analyzing your information.
-            {% endif %}
+        <p class="subtitle">
+            {{ 'Hệ thống đang xử lý dữ liệu bằng MLP và hệ chuyên gia.'
+               if language == 'vi'
+               else 'Processing your data using MLP and expert rules.' }}
         </p>
 
-
-        <div class="analysis-steps">
-
-            <div>
-                <span>✓</span>
-
-                {% if language == "vi" %}
-                    Đã nhận thông tin người dùng
-                {% else %}
-                    User information received
-                {% endif %}
-            </div>
-
-            <div>
-                <span>●</span>
-
-                {% if language == "vi" %}
-                    Đang tính toán các chỉ số sức khỏe
-                {% else %}
-                    Calculating health indicators
-                {% endif %}
-            </div>
-
-            <div>
-                <span>●</span>
-
-                {% if language == "vi" %}
-                    Đang thực hiện dự đoán MLP
-                {% else %}
-                    Running MLP prediction
-                {% endif %}
-            </div>
-
-            <div>
-                <span>●</span>
-
-                {% if language == "vi" %}
-                    Đang phân tích bằng hệ chuyên gia
-                {% else %}
-                    Running expert analysis
-                {% endif %}
-            </div>
-
+        <form id="analysis-form" method="post" action="{{ url_for('process_analysis') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button type="submit">{{ 'Tiếp tục phân tích' if language == 'vi' else 'Continue analysis' }}</button>
+        </form>
+        <div class="loading-track">
+            <div class="loading-bar"></div>
         </div>
-
     </section>
-
 </main>
 
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("analysis-form").requestSubmit();
+    });
+</script>
 </body>
 </html>

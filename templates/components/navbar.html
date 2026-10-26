@@ -1,0 +1,88 @@
+
+{% set lang = session.get('language', language|default('vi')) %}
+
+<nav class="health-navbar">
+    <div class="nav-inner">
+        <a class="health-brand" href="{{ url_for('language') }}">
+            <img
+                src="{{ url_for('static', filename='images/health_focus_icon.jpg') }}"
+                alt="Health Focus"
+            >
+            <span>HEALTH <em>FOCUS</em></span>
+        </a>
+
+        <div class="health-navbar-links">
+            <a class="language-switch"
+               href="{{ url_for('select_language', language_code='en' if lang == 'vi' else 'vi') }}">
+                🌐 {{ 'EN' if lang == 'vi' else 'VI' }}
+            </a>
+
+            {% if current_user.is_authenticated %}
+                {% if current_user.is_admin %}
+                    <a href="{{ url_for('admin_dashboard') }}">{{ 'Quản trị' if lang == 'vi' else 'Admin' }}</a>
+                {% endif %}
+                <a href="{{ url_for('health_form') }}">
+                    {{ 'Phân tích' if lang == 'vi' else 'Analysis' }}
+                </a>
+
+                <a href="{{ url_for('history') }}">
+                    {{ 'Lịch sử' if lang == 'vi' else 'History' }}
+                </a>
+
+                <div class="account-menu">
+                    <button type="button" class="account-menu-trigger" aria-haspopup="true" aria-expanded="false" aria-label="{{ 'Mở menu tài khoản' if lang == 'vi' else 'Open account menu' }}">
+                        <span class="account-avatar" aria-hidden="true">{{ (current_user.display_name or current_user.username)[0]|upper }}</span>
+                        <span class="account-menu-name">{{ current_user.display_name or current_user.username }}</span>
+                        <span class="account-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <div class="account-dropdown">
+                        <div class="account-dropdown-heading">{{ current_user.username }}</div>
+                        <a href="{{ url_for('account') }}">{{ 'Tài khoản' if lang == 'vi' else 'Account' }}</a>
+                        <a href="{{ url_for('profile') }}">{{ 'Hồ sơ sức khỏe' if lang == 'vi' else 'Health profile' }}</a>
+                        <form method="POST" action="{{ url_for('auth.logout') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <button type="submit" class="account-logout">{{ 'Đăng xuất' if lang == 'vi' else 'Logout' }}</button>
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <a class="nav-login" href="{{ url_for('auth.login') }}">
+                    {{ 'Đăng nhập' if lang == 'vi' else 'Login' }}
+                </a>
+
+                <a class="nav-register" href="{{ url_for('auth.register') }}">
+                    {{ 'Đăng ký' if lang == 'vi' else 'Register' }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<script>
+document.querySelectorAll('.account-menu').forEach(function (menu) {
+    const trigger = menu.querySelector('.account-menu-trigger');
+    trigger.addEventListener('click', function () {
+        const open = menu.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(open));
+    });
+    menu.addEventListener('mouseenter', function () {
+        trigger.setAttribute('aria-expanded', 'true');
+    });
+    menu.addEventListener('mouseleave', function () {
+        menu.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+    });
+    menu.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            menu.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+        }
+    });
+    document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target)) {
+            menu.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+</script>
