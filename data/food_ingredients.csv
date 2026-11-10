@@ -1,0 +1,26 @@
+food_id,ingredient_vi,ingredient_en,quantity,unit
+F081,Mỡ,Fat,3,g
+F081,Nước dùng,Broth,300,ml
+F081,Bánh phở,Rice noodles,140,g
+F081,Thịt bò,Beef,42,g
+F081,Hành lá,Spring onion,8,g
+F082,Mỡ,Fat,3,g
+F082,Nước dùng,Broth,370,ml
+F082,Bánh phở,Rice noodles,150,g
+F082,Thịt gà,Chicken,50,g
+F082,Hành lá,Spring onion,20,g
+F151,Mỡ,Fat,3,g
+F151,Nước dùng,Broth,370,ml
+F151,Bánh phở,Rice noodles,140,g
+F151,Thịt bò,Beef,55,g
+F151,Hành lá,Spring onion,8,g
+F152,Hành lá,Spring onion,30,g
+F152,Nước dùng,Broth,400,ml
+F152,Bánh phở,Rice noodles,180,g
+F152,Thịt bò loại I,Beef,150,g
+F152,Mỡ,Fat,5,g
+F153,Dầu thực vật,Vegetable oil,10,g
+F153,Muối,Salt,1,g
+F153,Gạo tẻ,Rice,35,g
+F153,Lươn,Eel,49,g
+F153,Hành khô,Shallot,10,g

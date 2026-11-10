@@ -21,6 +21,46 @@
         </p>
     </header>
 
+    <section class="card analysis-profile-banner" role="status">
+        <strong>
+            {% if result.get('analysis_profile', 'current') == 'vietnam_asia' %}
+                {{ 'Đang chạy cấu hình vietnam_asia; BMI tham chiếu theo Bộ Y tế Việt Nam.' if language == 'vi' else 'Running vietnam_asia with the Vietnam Ministry of Health BMI reference.' }}
+            {% else %}
+                {{ 'Đang chạy cấu hình current; đánh giá thể trạng tham chiếu BMI WHO (quốc tế).' if language == 'vi' else 'Running current; health status uses the WHO international BMI reference.' }}
+            {% endif %}
+        </strong>
+        {% if result.get('analysis_profile') == 'vietnam_asia' %}
+            <p>{{ 'Điểm BMI +2/+4 trong Expert là tham số thực nghiệm của nhóm.' if language == 'vi' else 'The Expert BMI +2/+4 points are experimental project settings.' }}</p>
+        {% endif %}
+    </section>
+
+    {% if result.get('hybrid') %}
+    <section class="card analysis-profile-banner">
+        <h2>{{ 'Kết quả kết hợp MLP và hệ chuyên gia' if language == 'vi' else 'MLP and Expert Hybrid result' }}</h2>
+        <div class="nutrition">
+            <span>{{ 'Mục tiêu từ hệ chuyên gia' if language == 'vi' else 'Expert goal' }}: {{ translate(result.hybrid.expert_goal, language) }}</span>
+            <span>{{ 'Nhãn Hybrid' if language == 'vi' else 'Hybrid label' }}: <strong>{{ translate(result.hybrid.final_goal, language) }}</strong></span>
+            <span>{{ 'Ngưỡng softmax' if language == 'vi' else 'Softmax threshold' }}: {{ "%.2f"|format(result.hybrid.threshold) }}</span>
+        </div>
+        {% set decision = result.hybrid.decision_reason %}
+        <p>
+            {% if language == 'vi' %}
+                {% if decision == 'MLP and Expert agree' %}MLP và hệ chuyên gia thống nhất.
+                {% elif decision == 'MLP confidence is high' %}Ưu tiên nhãn MLP vì xác suất softmax vượt ngưỡng.
+                {% elif decision == 'Expert supports low-confidence MLP' %}Ưu tiên hệ chuyên gia vì xác suất softmax của MLP dưới ngưỡng.
+                {% else %}{{ decision }}{% endif %}
+            {% else %}
+                {{ decision }}
+            {% endif %}
+        </p>
+        {% set energy_gap = result.get('calculated', {}).get('calorie_balance_pct') %}
+        {% if energy_gap is not none and result.hybrid.final_goal == 'weight_gain' and energy_gap < -5 %}
+            <p class="health-safety-note" role="alert">{{ 'Nhãn tăng cân từ Hybrid chưa phù hợp với dữ liệu năng lượng của lượt này: mức ăn bạn nhập thấp hơn TDEE ước tính ' if language == 'vi' else 'The Hybrid weight-gain label conflicts with this analysis: your reported intake is below estimated TDEE by ' }}{{ "%.1f"|format(energy_gap | abs) }}%. {{ 'Đây là nhãn dự đoán, không phải chỉ định tăng cân. Hãy kiểm tra lại dữ liệu nhập và xem đánh giá thể trạng bên dưới.' if language == 'vi' else 'This is a model label, not an instruction to gain weight. Review your inputs and the health assessment below.' }}</p>
+        {% endif %}
+        <small>{{ 'Gợi ý món ăn và vận động bên dưới vẫn xét mục tiêu bạn chọn cùng các luật an toàn của ứng dụng.' if language == 'vi' else 'Food and exercise suggestions below still use your selected goal and the app safety rules.' }}</small>
+    </section>
+    {% endif %}
+
     <div class="result-grid">
         <article class="card highlight">
             <span class="small-title">
@@ -35,6 +75,22 @@
             </span>
             <h2>{{ translate(result.predicted_goal, language) }}</h2>
             <strong>{{ "%.2f"|format(result.confidence * 100) }}%</strong>
+        </article>
+
+        {% set conflict = result.get('expert', {}).get('conflict_level', 'UNKNOWN') | upper %}
+        <article class="card highlight conflict-card {% if conflict == 'HIGH' %}conflict-high{% elif conflict == 'MODERATE' %}conflict-moderate{% elif conflict == 'NONE' %}conflict-none{% endif %}">
+            <span class="small-title">
+                {{ 'MỨC ĐỘ XUNG ĐỘT' if language == 'vi' else 'CONFLICT LEVEL' }}
+            </span>
+            {% if conflict == 'HIGH' %}
+                <h2>🔴 {{ 'Xung đột cao' if language == 'vi' else 'High Conflict' }}</h2>
+            {% elif conflict == 'MODERATE' %}
+                <h2>🟠 {{ 'Xung đột trung bình' if language == 'vi' else 'Moderate Conflict' }}</h2>
+            {% elif conflict == 'NONE' %}
+                <h2>🟢 {{ 'Không xung đột' if language == 'vi' else 'No Conflict' }}</h2>
+            {% else %}
+                <h2>{{ 'Chưa có dữ liệu' if language == 'vi' else 'Not Available' }}</h2>
+            {% endif %}
         </article>
 
         <article class="card highlight">
@@ -101,8 +157,8 @@
     </section>
 
     <section class="card">
-        <h2>🧠 {{ 'Phân tích hệ chuyên gia' if language == 'vi'
-                     else 'Expert System Analysis' }}</h2>
+        <h2>🧠 {{ 'Đánh giá thể trạng và luật an toàn' if language == 'vi'
+                     else 'Health Assessment and Safety Rules' }}</h2>
 
         {% if result.detailed_analysis %}
             <p class="expert-summary">
@@ -145,6 +201,53 @@
         {% endif %}
     </section>
 
+    {% set medical_conditions = result.get('medical_conditions', []) %}
+    {% set allergies = result.get('allergies', []) %}
+    {% set food_screening = result.recommendations.get('food_screening', {}) %}
+    {% if medical_conditions or allergies %}
+    <section class="card health-safety-note">
+        <h2>{{ ('Sàng lọc bệnh lý và dị ứng' if medical_conditions else 'Sàng lọc dị ứng thực phẩm') if language == 'vi' else ('Condition and allergy screening' if medical_conditions else 'Food allergy screening') }}</h2>
+        {% set condition_names = {
+            'diabetes': ('Đái tháo đường', 'Diabetes'),
+            'hypertension': ('Tăng huyết áp', 'Hypertension'),
+            'kidney_disease': ('Bệnh thận mạn', 'Chronic kidney disease')
+        } %}
+        {% set allergy_names = {
+            'milk': ('Sữa', 'Milk'), 'egg': ('Trứng', 'Eggs'),
+            'peanut': ('Đậu phộng', 'Peanuts'), 'soy': ('Đậu nành', 'Soy'),
+            'wheat': ('Lúa mì', 'Wheat'), 'shellfish': ('Tôm, cua', 'Shellfish'),
+            'fish': ('Cá', 'Fish'), 'tree_nuts': ('Hạt cây', 'Tree nuts'),
+            'sesame': ('Mè, vừng', 'Sesame')
+        } %}
+        {% if medical_conditions %}
+            <p><strong>{{ 'Bệnh lý đã khai báo' if language == 'vi' else 'Reported conditions' }}:</strong>
+                {% for code in medical_conditions %}{{ condition_names.get(code, (code, code))[0 if language == 'vi' else 1] }}{{ ', ' if not loop.last else '' }}{% endfor %}
+            </p>
+        {% endif %}
+        {% if allergies %}
+            <p><strong>{{ 'Dị ứng đã khai báo' if language == 'vi' else 'Reported allergies' }}:</strong>
+                {% for code in allergies %}{{ allergy_names.get(code, (code, code))[0 if language == 'vi' else 1] }}{{ ', ' if not loop.last else '' }}{% endfor %}
+            </p>
+        {% endif %}
+        {% if 'kidney_disease' in medical_conditions %}
+            <p>{{ 'Bạn khai báo bệnh thận mạn: hệ thống đã loại món vượt ngưỡng natri sàng lọc hoặc thiếu số natri; nhu cầu protein và nước cần được cá nhân hóa với người điều trị.' if language == 'vi' else 'You reported chronic kidney disease: dishes over the sodium screening cutoff or without sodium data were excluded. Protein and fluid needs require individual clinical review.' }}</p>
+        {% endif %}
+        {% if 'hypertension' in medical_conditions %}
+            <p>{{ 'Bạn khai báo tăng huyết áp: món nhiều natri hoặc thiếu số natri đã được loại khỏi gợi ý.' if language == 'vi' else 'You reported hypertension: high-sodium dishes or dishes without sodium data were excluded.' }}</p>
+        {% endif %}
+        {% if 'diabetes' in medical_conditions %}
+            <p>{{ 'Bạn khai báo đái tháo đường: chưa đủ thông tin điều trị để tự động xác nhận chế độ ăn phù hợp.' if language == 'vi' else 'You reported diabetes: treatment details are needed before a diet can be confirmed as appropriate.' }}</p>
+        {% endif %}
+        {% if allergies %}
+            <p>{{ 'Món có dị nguyên đã khai báo hoặc thiếu thông tin dị nguyên đã được loại. Cần kiểm tra nguyên liệu và nguy cơ lẫn chéo trước khi ăn.' if language == 'vi' else 'Dishes with declared allergens or missing allergen data were excluded. Check ingredients and cross-contact before eating.' }}</p>
+        {% endif %}
+        <p>{{ 'Số món bị loại khỏi danh sách gợi ý' if language == 'vi' else 'Dishes excluded from suggestions' }}: <strong>{{ food_screening.get('excluded_count', 0) }}</strong>.</p>
+        {% if medical_conditions %}
+            <small>{{ 'Ngưỡng 500 mg natri trên một món là quy ước sàng lọc của đồ án, không phải ngưỡng điều trị hay bảo đảm món còn lại an toàn.' if language == 'vi' else 'The 500 mg sodium per-item cutoff is a project screening rule, not a treatment threshold or proof that remaining dishes are safe.' }}</small>
+        {% endif %}
+    </section>
+    {% endif %}
+
     <section class="card">
         <h2>🥗 {{ 'Món ăn đề xuất' if language == 'vi'
                      else 'Recommended Foods' }}</h2>
@@ -168,12 +271,31 @@
                         </span>
                     </div>
 
-                    <p class="reason">{{ food.reason }}</p>
+                    {% if food.portion is defined %}
+                        <p><strong>{{ food.portion.serving_label_vi if language == 'vi' else food.portion.serving_label_en }}</strong></p>
+                        <p>{{ 'Natri' if language == 'vi' else 'Sodium' }}: {{ food.sodium_mg|round(0)|int }} mg</p>
+                        <ul class="portion-ingredients">
+                            {% for ingredient in food.portion.ingredients %}
+                                <li>{{ ingredient.name_vi if language == 'vi' else ingredient.name_en }}: {{ ingredient.quantity|int if ingredient.quantity == ingredient.quantity|int else ingredient.quantity }} {{ ingredient.unit }}</li>
+                            {% endfor %}
+                        </ul>
+                        <small>
+                            {{ 'Định lượng theo khẩu phần mẫu; món thực tế có thể khác.' if language == 'vi' else 'Reference serving; actual dishes may vary.' }}
+                            <a href="{{ food.portion.source_url }}" target="_blank" rel="noopener noreferrer">{{ 'Nguồn' if language == 'vi' else 'Source' }}</a>
+                            ({{ 'tr.' if language == 'vi' else 'p.' }} {{ food.portion.source_page }})
+                        </small>
+                    {% else %}
+                        <small>{{ 'Giá trị dinh dưỡng ước tính; chưa có định lượng nguyên liệu được kiểm chứng.' if language == 'vi' else 'Estimated nutrition; ingredient amounts are not yet verified.' }}</small>
+                    {% endif %}
+
                 </article>
             {% else %}
                 <p class="empty-state">
-                    {{ 'Chưa có món ăn được đề xuất.' if language == 'vi'
-                       else 'No food recommendations available.' }}
+                    {% if medical_conditions or allergies %}
+                        {{ 'Chưa có món đủ dữ liệu để đưa vào gợi ý sơ bộ với thông tin đã khai báo.' if language == 'vi' else 'No dish has enough data for a preliminary suggestion with the reported information.' }}
+                    {% else %}
+                        {{ 'Chưa có món ăn được đề xuất.' if language == 'vi' else 'No food recommendations available.' }}
+                    {% endif %}
                 </p>
             {% endfor %}
         </div>
@@ -187,7 +309,7 @@
             {% for exercise in result.recommendations.get('exercises', []) %}
                 <article class="recommendation-item">
                     <div class="rank">#{{ loop.index }}</div>
-                    <h3>{{ translate(exercise.exercise_name, language) }}</h3>
+                    <h3>{{ translate_exercise(exercise.exercise_name, language) }}</h3>
 
                     <div class="exercise-info">
                         <span>
@@ -198,7 +320,6 @@
                         <span>{{ translate(exercise.difficulty, language) }}</span>
                     </div>
 
-                    <p class="reason">{{ exercise.reason }}</p>
                 </article>
             {% else %}
                 <p class="empty-state">
@@ -211,7 +332,11 @@
 
     <div class="bottom-actions">
         <a class="primary-link" href="{{ url_for('weekly_plan') }}">
-            {{ 'Kế hoạch 7 ngày' if language == 'vi' else '7-day plan' }}
+            {% if medical_conditions or allergies %}
+                {{ 'Thông tin về kế hoạch 7 ngày' if language == 'vi' else 'About the 7-day plan' }}
+            {% else %}
+                {{ 'Kế hoạch 7 ngày' if language == 'vi' else '7-day plan' }}
+            {% endif %}
         </a>
         <a class="primary-link" href="{{ url_for('new_analysis') }}">
             {{ 'Phân tích mới' if language == 'vi' else 'New Analysis' }}

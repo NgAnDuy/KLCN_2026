@@ -1,4 +1,4 @@
-food_id,food_name,meal_type,food_group,calories,protein_g,carbs_g,fat_g,fiber_g,sodium_mg,diet_type,allergens,goal_tags
+﻿food_id,food_name,meal_type,food_group,calories,protein_g,carbs_g,fat_g,fiber_g,sodium_mg,diet_type,allergens,goal_tags
 F001,Ức gà nướng,"lunch,dinner",protein,220,41,0,5,0,120,normal,none,"weight_loss,maintenance,fitness_improvement"
 F002,Ức gà luộc,"lunch,dinner",protein,200,40,0,4,0,100,normal,none,"weight_loss,maintenance,fitness_improvement"
 F003,Cá hồi nướng,"lunch,dinner",protein,280,30,0,17,0,90,normal,fish,"maintenance,weight_gain,fitness_improvement,healthy_lifestyle"
@@ -79,3 +79,76 @@ F077,Sandwich đậu hũ nguyên cám,"breakfast,lunch",mixed_meal,390,20,48,13,
 F078,Cơm + trứng + rau,"lunch,dinner",mixed_meal,460,20,60,15,6,420,vegetarian,egg,"maintenance,weight_gain,healthy_lifestyle"
 F079,Cháo gà rau củ,"breakfast,dinner",mixed_meal,360,27,48,7,4,520,normal,none,"maintenance,healthy_lifestyle"
 F080,Súp đậu lăng + bánh mì nguyên cám,"lunch,dinner",mixed_meal,410,21,67,7,17,480,vegan,gluten,"weight_loss,maintenance,healthy_lifestyle"
+F081,Phở bò tái bình dân,breakfast,mixed_meal,276,13.4,45.3,4.6,0.1,1315,normal,unknown,maintenance
+F082,Phở gà bình dân,breakfast,mixed_meal,343,15.2,49,9.5,0.2,1627,normal,unknown,weight_loss
+F083,Bún bò Huế thịt bắp nạc,breakfast,mixed_meal,480,32,58,13,4,,unknown,unknown,fitness_improvement
+F084,Bún riêu cua đồng đậu phụ,breakfast,mixed_meal,410,24,54,11,4,,unknown,unknown,healthy_lifestyle
+F085,Bún cá rô đồng rau cần,breakfast,mixed_meal,390,26,52,8,5,,unknown,unknown,weight_loss
+F086,Bún măng gà ta (bỏ da),breakfast,mixed_meal,400,29,50,9,4,,unknown,unknown,weight_loss
+F087,Miến gà măng khô nấm hương,breakfast,mixed_meal,350,27,45,6,5,,unknown,unknown,weight_loss
+F088,Miến lươn đồng rau răm,breakfast,mixed_meal,370,25,46,9,3,,unknown,unknown,healthy_lifestyle
+F089,Hủ tiếu Nam Vang thịt nạc tôm,breakfast,mixed_meal,430,28,56,10,3,,unknown,unknown,maintenance
+F090,Bánh cuốn nhân thịt nạc chả quế,breakfast,mixed_meal,360,18,50,9,2,,unknown,unknown,maintenance
+F091,Bánh mì nguyên cám kẹp trứng ốp la,breakfast,mixed_meal,340,16,38,13,6,,unknown,unknown,weight_loss
+F092,Bánh mì thịt nướng nạc dưa leo,breakfast,mixed_meal,450,24,54,15,4,,unknown,unknown,weight_gain
+F093,Cháo yến mạch thịt bằm nấm rơm,breakfast,mixed_meal,320,22,42,7,6,,unknown,unknown,weight_loss
+F094,Cháo cá lóc rau đắng,breakfast,mixed_meal,330,26,44,5,4,,unknown,unknown,healthy_lifestyle
+F095,Cháo sườn non đậu xanh,breakfast,mixed_meal,410,20,52,13,4,,unknown,unknown,weight_gain
+F096,Xôi đậu xanh ức gà xé,breakfast,mixed_meal,490,28,68,11,5,,unknown,unknown,weight_gain
+F097,Xôi gấc hạt sen nhỏ,breakfast,mixed_meal,440,12,72,11,4,,unknown,unknown,weight_gain
+F098,Bánh đa cua Hải Phòng chả lá lốt,breakfast,mixed_meal,420,25,55,11,5,,unknown,unknown,maintenance
+F099,Bún mọc dọc mùng thịt nạc,breakfast,mixed_meal,390,24,51,10,4,,unknown,unknown,healthy_lifestyle
+F100,Bún thang Hà Nội trứng gà xé,breakfast,mixed_meal,410,29,49,10,3,,unknown,unknown,fitness_improvement
+F101,Phở cuốn thịt bò rau sống (4 cuốn),breakfast,mixed_meal,360,26,44,8,5,,unknown,unknown,weight_loss
+F102,Bánh bao nhân thịt trứng cút + sữa hạt,breakfast,mixed_meal,430,19,58,13,4,,unknown,unknown,weight_gain
+F103,Khoai lang mật hấp + 2 trứng gà luộc,breakfast,mixed_meal,340,16,48,10,6,,unknown,unknown,weight_loss
+F104,Bánh mì đen + sữa đậu nành không đường,breakfast,mixed_meal,310,17,42,8,6,,unknown,unknown,weight_loss
+F105,Ngô nếp luộc + sữa chua Hy Lạp,breakfast,mixed_meal,300,15,46,6,5,,unknown,unknown,healthy_lifestyle
+F106,Cơm gạo lứt + cá kho tộ + canh rau ngót,lunch,mixed_meal,510,36,58,14,6,,unknown,unknown,maintenance
+F107,Cơm trắng + thịt kho trứng + dưa cải,lunch,mixed_meal,620,34,68,23,4,,unknown,unknown,weight_gain
+F108,Cơm gạo lứt + ức gà xào sả ớt + súp lơ,lunch,mixed_meal,470,42,52,10,7,,unknown,unknown,weight_loss
+F109,Cơm trắng + đậu hũ nhồi thịt sốt cà + canh bí,lunch,mixed_meal,520,28,64,16,5,,unknown,unknown,maintenance
+F110,Cơm gạo lứt + tôm rim thịt nạc + rau muống luộc,lunch,mixed_meal,490,38,56,12,6,,unknown,unknown,fitness_improvement
+F111,Cơm trắng + cá diêu hồng chưng tương + cải thìa,lunch,mixed_meal,500,35,60,13,5,,unknown,unknown,healthy_lifestyle
+F112,Cơm gạo lứt + thịt bò xào bông thiên lý,lunch,mixed_meal,530,39,55,16,6,,unknown,unknown,fitness_improvement
+F113,Cơm trắng + sườn non nướng + salad dầu giấm,lunch,mixed_meal,590,36,66,20,4,,unknown,unknown,weight_gain
+F114,Bún thịt nướng nạc rau sống (ít mỡ hành),lunch,mixed_meal,480,30,60,13,5,,unknown,unknown,maintenance
+F115,Bún chả Hà Nội thịt nạc + rau sống,lunch,mixed_meal,510,32,62,15,4,,unknown,unknown,maintenance
+F116,Cơm gạo lứt + cá hồi áp chảo + măng tây,lunch,mixed_meal,540,40,48,20,6,,unknown,unknown,fitness_improvement
+F117,Cơm trắng + gà kho gừng (bỏ da) + canh mồng tơi,lunch,mixed_meal,520,38,62,13,5,,unknown,unknown,maintenance
+F118,Cơm gạo lứt + mực xào cần tỏi + canh cải xanh,lunch,mixed_meal,460,36,54,9,6,,unknown,unknown,weight_loss
+F119,Thịt heo thăn luộc cuốn bánh tráng rau sống,lunch,mixed_meal,430,34,48,11,6,,unknown,unknown,weight_loss
+F120,Cơm gạo lứt + cá thu sốt cà chua + đậu cô ve,lunch,mixed_meal,530,37,56,16,6,,unknown,unknown,healthy_lifestyle
+F121,Cơm trắng + bò lúc lắc + khoai tây + salad,lunch,mixed_meal,640,42,68,22,5,,unknown,unknown,weight_gain
+F122,Cơm gạo lứt + trứng cuộn rau củ + canh rong biển,lunch,mixed_meal,440,24,54,13,6,,unknown,unknown,healthy_lifestyle
+F123,Bún đậu mắm tôm (đậu hũ luộc + thịt bắp luộc),lunch,mixed_meal,490,33,56,14,5,,unknown,unknown,maintenance
+F124,Mì Quảng gà ta trứng (ít dầu) + rau sống,lunch,mixed_meal,510,35,60,14,5,,unknown,unknown,fitness_improvement
+F125,Cao Lầu Hội An thịt xá xíu nạc + giá đỗ,lunch,mixed_meal,500,31,64,13,4,,unknown,unknown,maintenance
+F126,Cơm gà xé Hội An (ức gà) + nộm đu đủ,lunch,mixed_meal,540,39,64,14,5,,unknown,unknown,fitness_improvement
+F127,Cơm tấm sườn nạc nướng + đồ chua + canh rau,lunch,mixed_meal,580,37,68,17,4,,unknown,unknown,weight_gain
+F128,Cơm gạo lứt + thăn heo áp chảo + bông cải xanh,lunch,mixed_meal,480,40,52,12,6,,unknown,unknown,weight_loss
+F129,Bún bò xào Nam Bộ nhiều giá & rau sống,lunch,mixed_meal,490,32,58,14,5,,unknown,unknown,healthy_lifestyle
+F130,Cơm trắng + cá lóc kho tiêu + canh chua,lunch,mixed_meal,510,36,62,12,5,,unknown,unknown,maintenance
+F131,Gỏi cuốn tôm thịt nạc (4 cuốn) + tương đậu,dinner,mixed_meal,360,28,44,7,5,,unknown,unknown,weight_loss
+F132,Canh chua cá lóc + cơm gạo lứt nhỏ,dinner,mixed_meal,410,32,48,9,6,,unknown,unknown,weight_loss
+F133,Đậu hũ non sốt nấm đông cô + cải thìa luộc,dinner,mixed_meal,320,20,34,11,7,,unknown,unknown,weight_loss
+F134,Ức gà xé phay trộn hành tây rau răm,dinner,mixed_meal,350,38,22,12,5,,unknown,unknown,weight_loss
+F135,Nộm hoa chuối tôm thịt nạc + bánh đa nướng,dinner,mixed_meal,370,27,40,11,7,,unknown,unknown,healthy_lifestyle
+F136,Salad cá ngừ đại dương dầu mè + trứng luộc,dinner,mixed_meal,380,36,18,18,5,,unknown,unknown,weight_loss
+F137,Cá chép hấp xì dầu cuốn bánh tráng rau sống,dinner,mixed_meal,420,35,42,12,5,,unknown,unknown,healthy_lifestyle
+F138,Canh khổ qua nhồi thịt nạc + cơm gạo lứt nhỏ,dinner,mixed_meal,400,29,46,10,6,,unknown,unknown,weight_loss
+F139,Bún gạo lứt trộn ức gà áp chảo & rau củ,dinner,mixed_meal,430,37,48,9,6,,unknown,unknown,fitness_improvement
+F140,Miến trộn thập cẩm thịt bò & rau cải ngọt,dinner,mixed_meal,410,30,50,10,5,,unknown,unknown,maintenance
+F141,Cháo đậu xanh cá lóc phi lê + giá đỗ,dinner,mixed_meal,390,31,48,8,5,,unknown,unknown,healthy_lifestyle
+F142,Súp ức gà nấm hương ngô ngọt + khoai lang,dinner,mixed_meal,360,30,44,7,5,,unknown,unknown,weight_loss
+F143,Bò nhúng giấm cuốn bánh tráng rau sống,dinner,mixed_meal,440,36,46,12,5,,unknown,unknown,fitness_improvement
+F144,Cá nục hấp cuốn bánh tráng rau muống,dinner,mixed_meal,410,34,44,10,5,,unknown,unknown,healthy_lifestyle
+F145,Tôm hấp nước dừa + khoai lang hấp + salad,dinner,mixed_meal,400,35,45,8,6,,unknown,unknown,weight_loss
+F146,Lẩu nấm ức gà & đậu phụ (khẩu phần 1 người),dinner,mixed_meal,420,38,38,12,7,,unknown,unknown,healthy_lifestyle
+F147,Canh bầu nấu tôm tươi + đậu phụ luộc + cơm nhỏ,dinner,mixed_meal,390,28,46,10,5,,unknown,unknown,weight_loss
+F148,Gỏi bưởi tôm thịt nạc + khoai lang hấp,dinner,mixed_meal,370,29,44,8,6,,unknown,unknown,weight_loss
+F149,Bắp cải cuộn thịt nạc bằm hấp nấm + cơm lứt,dinner,mixed_meal,410,31,45,11,6,,unknown,unknown,maintenance
+F150,Cơm gạo lứt + cá basa áp chảo + rau củ luộc,dinner,mixed_meal,460,34,50,13,5,,unknown,unknown,maintenance
+F151,Phở bò chín bình dân,breakfast,mixed_meal,291,16.1,45.3,5.1,0.1,1326,normal,unknown,maintenance
+F152,Phở bò sốt vang,breakfast,mixed_meal,483,37.7,59.1,10.7,0.3,1835,normal,unknown,"weight_gain,fitness_improvement"
+F153,Cháo lươn,breakfast,mixed_meal,298,11.7,26.7,16,0.1,416.7,normal,unknown,healthy_lifestyle

@@ -13,6 +13,25 @@
     <h1>{{ 'Phân tích sức khỏe' if language == 'vi' else 'Health analysis' }} #{{ record.id }}</h1>
     <p>{{ 'Đang xem dữ liệu của' if language == 'vi' else 'Viewing data for' }}: <strong>{{ record.user.username }}</strong> · {{ record.created_at }}</p>
 
+    <section class="card analysis-profile-banner">
+        <strong>
+            {% if record.result_data.get('analysis_profile', 'current') == 'vietnam_asia' %}
+                {{ 'Chuẩn BMI đã dùng: người châu Á (Việt Nam)' if language == 'vi' else 'BMI reference used: Asian (Vietnam)' }}
+            {% else %}
+                {{ 'Chuẩn BMI đã dùng: WHO (quốc tế)' if language == 'vi' else 'BMI reference used: WHO international' }}
+            {% endif %}
+        </strong>
+    </section>
+
+    {% if record.result_data.get('hybrid') %}
+    <section class="card">
+        <h2>{{ 'Kết quả Hybrid' if language == 'vi' else 'Hybrid result' }}</h2>
+        <p>{{ 'Mục tiêu từ Expert' if language == 'vi' else 'Expert goal' }}: {{ translate(record.result_data.hybrid.expert_goal, language) }}</p>
+        <p>{{ 'Kết quả cuối' if language == 'vi' else 'Final goal' }}: <strong>{{ translate(record.result_data.hybrid.final_goal, language) }}</strong></p>
+        <p>{{ 'Ngưỡng tin cậy' if language == 'vi' else 'Confidence threshold' }}: {{ "%.2f"|format(record.result_data.hybrid.threshold) }}</p>
+    </section>
+    {% endif %}
+
     <section class="card">
         <h2>{{ 'Chỉ số đã nhập' if language == 'vi' else 'Submitted indicators' }}</h2>
         <table><tbody>
@@ -39,9 +58,6 @@
     {% set recommendations = record.result_data.get('recommendations') or {} %}
     <section class="card">
         <h2>{{ 'Gợi ý' if language == 'vi' else 'Recommendations' }}</h2>
-        {% for message in recommendations.get('summary', []) %}
-            <p>{{ message }}</p>
-        {% endfor %}
         <h3>{{ 'Món ăn đề xuất' if language == 'vi' else 'Recommended foods' }}</h3>
         <div class="recommendation-grid">
         {% for food in recommendations.get('foods', []) %}
@@ -54,7 +70,6 @@
                     <span>{{ 'Tinh bột' if language == 'vi' else 'Carbs' }}: {{ food.carbs_g }}g</span>
                     <span>{{ 'Chất béo' if language == 'vi' else 'Fat' }}: {{ food.fat_g }}g</span>
                 </div>
-                {% if food.reason %}<p class="reason">{{ food.reason }}</p>{% endif %}
             </article>
         {% else %}
             <p class="empty-state">{{ 'Chưa có món ăn được đề xuất.' if language == 'vi' else 'No food recommendations available.' }}</p>
@@ -66,13 +81,12 @@
         {% for exercise in recommendations.get('exercises', []) %}
             <article class="recommendation-item">
                 <div class="rank">#{{ loop.index }}</div>
-                <h3>{{ translate(exercise.exercise_name, language) }}</h3>
+                <h3>{{ translate_exercise(exercise.exercise_name, language) }}</h3>
                 <div class="exercise-info">
                     <span>{{ exercise.duration_min }} {{ 'phút' if language == 'vi' else 'min' }}</span>
                     <span>{{ translate(exercise.intensity, language) }}</span>
                     <span>{{ translate(exercise.difficulty, language) }}</span>
                 </div>
-                {% if exercise.reason %}<p class="reason">{{ exercise.reason }}</p>{% endif %}
             </article>
         {% else %}
             <p class="empty-state">{{ 'Chưa có bài tập được đề xuất.' if language == 'vi' else 'No exercise recommendations available.' }}</p>

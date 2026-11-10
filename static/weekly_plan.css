@@ -202,6 +202,7 @@
 .meal-item-header { display: flex; justify-content: space-between; gap: 12px; }
 .meal-item-name { font-weight: 800; }
 .meal-item-serving { white-space: nowrap; color: var(--teal); font-weight: 800; }
+.portion-ingredients { margin: 8px 0; padding-left: 20px; color: #45626b; font-size: 12px; line-height: 1.5; }
 .meal-item-macros, .subtotal-right, .exercise-tags {
     display: flex;
     flex-wrap: wrap;

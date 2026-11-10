@@ -21,6 +21,14 @@
         </p>
     </header>
 
+    <section class="card analysis-profile-banner" role="status">
+        {% if result.get('analysis_profile', 'current') == 'vietnam_asia' %}
+            {{ 'Đánh giá BMI theo ngưỡng người châu Á (Việt Nam).' if language == 'vi' else 'BMI is assessed using the Asian reference (Vietnam).' }}
+        {% else %}
+            {{ 'Đánh giá BMI theo ngưỡng WHO (quốc tế).' if language == 'vi' else 'BMI is assessed using the WHO international reference.' }}
+        {% endif %}
+    </section>
+
     <div class="health-overview">
         <div class="overview-box stable-overview">
             <strong>{{ result.health_status.stable_count }}</strong>

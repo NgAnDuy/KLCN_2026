@@ -16,6 +16,45 @@
     --shadow: 0 14px 40px rgba(8, 81, 92, .09);
 }
 
+.portion-ingredients {
+    margin: 8px 0;
+    padding-left: 20px;
+    color: #45626b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.analysis-profile-fieldset {
+    border: 0;
+    margin: 0 0 20px;
+    padding: 0;
+    min-width: 0;
+}
+.analysis-profile-fieldset legend { font-weight: 700; margin-bottom: 10px; }
+.analysis-profile-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.analysis-profile-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    cursor: pointer;
+}
+.analysis-profile-option:has(input:checked) { border-color: var(--teal); background: #e9f7f5; }
+.analysis-profile-option input { margin: 3px 0 0; accent-color: var(--teal); }
+.analysis-profile-option span { display: grid; gap: 5px; }
+.analysis-profile-option small { color: var(--muted); }
+.analysis-profile-banner { border-left: 4px solid var(--teal); }
+
+.health-choice-group { border: 0; margin: 18px 0; padding: 0; min-width: 0; }
+.health-choice-group legend { font-weight: 700; margin-bottom: 10px; }
+.health-checkbox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.health-checkbox-item { display: flex; align-items: flex-start; gap: 9px; padding: 11px 12px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; }
+.health-checkbox-item:has(input:checked) { background: #e9f7f5; border-color: var(--teal); }
+.health-checkbox-item input { width: auto; margin-top: 3px; accent-color: var(--teal); }
+.health-safety-note { color: #7a4b20; background: #fff6e9; border-radius: 10px; padding: 12px; }
+
 * {
     box-sizing: border-box;
 }
@@ -640,6 +679,10 @@ button[type="submit"]:hover {
     border-top-color: var(--gold);
 }
 
+.conflict-high { border-top-color: #df5363; }
+.conflict-moderate { border-top-color: #efa547; }
+.conflict-none { border-top-color: var(--green); }
+
 .small-title {
     font-size: 12px;
     letter-spacing: 1px;
@@ -791,7 +834,6 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-.reason,
 .subtitle {
     color: var(--muted);
 }

@@ -31,7 +31,10 @@ import click
 from auth import AUTH_MESSAGES, auth_blueprint
 from models import AuditLog, HealthAnalysis, HealthProfile, User, db
 from schema_upgrade import upgrade_existing_database
+from expert_system.expert_system.allergy_rules import SUPPORTED_ALLERGENS
 
+from src.analysis_profiles import CURRENT, VIETNAM_ASIA, validate_profile
+from src.exercise_translation import translate_exercise
 from src.expert_recommendation import (
     analyze_goal_conflict,
     build_detailed_analysis,
@@ -42,6 +45,8 @@ from src.predictor import HealthGoalPredictor
 from src.recommendation import generate_recommendations
 from src.translator import translate
 from src.weekly_planner import generate_weekly_plan
+
+
 
 
 # ============================================================
@@ -388,6 +393,7 @@ def translate_result_value(value):
 app.jinja_env.globals[
     "translate_value"
 ] = translate_result_value
+app.jinja_env.globals["translate_exercise"] = translate_exercise
 
 
 # ============================================================
@@ -511,6 +517,13 @@ def health_form():
                     "Invalid selected goal."
                 )
 
+            analysis_profile = validate_profile(
+                request.form.get("analysis_profile", CURRENT)
+            )
+            allergies = request.form.getlist("allergies")
+            if not set(allergies).issubset(SUPPORTED_ALLERGENS):
+                raise ValueError("Invalid food allergy.")
+
             activity_level = request.form[
                 "activity_level"
             ]
@@ -529,6 +542,8 @@ def health_form():
 
             health_input = {
                 "selected_goal": selected_goal,
+                "analysis_profile": analysis_profile,
+                "allergies": sorted(set(allergies)),
                 "age": int(request.form["age"]),
                 "gender": gender,
                 "height_cm": float(
@@ -565,6 +580,8 @@ def health_form():
                 raise ValueError(
                     "Age must be between 1 and 120."
                 )
+            if analysis_profile == VIETNAM_ASIA and health_input["age"] < 18:
+                raise ValueError("Asian BMI reference is for adults aged 18 or older.")
 
             if health_input["height_cm"] <= 0:
                 raise ValueError(
@@ -697,9 +714,17 @@ def process_analysis():
             url_for("health_form")
         )
 
+    # Older sessions may still contain this retired form field.
+    user_input = dict(user_input)
+    user_input.pop("medical_conditions", None)
+
     selected_goal = user_input[
         "selected_goal"
     ]
+    analysis_profile = validate_profile(
+        user_input.get("analysis_profile", CURRENT)
+    )
+    allergies = user_input.get("allergies", [])
 
     # ========================================================
     # 1. FEATURE ENGINEERING
@@ -727,15 +752,16 @@ def process_analysis():
     )
 
     # ========================================================
-    # 2. MLP PREDICTION
+    # 2. EXPORTED MLP + EXPERT + HYBRID
     # ========================================================
 
     mlp_result = predictor.predict(
-        features
+        features,
+        profile=analysis_profile,
     )
 
     # ========================================================
-    # 3. EXPERT GOAL ANALYSIS
+    # 3. APP SAFETY AND GOAL ANALYSIS
     # ========================================================
 
     expert_result = analyze_goal_conflict(
@@ -743,6 +769,7 @@ def process_analysis():
         predicted_goal=mlp_result["goal"],
         confidence=mlp_result["confidence"],
         features=features,
+        profile=analysis_profile,
     )
 
     # ========================================================
@@ -752,6 +779,7 @@ def process_analysis():
     current_status = analyze_health_status(
         features,
         calculated,
+        profile=analysis_profile,
     )
 
     # ========================================================
@@ -773,6 +801,7 @@ def process_analysis():
         features=features,
         top_foods=5,
         top_exercises=5,
+        allergies=allergies,
     )
 
     # ========================================================
@@ -810,11 +839,22 @@ def process_analysis():
 
     analysis_result = {
         "selected_goal": selected_goal,
+        "analysis_profile": analysis_profile,
+        "allergies": allergies,
         "predicted_goal": mlp_result["goal"],
         "confidence": float(
             mlp_result["confidence"]
         ),
         "probabilities": probability_data,
+        "hybrid": {
+            "profile": mlp_result["profile"],
+            "expert_goal": mlp_result["expert_goal"],
+            "expert_scores": mlp_result["expert_scores"],
+            "expert_reasons": mlp_result["expert_reasons"],
+            "threshold": mlp_result["threshold"],
+            "final_goal": mlp_result["final_goal"],
+            "decision_reason": mlp_result["decision_reason"],
+        },
         "calculated": calculated_data,
         "health_status": current_status,
         "detailed_analysis": detailed_analysis,
@@ -1033,6 +1073,14 @@ def weekly_plan():
     if record.user_id != current_user.id:
         abort(404)
     result = record.result_data
+    if record.input_data.get("medical_conditions") or record.input_data.get("allergies"):
+        return render_template(
+            "weekly_plan_review.html",
+            language=get_language(),
+            translate=translate,
+            medical_conditions=record.input_data.get("medical_conditions", []),
+            allergies=record.input_data.get("allergies", []),
+        )
     if record.weekly_plan is None:
         calculated = result["calculated"]
         record.weekly_plan = make_json_safe(generate_weekly_plan(

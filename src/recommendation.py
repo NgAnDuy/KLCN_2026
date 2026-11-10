@@ -24,7 +24,9 @@ class PersonalizedRecommendationSystem:
         expert_result,
         features,
         top_foods=5,
-        top_exercises=5
+        top_exercises=5,
+        medical_conditions=(),
+        allergies=(),
     ):
         row = features.iloc[0]
 
@@ -32,11 +34,14 @@ class PersonalizedRecommendationSystem:
             row["weight_kg"]
         )
 
-        foods = (
+        foods, food_screening = (
             self.food_recommender.recommend(
                 selected_goal=selected_goal,
                 expert_result=expert_result,
-                top_n=top_foods
+                top_n=top_foods,
+                medical_conditions=medical_conditions,
+                allergies=allergies,
+                return_screening=True,
             )
         )
 
@@ -49,94 +54,11 @@ class PersonalizedRecommendationSystem:
             )
         )
 
-        summary = self._build_summary(
-            expert_result
-        )
-
         return {
-            "summary": summary,
             "foods": foods,
+            "food_screening": food_screening,
             "exercises": exercises
         }
-
-    def _build_summary(
-        self,
-        expert_result
-    ):
-        direction = expert_result[
-            "direction"
-        ]
-
-        conflict = expert_result[
-            "conflict_level"
-        ]
-
-        priorities = expert_result.get(
-            "priorities",
-            []
-        )
-
-        messages = []
-
-        if direction == "PROFESSIONAL_REVIEW":
-            messages.append(
-                "The selected goal conflicts with the current "
-                "health profile. Recommendations are kept "
-                "conservative."
-            )
-
-        elif direction == "MAINTAIN_FIRST":
-            messages.append(
-                "Current conditions suggest stabilizing the "
-                "current status before making larger changes."
-            )
-
-        elif direction == "REVIEW_GOAL":
-            messages.append(
-                "The selected goal differs strongly from the "
-                "MLP assessment. Aggressive changes are not "
-                "recommended."
-            )
-
-        else:
-            messages.append(
-                "The current profile supports personalized "
-                "recommendations for the selected goal."
-            )
-
-        if conflict == "NONE":
-            messages.append(
-                "The selected goal is consistent with the "
-                "MLP-predicted goal."
-            )
-
-        elif conflict == "MODERATE":
-            messages.append(
-                "The selected goal differs from the "
-                "MLP-predicted goal."
-            )
-
-        elif conflict == "HIGH":
-            messages.append(
-                "A strong conflict exists between the selected "
-                "goal and the MLP-predicted goal."
-            )
-
-        if priorities:
-            readable_priorities = ", ".join(
-                priority.replace(
-                    "_",
-                    " "
-                ).title()
-                for priority in priorities
-            )
-
-            messages.append(
-                "Current priority areas: "
-                f"{readable_priorities}."
-            )
-
-        return messages
 
 
 def generate_recommendations(
@@ -144,7 +66,9 @@ def generate_recommendations(
     expert_result,
     features,
     top_foods=5,
-    top_exercises=5
+    top_exercises=5,
+    medical_conditions=(),
+    allergies=(),
 ):
     system = (
         PersonalizedRecommendationSystem()
@@ -155,5 +79,7 @@ def generate_recommendations(
         expert_result=expert_result,
         features=features,
         top_foods=top_foods,
-        top_exercises=top_exercises
+        top_exercises=top_exercises,
+        medical_conditions=medical_conditions,
+        allergies=allergies,
     )

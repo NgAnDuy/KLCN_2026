@@ -14,7 +14,7 @@ os.environ["HEALTH_SERVER_STATE_FILE"] = str(Path(test_state_dir.name) / "server
 os.environ["HEALTH_DISABLE_HEARTBEAT"] = "1"
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app import app, db, SERVER_SESSION_ID  # noqa: E402
+from app import app, db, predictor, SERVER_SESSION_ID  # noqa: E402
 from models import AuditLog, HealthAnalysis, HealthProfile, User  # noqa: E402
 from schema_upgrade import upgrade_existing_database  # noqa: E402
 
@@ -96,7 +96,7 @@ class AuthAdminTests(unittest.TestCase):
         page = self.client.get(f"/admin/analyses/{self.record.id}")
         self.assertEqual(page.status_code, 200)
         self.assertIn(b"70", page.data)
-        self.assertIn(b"Personalized guidance", page.data)
+        self.assertNotIn(b"Personalized guidance", page.data)
         self.assertIn(b"Oatmeal", page.data)
         self.assertIn(b"Walking", page.data)
         self.assertNotIn(b'"food_name"', page.data)
@@ -169,11 +169,94 @@ class AuthAdminTests(unittest.TestCase):
         result = self.client.post("/process-analysis", data={"csrf_token": self.token()})
         self.assertEqual(result.status_code, 302)
         self.assertEqual(HealthAnalysis.query.filter_by(user_id=self.alice.id).count(), 1)
+        current_result = HealthAnalysis.query.filter_by(user_id=self.alice.id).one().result_data
+        self.assertEqual(current_result["hybrid"]["profile"], "current")
+        self.assertEqual(
+            predictor.bundle.config["classes"],
+            list(predictor.bundle.label_encoder.classes_),
+        )
+        self.assertIn(current_result["hybrid"]["final_goal"], {
+            "weight_loss", "weight_gain", "maintenance",
+            "fitness_improvement", "healthy_lifestyle",
+        })
+        conflict_label = {
+            "NONE": "Không xung đột",
+            "MODERATE": "Xung đột trung bình",
+            "HIGH": "Xung đột cao",
+        }[current_result["expert"]["conflict_level"]]
+        result_page = self.client.get("/result").data
+        self.assertIn("MỨC ĐỘ XUNG ĐỘT".encode(), result_page)
+        self.assertIn(conflict_label.encode(), result_page)
         self.assertEqual(HealthProfile.query.filter_by(user_id=self.alice.id).one().data["weight_kg"], 70.0)
         weekly_page = self.client.get("/weekly-plan")
         self.assertEqual(weekly_page.status_code, 200)
         self.assertIn(b"weekly_plan.css", weekly_page.data)
         self.assertIsNotNone(HealthAnalysis.query.filter_by(user_id=self.alice.id).one().weekly_plan)
+
+    def test_asian_reference_is_saved_and_shown_with_result(self):
+        self.login("alice", "alice-pass-123")
+        values = {
+            "csrf_token": self.token(), "display_name": "Alice Demo",
+            "goal": "maintenance", "analysis_profile": "vietnam_asia",
+            "age": "30", "gender": "Female", "height_cm": "170",
+            "weight_kg": "68", "activity_level": "Moderate",
+            "calories_consumed": "2100", "avg_steps_7d": "7000",
+            "avg_sleep_hours_7d": "7", "water_intake_l": "2",
+            "avg_exercise_minutes_7d": "30", "exercise_sessions_7d": "3",
+            "avg_calories_burned_7d": "200",
+        }
+        self.assertEqual(self.client.post("/health", data=values).status_code, 302)
+        self.assertEqual(
+            self.client.post("/process-analysis", data={"csrf_token": self.token()}).status_code,
+            302,
+        )
+        record = HealthAnalysis.query.filter_by(user_id=self.alice.id).one()
+        self.assertEqual(record.input_data["analysis_profile"], "vietnam_asia")
+        self.assertEqual(record.result_data["analysis_profile"], "vietnam_asia")
+        self.assertEqual(record.result_data["health_status"]["bmi_category"], "OVERWEIGHT")
+        self.assertEqual(record.result_data["hybrid"]["profile"], "vietnam_asia")
+        self.assertIn("expert_goal", record.result_data["hybrid"])
+        self.assertIn("final_goal", record.result_data["hybrid"])
+        self.assertEqual(
+            record.result_data["hybrid"]["threshold"],
+            predictor.bundle.config["hybrid_thresholds"]["vietnam_asia"],
+        )
+        self.assertIn(b"vietnam_asia", self.client.get("/health").data)
+        self.assertIn("Đang chạy cấu hình vietnam_asia".encode(), self.client.get("/result").data)
+
+    def test_allergies_filter_foods_and_pause_weekly_plan(self):
+        self.login("alice", "alice-pass-123")
+        values = {
+            "csrf_token": self.token(), "display_name": "Alice Demo",
+            "goal": "maintenance", "analysis_profile": "vietnam_asia",
+            "medical_conditions": "kidney_disease", "allergies": "fish",
+            "age": "30", "gender": "Female", "height_cm": "170",
+            "weight_kg": "68", "activity_level": "Moderate",
+            "calories_consumed": "2100", "avg_steps_7d": "7000",
+            "avg_sleep_hours_7d": "7", "water_intake_l": "2",
+            "avg_exercise_minutes_7d": "30", "exercise_sessions_7d": "3",
+            "avg_calories_burned_7d": "200",
+        }
+        self.assertEqual(self.client.post("/health", data=values).status_code, 302)
+        self.assertEqual(
+            self.client.post("/process-analysis", data={"csrf_token": self.token()}).status_code,
+            302,
+        )
+        record = HealthAnalysis.query.filter_by(user_id=self.alice.id).one()
+        self.assertNotIn("medical_conditions", record.input_data)
+        self.assertEqual(record.input_data["allergies"], ["fish"])
+        self.assertNotIn("medical_review", record.result_data)
+        self.assertGreater(record.result_data["recommendations"]["food_screening"]["excluded_count"], 0)
+        for food in record.result_data["recommendations"]["foods"]:
+            self.assertNotIn("fish", food["allergens"])
+            self.assertNotEqual(food["allergens"], "unknown")
+        weekly = self.client.get("/weekly-plan")
+        self.assertEqual(weekly.status_code, 200)
+        self.assertIn("Kế hoạch 7 ngày cần xem xét thêm".encode(), weekly.data)
+        self.assertIsNone(record.weekly_plan)
+        profile_page = self.client.get("/health").data
+        self.assertNotIn(b'name="medical_conditions"', profile_page)
+        self.assertRegex(profile_page.decode(), r'value="fish"\s+checked')
 
     def test_basic_profile_remains_after_new_analysis_and_new_login(self):
         self.login("alice", "alice-pass-123")

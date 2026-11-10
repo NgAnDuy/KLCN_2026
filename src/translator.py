@@ -45,6 +45,9 @@ TRANSLATIONS = {
         "low": "Thấp",
         "moderate": "Trung bình",
         "high": "Cao",
+        "beginner": "Cơ bản",
+        "intermediate": "Trung cấp",
+        "advanced": "Nâng cao",
         "none": "Không có",
 
         # Conflict

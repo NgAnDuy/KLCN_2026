@@ -1,5 +1,7 @@
 """Analyze the user's current health indicators."""
 
+from src.analysis_profiles import CURRENT, VIETNAM_ASIA, classify_bmi
+
 
 def _create_item(
     key,
@@ -34,7 +36,8 @@ def _create_item(
 
 def analyze_health_status(
     features,
-    calculated
+    calculated,
+    profile=CURRENT,
 ):
     """Analyze current health indicators."""
 
@@ -54,15 +57,17 @@ def analyze_health_status(
         calculated["bmi"]
     )
 
-    if bmi < 18.5:
+    bmi_category = classify_bmi(bmi, profile)
+
+    if bmi_category == "UNDERWEIGHT":
         bmi_code = "UNDERWEIGHT"
         bmi_status = "warning"
 
-    elif bmi < 25.0:
+    elif bmi_category == "NORMAL_BMI":
         bmi_code = "NORMAL_BMI"
         bmi_status = "stable"
 
-    elif bmi < 30.0:
+    elif bmi_category == "OVERWEIGHT":
         bmi_code = "OVERWEIGHT"
         bmi_status = "warning"
 
@@ -398,7 +403,7 @@ def analyze_health_status(
     # 8. RESULT
     # ========================================================
 
-    return {
+    result = {
         "items": items,
         "stable": stable_items,
         "warnings": warning_items,
@@ -409,3 +414,6 @@ def analyze_health_status(
             warning_items
         )
     }
+    if profile == VIETNAM_ASIA:
+        result["bmi_category"] = bmi_category
+    return result

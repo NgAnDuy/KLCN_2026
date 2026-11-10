@@ -1,3 +1,8 @@
+from src.analysis_profiles import (
+    CURRENT, VIETNAM_ASIA, asia_bmi_goal_points, classify_bmi, validate_profile,
+)
+
+
 GOAL_LABELS = {
     "weight_loss": "Weight Loss",
     "weight_gain": "Weight Gain",
@@ -17,8 +22,10 @@ def analyze_goal_conflict(
     selected_goal,
     predicted_goal,
     confidence,
-    features
+    features,
+    profile=CURRENT,
 ):
+    validate_profile(profile)
     row = features.iloc[0]
 
     bmi = float(row["bmi"])
@@ -82,6 +89,12 @@ def analyze_goal_conflict(
     # 2. BODY STATUS
     # ========================================================
 
+    bmi_category = classify_bmi(bmi, profile)
+    bmi_points = (
+        asia_bmi_goal_points(bmi_category)
+        if profile == VIETNAM_ASIA else {}
+    )
+
     if bmi < 18.5:
         body_status = "LOW_BMI"
 
@@ -93,10 +106,10 @@ def analyze_goal_conflict(
             "NUTRITIONAL_ADEQUACY"
         )
 
-    elif bmi < 25:
+    elif bmi < (23 if profile == VIETNAM_ASIA else 25):
         body_status = "NORMAL_BMI"
 
-    elif bmi < 30:
+    elif bmi < (25 if profile == VIETNAM_ASIA else 30):
         body_status = "HIGH_BMI"
 
     else:
@@ -105,6 +118,11 @@ def analyze_goal_conflict(
         warnings.append(
             "BMI is in a high range; weight-related "
             "recommendations should be conservative."
+        )
+
+    if profile == VIETNAM_ASIA and bmi_category == "OVERWEIGHT":
+        warnings.append(
+            "BMI is in the overweight range under the selected Asian reference."
         )
 
     # ========================================================
@@ -264,13 +282,23 @@ def analyze_goal_conflict(
 
     elif (
         selected_goal == "weight_gain"
-        and bmi >= 30
+        and bmi >= (25 if profile == VIETNAM_ASIA else 30)
     ):
         direction = "PROFESSIONAL_REVIEW"
 
         reasons.append(
             "Automatic weight-gain guidance is not appropriate "
             "based on the current BMI."
+        )
+
+    elif (
+        profile == VIETNAM_ASIA
+        and selected_goal == "weight_gain"
+        and "weight_loss" in bmi_points
+    ):
+        direction = "REVIEW_GOAL"
+        reasons.append(
+            "The selected Asian BMI reference suggests reviewing the weight-gain goal."
         )
 
     elif (
@@ -319,7 +347,7 @@ def analyze_goal_conflict(
     # 10. RESULT
     # ========================================================
 
-    return {
+    result = {
         "selected_goal": selected_goal,
         "predicted_goal": predicted_goal,
         "mlp_confidence": confidence,
@@ -343,6 +371,15 @@ def analyze_goal_conflict(
         "reasons": reasons,
         "warnings": warnings
     }
+
+    if profile == VIETNAM_ASIA:
+        result["bmi_category"] = bmi_category
+        result["bmi_goal_points"] = bmi_points
+        result["bmi_points_note"] = (
+            "BMI thresholds follow the Vietnam Ministry of Health reference; "
+            "+2/+4 goal points are experimental project settings."
+        )
+    return result
 
 def build_detailed_analysis(
     health_status,

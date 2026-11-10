@@ -2,6 +2,9 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.food_portions import attach_food_portion, load_food_portions
+from src.medical_food_screen import screen_food_candidates
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +27,14 @@ class FoodRecommender:
         self,
         selected_goal,
         expert_result,
-        top_n=5
+        top_n=5,
+        medical_conditions=(),
+        allergies=(),
+        return_screening=False,
     ):
-        data = self.food_data.copy()
+        data, screening = screen_food_candidates(
+            self.food_data, medical_conditions, allergies
+        )
 
         data["score"] = 0.0
         data["reason"] = ""
@@ -59,15 +67,14 @@ class FoodRecommender:
             ]
 
             if direction == "PROFESSIONAL_REVIEW":
+                balanced_groups = {
+                    "vegetable", "fruit", "whole_grain", "mixed_meal"
+                }
+                if "kidney_disease" not in medical_conditions:
+                    balanced_groups.add("protein")
                 if (
                     food["food_group"]
-                    in {
-                        "vegetable",
-                        "fruit",
-                        "protein",
-                        "whole_grain",
-                        "mixed_meal"
-                    }
+                    in balanced_groups
                 ):
                     score += 2
 
@@ -119,15 +126,16 @@ class FoodRecommender:
                 food["protein_g"]
             )
 
-            if protein >= 20:
-                score += 2
+            if "kidney_disease" not in medical_conditions:
+                if protein >= 20:
+                    score += 2
 
-                reasons.append(
-                    "Good protein content"
-                )
+                    reasons.append(
+                        "Good protein content"
+                    )
 
-            elif protein >= 10:
-                score += 1
+                elif protein >= 10:
+                    score += 1
 
             # ----------------------------------------------
             # Fiber
@@ -151,11 +159,9 @@ class FoodRecommender:
             # Sodium
             # ----------------------------------------------
 
-            sodium = float(
-                food["sodium_mg"]
-            )
+            sodium = pd.to_numeric(food["sodium_mg"], errors="coerce")
 
-            if sodium <= 500:
+            if pd.notna(sodium) and sodium <= 500:
                 score += 0.5
 
             # ----------------------------------------------
@@ -168,19 +174,31 @@ class FoodRecommender:
                 "; ".join(reasons)
             )
 
+        sort_fields = (
+            ["score", "fiber_g"]
+            if "kidney_disease" in medical_conditions
+            else ["score", "protein_g", "fiber_g"]
+        )
         result = data.sort_values(
-            by=[
-                "score",
-                "protein_g",
-                "fiber_g"
-            ],
-            ascending=[
-                False,
-                False,
-                False
-            ]
+            by=sort_fields,
+            ascending=[False] * len(sort_fields),
         )
 
-        return result.head(top_n).to_dict(
-            orient="records"
-        )
+        selected = result.head(top_n).to_dict(orient="records")
+        # Show one documented serving when possible, without changing
+        # the existing scoring formula for other foods.
+        verified_ids = load_food_portions()
+        if top_n > 0 and not any(str(food["food_id"]) in verified_ids for food in selected):
+            eligible = result[
+                result["food_id"].isin(verified_ids)
+                & result["goal_tags"].astype(str).str.split(",").apply(
+                    lambda tags: selected_goal in tags
+                )
+            ]
+            if not eligible.empty:
+                selected[-1:] = eligible.head(1).to_dict(orient="records")
+
+        foods = [attach_food_portion(food) for food in selected]
+        if return_screening:
+            return foods, screening
+        return foods

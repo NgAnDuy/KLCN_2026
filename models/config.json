@@ -1,0 +1,52 @@
+{
+  "bundle_version": "1.0.0",
+  "rule_version": "2026-11-09",
+  "hybrid_thresholds": {
+    "current": 0.5,
+    "vietnam_asia": 0.5
+  },
+  "feature_columns": [
+    "age",
+    "gender",
+    "height_cm",
+    "weight_kg",
+    "bmi",
+    "bmr",
+    "tdee",
+    "activity_level",
+    "water_intake_l",
+    "calories_consumed",
+    "avg_steps_7d",
+    "avg_calories_burned_7d",
+    "avg_exercise_minutes_7d",
+    "exercise_sessions_7d",
+    "avg_sleep_hours_7d",
+    "calorie_balance",
+    "calorie_balance_pct",
+    "weekly_exercise_volume",
+    "exercise_minutes_per_session",
+    "steps_per_kg",
+    "sleep_deviation_from_8h",
+    "hydration_ratio",
+    "tdee_per_kg",
+    "bmr_tdee_ratio",
+    "calorie_intake_ratio",
+    "calories_burned_per_exercise_min"
+  ],
+  "classes": [
+    "fitness_improvement",
+    "healthy_lifestyle",
+    "maintenance",
+    "weight_gain",
+    "weight_loss"
+  ],
+  "versions": {
+    "python": "3.13.16",
+    "tensorflow": "2.21.0",
+    "scikit-learn": "1.6.1",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "joblib": "1.6.0"
+  },
+  "bmi_weights_status": "experimental group design, not official clinical scores"
+}

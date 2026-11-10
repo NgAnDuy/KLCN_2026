@@ -54,6 +54,27 @@
 
         <section class="card">
             <h2>👤 {{ 'Thông tin cơ thể' if language == 'vi' else 'Body Information' }}</h2>
+            <fieldset class="analysis-profile-fieldset">
+                <legend>{{ 'Chuẩn phân tích BMI' if language == 'vi' else 'BMI analysis reference' }}</legend>
+                <div class="analysis-profile-options">
+                    <label class="analysis-profile-option">
+                        <input type="radio" name="analysis_profile" value="current" required
+                               {% if profile_data.get('analysis_profile', 'current') == 'current' %}checked{% endif %}>
+                        <span>
+                            <strong>{{ 'Phân tích theo chuẩn WHO (quốc tế)' if language == 'vi' else 'Analyze using WHO international BMI thresholds' }}</strong>
+                            <small>{{ 'Chạy Expert/Hybrid current; BMI WHO dùng cho đánh giá thể trạng.' if language == 'vi' else 'Runs current Expert/Hybrid; WHO BMI is used for health status.' }}</small>
+                        </span>
+                    </label>
+                    <label class="analysis-profile-option">
+                        <input type="radio" name="analysis_profile" value="vietnam_asia" required
+                               {% if profile_data.get('analysis_profile') == 'vietnam_asia' %}checked{% endif %}>
+                        <span>
+                            <strong>{{ 'Phân tích theo ngưỡng BMI người châu Á (Việt Nam)' if language == 'vi' else 'Analyze using Asian BMI thresholds (Vietnam)' }}</strong>
+                            <small>{{ 'Chạy Expert/Hybrid vietnam_asia với điểm BMI thực nghiệm cho người trưởng thành.' if language == 'vi' else 'Runs vietnam_asia Expert/Hybrid with experimental adult BMI points.' }}</small>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
             <div class="form-grid">
                 <div class="field">
                     <label for="display_name">{{ 'Họ và tên' if language == 'vi' else 'Full name' }}</label>
@@ -207,6 +228,32 @@
                            min="0" step="0.1" value="{{ profile_data.get('water_intake_l', '') }}" required>
                 </div>
             </div>
+        </section>
+
+        <section class="card">
+            <h2>🥜 {{ 'Dị ứng thực phẩm' if language == 'vi' else 'Food Allergies' }}</h2>
+            <p>{{ 'Chọn các dị ứng đã biết. Có thể chọn nhiều mục hoặc để trống.' if language == 'vi' else 'Select known food allergies; you may choose several or leave this blank.' }}</p>
+            <fieldset class="health-choice-group">
+                <legend>{{ 'Dị ứng thực phẩm' if language == 'vi' else 'Food Allergies' }}</legend>
+                {% set allergy_options = [
+                    ('milk', 'Sữa', 'Milk'), ('egg', 'Trứng', 'Eggs'),
+                    ('peanut', 'Đậu phộng', 'Peanuts'), ('soy', 'Đậu nành', 'Soy'),
+                    ('wheat', 'Lúa mì', 'Wheat'),
+                    ('shellfish', 'Tôm, cua', 'Crustacean shellfish'),
+                    ('fish', 'Cá', 'Fish'), ('tree_nuts', 'Hạt cây', 'Tree nuts'),
+                    ('sesame', 'Mè, vừng', 'Sesame')
+                ] %}
+                <div class="health-checkbox-grid">
+                    {% for code, label_vi, label_en in allergy_options %}
+                        <label class="health-checkbox-item">
+                            <input type="checkbox" name="allergies" value="{{ code }}"
+                                   {% if code in profile_data.get('allergies', []) %}checked{% endif %}>
+                            <span>{{ label_vi if language == 'vi' else label_en }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <p class="health-safety-note">{{ 'Bộ lọc dị ứng chỉ sàng lọc sơ bộ theo dữ liệu đã có; hãy kiểm tra nguyên liệu và nguy cơ lẫn chéo trước khi ăn.' if language == 'vi' else 'Allergy screening uses available data only. Check ingredients and cross-contact before eating.' }}</p>
         </section>
 
         <div class="bottom-actions">

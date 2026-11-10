@@ -15,6 +15,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.food_portions import attach_food_portion, load_food_portions
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -264,6 +266,10 @@ class WeeklyMealPlanner:
         self.food_data = pd.read_csv(
             FOOD_DATA_PATH
         )
+        source_foods = pd.read_csv(BASE_DIR / "data" / "food_dataset.csv")
+        self.portion_foods = source_foods[
+            source_foods["food_id"].isin(load_food_portions())
+        ]
 
     def generate(
         self,
@@ -308,7 +314,8 @@ class WeeklyMealPlanner:
         recent_ids = {
             "protein": [],
             "carb": [],
-            "general": []
+            "general": [],
+            "portion": []
         }
 
         weekly_plan = []
@@ -318,6 +325,7 @@ class WeeklyMealPlanner:
         ):
             day_plan = self._plan_single_day(
                 day_key=day_key,
+                day_index=day_index,
                 daily_calories=daily_calories,
                 selected_goal=selected_goal,
                 expert_result=expert_result,
@@ -337,6 +345,7 @@ class WeeklyMealPlanner:
     def _plan_single_day(
         self,
         day_key,
+        day_index,
         daily_calories,
         selected_goal,
         expert_result,
@@ -358,6 +367,7 @@ class WeeklyMealPlanner:
 
             meal = self._compose_meal(
                 meal_slot=slot,
+                day_index=day_index,
                 calorie_budget=slot_budget,
                 selected_goal=selected_goal,
                 expert_result=expert_result,
@@ -410,6 +420,7 @@ class WeeklyMealPlanner:
     def _compose_meal(
         self,
         meal_slot,
+        day_index,
         calorie_budget,
         selected_goal,
         expert_result,
@@ -420,6 +431,13 @@ class WeeklyMealPlanner:
         Each meal slot has a composition template
         defining which food roles to fill.
         """
+        if meal_slot == "breakfast" and day_index % 3 == 0:
+            portion_meal = self._compose_portion_meal(
+                calorie_budget, selected_goal, expert_result, recent_ids
+            )
+            if portion_meal is not None:
+                return portion_meal
+
         composition = MEAL_COMPOSITION[meal_slot]
 
         items = []
@@ -516,7 +534,75 @@ class WeeklyMealPlanner:
             "total_fat": round(total_fat),
             "total_serving_g": round(
                 total_serving
+            ),
+            "has_portion": False
+        }
+
+    def _compose_portion_meal(self, calorie_budget, selected_goal, expert_result, recent_ids):
+        """Use a documented complete dish for selected breakfasts."""
+        candidates = self.portion_foods[
+            self.portion_foods["meal_type"].astype(str).str.split(",").apply(
+                lambda slots: "breakfast" in slots
             )
+        ]
+        if candidates.empty:
+            return None
+
+        candidates = candidates.copy()
+        goal_matches = candidates[
+            candidates["goal_tags"].astype(str).str.split(",").apply(
+                lambda tags: selected_goal in tags
+            )
+        ]
+        if goal_matches.empty:
+            return None
+        candidates = goal_matches[
+            ~goal_matches["food_id"].isin(recent_ids["portion"])
+        ].copy()
+        if candidates.empty:
+            return None
+        candidates["rank"] = candidates.apply(
+            lambda row: abs(float(row["calories"]) - calorie_budget),
+            axis=1,
+        )
+        food = candidates.sort_values("rank").iloc[0]
+        recent_ids["portion"].append(food["food_id"])
+        portion_item = attach_food_portion({
+            "food_id": food["food_id"],
+            "food_name": food["food_name"],
+            "food_group": food["food_group"],
+            "serving_g": 0,
+            "calories": int(food["calories"]),
+            "protein_g": float(food["protein_g"]),
+            "carbs_g": float(food["carbs_g"]),
+            "fat_g": float(food["fat_g"]),
+            "fiber_g": float(food["fiber_g"]),
+            "sodium_mg": float(food["sodium_mg"]),
+        })
+        items = [portion_item]
+        remainder = calorie_budget - portion_item["calories"]
+        if remainder >= 90:
+            side = self._pick_item(
+                meal_slot="breakfast",
+                food_groups=["fruit", "dairy", "beverage", "seeds"],
+                calorie_budget=remainder,
+                selected_goal=selected_goal,
+                expert_result=expert_result,
+                recent_ids=recent_ids,
+                exclude_ids=[food["food_id"]],
+            )
+            if side is not None:
+                items.append(side)
+                recent_ids["general"].append(side["food_id"])
+
+        return {
+            "items": items,
+            "total_calories": round(sum(item["calories"] for item in items)),
+            "total_protein": round(sum(item["protein_g"] for item in items)),
+            "total_carbs": round(sum(item["carbs_g"] for item in items)),
+            "total_fat": round(sum(item["fat_g"] for item in items)),
+            "total_serving_g": round(sum(item["serving_g"] for item in items)),
+            "has_portion": True,
         }
 
     def _pick_item(

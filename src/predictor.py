@@ -1,72 +1,46 @@
+"""Flask adapter for the exported MLP + Expert + Hybrid inference bundle."""
+
+import importlib.util
 from pathlib import Path
 
-import joblib
-import numpy as np
-import tensorflow as tf
+
+MODEL_DIR = Path(__file__).resolve().parent.parent / "models"
+INFERENCE_PATH = MODEL_DIR / "health_inference.py"
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODEL_DIR = BASE_DIR / "models"
-
-MODEL_PATH = MODEL_DIR / "health_mlp.keras"
-PREPROCESSOR_PATH = MODEL_DIR / "preprocessor.pkl"
-LABEL_ENCODER_PATH = MODEL_DIR / "label_encoder.pkl"
+def _load_inference_module():
+    # The repository also has models.py for SQLAlchemy; importing
+    # models.health_inference would collide with that module.
+    spec = importlib.util.spec_from_file_location(
+        "health_inference_bundle", INFERENCE_PATH
+    )
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load inference bundle: {INFERENCE_PATH}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 class HealthGoalPredictor:
+    """Keep the app's prediction interface while exposing Hybrid details."""
 
     def __init__(self):
-        self.model = tf.keras.models.load_model(
-            MODEL_PATH
-        )
+        self.bundle = _load_inference_module().HealthPredictor(MODEL_DIR)
 
-        self.preprocessor = joblib.load(
-            PREPROCESSOR_PATH
-        )
-
-        self.label_encoder = joblib.load(
-            LABEL_ENCODER_PATH
-        )
-
-    def predict(self, features):
-        processed_features = (
-            self.preprocessor.transform(
-                features
-            )
-        )
-
-        probabilities = self.model.predict(
-            processed_features,
-            verbose=0
-        )[0]
-
-        predicted_index = int(
-            np.argmax(probabilities)
-        )
-
-        predicted_goal = (
-            self.label_encoder
-            .inverse_transform(
-                [predicted_index]
-            )[0]
-        )
-
-        confidence = float(
-            probabilities[predicted_index]
-        )
-
-        probability_result = {}
-
-        for goal, probability in zip(
-            self.label_encoder.classes_,
-            probabilities
-        ):
-            probability_result[goal] = float(
-                probability
-            )
-
+    def predict(self, features, profile="current"):
+        results = self.bundle.predict(features, profile=profile)
+        if len(results) != 1:
+            raise ValueError("Expected exactly one health profile for analysis")
+        result = results[0]
         return {
-            "goal": predicted_goal,
-            "confidence": confidence,
-            "probabilities": probability_result
+            "goal": result["mlp_goal"],
+            "confidence": result["mlp_confidence"],
+            "probabilities": result["probabilities"],
+            "expert_goal": result["expert_goal"],
+            "expert_scores": result["expert_scores"],
+            "expert_reasons": result["expert_reasons"],
+            "threshold": result["threshold"],
+            "final_goal": result["final_goal"],
+            "decision_reason": result["decision_reason"],
+            "profile": result["profile"],
         }

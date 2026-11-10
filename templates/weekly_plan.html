@@ -328,7 +328,11 @@
                             </span>
 
                             <span class="meal-item-serving">
-                                {{ item["serving_g"] }}g
+                                {% if item.get("portion") %}
+                                    {{ item["portion"]["serving_label_vi"] if language == "vi" else item["portion"]["serving_label_en"] }}
+                                {% else %}
+                                    {{ item["serving_g"] }}g
+                                {% endif %}
                             </span>
 
                         </div>
@@ -353,6 +357,19 @@
 
                         </div>
 
+                        {% if item.get("portion") %}
+                        <ul class="portion-ingredients">
+                            {% for ingredient in item["portion"]["ingredients"] %}
+                            <li>{{ ingredient["name_vi"] if language == "vi" else ingredient["name_en"] }}: {{ ingredient["quantity"]|int if ingredient["quantity"] == ingredient["quantity"]|int else ingredient["quantity"] }} {{ ingredient["unit"] }}</li>
+                            {% endfor %}
+                        </ul>
+                        <small>
+                            {{ 'Khẩu phần tham khảo; natri' if language == 'vi' else 'Reference serving; sodium' }}: {{ item["sodium_mg"]|round(0)|int }} mg ·
+                            <a href="{{ item["portion"]["source_url"] }}" target="_blank" rel="noopener noreferrer">{{ 'Nguồn' if language == 'vi' else 'Source' }}</a>
+                            ({{ 'tr.' if language == 'vi' else 'p.' }} {{ item["portion"]["source_page"] }})
+                        </small>
+                        {% endif %}
+
                     </div>
 
                     {% endfor %}
@@ -363,10 +380,12 @@
                     <div class="meal-subtotal">
 
                         <div class="subtotal-left">
+                            {% if not meal.get("has_portion") %}
                             {% if language == "vi" %}
                                 Tổng bữa: {{ meal["total_serving_g"] }}g
                             {% else %}
                                 Meal total: {{ meal["total_serving_g"] }}g
+                            {% endif %}
                             {% endif %}
                         </div>
 
@@ -568,7 +587,7 @@
                     </div>
 
                     <h4 class="exercise-title">
-                        {{ day["exercise"]["exercise_name"] }}
+                        {{ translate_exercise(day["exercise"]["exercise_name"], language) }}
                     </h4>
 
                     <div class="exercise-tags">

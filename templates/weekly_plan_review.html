@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ 'Kế hoạch cần xem xét' if language == 'vi' else 'Plan needs review' }} | Health Focus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% include 'components/navbar.html' %}
+<main class="container">
+    <section class="card health-safety-note">
+        <h1>{{ 'Kế hoạch 7 ngày cần xem xét thêm' if language == 'vi' else 'The 7-day plan needs further review' }}</h1>
+        {% if medical_conditions %}
+            <p>{{ 'Lượt phân tích cũ này có khai báo bệnh lý. Bộ tạo thực đơn tuần chưa đủ dữ liệu để lập kế hoạch tự động phù hợp.' if language == 'vi' else 'This older analysis includes a medical condition. The weekly planner does not have enough data to generate a suitable plan automatically.' }}</p>
+        {% else %}
+            <p>{{ 'Bạn đã khai báo dị ứng thực phẩm. Bộ tạo thực đơn tuần chưa kiểm chứng đầy đủ nguyên liệu và nguy cơ lẫn chéo của từng món để lập kế hoạch tự động.' if language == 'vi' else 'You reported a food allergy. The weekly planner has not verified every ingredient and cross-contact risk needed to generate a plan automatically.' }}</p>
+        {% endif %}
+        <p>{{ 'Trang kết quả vẫn hiển thị các món vượt qua bước sàng lọc sơ bộ. Hãy kiểm tra nguyên liệu thực tế trước khi sử dụng.' if language == 'vi' else 'The results page still shows dishes that pass preliminary screening. Check the actual ingredients before eating.' }}</p>
+        <a class="primary-link" href="{{ url_for('result') }}">{{ 'Quay lại kết quả' if language == 'vi' else 'Back to results' }}</a>
+    </section>
+</main>
+</body>
+</html>

@@ -1,4 +1,4 @@
-exercise_id,exercise_name,exercise_type,intensity,difficulty,duration_min,met,target_area,equipment,impact_level,goal_tags,calories_burned_reference_70kg
+﻿exercise_id,exercise_name,exercise_type,intensity,difficulty,duration_min,met,target_area,equipment,impact_level,goal_tags,calories_burned_reference_70kg
 E001,Đi bộ nhẹ,cardio,low,beginner,30,2.8,full_body,none,low,"healthy_lifestyle,maintenance,weight_loss",103
 E002,Đi bộ nhanh,cardio,moderate,beginner,30,4.3,full_body,none,low,"weight_loss,maintenance,healthy_lifestyle",158
 E003,Đi bộ dốc,cardio,moderate,intermediate,30,5.3,lower_body,treadmill_optional,moderate,"weight_loss,fitness_improvement",195
@@ -59,3 +59,43 @@ E057,Stretching phục hồi,recovery,low,beginner,15,2.0,full_body,mat_optional
 E058,Dancing nhẹ,cardio,low,beginner,30,4.0,full_body,none,low,"healthy_lifestyle,maintenance,weight_loss",147
 E059,Dancing aerobic,cardio,moderate,intermediate,30,6.5,full_body,none,moderate,"weight_loss,fitness_improvement",239
 E060,Badminton giải trí,sport,moderate,beginner,45,5.5,full_body,racket,moderate,"healthy_lifestyle,fitness_improvement,weight_loss",303
+E061,Đi bộ chậm công viên,sport,low,beginner,30,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,120
+E062,Đạp xe ngoài trời nhẹ,sport,low,beginner,30,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,150
+E063,Đạp xe tốc độ trung bình,sport,moderate,intermediate,35,5.5,weight_loss,racket,intermediate,weight_loss,260
+E064,Chạy bộ nhẹ (Jogging),sport,moderate,beginner,25,5.5,weight_loss,racket,beginner,weight_loss,220
+E065,Chạy bộ đường dài (Endurance Run),sport,high,intermediate,40,5.5,fitness_improvement,racket,intermediate,fitness_improvement,380
+E066,Chạy nước rút ngắt quãng (Sprint HIIT),sport,high,advanced,20,5.5,weight_loss,racket,advanced,weight_loss,290
+E067,Nhảy dây cơ bản,sport,moderate,beginner,20,5.5,weight_loss,racket,beginner,weight_loss,210
+E068,Nhảy dây tốc độ cao,sport,high,intermediate,25,5.5,fitness_improvement,racket,intermediate,fitness_improvement,310
+E069,Bơi ếch thư giãn,sport,moderate,beginner,30,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,230
+E070,Bơi sải cường độ cao,sport,high,intermediate,35,5.5,fitness_improvement,racket,intermediate,fitness_improvement,360
+E071,Yoga cơ bản buổi sáng,sport,low,beginner,30,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,110
+E072,Yoga Vinyasa linh hoạt,sport,moderate,intermediate,40,5.5,maintenance,racket,intermediate,maintenance,190
+E073,Yoga phục hồi giãn cơ sâu,sport,low,beginner,25,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,90
+E074,Pilates cốt lõi (Core Pilates),sport,moderate,beginner,30,5.5,maintenance,racket,beginner,maintenance,170
+E075,Tập cầu lông phong trào,sport,moderate,beginner,40,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,270
+E076,Đá bóng sân cỏ nhân tạo,sport,high,intermediate,45,5.5,fitness_improvement,racket,intermediate,fitness_improvement,410
+E077,Bóng rổ vận động toàn thân,sport,high,intermediate,40,5.5,fitness_improvement,racket,intermediate,fitness_improvement,370
+E078,Leo cầu thang bộ,sport,moderate,beginner,20,5.5,weight_loss,racket,beginner,weight_loss,195
+E079,Aerobic đốt mỡ bụng,sport,moderate,beginner,30,5.5,weight_loss,racket,beginner,weight_loss,240
+E080,Zumba sôi động,sport,moderate,beginner,35,5.5,weight_loss,racket,beginner,weight_loss,280
+E081,Chống đẩy cơ bản (Push-up),sport,moderate,beginner,20,5.5,weight_gain,racket,beginner,weight_gain,140
+E082,Chống đẩy nâng cao & Diamond Push-up,sport,high,intermediate,25,5.5,weight_gain,racket,intermediate,weight_gain,190
+E083,Gánh tạ đòn (Barbell Squat),sport,high,intermediate,35,5.5,weight_gain,racket,intermediate,weight_gain,280
+E084,Bước chùng chân với tạ đơn (Dumbbell Lunges),sport,moderate,intermediate,25,5.5,weight_gain,racket,intermediate,weight_gain,200
+E085,Kéo xà đơn (Pull-up & Chin-up),sport,high,advanced,20,5.5,fitness_improvement,racket,advanced,fitness_improvement,180
+E086,Nâng tạ đôi tập vai (Dumbbell Shoulder Press),sport,moderate,beginner,25,5.5,weight_gain,racket,beginner,weight_gain,165
+E087,Kéo cáp tập lưng xô (Lat Pulldown),sport,moderate,beginner,30,5.5,weight_gain,racket,beginner,weight_gain,190
+E088,Đẩy ngực với máy (Machine Chest Press),sport,moderate,beginner,25,5.5,weight_gain,racket,beginner,weight_gain,175
+E089,Cuốn tạ đơn tập tay trước (Bicep Curl),sport,low,beginner,20,5.5,weight_gain,racket,beginner,weight_gain,120
+E090,Tập cơ tay sau với dây cáp (Tricep Pushdown),sport,low,beginner,20,5.5,weight_gain,racket,beginner,weight_gain,125
+E091,Plank giữ thăng bằng cơ bụng,sport,moderate,beginner,15,5.5,maintenance,racket,beginner,maintenance,95
+E092,Gập bụng kết hợp xoay eo (Russian Twist),sport,moderate,beginner,20,5.5,weight_loss,racket,beginner,weight_loss,135
+E093,Bài tập toàn thân Burpees HIIT,sport,high,advanced,20,5.5,weight_loss,racket,advanced,weight_loss,270
+E094,Leo núi tại chỗ (Mountain Climbers),sport,high,intermediate,15,5.5,weight_loss,racket,intermediate,weight_loss,180
+E095,Bật nhảy mở rộng tay chân (Jumping Jacks),sport,moderate,beginner,20,5.5,weight_loss,racket,beginner,weight_loss,170
+E096,Vung tạ ấm toàn thân (Kettlebell Swing),sport,high,intermediate,25,5.5,fitness_improvement,racket,intermediate,fitness_improvement,260
+E097,Nâng hông tập cơ mông (Glute Bridge & Hip Thrust),sport,moderate,beginner,25,5.5,weight_gain,racket,beginner,weight_gain,160
+E098,Tập kháng lực với dây thun (Resistance Band),sport,low,beginner,30,5.5,maintenance,racket,beginner,maintenance,145
+E099,Thái Cực Quyền & Khí Công nhẹ nhàng,sport,low,beginner,30,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,105
+E100,Giãn cơ động toàn thân (Dynamic Stretching),sport,low,beginner,20,5.5,healthy_lifestyle,racket,beginner,healthy_lifestyle,80
